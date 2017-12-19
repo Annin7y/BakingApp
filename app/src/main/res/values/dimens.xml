@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+
+    <!-- Progress bar width and height specifications in activity_main -->
+    <dimen name="progress_bar">42dp</dimen>
+
+    <!-- Progress bar marginStart & marginEnd in activity_main -->
+    <dimen name="progress_bar_start">230dp</dimen>
+    <dimen name="progress_bar_end">230dp</dimen>
+
+    <!-- Progress bar marginLeft & marginRight in activity_main -->
+    <dimen name="progress_bar_left">230dp</dimen>
+    <dimen name="progress_bar_right">230dp</dimen>
+
+    <!-- Progress bar marginTop in activity_main -->
+    <dimen name="progress_bar_top">265dp</dimen>
+
+</resources>
