@@ -33,43 +33,64 @@ public class Steps implements Parcelable {
     /**
      * Thumbnail URL
      */
-    private String posterUrl;
+    private String thumbnailUrl;
 
 
-    public Steps(String ingredientQuantity, String ingredientMeasure, String ingredientName) {
-        this.ingredientQuantity = ingredientQuantity;
-        this.ingredientMeasure = ingredientMeasure;
-        this.ingredientName = ingredientName;
+    public Steps(String stepId, String stepShortDescription, String stepDescription, String videoUrl, String thumbnailUrl) {
+        this.stepId = stepId;
+        this.stepShortDescription = stepShortDescription;
+        this.stepDescription = stepDescription;
+        this.videoUrl = videoUrl;
+        this.thumbnailUrl = thumbnailUrl;
     }
 
-    public void setIngredientQuantity(String ingredientQuantity) {
-        this.ingredientQuantity = ingredientQuantity;
+    public void setStepId(String stepId) {
+        this.stepId = stepId;
     }
 
-    public String getIngredientQuantity() {
-        return ingredientQuantity;
+    public String getStepId() {
+        return stepId;
     }
 
-    public void setIngredientMeasure(String ingredientMeasure) {
-        this.ingredientMeasure = ingredientQuantity;
+    public void setStepShortDescription(String stepShortDescription) {
+        this.stepShortDescription = stepShortDescription;
     }
 
-    public String getIngredientMeasure() {
-        return ingredientMeasure;
+    public String getStepShortDescription() {
+        return stepDescription;
     }
 
-    public void setName(String ingredientMeasure) {
-        this.ingredientMeasure = ingredientQuantity;
+    public void setStepDescription(String stepDescription) {
+        this.stepDescription = stepDescription;
     }
 
-    public String getIngredientName() {
-        return ingredientName;
+    public String getStepDescription() {
+        return stepDescription;
     }
 
-    protected Ingredients(Parcel in) {
-        ingredientQuantity = in.readString();
-        ingredientMeasure = in.readString();
-        ingredientName = in.readString();
+    public void setVideoUrl(String stepShortDescription) {
+        this.stepShortDescription = stepShortDescription;
+    }
+
+    public String getVideoUrl() {
+        return videoUrl;
+    }
+
+    public void setThumbnailUrl(String thumbnailUrl) {
+        this.thumbnailUrl= thumbnailUrl;
+    }
+
+    public String getThumbnailUrl() {
+        return thumbnailUrl;
+    }
+
+
+    protected Steps(Parcel in) {
+        stepId = in.readString();
+        stepShortDescription = in.readString();
+        stepDescription = in.readString();
+        videoUrl = in.readString();
+        thumbnailUrl = in.readString();
     }
 
     @Override
@@ -79,21 +100,24 @@ public class Steps implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(ingredientQuantity);
-        dest.writeString(ingredientMeasure);
-        dest.writeString(ingredientName);
+        dest.writeString(stepId);
+        dest.writeString(stepShortDescription);
+        dest.writeString(stepDescription);
+        dest.writeString(videoUrl);
+        dest.writeString(thumbnailUrl);
     }
 
+
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Ingredients> CREATOR = new Parcelable.Creator<Ingredients>() {
+    public static final Parcelable.Creator<Steps> CREATOR = new Parcelable.Creator<Steps>() {
         @Override
-        public Ingredients createFromParcel(Parcel in) {
-            return new Ingredients(in);
+        public Steps createFromParcel(Parcel in) {
+            return new Steps(in);
         }
 
         @Override
-        public Ingredients[] newArray(int size) {
-            return new Ingredients[size];
+        public Steps[] newArray(int size) {
+            return new Steps[size];
         }
     };
 }
