@@ -7,6 +7,14 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     -->
     <dimen name="widget_margin">8dp</dimen>
 
+    <!-- CardView margins in movie_list_item -->
+    <dimen name="card_margin">5dp</dimen>
+
+    <!-- ImageView width, height and padding specifications in movie_list_item -->
+    <dimen name="image_view_width">300dp</dimen>
+    <dimen name="image_view_height">150dp</dimen>
+    <dimen name="image_view_padding">2dp</dimen>
+
     <!-- Progress bar width and height specifications in activity_main -->
     <dimen name="progress_bar">42dp</dimen>
 

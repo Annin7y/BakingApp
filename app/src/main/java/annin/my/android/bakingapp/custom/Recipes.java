@@ -30,7 +30,7 @@ public class Recipes implements Parcelable {
     /**
      * Number of servings
      */
-    private String recipeServings;
+    private int recipeServings;
 
     /**
      * List of ingredients
@@ -42,7 +42,7 @@ public class Recipes implements Parcelable {
      */
     private List<Steps> recipeSteps;
 
-    public Recipes(String recipeId, String recipeName, String recipeImage, String recipeServings, List<Ingredients> recipeIngredients, List<Steps> recipeSteps) {
+    public Recipes(String recipeId, String recipeName, String recipeImage, int recipeServings, List<Ingredients> recipeIngredients, List<Steps> recipeSteps) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeImage = recipeImage;
@@ -76,11 +76,11 @@ public class Recipes implements Parcelable {
         return recipeImage;
     }
 
-    public void setRecipeServings(String recipeServings) {
+    public void setRecipeServings(int recipeServings) {
         this.recipeServings = recipeServings;
     }
 
-    public String getRecipeServings() {
+    public int getRecipeServings() {
         return recipeServings;
     }
 
@@ -88,7 +88,7 @@ public class Recipes implements Parcelable {
         recipeId = in.readString();
         recipeName = in.readString();
         recipeImage = in.readString();
-        recipeServings = in.readString();
+        recipeServings = in.readInt();
         if (in.readByte() == 0x01) {
             recipeIngredients = new ArrayList<Ingredients>();
             in.readList(recipeIngredients, Ingredients.class.getClassLoader());
@@ -113,7 +113,7 @@ public class Recipes implements Parcelable {
         dest.writeString(recipeId);
         dest.writeString(recipeName);
         dest.writeString(recipeImage);
-        dest.writeString(recipeServings);
+        dest.writeInt(recipeServings);
         if (recipeIngredients == null) {
             dest.writeByte((byte) (0x00));
         } else {

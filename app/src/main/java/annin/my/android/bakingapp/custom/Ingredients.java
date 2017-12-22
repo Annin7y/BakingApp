@@ -12,7 +12,7 @@ public class Ingredients implements Parcelable {
     /**
      * Quantity
      */
-    private String ingredientQuantity;
+    private int ingredientQuantity;
 
     /**
      * Ingredient measure
@@ -25,22 +25,22 @@ public class Ingredients implements Parcelable {
     private String ingredientName;
 
 
-    public Ingredients(String ingredientQuantity, String ingredientMeasure, String ingredientName) {
+    public Ingredients(int ingredientQuantity, String ingredientMeasure, String ingredientName) {
         this.ingredientQuantity = ingredientQuantity;
         this.ingredientMeasure = ingredientMeasure;
         this.ingredientName = ingredientName;
     }
 
-    public void setIngredientQuantity(String ingredientQuantity) {
+    public void setIngredientQuantity(int ingredientQuantity) {
         this.ingredientQuantity = ingredientQuantity;
     }
 
-    public String getIngredientQuantity() {
+    public int getIngredientQuantity() {
         return ingredientQuantity;
     }
 
     public void setIngredientMeasure(String ingredientMeasure) {
-        this.ingredientMeasure = ingredientQuantity;
+        this.ingredientMeasure = ingredientMeasure;
     }
 
     public String getIngredientMeasure() {
@@ -48,7 +48,7 @@ public class Ingredients implements Parcelable {
     }
 
     public void setName(String ingredientMeasure) {
-        this.ingredientMeasure = ingredientQuantity;
+        this.ingredientMeasure = ingredientMeasure;
     }
 
     public String getIngredientName() {
@@ -56,7 +56,7 @@ public class Ingredients implements Parcelable {
     }
 
     protected Ingredients(Parcel in) {
-        ingredientQuantity = in.readString();
+        ingredientQuantity = in.readInt();
         ingredientMeasure = in.readString();
         ingredientName = in.readString();
     }
@@ -68,7 +68,7 @@ public class Ingredients implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(ingredientQuantity);
+        dest.writeInt(ingredientQuantity);
         dest.writeString(ingredientMeasure);
         dest.writeString(ingredientName);
     }

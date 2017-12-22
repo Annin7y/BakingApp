@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.custom.Ingredients;
+import annin.my.android.bakingapp.custom.Recipes;
 
 import static android.content.ContentValues.TAG;
 
@@ -35,11 +36,36 @@ public class NetworkUtils {
      */
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
+    private static final String BASE_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json";
+
+    private static final String KEY_RECIPE_ID = "id";
+
+    private static final String KEY_RECIPE_NAME = "name";
+
+    private static final String KEY_RECIPE_IMAGE = "image";
+
+    private static final String KEY_RECIPE_SERVINGS = "servings";
+
+    private static final String KEY_INGREDIENT_QUANTITY = "quantity";
+
+    private static final String KEY_INGREDIENT_MEASURE = "measure";
+
+    private static final String KEY_INGREDIENT_NAME = "ingredient";
+
+    private static final String KEY_STEPS_ID = "id";
+
+    private static final String KEY_STEPS_SHORT_DESC = "shortDescription";
+
+    private static final String KEY_STEPS_DESCRIPTION = "description";
+
+    private static final String KEY_STEPS_VIDEO_URL = "videoURL";
+
+    private static final String KEY_STEPS_THUMBNAIL_URL = "thumbnailURL";
 
     public NetworkUtils() {
     }
 
-    private static ArrayList<Recipe> fetchRecipesData(String requestUrl) {
+    private static ArrayList<Recipes> fetchRecipesData(String requestUrl) {
 
         // Create a URL object
         URL url = buildUrl(requestUrl);
@@ -52,36 +78,28 @@ public class NetworkUtils {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
-        // Extract relevant fields from the JSON response and create a list of {@link Movie}s
-        ArrayList<Movie> moviesList = extractFeatureFromJson(jsonResponse);
+        // Extract relevant fields from the JSON response and create a list of {@link Recipes}s
+        ArrayList<Recipes> recipesList = extractFeatureFromJson(jsonResponse);
 
-        // Return the list of {@link Movie}s
-        return moviesList;
+        // Return the list of {@link Recipes}s
+        return recipesList;
     }
 
     /**
-     * @param sortMode
-     * @return either most popular or top rated movies
+     * @param
+     * @return recipes
      */
-    public static URL buildUrl(String sortMode) {
-        URL url = null;
+    public static URL buildUrl(String recipeId) {
+        URL urlRecipe = null;
         try {
-            if (sortMode.equals(SORT_BY_POPULAR)) {
-                Uri builtUri = Uri.parse(BASE_URL_POPULAR).buildUpon()
-                        .appendQueryParameter(API_KEY, BuildConfig.OPEN_MOVIES_API_KEY)
-                        .build();
-                url = new URL(builtUri.toString());
-            } else if (sortMode.equals(SORT_BY_RATING)) {
-                Uri builtUri = Uri.parse(BASE_URL_TOP_RATED).buildUpon()
-                        .appendQueryParameter(API_KEY, BuildConfig.OPEN_MOVIES_API_KEY)
-                        .build();
-                url = new URL(builtUri.toString());
-            }
-
+            Uri recipeQueryUri = Uri.parse(BASE_URL).buildUpon()
+                    .build();
+            urlRecipe = new URL(recipeQueryUri.toString());
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        return url;
+        Log.v(TAG, "Built URI " + urlRecipe);
+        return urlRecipe;
     }
 
 
@@ -148,7 +166,7 @@ public class NetworkUtils {
         return output.toString();
     }
 
-    public static ArrayList<Ingredients> extractFeatureFromJson(String recipeJSON) {
+    public static ArrayList<Recipes> extractFeatureFromJson(String recipeJSON) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(recipeJSON)) {
             return null;
@@ -161,29 +179,55 @@ public class NetworkUtils {
 
             // Extract the JSONArray associated with the key called "features",
             // which represents a list of features (or earthquakes).
-            JSONArray movieArray = baseJsonResponse.getJSONArray("results");
+            JSONArray recipeArray = baseJsonResponse.getJSONArray("results");
 
-// For each earthquake in the earthquakeArray, create an {@link Movie} object
-            for (int i = 0; i < movieArray.length(); i++) {
+// For each recipe in the recipeArray, create an {@link Recipes} object
+            for (int i = 0; i < recipeArray.length(); i++) {
 
                 // Get a single movie description at position i within the list of movies
-                JSONObject currentMovie = movieArray.getJSONObject(i);
+                JSONObject currentRecipe = recipeArray.getJSONObject(i);
 
-                // Extract the value for the key called "poster_title"
-                String posterName = currentMovie.getString(KEY_POSTER_PATH);
+                // Extract the value for the key called "name"
+                String recipeName = currentRecipe.getString(KEY_RECIPE_NAME);
 
-                String movieName = currentMovie.getString(KEY_ORIGINAL_TITLE);
+                String recipeId = currentRecipe.getString(KEY_RECIPE_ID);
 
-                String overviewName = currentMovie.getString(KEY_OVERVIEW);
+                String recipeImage = currentRecipe.getString(KEY_RECIPE_IMAGE);
 
-                String voteName = currentMovie.getString(KEY_VOTE_AVERAGE);
+                int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
-                String releaseDate = currentMovie.getString(KEY_RELEASE_DATE);
+            }
 
-                String movieId = currentMovie.getString(MOVIE_ID);
+            JSONArray ingredientsArray = baseJsonResponse.getJSONArray("ingredients");
 
-                Movie movie = new Movie(posterName, movieName, overviewName, voteName, releaseDate, movieId);
-                movies.add(movie);
+            for (int j = 0; j < ingredientsArray.length(); j++) {
+
+                JSONObject currentIngredient = ingredientsArray.getJSONObject(j);
+
+                int ingredientQuantity = currentIngredient.getInt(KEY_INGREDIENT_QUANTITY);
+
+                String ingredientMeasure = currentIngredient.getString(KEY_INGREDIENT_MEASURE);
+
+                String ingredientName = currentIngredient.getString(KEY_INGREDIENT_NAME);
+
+
+                JSONArray stepsArray = baseJsonResponse.getJSONArray("steps");
+
+                for (int k = 0; k < stepsArray.length(); k++) {
+
+                    JSONObject currentStep = stepsArray.getJSONObject(k);
+
+                    String stepId = currentStep.getString(KEY_STEPS_ID);
+
+                    String stepShortDescription = currentStep.getString(KEY_STEPS_SHORT_DESC);
+
+                    String videoURL = currentStep.getString(KEY_STEPS_VIDEO_URL);
+
+                    String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
+
+                }
+                Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredientsArray, stepsArray);
+                recipes.add(recipe);
 
             }
 
@@ -194,8 +238,8 @@ public class NetworkUtils {
             Log.e("QueryUtils", "Problem parsing movies JSON results", e);
         }
 
-        // Return the list of movies
-        return movies;
+        // Return the list of recipes
+        return recipes;
     }
 
 }
