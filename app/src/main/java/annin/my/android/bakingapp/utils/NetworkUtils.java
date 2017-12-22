@@ -177,14 +177,12 @@ public class NetworkUtils {
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(recipeJSON);
 
-            // Extract the JSONArray associated with the key called "features",
-            // which represents a list of features (or earthquakes).
-            JSONArray recipeArray = baseJsonResponse.getJSONArray("results");
+            JSONArray recipeArray = baseJsonResponse.getJSONArray("");
 
 // For each recipe in the recipeArray, create an {@link Recipes} object
             for (int i = 0; i < recipeArray.length(); i++) {
 
-                // Get a single movie description at position i within the list of movies
+                // Get a single movie description at position i within the list of recipes
                 JSONObject currentRecipe = recipeArray.getJSONObject(i);
 
                 // Extract the value for the key called "name"
