@@ -175,9 +175,8 @@ public class NetworkUtils {
         try {
 
             // Create a JSONObject from the JSON response string
-            JSONObject baseJsonResponse = new JSONObject(recipeJSON);
 
-            JSONArray recipeArray = baseJsonResponse.getJSONArray("");
+            JSONArray recipeArray = new JSONArray(recipeJSON);
 
 // For each recipe in the recipeArray, create an {@link Recipes} object
             for (int i = 0; i < recipeArray.length(); i++) {
@@ -194,50 +193,51 @@ public class NetworkUtils {
 
                 int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
-            }
 
-            JSONArray ingredientsArray = baseJsonResponse.getJSONArray("ingredients");
+                JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");
 
-            for (int j = 0; j < ingredientsArray.length(); j++) {
+                for (int j = 0; j < ingredientsArray.length(); j++) {
 
-                JSONObject currentIngredient = ingredientsArray.getJSONObject(j);
+                    JSONObject currentIngredient = ingredientsArray.getJSONObject(j);
 
-                int ingredientQuantity = currentIngredient.getInt(KEY_INGREDIENT_QUANTITY);
+                    int ingredientQuantity = currentIngredient.getInt(KEY_INGREDIENT_QUANTITY);
 
-                String ingredientMeasure = currentIngredient.getString(KEY_INGREDIENT_MEASURE);
+                    String ingredientMeasure = currentIngredient.getString(KEY_INGREDIENT_MEASURE);
 
-                String ingredientName = currentIngredient.getString(KEY_INGREDIENT_NAME);
+                    String ingredientName = currentIngredient.getString(KEY_INGREDIENT_NAME);
 
 
-                JSONArray stepsArray = baseJsonResponse.getJSONArray("steps");
+                    JSONArray stepsArray = currentRecipe.getJSONArray("steps");
 
-                for (int k = 0; k < stepsArray.length(); k++) {
+                    for (int k = 0; k < stepsArray.length(); k++) {
 
-                    JSONObject currentStep = stepsArray.getJSONObject(k);
+                        JSONObject currentStep = stepsArray.getJSONObject(k);
 
-                    String stepId = currentStep.getString(KEY_STEPS_ID);
+                        String stepId = currentStep.getString(KEY_STEPS_ID);
 
-                    String stepShortDescription = currentStep.getString(KEY_STEPS_SHORT_DESC);
+                        String stepShortDescription = currentStep.getString(KEY_STEPS_SHORT_DESC);
 
-                    String videoURL = currentStep.getString(KEY_STEPS_VIDEO_URL);
+                        String videoURL = currentStep.getString(KEY_STEPS_VIDEO_URL);
 
-                    String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
+                        String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
 
+
+                        Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredientsArray, stepsArray);
+                        recipes.add(recipe);
+                    }}
+                    }
                 }
-                Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredientsArray, stepsArray);
-                recipes.add(recipe);
+             catch(JSONException e){
+                    // If an error is thrown when executing any of the above statements in the "try" block,
+                    // catch the exception here, so the app doesn't crash. Print a log message
+                    // with the message from the exception.
+                    Log.e("QueryUtils", "Problem parsing recipes JSON results", e);
+                }
+
+                // Return the list of recipes
+                return recipes;
 
             }
-
-        } catch (JSONException e) {
-            // If an error is thrown when executing any of the above statements in the "try" block,
-            // catch the exception here, so the app doesn't crash. Print a log message
-            // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing movies JSON results", e);
         }
 
-        // Return the list of recipes
-        return recipes;
     }
-
-}
