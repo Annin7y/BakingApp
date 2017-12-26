@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
+import annin.my.android.bakingapp.custom.Steps;
 
 import static android.content.ContentValues.TAG;
 
@@ -29,7 +30,6 @@ import static android.content.ContentValues.TAG;
 
 public class NetworkUtils {
 
-    //https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json
 
     /**
      * Tag for the log messages
@@ -193,7 +193,7 @@ public class NetworkUtils {
 
                 int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
-
+                ArrayList<Ingredients > ingredients = new ArrayList<>();
                 JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");
 
                 for (int j = 0; j < ingredientsArray.length(); j++) {
@@ -206,6 +206,11 @@ public class NetworkUtils {
 
                     String ingredientName = currentIngredient.getString(KEY_INGREDIENT_NAME);
 
+                    Ingredients ingredient = new Ingredients(ingredientQuantity,ingredientMeasure, ingredientName);
+                    ingredients.add(ingredientQuantity,ingredientMeasure,ingredientName);
+
+                    ArrayList<Steps> steps = new ArrayList<>();
+
 
                     JSONArray stepsArray = currentRecipe.getJSONArray("steps");
 
@@ -217,12 +222,14 @@ public class NetworkUtils {
 
                         String stepShortDescription = currentStep.getString(KEY_STEPS_SHORT_DESC);
 
+                        String stepDescription = currentStep.getString(KEY_STEPS_DESCRIPTION);
+
                         String videoURL = currentStep.getString(KEY_STEPS_VIDEO_URL);
 
                         String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
 
 
-                        Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredientsArray, stepsArray);
+                        Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, recipeIngredients);
                         recipes.add(recipe);
                     }}
                     }
