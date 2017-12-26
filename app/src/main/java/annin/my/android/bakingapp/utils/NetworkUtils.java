@@ -193,7 +193,7 @@ public class NetworkUtils {
 
                 int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
-                ArrayList<Ingredients > ingredients = new ArrayList<>();
+                ArrayList<Ingredients> ingredients = new ArrayList<>();
                 JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");
 
                 for (int j = 0; j < ingredientsArray.length(); j++) {
@@ -206,12 +206,10 @@ public class NetworkUtils {
 
                     String ingredientName = currentIngredient.getString(KEY_INGREDIENT_NAME);
 
-                    Ingredients ingredient = new Ingredients(ingredientQuantity,ingredientMeasure, ingredientName);
-                    ingredients.add(ingredientQuantity,ingredientMeasure,ingredientName);
+                    Ingredients ingredient = new Ingredients(ingredientQuantity, ingredientMeasure, ingredientName);
+                    ingredients.add(ingredient);
 
                     ArrayList<Steps> steps = new ArrayList<>();
-
-
                     JSONArray stepsArray = currentRecipe.getJSONArray("steps");
 
                     for (int k = 0; k < stepsArray.length(); k++) {
@@ -228,23 +226,25 @@ public class NetworkUtils {
 
                         String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
 
+                        Steps step = new Steps(stepId, stepShortDescription, stepDescription, videoURL, thumbnailURL);
+                        steps.add(step);
 
-                        Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, recipeIngredients);
+                        Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredients, steps);
                         recipes.add(recipe);
-                    }}
                     }
                 }
-             catch(JSONException e){
-                    // If an error is thrown when executing any of the above statements in the "try" block,
-                    // catch the exception here, so the app doesn't crash. Print a log message
-                    // with the message from the exception.
-                    Log.e("QueryUtils", "Problem parsing recipes JSON results", e);
-                }
-
-                // Return the list of recipes
-                return recipes;
-
             }
+        } catch (JSONException e) {
+            // If an error is thrown when executing any of the above statements in the "try" block,
+            // catch the exception here, so the app doesn't crash. Print a log message
+            // with the message from the exception.
+            Log.e("QueryUtils", "Problem parsing recipes JSON results", e);
         }
 
+        // Return the list of recipes
+        return recipes;
+
     }
+}
+
+    
