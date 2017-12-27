@@ -32,7 +32,6 @@ public class RecipesAsyncTask  extends AsyncTask<String, Void, ArrayList<Recipes
         if (params.length == 0) {
             return null;
         }
-        String recipeId = params[0];
         URL recipeRequestUrl = NetworkUtils.buildUrl();
 
         try {

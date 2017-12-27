@@ -9,6 +9,6 @@ import annin.my.android.bakingapp.custom.Recipes;
  */
 
 public interface AsyncTaskInterface {
-    void returnData(ArrayList<Recipes> simpleJsonMovieData);
+    void returnData(ArrayList<Recipes> simpleJsonRecipeData);
 
 }
