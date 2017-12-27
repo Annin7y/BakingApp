@@ -19,14 +19,14 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="progress_bar">42dp</dimen>
 
     <!-- Progress bar marginStart & marginEnd in activity_main -->
-    <dimen name="progress_bar_start">230dp</dimen>
-    <dimen name="progress_bar_end">230dp</dimen>
+    <dimen name="progress_bar_start">260dp</dimen>
+    <dimen name="progress_bar_end">260dp</dimen>
 
     <!-- Progress bar marginLeft & marginRight in activity_main -->
-    <dimen name="progress_bar_left">230dp</dimen>
-    <dimen name="progress_bar_right">230dp</dimen>
+    <dimen name="progress_bar_left">260dp</dimen>
+    <dimen name="progress_bar_right">260dp</dimen>
 
     <!-- Progress bar marginTop in activity_main -->
-    <dimen name="progress_bar_top">265dp</dimen>
+    <dimen name="progress_bar_top">295dp</dimen>
 
 </resources>

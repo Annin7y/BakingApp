@@ -65,31 +65,12 @@ public class NetworkUtils {
     public NetworkUtils() {
     }
 
-    private static ArrayList<Recipes> fetchRecipesData(String requestUrl) {
-
-        // Create a URL object
-        URL url = buildUrl(requestUrl);
-
-        // Perform HTTP request to the URL and receive a JSON response back
-        String jsonResponse = null;
-        try {
-            jsonResponse = makeHttpRequest(url);
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "Problem making the HTTP request.", e);
-        }
-
-        // Extract relevant fields from the JSON response and create a list of {@link Recipes}s
-        ArrayList<Recipes> recipesList = extractFeatureFromJson(jsonResponse);
-
-        // Return the list of {@link Recipes}s
-        return recipesList;
-    }
 
     /**
      * @param
      * @return recipes
      */
-    public static URL buildUrl(String recipeId) {
+    public static URL buildUrl() {
         URL urlRecipe = null;
         try {
             Uri recipeQueryUri = Uri.parse(BASE_URL).buildUpon()
@@ -247,4 +228,3 @@ public class NetworkUtils {
     }
 }
 
-    

@@ -42,7 +42,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      * @param clickHandler The on-click handler for this adapter. This single handler is called
      *                     when an item is clicked.
      */
-    public RecipesAdapter(RecipesAdapterOnClickHandler clickHandler, ArrayList<Recipes> moviesList, Context context) {
+    public RecipesAdapter(RecipesAdapterOnClickHandler clickHandler, ArrayList<Recipes> recipesList, Context context) {
         this.recipesList = recipesList;
         this.context = context;
         mClickHandler = clickHandler;
