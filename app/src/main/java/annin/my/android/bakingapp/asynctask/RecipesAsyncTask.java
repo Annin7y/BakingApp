@@ -48,4 +48,13 @@ public class RecipesAsyncTask  extends AsyncTask<String, Void, ArrayList<Recipes
             return null;
         }
     }
+    @Override
+    protected void onPostExecute(ArrayList<Recipes> mRecipesList) {
+        super.onPostExecute(mRecipesList);
+        if (mRecipesList != null) {
+            listener.returnData(mRecipesList);
+        }
+    }
+
+
 }
