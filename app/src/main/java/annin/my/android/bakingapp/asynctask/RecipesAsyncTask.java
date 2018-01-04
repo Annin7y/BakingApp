@@ -12,7 +12,7 @@ import annin.my.android.bakingapp.utils.NetworkUtils;
  * Created by Maino96-10022 on 12/21/2017.
  */
 
-public class RecipesAsyncTask  extends AsyncTask<String, Void, ArrayList<Recipes>> {
+public class RecipesAsyncTask extends AsyncTask<String, Void, ArrayList<Recipes>> {
 
     private static final String TAG = RecipesAsyncTask.class.getSimpleName();
     private AsyncTaskInterface listener;
@@ -29,13 +29,14 @@ public class RecipesAsyncTask  extends AsyncTask<String, Void, ArrayList<Recipes
     @Override
     protected ArrayList<Recipes> doInBackground(String... params) {
 
+        URL trailerRequestUrl = NetworkUtils.buildUrl();
+
         try {
 
             String jsonRecipeResponse = NetworkUtils
                     .makeHttpRequest(trailerRequestUrl);
 
             return NetworkUtils.extractFeatureFromJson(jsonRecipeResponse);
-
 
         } catch (Exception e) {
             e.printStackTrace();
