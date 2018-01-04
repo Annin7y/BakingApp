@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         RecipesAsyncTask myTask = new RecipesAsyncTask(this);
-        myTask.execute(NetworkUtils.buildUrl());
+     //   myTask.execute(NetworkUtils.buildUrl());
 
 
 
