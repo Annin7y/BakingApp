@@ -29,19 +29,13 @@ public class RecipesAsyncTask  extends AsyncTask<String, Void, ArrayList<Recipes
     @Override
     protected ArrayList<Recipes> doInBackground(String... params) {
 
-        if (params.length == 0) {
-            return null;
-        }
-        URL recipeRequestUrl = NetworkUtils.buildUrl();
-
         try {
+
             String jsonRecipeResponse = NetworkUtils
-                    .makeHttpRequest(recipeRequestUrl);
+                    .makeHttpRequest(trailerRequestUrl);
 
-            ArrayList simpleJsonRecipeData = NetworkUtils
-                    .extractFeatureFromJson(jsonRecipeResponse);
+            return NetworkUtils.extractFeatureFromJson(jsonRecipeResponse);
 
-            return simpleJsonRecipeData;
 
         } catch (Exception e) {
             e.printStackTrace();

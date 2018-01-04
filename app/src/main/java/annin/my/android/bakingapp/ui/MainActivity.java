@@ -14,8 +14,10 @@ import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.asynctask.AsyncTaskInterface;
+import annin.my.android.bakingapp.asynctask.RecipesAsyncTask;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
+import annin.my.android.bakingapp.utils.NetworkUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -47,6 +49,11 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         //specifying how the images will be displayed
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
         mRecyclerView.setLayoutManager(mLayoutManager);
+
+        RecipesAsyncTask myTask = new RecipesAsyncTask(this);
+        myTask.execute(NetworkUtils.buildUrl());
+
+
 
     }
     public static int calculateNoOfColumns(Context context) {
