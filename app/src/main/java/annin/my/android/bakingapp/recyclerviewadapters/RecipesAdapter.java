@@ -95,16 +95,16 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
                     .load(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
 
+        } else {
+            Picasso.with(context)
+                    .load(recipesView.getRecipeImage())
+                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
+                    .centerCrop()
+                    //if the image can't be loaded the following error message/image will be displayed
+                    .error(R.drawable.user_placeholder_error)
+                    .into(holder.imageView);
         }
-        Picasso.with(context)
-                .load(recipesView.getRecipeImage())
-                .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-                .centerCrop()
-                //if the image can't be loaded the following error message/image will be displayed
-                .error(R.drawable.user_placeholder_error)
-                .into(holder.imageView);
     }
-
     @Override
     public int getItemCount()
 
