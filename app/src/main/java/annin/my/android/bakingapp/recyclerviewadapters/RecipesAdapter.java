@@ -73,43 +73,48 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
             mClickHandler.onClick(imageClick);
         }
     }
-        @Override
-        public RecipesAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-            Context context = viewGroup.getContext();
-            int layoutIdForListItem = R.layout.recipe_list_item;
-            LayoutInflater inflater = LayoutInflater.from(context);
-            boolean shouldAttachToParentImmediately = false;
-            View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
-            return new RecipesAdapterViewHolder(view);
-        }
 
-        @Override
-        public void onBindViewHolder(RecipesAdapterViewHolder holder, int position) {
+    @Override
+    public RecipesAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        Context context = viewGroup.getContext();
+        int layoutIdForListItem = R.layout.recipe_list_item;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        boolean shouldAttachToParentImmediately = false;
+        View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
+        return new RecipesAdapterViewHolder(view);
+    }
 
-            //Binding data
-            final Recipes recipesView = recipesList.get(position);
+    @Override
+    public void onBindViewHolder(RecipesAdapterViewHolder holder, int position) {
 
-            //  holder.itemView.setTag(id);
+        //Binding data
+        final Recipes recipesView = recipesList.get(position);
 
+        if (recipesView.getRecipeImage().isEmpty()) {
             Picasso.with(context)
-                    .load(recipesView.getRecipeImage())
-                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-                    .centerCrop()
-                    //if the image can't be loaded the following error message/image will be displayed
-                    .error(R.drawable.user_placeholder_error)
+                    .load(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
-        }
 
-        @Override
-        public int getItemCount()
-
-        {
-            return recipesList.size();
         }
+        Picasso.with(context)
+                .load(recipesView.getRecipeImage())
+                .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
+                .centerCrop()
+                //if the image can't be loaded the following error message/image will be displayed
+                .error(R.drawable.user_placeholder_error)
+                .into(holder.imageView);
+    }
 
-        public void setRecipesList(ArrayList<Recipes> mRecipesList) {
-            this.recipesList = mRecipesList;
-            notifyDataSetChanged();
-        }
+    @Override
+    public int getItemCount()
+
+    {
+        return recipesList.size();
+    }
+
+    public void setRecipesList(ArrayList<Recipes> mRecipesList) {
+        this.recipesList = mRecipesList;
+        notifyDataSetChanged();
+    }
 
 }
