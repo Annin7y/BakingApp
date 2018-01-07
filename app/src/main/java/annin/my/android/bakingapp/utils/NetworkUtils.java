@@ -174,6 +174,7 @@ public class NetworkUtils {
 
                 int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
+
                 ArrayList<Ingredients> ingredients = new ArrayList<>();
                 JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");
 
@@ -189,42 +190,48 @@ public class NetworkUtils {
 
                     Ingredients ingredient = new Ingredients(ingredientQuantity, ingredientMeasure, ingredientName);
                     ingredients.add(ingredient);
+                }
 
-                    ArrayList<Steps> steps = new ArrayList<>();
-                    JSONArray stepsArray = currentRecipe.getJSONArray("steps");
 
-                    for (int k = 0; k < stepsArray.length(); k++) {
+                ArrayList<Steps> steps = new ArrayList<>();
+                JSONArray stepsArray = currentRecipe.getJSONArray("steps");
 
-                        JSONObject currentStep = stepsArray.getJSONObject(k);
+                for (int k = 0; k < stepsArray.length(); k++) {
 
-                        String stepId = currentStep.getString(KEY_STEPS_ID);
+                    JSONObject currentStep = stepsArray.getJSONObject(k);
 
-                        String stepShortDescription = currentStep.getString(KEY_STEPS_SHORT_DESC);
+                    String stepId = currentStep.getString(KEY_STEPS_ID);
 
-                        String stepDescription = currentStep.getString(KEY_STEPS_DESCRIPTION);
+                    String stepShortDescription = currentStep.getString(KEY_STEPS_SHORT_DESC);
 
-                        String videoURL = currentStep.getString(KEY_STEPS_VIDEO_URL);
+                    String stepDescription = currentStep.getString(KEY_STEPS_DESCRIPTION);
 
-                        String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
+                    String videoURL = currentStep.getString(KEY_STEPS_VIDEO_URL);
 
-                        Steps step = new Steps(stepId, stepShortDescription, stepDescription, videoURL, thumbnailURL);
-                        steps.add(step);
-                    }
-                    Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredients, steps);
-                    recipes.add(recipe);
+                    String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
+
+                    Steps step = new Steps(stepId, stepShortDescription, stepDescription, videoURL, thumbnailURL);
+                    steps.add(step);
 
                 }
-            }
-        } catch (JSONException e) {
-            // If an error is thrown when executing any of the above statements in the "try" block,
-            // catch the exception here, so the app doesn't crash. Print a log message
-            // with the message from the exception.
-            Log.e("QueryUtils", "Problem parsing recipes JSON results", e);
-        }
+                Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredients, steps);
+                recipes.add(recipe);
 
-        // Return the list of recipes
+            }
+        
+    } catch(
+    JSONException e)
+
+    {
+        // If an error is thrown when executing any of the above statements in the "try" block,
+        // catch the exception here, so the app doesn't crash. Print a log message
+        // with the message from the exception.
+        Log.e("QueryUtils", "Problem parsing recipes JSON results", e);
+    }
+
+    // Return the list of recipes
         return recipes;
 
-    }
+}
 }
 
