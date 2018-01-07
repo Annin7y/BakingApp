@@ -209,10 +209,10 @@ public class NetworkUtils {
 
                         Steps step = new Steps(stepId, stepShortDescription, stepDescription, videoURL, thumbnailURL);
                         steps.add(step);
-
-                        Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredients, steps);
-                        recipes.add(recipe);
                     }
+                    Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredients, steps);
+                    recipes.add(recipe);
+
                 }
             }
         } catch (JSONException e) {
