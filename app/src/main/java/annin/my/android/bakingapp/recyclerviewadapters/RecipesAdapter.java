@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -90,18 +89,19 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         //Binding data
         final Recipes recipesView = recipesList.get(position);
 
-        if (recipesView.getRecipeImage().isEmpty()) {
+        if (recipesView.getRecipeImage().isEmpty()&& recipesView.getRecipeName().equals("Nutella Pie")) {
             Picasso.with(context)
-                    .load(R.drawable.user_placeholder_error)
+                    .load(R.drawable.nutella_pie)
                     .into(holder.imageView);
 
         } else {
             Picasso.with(context)
-                    .load(recipesView.getRecipeImage())
+                  //  .load(recipesView.getRecipeImage())
+                    .load(R.drawable.user_placeholder_error)
                     .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
                     .centerCrop()
                     //if the image can't be loaded the following error message/image will be displayed
-                    .error(R.drawable.user_placeholder_error)
+                   // .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
         }
     }
