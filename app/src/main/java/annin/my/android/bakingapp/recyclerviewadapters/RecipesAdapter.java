@@ -33,7 +33,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      * The interface that receives onClick messages.
      */
     public interface RecipesAdapterOnClickHandler {
-        void onClick(Recipes posterClick);
+        void onClick(Recipes textClick);
     }
 
     /**
@@ -71,8 +71,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
-            Recipes imageClick = recipesList.get(adapterPosition);
-            mClickHandler.onClick(imageClick);
+            Recipes recipeClick = recipesList.get(adapterPosition);
+            mClickHandler.onClick(recipeClick);
         }
     }
 
