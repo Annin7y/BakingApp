@@ -165,10 +165,10 @@ public class NetworkUtils {
                 // Get a single movie description at position i within the list of recipes
                 JSONObject currentRecipe = recipeArray.getJSONObject(i);
 
-                // Extract the value for the key called "name"
-                String recipeName = currentRecipe.getString(KEY_RECIPE_NAME);
-
+                // Extract the value for the key called "id"
                 String recipeId = currentRecipe.getString(KEY_RECIPE_ID);
+
+                String recipeName = currentRecipe.getString(KEY_RECIPE_NAME);
 
                 String recipeImage = currentRecipe.getString(KEY_RECIPE_IMAGE);
 
@@ -214,7 +214,7 @@ public class NetworkUtils {
                     steps.add(step);
 
                 }
-                Recipes recipe = new Recipes(recipeName, recipeId, recipeImage, recipeServings, ingredients, steps);
+                Recipes recipe = new Recipes(recipeId,recipeName, recipeImage, recipeServings, ingredients, steps);
                 recipes.add(recipe);
 
             }

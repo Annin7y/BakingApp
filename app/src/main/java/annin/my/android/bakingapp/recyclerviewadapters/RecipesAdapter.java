@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
@@ -52,11 +53,13 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      */
     public class RecipesAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public ImageView imageView;
+       // public ImageView imageView;
+       public TextView recipeView;
+
 
         public RecipesAdapterViewHolder(View view) {
             super(view);
-            imageView = (ImageView) view.findViewById(R.id.imageView);
+            recipeView = (TextView) view.findViewById(R.id.textView);
             view.setOnClickListener(this);
         }
 
@@ -89,21 +92,23 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         //Binding data
         final Recipes recipesView = recipesList.get(position);
 
-        if (recipesView.getRecipeImage().isEmpty()&& recipesView.getRecipeName().equals("Nutella Pie")) {
-            Picasso.with(context)
-                    .load(R.drawable.nutella_pie)
-                    .into(holder.imageView);
+        holder.recipeView.setText(recipesView.getRecipeName());
 
-        } else {
-            Picasso.with(context)
-                  //  .load(recipesView.getRecipeImage())
-                    .load(R.drawable.user_placeholder_error)
-                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-                    .centerCrop()
-                    //if the image can't be loaded the following error message/image will be displayed
-                   // .error(R.drawable.user_placeholder_error)
-                    .into(holder.imageView);
-        }
+//        if (recipesView.getRecipeImage().isEmpty()&& recipesView.getRecipeName().equals("Nutella Pie")) {
+//            Picasso.with(context)
+//                    .load(R.drawable.nutella_pie)
+//                    .into(holder.imageView);
+//
+//        } else {
+//            Picasso.with(context)
+//                  //  .load(recipesView.getRecipeImage())
+//                    .load(R.drawable.user_placeholder_error)
+//                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
+//                    .centerCrop()
+//                    //if the image can't be loaded the following error message/image will be displayed
+//                   // .error(R.drawable.user_placeholder_error)
+//                    .into(holder.imageView);
+//        }
     }
     @Override
     public int getItemCount()
