@@ -99,6 +99,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         if (!recipesView.getRecipeImage().isEmpty()) {
             Picasso.with(context)
                     .load(recipesView.getRecipeImage())
+                    .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
 
         } else {
