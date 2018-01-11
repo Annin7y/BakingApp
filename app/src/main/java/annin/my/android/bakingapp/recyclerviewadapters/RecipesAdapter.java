@@ -53,13 +53,15 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      */
     public class RecipesAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-       // public ImageView imageView;
-       public TextView recipeView;
+        public ImageView imageView;
+        public TextView recipeView;
 
 
         public RecipesAdapterViewHolder(View view) {
+
             super(view);
-            recipeView = (TextView) view.findViewById(R.id.textView);
+            imageView = (ImageView) view.findViewById(R.id.imageView);
+            recipeView = (TextView) view.findViewById(R.id.recipeView);
             view.setOnClickListener(this);
         }
 
@@ -94,22 +96,57 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
 
         holder.recipeView.setText(recipesView.getRecipeName());
 
-//        if (recipesView.getRecipeImage().isEmpty()&& recipesView.getRecipeName().equals("Nutella Pie")) {
-//            Picasso.with(context)
-//                    .load(R.drawable.nutella_pie)
-//                    .into(holder.imageView);
-//
-//        } else {
-//            Picasso.with(context)
-//                  //  .load(recipesView.getRecipeImage())
-//                    .load(R.drawable.user_placeholder_error)
-//                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-//                    .centerCrop()
-//                    //if the image can't be loaded the following error message/image will be displayed
-//                   // .error(R.drawable.user_placeholder_error)
-//                    .into(holder.imageView);
-//        }
+        if (!recipesView.getRecipeImage().isEmpty()) {
+            Picasso.with(context)
+                    .load(recipesView.getRecipeImage())
+                    .into(holder.imageView);
+
+        } else {
+            if (recipesView.getRecipeName().equals("Nutella Pie"))
+                Picasso.with(context)
+
+                        .load(R.drawable.nutella_pie)
+                        .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
+                        .centerCrop()
+                        //if the image can't be loaded the following error message/image will be displayed
+                        .error(R.drawable.user_placeholder_error)
+                        .into(holder.imageView);
+        }
+
+        if (recipesView.getRecipeName().equals("Brownies")) {
+            Picasso.with(context)
+
+                    .load(R.drawable.brownies_recipe)
+                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
+                    .centerCrop()
+                    //if the image can't be loaded the following error message/image will be displayed
+                    .error(R.drawable.user_placeholder_error)
+                    .into(holder.imageView);
+        }
+
+        if (recipesView.getRecipeName().equals("Yellow Cake")) {
+            Picasso.with(context)
+
+                    .load(R.drawable.yellow_cake)
+                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
+                    .centerCrop()
+                    //if the image can't be loaded the following error message/image will be displayed
+                    .error(R.drawable.user_placeholder_error)
+                    .into(holder.imageView);
+        }
+
+        if (recipesView.getRecipeName().equals("Cheesecake")) {
+            Picasso.with(context)
+
+                    .load(R.drawable.cheesecake_recipe)
+                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
+                    .centerCrop()
+                    //if the image can't be loaded the following error message/image will be displayed
+                    .error(R.drawable.user_placeholder_error)
+                    .into(holder.imageView);
+        }
     }
+
     @Override
     public int getItemCount()
 

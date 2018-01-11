@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    @BindView(R.id.recyclerview_main) RecyclerView mRecyclerView;
+    @BindView(R.id.recyclerview_main)
+    RecyclerView mRecyclerView;
 
     private RecipesAdapter recipesAdapter;
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private Context context;
 
-  //  private ProgressBar mLoadingIndicator;
+    //  private ProgressBar mLoadingIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +52,11 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         RecipesAsyncTask myTask = new RecipesAsyncTask(this);
-     myTask.execute(NetworkUtils.buildUrl());
-
+        myTask.execute(NetworkUtils.buildUrl());
 
 
     }
+
     public static int calculateNoOfColumns(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     @Override
     public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
-   //     mLoadingIndicator.setVisibility(View.INVISIBLE);
+        //     mLoadingIndicator.setVisibility(View.INVISIBLE);
         recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, MainActivity.this);
         recipesArrayList = simpleJsonRecipeData;
         mRecyclerView.setAdapter(recipesAdapter);
