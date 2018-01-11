@@ -111,7 +111,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
                         //if the image can't be loaded the following error message/image will be displayed
                         .error(R.drawable.user_placeholder_error)
                         .into(holder.imageView);
-        }
 
         if (recipesView.getRecipeName().equals("Brownies")) {
             Picasso.with(context)
@@ -122,7 +121,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
-        }
+
 
         if (recipesView.getRecipeName().equals("Yellow Cake")) {
             Picasso.with(context)
@@ -133,7 +132,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
-        }
+
 
         if (recipesView.getRecipeName().equals("Cheesecake")) {
             Picasso.with(context)
@@ -145,7 +144,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
         }
-    }
+    }}}}
 
     @Override
     public int getItemCount()
