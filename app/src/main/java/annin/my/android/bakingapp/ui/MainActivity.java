@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private Context context;
 
+    private static final String KEY_RECIPES_LIST = "recipes_list";
+
     //  private ProgressBar mLoadingIndicator;
 
     @Override
@@ -51,10 +53,18 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        RecipesAsyncTask myTask = new RecipesAsyncTask(this);
-        myTask.execute(NetworkUtils.buildUrl());
+        /*
+         *  Starting the asyncTask so that recipes load upon launching the app.
+         */
 
+        if (savedInstanceState == null) {
+            RecipesAsyncTask myTask = new RecipesAsyncTask(this);
+            myTask.execute(NetworkUtils.buildUrl());
 
+        } else {
+            recipesArrayList = savedInstanceState.getParcelableArrayList(KEY_RECIPES_LIST);
+            recipesAdapter.setRecipesList(recipesArrayList);
+        }
     }
 
     public static int calculateNoOfColumns(Context context) {
@@ -77,9 +87,14 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     @Override
     public void onClick(Recipes recipes) {
-        Intent intent = new Intent(MainActivity.this, IngredientsStepsActivity.class);
+        Intent intent = new Intent(MainActivity.this, IngredientStepsActivity.class);
         intent.putExtra("Recipes", recipes);
         startActivity(intent);
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList(KEY_RECIPES_LIST, recipesArrayList);
+        super.onSaveInstanceState(outState);
+    }
 }

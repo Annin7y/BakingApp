@@ -112,17 +112,14 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
                     .into(holder.imageView);
         } else if (recipesView.getRecipeName().equals("Brownies")) {
             Picasso.with(context)
-
                     .load(R.drawable.brownies_recipe)
                     .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
                     .centerCrop()
                     //if the image can't be loaded the following error message/image will be displayed
-                    .error(R.drawable.user_placeholder_error)
-                    .into(holder.imageView);
+                     .into(holder.imageView);
 
         } else if (recipesView.getRecipeName().equals("Yellow Cake")) {
             Picasso.with(context)
-
                     .load(R.drawable.yellow_cake)
                     .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
                     .centerCrop()
@@ -142,9 +139,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
             Picasso.with(context)
                     .load(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
-
         }
-
     }
 
     @Override
@@ -158,5 +153,4 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         this.recipesList = mRecipesList;
         notifyDataSetChanged();
     }
-
 }

@@ -21,6 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="annin.my.android.bakingapp.ui.IngredientStepsActivity"
+            android:parentActivityName="annin.my.android.bakingapp.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="annin.my.android.bakingapp.ui.MainActivity" />
+        </activity>
 
         <receiver android:name=".widget.RecipeWidgetProvider">
             <intent-filter>
