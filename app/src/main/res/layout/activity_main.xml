@@ -22,6 +22,6 @@
         android:layout_marginLeft="@dimen/progress_bar_left"
         android:layout_marginRight="@dimen/progress_bar_right"
         android:layout_marginTop="@dimen/progress_bar_top"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
 </android.support.constraint.ConstraintLayout>
