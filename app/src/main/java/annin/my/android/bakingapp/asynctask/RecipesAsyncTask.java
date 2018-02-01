@@ -30,12 +30,12 @@ public class RecipesAsyncTask extends AsyncTask<URL, Void, ArrayList<Recipes>> {
     protected ArrayList<Recipes> doInBackground(URL... params) {
 
 
-        URL trailerRequestUrl = NetworkUtils.buildUrl();
+        URL recipeRequestUrl = NetworkUtils.buildUrl();
 
         try {
 
             String jsonRecipeResponse = NetworkUtils
-                    .makeHttpRequest(trailerRequestUrl);
+                    .makeHttpRequest(recipeRequestUrl);
 
             return NetworkUtils.extractFeatureFromJson(jsonRecipeResponse);
 
@@ -51,6 +51,4 @@ public class RecipesAsyncTask extends AsyncTask<URL, Void, ArrayList<Recipes>> {
             listener.returnData(mRecipesList);
         }
     }
-
-
 }

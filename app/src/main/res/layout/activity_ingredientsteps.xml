@@ -6,4 +6,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="annin.my.android.bakingapp.ui.IngredientStepsActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_ingredients"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+
+
 </android.support.constraint.ConstraintLayout>

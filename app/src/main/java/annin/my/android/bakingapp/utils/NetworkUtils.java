@@ -174,7 +174,6 @@ public class NetworkUtils {
 
                 int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
-
                 ArrayList<Ingredients> ingredients = new ArrayList<>();
                 JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");
 
@@ -191,7 +190,6 @@ public class NetworkUtils {
                     Ingredients ingredient = new Ingredients(ingredientQuantity, ingredientMeasure, ingredientName);
                     ingredients.add(ingredient);
                 }
-
 
                 ArrayList<Steps> steps = new ArrayList<>();
                 JSONArray stepsArray = currentRecipe.getJSONArray("steps");
