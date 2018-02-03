@@ -6,11 +6,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="annin.my.android.bakingapp.ui.IngredientStepsActivity">
 
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/recipeView"
+        android:layout_width="@dimen/image_view_width"
+        android:layout_height="@dimen/image_view_height"
+        android:scaleType="fitXY"
+        android:padding="@dimen/image_view_padding"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Recipe Name"  />
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_ingredients"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="vertical" />
-
 
 </android.support.constraint.ConstraintLayout>

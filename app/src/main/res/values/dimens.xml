@@ -29,4 +29,11 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <!-- Progress bar marginTop in activity_main -->
     <dimen name="progress_bar_top">295dp</dimen>
 
+    <!-- ImageView marginStart, End, Left and Right in activity_detail -->
+    <dimen name="imageView_margin">15dp</dimen>
+
+    <!-- ImageView marginTop in activity_detail -->
+    <dimen name="imageView_top">45dp</dimen>
+
+
 </resources>
