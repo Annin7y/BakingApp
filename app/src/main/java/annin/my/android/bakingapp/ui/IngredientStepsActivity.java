@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  * Created by Maino96-10022 on 1/13/2018.
  */
 
-public class IngredientStepsActivity extends AppCompatActivity {
+public class IngredientStepsActivity extends AppCompatActivity implements IngredientsAdapter.IngredientsAdapterViewHolder {
 
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
