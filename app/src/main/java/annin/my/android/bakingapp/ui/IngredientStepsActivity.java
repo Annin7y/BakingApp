@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
  * Created by Maino96-10022 on 1/13/2018.
  */
 
-public class IngredientStepsActivity extends AppCompatActivity implements IngredientsAdapter.IngredientsAdapterViewHolder {
+public class IngredientStepsActivity extends AppCompatActivity {
 
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
@@ -45,13 +45,15 @@ public class IngredientStepsActivity extends AppCompatActivity implements Ingred
 
      //   poster = (TextView) findViewById(R.id.recipeView);
 
-        ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
-        mRecyclerView.setAdapter(ingredientsAdapter);
-        ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-
         context = getApplicationContext();
         if (getIntent() != null && getIntent().getExtras() != null) {
             recipes = getIntent().getExtras().getParcelable("Recipes");
+            ingredientsArrayList = recipes.getRecipeIngredients();
+
+            ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
+            mRecyclerView.setAdapter(ingredientsAdapter);
+            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+
 
             TextView originalTitle = (TextView) findViewById(R.id.recipeView);
             originalTitle.setText(recipes.getRecipeName());

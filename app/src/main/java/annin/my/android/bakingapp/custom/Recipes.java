@@ -35,14 +35,14 @@ public class Recipes implements Parcelable {
     /**
      * List of ingredients
      */
-    private List<Ingredients> recipeIngredients;
+    private ArrayList<Ingredients> recipeIngredients;
 
     /**
      * List of steps
      */
-    private List<Steps> recipeSteps;
+    private ArrayList<Steps> recipeSteps;
 
-    public Recipes(String recipeId, String recipeName, String recipeImage, int recipeServings, List<Ingredients> recipeIngredients, List<Steps> recipeSteps) {
+    public Recipes(String recipeId, String recipeName, String recipeImage, int recipeServings, ArrayList<Ingredients> recipeIngredients, ArrayList<Steps> recipeSteps) {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeImage = recipeImage;
@@ -82,6 +82,14 @@ public class Recipes implements Parcelable {
 
     public int getRecipeServings() {
         return recipeServings;
+    }
+
+    public ArrayList<Ingredients> getRecipeIngredients(){
+        return recipeIngredients;
+    }
+
+    public ArrayList<Steps> getRecipeSteps(){
+        return recipeSteps;
     }
 
     protected Recipes(Parcel in) {
