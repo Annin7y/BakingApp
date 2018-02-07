@@ -181,7 +181,7 @@ public class NetworkUtils {
 
                     JSONObject currentIngredient = ingredientsArray.getJSONObject(j);
 
-                    int ingredientQuantity = currentIngredient.getInt(KEY_INGREDIENT_QUANTITY);
+                    String ingredientQuantity = currentIngredient.getString(KEY_INGREDIENT_QUANTITY);
 
                     String ingredientMeasure = currentIngredient.getString(KEY_INGREDIENT_MEASURE);
 

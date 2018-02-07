@@ -3,6 +3,7 @@ package annin.my.android.bakingapp.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
@@ -43,24 +44,28 @@ public class IngredientStepsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
-     //   poster = (TextView) findViewById(R.id.recipeView);
+        ButterKnife.bind(this);
 
         context = getApplicationContext();
+
+        //   poster = (TextView) findViewById(R.id.recipeView);
+        ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
+
+        RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(mIngredientLayoutManager);
+
         if (getIntent() != null && getIntent().getExtras() != null) {
             recipes = getIntent().getExtras().getParcelable("Recipes");
             ingredientsArrayList = recipes.getRecipeIngredients();
-
-            ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
-            mRecyclerView.setAdapter(ingredientsAdapter);
-            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-
-
-            TextView originalTitle = (TextView) findViewById(R.id.recipeView);
-            originalTitle.setText(recipes.getRecipeName());
         }
-        ButterKnife.bind(this);
+        ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+        mRecyclerView.setAdapter(ingredientsAdapter);
+
+        TextView originalTitle = (TextView) findViewById(R.id.recipeView);
+        originalTitle.setText(recipes.getRecipeName());
+
 
     }
 
-    }
+}
 

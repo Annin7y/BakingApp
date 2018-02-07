@@ -12,7 +12,7 @@ public class Ingredients implements Parcelable {
     /**
      * Quantity
      */
-    private int ingredientQuantity;
+    private String ingredientQuantity;
 
     /**
      * Ingredient measure
@@ -25,17 +25,17 @@ public class Ingredients implements Parcelable {
     private String ingredientName;
 
 
-    public Ingredients(int ingredientQuantity, String ingredientMeasure, String ingredientName) {
+    public Ingredients(String ingredientQuantity, String ingredientMeasure, String ingredientName) {
         this.ingredientQuantity = ingredientQuantity;
         this.ingredientMeasure = ingredientMeasure;
         this.ingredientName = ingredientName;
     }
 
-    public void setIngredientQuantity(int ingredientQuantity) {
+    public void setIngredientQuantity(String ingredientQuantity) {
         this.ingredientQuantity = ingredientQuantity;
     }
 
-    public int getIngredientQuantity() {
+    public String getIngredientQuantity() {
         return ingredientQuantity;
     }
 
@@ -47,8 +47,8 @@ public class Ingredients implements Parcelable {
         return ingredientMeasure;
     }
 
-    public void setName(String ingredientMeasure) {
-        this.ingredientMeasure = ingredientMeasure;
+    public void setName(String ingredientName) {
+        this.ingredientName = ingredientName;
     }
 
     public String getIngredientName() {
@@ -56,7 +56,7 @@ public class Ingredients implements Parcelable {
     }
 
     protected Ingredients(Parcel in) {
-        ingredientQuantity = in.readInt();
+        ingredientQuantity = in.readString();
         ingredientMeasure = in.readString();
         ingredientName = in.readString();
     }
@@ -68,7 +68,7 @@ public class Ingredients implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(ingredientQuantity);
+        dest.writeString(ingredientQuantity);
         dest.writeString(ingredientMeasure);
         dest.writeString(ingredientName);
     }
