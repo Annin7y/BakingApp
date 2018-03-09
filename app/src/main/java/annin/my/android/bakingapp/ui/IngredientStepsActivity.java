@@ -27,14 +27,9 @@ public class IngredientStepsActivity extends AppCompatActivity {
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
     private Context context;
-
-    Recipes recipes;
-
-    private IngredientsAdapter ingredientsAdapter;
-
-    private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
-
+    
     TextView poster;
+    Recipes recipes;
 
     @BindView(R.id.recyclerview_ingredients)
     RecyclerView mRecyclerView;
@@ -48,18 +43,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-        //   poster = (TextView) findViewById(R.id.recipeView);
-        ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
 
-        RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(mIngredientLayoutManager);
-
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            recipes = getIntent().getExtras().getParcelable("Recipes");
-            ingredientsArrayList = recipes.getRecipeIngredients();
-        }
-        ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-        mRecyclerView.setAdapter(ingredientsAdapter);
 
         TextView originalTitle = (TextView) findViewById(R.id.recipeView);
         originalTitle.setText(recipes.getRecipeName());
