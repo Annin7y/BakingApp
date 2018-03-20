@@ -34,7 +34,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     /**
      * Cache of the children views for an ingredients list item.
      */
-    public class IngredientsAdapterViewHolder extends RecyclerView.ViewHolder  {
+    public class IngredientsAdapterViewHolder extends RecyclerView.ViewHolder {
 
         public TextView ingredientQuantity;
         public TextView ingredientMeasure;
@@ -44,7 +44,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         public IngredientsAdapterViewHolder(View view) {
             super(view);
             ingredientQuantity = (TextView) view.findViewById(R.id.ingredient_quantity);
-            ingredientMeasure  = (TextView) view.findViewById(R.id.ingredient_measure);
+            ingredientMeasure = (TextView) view.findViewById(R.id.ingredient_measure);
             ingredientName = (TextView) view.findViewById(R.id.ingredient_name);
         }
     }
@@ -79,5 +79,4 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         this.ingredientsList.addAll(mIngredientsList);
         notifyDataSetChanged();
     }
-
 }

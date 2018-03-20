@@ -1,6 +1,7 @@
 package annin.my.android.bakingapp.fragments;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
+import annin.my.android.bakingapp.asynctask.AsyncTaskInterface;
 import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
@@ -28,7 +30,10 @@ public class IngredientsFragment extends Fragment {
     private IngredientsAdapter ingredientsAdapter;
 
     private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
+
     RecyclerView mRecyclerView;
+
+    private Context context;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
@@ -47,19 +52,13 @@ public class IngredientsFragment extends Fragment {
         return rootView;
 
         //   poster = (TextView) findViewById(R.id.recipeView);
-        ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
+        ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList,context);
 
-        RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(mIngredientLayoutManager);
+        RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+       // mRecyclerView.setLayoutManager(mIngredientLayoutManager);
 
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            recipes = getIntent().getExtras().getParcelable("Recipes");
-            ingredientsArrayList = recipes.getRecipeIngredients();
-        }
         ingredientsAdapter.setIngredientsList(ingredientsArrayList);
         mRecyclerView.setAdapter(ingredientsAdapter);
-
-
 
     }
 }
