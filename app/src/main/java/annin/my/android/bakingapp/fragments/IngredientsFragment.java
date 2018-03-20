@@ -21,6 +21,8 @@ import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
 
 public class IngredientsFragment extends Fragment {
 
+    private static final String TAG = IngredientsFragment.class.getSimpleName();
+
     Recipes recipes;
 
     private IngredientsAdapter ingredientsAdapter;
@@ -33,7 +35,6 @@ public class IngredientsFragment extends Fragment {
      */
     public IngredientsFragment() {
     }
-
     /**
      * Inflates the fragment layout file and sets the correct resource for the image to display
      */
