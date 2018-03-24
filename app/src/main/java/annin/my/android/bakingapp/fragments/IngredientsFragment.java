@@ -17,9 +17,6 @@ import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
 
-/**
- * Created by Maino96-10022 on 1/23/2018.
- */
 
 public class IngredientsFragment extends Fragment {
 
@@ -50,15 +47,16 @@ public class IngredientsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
 
         return rootView;
-
+        private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
         //   poster = (TextView) findViewById(R.id.recipeView);
         ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList,context);
+      //  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+        mRecyclerView.setAdapter(ingredientsAdapter);
 
         RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-       // mRecyclerView.setLayoutManager(mIngredientLayoutManager);
+        mRecyclerView.setLayoutManager(mIngredientLayoutManager);
 
-        ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-        mRecyclerView.setAdapter(ingredientsAdapter);
+
 
     }
 }

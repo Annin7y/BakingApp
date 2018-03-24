@@ -24,9 +24,6 @@ import annin.my.android.bakingapp.custom.Steps;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Created by Maino96-10022 on 11/27/2017.
- */
 
 public class NetworkUtils {
 
