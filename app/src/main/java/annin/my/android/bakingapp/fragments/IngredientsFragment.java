@@ -2,9 +2,12 @@ package annin.my.android.bakingapp.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +19,14 @@ import annin.my.android.bakingapp.asynctask.AsyncTaskInterface;
 import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
+import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
+import annin.my.android.bakingapp.ui.IngredientStepsActivity;
+import annin.my.android.bakingapp.ui.MainActivity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
-public class IngredientsFragment extends Fragment {
+public class IngredientsFragment extends Fragment implements RecipesAdapter.RecipesAdapterOnClickHandler, AsyncTaskInterface  {
 
     private static final String TAG = IngredientsFragment.class.getSimpleName();
 
@@ -27,6 +35,13 @@ public class IngredientsFragment extends Fragment {
     private IngredientsAdapter ingredientsAdapter;
 
     private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
+
+    @BindView(R.id.recyclerview_ingredients)
+
+    private RecipesAdapter recipesAdapter;
+
+    private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
+
 
     RecyclerView mRecyclerView;
 
@@ -45,18 +60,42 @@ public class IngredientsFragment extends Fragment {
 
         // Inflate the Android-Me fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
+        recipesAdapter = new RecipesAdapter(this, recipesArrayList, context);
+        mRecyclerView.setAdapter(recipesAdapter);
+
+        //specifying how the images will be displayed
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
+        mRecyclerView.setLayoutManager(mLayoutManager);
 
         return rootView;
-        private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
+       // ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
         //   poster = (TextView) findViewById(R.id.recipeView);
-        ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList,context);
-      //  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-        mRecyclerView.setAdapter(ingredientsAdapter);
+     //   ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
+        //  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+      //  mRecyclerView.setAdapter(ingredientsAdapter);
 
-        RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(mIngredientLayoutManager);
-
-
+     //   RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+     //   mRecyclerView.setLayoutManager(mIngredientLayoutManager);
+    }
+    public static int calculateNoOfColumns(Context context) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+        int scalingFactor = 180;
+        int noOfColumns = (int) (dpWidth / scalingFactor);
+        return noOfColumns;
+    }
+        @Override
+        public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
+            //     mLoadingIndicator.setVisibility(View.INVISIBLE);
+            recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, IngredientsFragment.this);
+            recipesArrayList = simpleJsonRecipeData;
+            mRecyclerView.setAdapter(recipesAdapter);
+            recipesAdapter.setRecipesList(recipesArrayList);
 
     }
+    @Override
+    public void onClick(Recipes recipes) {
+
+    }
+
 }
