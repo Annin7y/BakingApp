@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    @BindView(R.id.recyclerview_main)
     RecyclerView mRecyclerView;
 
     private RecipesAdapter recipesAdapter;
