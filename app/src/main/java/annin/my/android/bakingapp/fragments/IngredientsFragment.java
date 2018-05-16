@@ -26,7 +26,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class IngredientsFragment extends Fragment implements RecipesAdapter.RecipesAdapterOnClickHandler, AsyncTaskInterface  {
+public class IngredientsFragment extends Fragment {
 
     private static final String TAG = IngredientsFragment.class.getSimpleName();
 
