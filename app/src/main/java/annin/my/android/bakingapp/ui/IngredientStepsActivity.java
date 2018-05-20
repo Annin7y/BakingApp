@@ -43,8 +43,6 @@ public class IngredientStepsActivity extends AppCompatActivity {
 
         context = getApplicationContext();
 
-
-
         TextView originalTitle = (TextView) findViewById(R.id.recipeView);
         originalTitle.setText(recipes.getRecipeName());
 
