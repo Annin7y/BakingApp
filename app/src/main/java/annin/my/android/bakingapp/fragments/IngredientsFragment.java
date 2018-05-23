@@ -61,7 +61,6 @@ public class IngredientsFragment extends Fragment {
         // Inflate the Android-Me fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
-        recipesAdapter = new RecipesAdapter(this, recipesArrayList, context);
         mRecyclerView.setAdapter(recipesAdapter);
 
         //specifying how the images will be displayed
