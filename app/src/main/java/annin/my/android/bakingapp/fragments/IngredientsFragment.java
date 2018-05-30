@@ -84,18 +84,7 @@ public class IngredientsFragment extends Fragment {
         int noOfColumns = (int) (dpWidth / scalingFactor);
         return noOfColumns;
     }
-        @Override
-        public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
-            //     mLoadingIndicator.setVisibility(View.INVISIBLE);
-            recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, getActivity());
-            recipesArrayList = simpleJsonRecipeData;
-            mRecyclerView.setAdapter(recipesAdapter);
-            recipesAdapter.setRecipesList(recipesArrayList);
 
-    }
-    @Override
-    public void onClick(Recipes recipes) {
-
-    }
+  
 
 }
