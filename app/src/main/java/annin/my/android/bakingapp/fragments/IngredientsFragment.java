@@ -85,6 +85,6 @@ public class IngredientsFragment extends Fragment {
         return noOfColumns;
     }
 
-  
+
 
 }
