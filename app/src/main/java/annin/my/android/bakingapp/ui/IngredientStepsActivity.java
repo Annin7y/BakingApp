@@ -26,28 +26,28 @@ public class IngredientStepsActivity extends AppCompatActivity {
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
-    private Context context;
-    
-    TextView poster;
-    Recipes recipes;
-
-    @BindView(R.id.recyclerview_ingredients)
-    RecyclerView mRecyclerView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ingredientsteps);
-
-        ButterKnife.bind(this);
-
-        context = getApplicationContext();
-
-        TextView originalTitle = (TextView) findViewById(R.id.recipeView);
-        originalTitle.setText(recipes.getRecipeName());
-
-
-    }
+//    private Context context;
+//
+//    TextView poster;
+//    Recipes recipes;
+//
+//    @BindView(R.id.recyclerview_ingredients)
+//    RecyclerView mRecyclerView;
+//
+//    @Override
+//    protected void onCreate(Bundle savedInstanceState) {
+//        super.onCreate(savedInstanceState);
+//        setContentView(R.layout.activity_ingredientsteps);
+//
+//        ButterKnife.bind(this);
+//
+//        context = getApplicationContext();
+//
+//        TextView originalTitle = (TextView) findViewById(R.id.recipeView);
+//        originalTitle.setText(recipes.getRecipeName());
+//
+//
+//    }
 
 }
 
