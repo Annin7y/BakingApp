@@ -14,10 +14,8 @@ import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Recipes;
+import butterknife.BindView;
 
-/**
- * Created by Maino96-10022 on 12/20/2017.
- */
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesAdapterViewHolder> {
 
@@ -53,15 +51,17 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      */
     public class RecipesAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public ImageView imageView;
-        public TextView recipeView;
+        @BindView(R.id.imageView)
+        @BindView(R.id.recipeView)
+      //  public ImageView imageView;
+     //   public TextView recipeView;
 
 
         public RecipesAdapterViewHolder(View view) {
 
             super(view);
-            imageView = (ImageView) view.findViewById(R.id.imageView);
-            recipeView = (TextView) view.findViewById(R.id.recipeView);
+           // imageView = (ImageView) view.findViewById(R.id.imageView);
+           // recipeView = (TextView) view.findViewById(R.id.recipeView);
             view.setOnClickListener(this);
         }
 
