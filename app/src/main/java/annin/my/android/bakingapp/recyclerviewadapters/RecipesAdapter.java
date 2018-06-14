@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Recipes;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesAdapterViewHolder> {
@@ -52,16 +53,17 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     public class RecipesAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.imageView)
+        ImageView imageView;
+
         @BindView(R.id.recipeView)
-      //  public ImageView imageView;
-     //   public TextView recipeView;
+        TextView recipeView;
 
 
         public RecipesAdapterViewHolder(View view) {
 
             super(view);
-           // imageView = (ImageView) view.findViewById(R.id.imageView);
-           // recipeView = (TextView) view.findViewById(R.id.recipeView);
+            // imageView = (ImageView) view.findViewById(R.id.imageView);
+            // recipeView = (TextView) view.findViewById(R.id.recipeView);
             view.setOnClickListener(this);
         }
 
@@ -116,7 +118,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
                     .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
                     .centerCrop()
                     //if the image can't be loaded the following error message/image will be displayed
-                     .into(holder.imageView);
+                    .into(holder.imageView);
 
         } else if (recipesView.getRecipeName().equals("Yellow Cake")) {
             Picasso.with(context)
