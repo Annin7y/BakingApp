@@ -8,6 +8,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
 
+    ImageView poster;
+
     private Context context;
 
     private static final String KEY_RECIPES_LIST = "recipes_list";
@@ -44,13 +47,16 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
         context = getApplicationContext();
         // Bind the views
-        ButterKnife.bind(this);
+       // ButterKnife.bind(this);
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_main);
         recipesAdapter = new RecipesAdapter(this, recipesArrayList, context);
         mRecyclerView.setAdapter(recipesAdapter);
 
         //specifying how the images will be displayed
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
         mRecyclerView.setLayoutManager(mLayoutManager);
+      
+
 
         /*
          *  Starting the asyncTask so that recipes load upon launching the app.

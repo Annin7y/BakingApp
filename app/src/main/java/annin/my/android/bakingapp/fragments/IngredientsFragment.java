@@ -30,44 +30,44 @@ public class IngredientsFragment extends Fragment {
 
     private static final String TAG = IngredientsFragment.class.getSimpleName();
 
-    Recipes recipes;
-
-    private IngredientsAdapter ingredientsAdapter;
-
-    private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
-
-    @BindView(R.id.recyclerview_ingredients)
-
-    private RecipesAdapter recipesAdapter;
-
-    private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
-
-
-    private RecyclerView mRecyclerView;
-
-    private Context context;
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the fragment
-     */
-    public IngredientsFragment() {
-    }
-    /**
-     * Inflates the fragment layout file and sets the correct resource for the image to display
-     */
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        // Inflate the Android-Me fragment layout
-        View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
-        mRecyclerView.setAdapter(recipesAdapter);
-
-        //specifying how the images will be displayed
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
-        mRecyclerView.setLayoutManager(mLayoutManager);
-
-        return rootView;
+//    Recipes recipes;
+//
+//    private IngredientsAdapter ingredientsAdapter;
+//
+//    private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
+//
+// //   @BindView(R.id.recyclerview_ingredients)
+//
+//    private RecipesAdapter recipesAdapter;
+//
+//    private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
+//
+//
+//    private RecyclerView mRecyclerView;
+//
+//    private Context context;
+//
+//    /**
+//     * Mandatory empty constructor for the fragment manager to instantiate the fragment
+//     */
+//    public IngredientsFragment() {
+//    }
+//    /**
+//     * Inflates the fragment layout file and sets the correct resource for the image to display
+//     */
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//
+//        // Inflate the Android-Me fragment layout
+//        View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
+//        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
+//        mRecyclerView.setAdapter(recipesAdapter);
+//
+//        //specifying how the images will be displayed
+//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//
+//        return rootView;
        // ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
         //   poster = (TextView) findViewById(R.id.recipeView);
      //   ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
@@ -76,14 +76,14 @@ public class IngredientsFragment extends Fragment {
 
      //   RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
      //   mRecyclerView.setLayoutManager(mIngredientLayoutManager);
-    }
-    public static int calculateNoOfColumns(Context context) {
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-        int scalingFactor = 180;
-        int noOfColumns = (int) (dpWidth / scalingFactor);
-        return noOfColumns;
-    }
+//    }
+//    public static int calculateNoOfColumns(Context context) {
+//        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+//        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
+//        int scalingFactor = 180;
+//        int noOfColumns = (int) (dpWidth / scalingFactor);
+//        return noOfColumns;
+//    }
 
 
 
