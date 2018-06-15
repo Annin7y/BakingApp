@@ -58,12 +58,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         @BindView(R.id.recipeView)
         TextView recipeView;
 
-
         public RecipesAdapterViewHolder(View view) {
 
             super(view);
-            // imageView = (ImageView) view.findViewById(R.id.imageView);
-            // recipeView = (TextView) view.findViewById(R.id.recipeView);
+           
+            ButterKnife.bind(this, view);
             view.setOnClickListener(this);
         }
 
