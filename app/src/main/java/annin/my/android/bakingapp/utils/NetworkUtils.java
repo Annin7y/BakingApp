@@ -27,7 +27,6 @@ import static android.content.ContentValues.TAG;
 
 public class NetworkUtils {
 
-
     /**
      * Tag for the log messages
      */
@@ -84,7 +83,6 @@ public class NetworkUtils {
     /**
      * Make an HTTP request to the given URL and return a String as the response.
      */
-
     public static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
         Log.i("URL: ", url.toString());
@@ -153,7 +151,6 @@ public class NetworkUtils {
         try {
 
             // Create a JSONObject from the JSON response string
-
             JSONArray recipeArray = new JSONArray(recipeJSON);
 
 // For each recipe in the recipeArray, create an {@link Recipes} object
