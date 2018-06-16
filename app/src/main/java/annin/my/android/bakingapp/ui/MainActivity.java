@@ -26,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    RecyclerView mRecyclerView;
+    @BindView(R.id.recyclerview_main)RecyclerView mRecyclerView;
+
+   // RecyclerView mRecyclerView;
 
     private RecipesAdapter recipesAdapter;
 
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
         context = getApplicationContext();
         // Bind the views
-       // ButterKnife.bind(this);
+        ButterKnife.bind(this);
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_main);
         recipesAdapter = new RecipesAdapter(this, recipesArrayList, context);
         mRecyclerView.setAdapter(recipesAdapter);
