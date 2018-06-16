@@ -61,7 +61,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         public RecipesAdapterViewHolder(View view) {
 
             super(view);
-           
+
             ButterKnife.bind(this, view);
             view.setOnClickListener(this);
         }

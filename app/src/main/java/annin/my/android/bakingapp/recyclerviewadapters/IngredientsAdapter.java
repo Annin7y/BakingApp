@@ -12,10 +12,6 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Ingredients;
 
-/**
- * Created by Maino96-10022 on 1/25/2018.
- */
-
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.IngredientsAdapterViewHolder> {
 
     private static final String TAG = IngredientsAdapter.class.getSimpleName();

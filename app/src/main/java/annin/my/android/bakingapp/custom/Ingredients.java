@@ -3,10 +3,6 @@ package annin.my.android.bakingapp.custom;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by Maino96-10022 on 12/14/2017.
- */
-
 public class Ingredients implements Parcelable {
 
     /**

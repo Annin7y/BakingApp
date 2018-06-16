@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.utils.NetworkUtils;
 
-/**
- * Created by Maino96-10022 on 12/21/2017.
- */
-
 public class RecipesAsyncTask extends AsyncTask<URL, Void, ArrayList<Recipes>> {
 
     private static final String TAG = RecipesAsyncTask.class.getSimpleName();
