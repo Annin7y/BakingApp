@@ -28,8 +28,6 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     @BindView(R.id.recyclerview_main)RecyclerView mRecyclerView;
 
-   // RecyclerView mRecyclerView;
-
     private RecipesAdapter recipesAdapter;
 
     private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private static final String KEY_RECIPES_LIST = "recipes_list";
 
-    //  private ProgressBar mLoadingIndicator;
+   private ProgressBar mLoadingIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
