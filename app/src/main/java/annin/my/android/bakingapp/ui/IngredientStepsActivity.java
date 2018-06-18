@@ -39,11 +39,14 @@ public class IngredientStepsActivity extends AppCompatActivity {
 //
 //        context = getApplicationContext();
 //
-        TextView originalTitle = (TextView) findViewById(R.id.recipeView);
-        originalTitle.setText(recipes.getRecipeName());
-//
-//
-    }
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            recipes = getIntent().getExtras().getParcelable("Recipes");
 
+            TextView originalTitle = (TextView) findViewById(R.id.recipeView);
+            originalTitle.setText(recipes.getRecipeName());
+//
+//
+        }
+    }
 }
 
