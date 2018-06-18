@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         //specifying how the images will be displayed
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
         mRecyclerView.setLayoutManager(mLayoutManager);
-        
+
         /*
          *  Starting the asyncTask so that recipes load upon launching the app.
          */
