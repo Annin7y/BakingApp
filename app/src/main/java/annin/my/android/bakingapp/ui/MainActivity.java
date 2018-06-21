@@ -10,6 +10,8 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -26,7 +28,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
-    @BindView(R.id.recyclerview_main)RecyclerView mRecyclerView;
+    @BindView(R.id.recyclerview_main)
+    RecyclerView mRecyclerView;
 
     private RecipesAdapter recipesAdapter;
 
@@ -38,7 +41,9 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private static final String KEY_RECIPES_LIST = "recipes_list";
 
-   private ProgressBar mLoadingIndicator;
+    private ProgressBar mLoadingIndicator;
+
+    private TextView mConnectionMessage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,6 +99,17 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         intent.putExtra("Recipes", recipes);
         startActivity(intent);
     }
+
+    //Display if there is no internet connection
+    public void showErrorMessage() {
+        Toast.makeText(getApplicationContext(), "No internet connection",
+                Toast.LENGTH_SHORT).show();
+        mRecyclerView.setVisibility(View.INVISIBLE);
+        mConnectionMessage.setVisibility(View.VISIBLE);
+        mLoadingIndicator.setVisibility(View.VISIBLE);
+
+    }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {

@@ -35,5 +35,9 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <!-- ImageView marginTop in activity_detail -->
     <dimen name="imageView_top">45dp</dimen>
 
+    <!-- Error message padding and text size specifications in activity_main -->
+    <dimen name="error_padding">3dp</dimen>
+    <dimen name="error_text">20sp</dimen>
+
 
 </resources>

@@ -43,8 +43,11 @@ public class RecipesAsyncTask extends AsyncTask<URL, Void, ArrayList<Recipes>> {
     @Override
     protected void onPostExecute(ArrayList<Recipes> mRecipesList) {
         super.onPostExecute(mRecipesList);
-        if (mRecipesList != null) {
+         /*the if method is commented out because the error message will be displayed if there is no internet connection
+        the if statement is included in the returnData method in the Main Activity
+        */
+     //   if (mRecipesList != null) {
             listener.returnData(mRecipesList);
-        }
+    //    }
     }
 }

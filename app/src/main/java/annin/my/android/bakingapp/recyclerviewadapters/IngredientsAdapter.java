@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Ingredients;
+import butterknife.BindView;
 
 public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.IngredientsAdapterViewHolder> {
 
@@ -33,7 +34,10 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     public class IngredientsAdapterViewHolder extends RecyclerView.ViewHolder {
 
         public TextView ingredientQuantity;
+        
         public TextView ingredientMeasure;
+
+        @BindView(R.id.ingredient_name)
         public TextView ingredientName;
 
 
