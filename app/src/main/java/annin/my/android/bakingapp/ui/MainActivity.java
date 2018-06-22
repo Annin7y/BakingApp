@@ -87,10 +87,15 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     @Override
     public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
         //     mLoadingIndicator.setVisibility(View.INVISIBLE);
-        recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, MainActivity.this);
-        recipesArrayList = simpleJsonRecipeData;
-        mRecyclerView.setAdapter(recipesAdapter);
-        recipesAdapter.setRecipesList(recipesArrayList);
+        if(null != simpleJsonRecipeData) {
+            recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, MainActivity.this);
+            recipesArrayList = simpleJsonRecipeData;
+            mRecyclerView.setAdapter(recipesAdapter);
+            recipesAdapter.setRecipesList(recipesArrayList);
+        }
+         else{
+                showErrorMessage();
+            }
     }
 
     @Override
