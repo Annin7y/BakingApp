@@ -115,7 +115,6 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     }
 
-
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putParcelableArrayList(KEY_RECIPES_LIST, recipesArrayList);
