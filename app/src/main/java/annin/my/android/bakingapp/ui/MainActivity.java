@@ -2,6 +2,8 @@ package annin.my.android.bakingapp.ui;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -112,6 +114,16 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         mRecyclerView.setVisibility(View.INVISIBLE);
         mConnectionMessage.setVisibility(View.VISIBLE);
         mLoadingIndicator.setVisibility(View.VISIBLE);
+
+    }
+
+    public static boolean isNetworkStatusAvailable(Context context) {
+        ConnectivityManager cm =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
 
     }
 
