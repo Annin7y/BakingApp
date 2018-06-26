@@ -95,9 +95,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
             mRecyclerView.setAdapter(recipesAdapter);
             recipesAdapter.setRecipesList(recipesArrayList);
         }
-         else{
-                showErrorMessage();
-            }
+
     }
 
     @Override
@@ -108,14 +106,14 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     }
 
     //Display if there is no internet connection
-    public void showErrorMessage() {
-        Toast.makeText(getApplicationContext(), "No internet connection",
-                Toast.LENGTH_SHORT).show();
-        mRecyclerView.setVisibility(View.INVISIBLE);
-        mConnectionMessage.setVisibility(View.VISIBLE);
-        mLoadingIndicator.setVisibility(View.VISIBLE);
-
-    }
+//    public void showErrorMessage() {
+//        Toast.makeText(getApplicationContext(), "No internet connection",
+//                Toast.LENGTH_SHORT).show();
+//        mRecyclerView.setVisibility(View.INVISIBLE);
+//        mConnectionMessage.setVisibility(View.VISIBLE);
+//        mLoadingIndicator.setVisibility(View.VISIBLE);
+//
+//    }
 
     public static boolean isNetworkStatusAvailable(Context context) {
         ConnectivityManager cm =

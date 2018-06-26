@@ -30,6 +30,9 @@ public class IngredientsFragment extends Fragment {
 
     private static final String TAG = IngredientsFragment.class.getSimpleName();
 
+    @BindView(R.id.recyclerview_ingredients)
+    RecyclerView mRecyclerView;
+    
 //    Recipes recipes;
 //
 //    private IngredientsAdapter ingredientsAdapter;
@@ -84,7 +87,8 @@ public class IngredientsFragment extends Fragment {
 //        int noOfColumns = (int) (dpWidth / scalingFactor);
 //        return noOfColumns;
 //    }
+     @Override
+     protected void onSaveInstanceState(Bundle outState) {
 
-
-
+         super.onSaveInstanceState(outState);
 }
