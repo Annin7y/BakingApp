@@ -32,16 +32,15 @@ public class IngredientsFragment extends Fragment {
 
     @BindView(R.id.recyclerview_ingredients)
     RecyclerView mRecyclerView;
-    
-//    Recipes recipes;
-//
-//    private IngredientsAdapter ingredientsAdapter;
-//
-//    private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
-//
-// //   @BindView(R.id.recyclerview_ingredients)
-//
-//    private RecipesAdapter recipesAdapter;
+
+    Recipes recipes;
+
+    private IngredientsAdapter ingredientsAdapter;
+    //
+    private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
+
+
+    //    private RecipesAdapter recipesAdapter;
 //
 //    private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
 //
@@ -58,27 +57,27 @@ public class IngredientsFragment extends Fragment {
 //    /**
 //     * Inflates the fragment layout file and sets the correct resource for the image to display
 //     */
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//
-//        // Inflate the Android-Me fragment layout
-//        View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
-//        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
-//        mRecyclerView.setAdapter(recipesAdapter);
-//
-//        //specifying how the images will be displayed
-//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
-//        mRecyclerView.setLayoutManager(mLayoutManager);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        // Inflate the Android-Me fragment layout
+        View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
+        mRecyclerView.setAdapter(ingredientsAdapter);
+
+        //specifying how the items will be displayed
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
+        mRecyclerView.setLayoutManager(mLayoutManager);
 //
 //        return rootView;
-       // ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
+        // ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
         //   poster = (TextView) findViewById(R.id.recipeView);
-     //   ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
+        //   ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
         //  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-      //  mRecyclerView.setAdapter(ingredientsAdapter);
+        //  mRecyclerView.setAdapter(ingredientsAdapter);
 
-     //   RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-     //   mRecyclerView.setLayoutManager(mIngredientLayoutManager);
+        //   RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        //   mRecyclerView.setLayoutManager(mIngredientLayoutManager);
 //    }
 //    public static int calculateNoOfColumns(Context context) {
 //        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
@@ -87,8 +86,8 @@ public class IngredientsFragment extends Fragment {
 //        int noOfColumns = (int) (dpWidth / scalingFactor);
 //        return noOfColumns;
 //    }
-     @Override
-     protected void onSaveInstanceState(Bundle outState) {
+        @Override
+        protected void onSaveInstanceState (Bundle outState){
 
-         super.onSaveInstanceState(outState);
-}
+            super.onSaveInstanceState(outState);
+        }
