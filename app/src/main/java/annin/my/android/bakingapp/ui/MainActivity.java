@@ -4,15 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,9 +45,10 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     private static final String KEY_RECIPES_LIST = "recipes_list";
 
-    private ProgressBar mLoadingIndicator;
+    CoordinatorLayout mCoordinatorLayout;
 
-    private TextView mConnectionMessage;
+    @BindView(R.id.pb_loading_indicator)
+    ProgressBar mLoadingIndicator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         context = getApplicationContext();
         // Bind the views
         ButterKnife.bind(this);
-        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_main);
+        mCoordinatorLayout = findViewById(R.id.coordinatorLayout);
+
         recipesAdapter = new RecipesAdapter(this, recipesArrayList, context);
         mRecyclerView.setAdapter(recipesAdapter);
 
@@ -66,16 +70,27 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         /*
          *  Starting the asyncTask so that recipes load upon launching the app.
          */
-
         if (savedInstanceState == null) {
+           if (isNetworkStatusAvailable(this)) {
             RecipesAsyncTask myTask = new RecipesAsyncTask(this);
             myTask.execute(NetworkUtils.buildUrl());
-
         } else {
+               Toast.makeText(getApplicationContext(), "No internet connection!",
+                       Toast.LENGTH_LONG).show();
+//               Snackbar
+//                       .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
+//                       .setAction("Retry", new MyClickListener())
+//                       .show();
+//
+           }  } else {
             recipesArrayList = savedInstanceState.getParcelableArrayList(KEY_RECIPES_LIST);
             recipesAdapter.setRecipesList(recipesArrayList);
         }
+        mLoadingIndicator.setVisibility(View.INVISIBLE);
+        Log.i("list", recipesArrayList.size() + "");
+
     }
+
 
     public static int calculateNoOfColumns(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
@@ -85,17 +100,27 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         return noOfColumns;
     }
 
+//    public class MyClickListener implements View.OnClickListener {
+//        @Override
+//        public void onClick(View v) {
+//            // Run the AsyncTask in response to the click
+//            RecipesAsyncTask myTask = new RecipesAsyncTask(MainActivity.this);
+//            myTask.execute();
+//        }
+//    }
 
     @Override
     public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
-        //     mLoadingIndicator.setVisibility(View.INVISIBLE);
-        if(null != simpleJsonRecipeData) {
+         mLoadingIndicator.setVisibility(View.INVISIBLE);
+        if (null != simpleJsonRecipeData) {
             recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, MainActivity.this);
             recipesArrayList = simpleJsonRecipeData;
             mRecyclerView.setAdapter(recipesAdapter);
             recipesAdapter.setRecipesList(recipesArrayList);
         }
-
+        else {
+            showErrorMessage();
+        }
     }
 
     @Override
@@ -106,14 +131,17 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     }
 
     //Display if there is no internet connection
-//    public void showErrorMessage() {
-//        Toast.makeText(getApplicationContext(), "No internet connection",
-//                Toast.LENGTH_SHORT).show();
-//        mRecyclerView.setVisibility(View.INVISIBLE);
-//        mConnectionMessage.setVisibility(View.VISIBLE);
-//        mLoadingIndicator.setVisibility(View.VISIBLE);
-//
-//    }
+    public void showErrorMessage() {
+          //  Toast.makeText(getApplicationContext(), "This is my Toast message!",
+//          //          Toast.LENGTH_LONG).show();
+//        Snackbar
+//                .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
+//                .setAction("Retry", new MyClickListener())
+//                .show();
+        mRecyclerView.setVisibility(View.INVISIBLE);
+        mLoadingIndicator.setVisibility(View.VISIBLE);
+
+    }
 
     public static boolean isNetworkStatusAvailable(Context context) {
         ConnectivityManager cm =
