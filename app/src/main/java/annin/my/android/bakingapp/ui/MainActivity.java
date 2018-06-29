@@ -75,13 +75,13 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
             RecipesAsyncTask myTask = new RecipesAsyncTask(this);
             myTask.execute(NetworkUtils.buildUrl());
         } else {
-               Toast.makeText(getApplicationContext(), "No internet connection!",
-                       Toast.LENGTH_LONG).show();
-//               Snackbar
-//                       .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
-//                       .setAction("Retry", new MyClickListener())
-//                       .show();
-//
+//               Toast.makeText(getApplicationContext(), "No internet connection!",
+//                       Toast.LENGTH_LONG).show();
+               Snackbar
+                       .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
+                       .setAction("Retry", new MyClickListener())
+                       .show();
+
            }  } else {
             recipesArrayList = savedInstanceState.getParcelableArrayList(KEY_RECIPES_LIST);
             recipesAdapter.setRecipesList(recipesArrayList);
@@ -100,14 +100,14 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         return noOfColumns;
     }
 
-//    public class MyClickListener implements View.OnClickListener {
-//        @Override
-//        public void onClick(View v) {
-//            // Run the AsyncTask in response to the click
-//            RecipesAsyncTask myTask = new RecipesAsyncTask(MainActivity.this);
-//            myTask.execute();
-//        }
-//    }
+    public class MyClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            // Run the AsyncTask in response to the click
+            RecipesAsyncTask myTask = new RecipesAsyncTask(MainActivity.this);
+            myTask.execute();
+        }
+    }
 
     @Override
     public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
@@ -134,10 +134,10 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     public void showErrorMessage() {
           //  Toast.makeText(getApplicationContext(), "This is my Toast message!",
 //          //          Toast.LENGTH_LONG).show();
-//        Snackbar
-//                .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
-//                .setAction("Retry", new MyClickListener())
-//                .show();
+        Snackbar
+                .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
+                .setAction("Retry", new MyClickListener())
+                .show();
         mRecyclerView.setVisibility(View.INVISIBLE);
         mLoadingIndicator.setVisibility(View.VISIBLE);
 
