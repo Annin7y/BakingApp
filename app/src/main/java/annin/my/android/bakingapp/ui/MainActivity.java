@@ -71,18 +71,17 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
          *  Starting the asyncTask so that recipes load upon launching the app.
          */
         if (savedInstanceState == null) {
-           if (isNetworkStatusAvailable(this)) {
-            RecipesAsyncTask myTask = new RecipesAsyncTask(this);
-            myTask.execute(NetworkUtils.buildUrl());
-        } else {
-//               Toast.makeText(getApplicationContext(), "No internet connection!",
-//                       Toast.LENGTH_LONG).show();
-               Snackbar
-                       .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
-                       .setAction("Retry", new MyClickListener())
-                       .show();
+            if (isNetworkStatusAvailable(this)) {
+                RecipesAsyncTask myTask = new RecipesAsyncTask(this);
+                myTask.execute(NetworkUtils.buildUrl());
+            } else {
+                Snackbar
+                        .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Retry", new MyClickListener())
+                        .show();
 
-           }  } else {
+            }
+        } else {
             recipesArrayList = savedInstanceState.getParcelableArrayList(KEY_RECIPES_LIST);
             recipesAdapter.setRecipesList(recipesArrayList);
         }
@@ -111,14 +110,13 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     @Override
     public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
-         mLoadingIndicator.setVisibility(View.INVISIBLE);
+        mLoadingIndicator.setVisibility(View.INVISIBLE);
         if (null != simpleJsonRecipeData) {
             recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, MainActivity.this);
             recipesArrayList = simpleJsonRecipeData;
             mRecyclerView.setAdapter(recipesAdapter);
             recipesAdapter.setRecipesList(recipesArrayList);
-        }
-        else {
+        } else {
             showErrorMessage();
         }
     }
@@ -132,8 +130,6 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
     //Display if there is no internet connection
     public void showErrorMessage() {
-          //  Toast.makeText(getApplicationContext(), "This is my Toast message!",
-//          //          Toast.LENGTH_LONG).show();
         Snackbar
                 .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Retry", new MyClickListener())

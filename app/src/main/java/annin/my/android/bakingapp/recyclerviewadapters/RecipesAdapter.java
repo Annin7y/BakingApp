@@ -106,24 +106,18 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         } else if (recipesView.getRecipeName().equals("Nutella Pie")) {
             Picasso.with(context)
                     .load(R.drawable.nutella_pie)
-                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-                    .centerCrop()
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
         } else if (recipesView.getRecipeName().equals("Brownies")) {
             Picasso.with(context)
                     .load(R.drawable.brownies_recipe)
-                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-                    .centerCrop()
                     //if the image can't be loaded the following error message/image will be displayed
                     .into(holder.imageView);
 
         } else if (recipesView.getRecipeName().equals("Yellow Cake")) {
             Picasso.with(context)
                     .load(R.drawable.yellow_cake)
-                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-                    .centerCrop()
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
@@ -131,8 +125,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         } else if (recipesView.getRecipeName().equals("Cheesecake")) {
             Picasso.with(context)
                     .load(R.drawable.cheesecake_recipe)
-                    .resize(IMAGE_HEIGHT, IMAGE_WIDTH)
-                    .centerCrop()
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
