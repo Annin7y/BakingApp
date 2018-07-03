@@ -39,6 +39,7 @@ public class IngredientsFragment extends Fragment {
 
     private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
 
+    // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
 
     //    private RecipesAdapter recipesAdapter;
@@ -63,7 +64,7 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        // Inflate the Android-Me fragment layout
+        //Inflate the Android-Me fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
         mRecyclerView.setAdapter(ingredientsAdapter);
@@ -72,7 +73,9 @@ public class IngredientsFragment extends Fragment {
 //        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
 //        mRecyclerView.setLayoutManager(mLayoutManager);
 //
-        return rootView;}}
+        return rootView;
+
+    }
         // ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
         //   poster = (TextView) findViewById(R.id.recipeView);
         //   ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
@@ -82,15 +85,22 @@ public class IngredientsFragment extends Fragment {
         //   RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         //   mRecyclerView.setLayoutManager(mIngredientLayoutManager);
 //    }
-//    public static int calculateNoOfColumns(Context context) {
-//        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-//        float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
-//        int scalingFactor = 180;
-//        int noOfColumns = (int) (dpWidth / scalingFactor);
-//        return noOfColumns;
-//    }
-//        @Override
-//        protected void onSaveInstanceState (Bundle outState){
-//            outState.putParcelableArrayList(KEY_RECIPES_LIST, recipesArrayList);
-//            super.onSaveInstanceState(outState);
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        if (savedInstanceState != null) {
+            //Restore the fragment's state here
+            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
+            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+        }
+    }
+
+    @Override
+   public void onSaveInstanceState(Bundle currentState) {
+        currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
+        super.onSaveInstanceState(currentState);
+    }
+}
 
