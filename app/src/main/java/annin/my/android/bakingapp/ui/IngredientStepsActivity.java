@@ -1,21 +1,13 @@
 package annin.my.android.bakingapp.ui;
 
-import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
-import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
-import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import annin.my.android.bakingapp.fragments.IngredientsFragment;
 
 public class IngredientStepsActivity extends AppCompatActivity {
 
@@ -38,7 +30,13 @@ public class IngredientStepsActivity extends AppCompatActivity {
 //        ButterKnife.bind(this);
 //
 //        context = getApplicationContext();
-//
+
+        // Create a new IngredientsFragment
+        IngredientsFragment ingredientsFragment = new IngredientsFragment();
+
+        // Add the fragment to its container using a FragmentManager and a Transaction
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
         if (getIntent() != null && getIntent().getExtras() != null) {
             recipes = getIntent().getExtras().getParcelable("Recipes");
 
