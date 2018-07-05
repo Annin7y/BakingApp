@@ -64,6 +64,12 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        if (savedInstanceState != null) {
+            //Restore the fragment's state here
+            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
+            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+        }
+
         //Inflate the Android-Me fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
         mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
@@ -85,17 +91,6 @@ public class IngredientsFragment extends Fragment {
         //   RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         //   mRecyclerView.setLayoutManager(mIngredientLayoutManager);
 //    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        if (savedInstanceState != null) {
-            //Restore the fragment's state here
-            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
-            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-        }
-    }
 
     @Override
    public void onSaveInstanceState(Bundle currentState) {

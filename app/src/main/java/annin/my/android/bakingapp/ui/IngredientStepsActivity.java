@@ -37,6 +37,11 @@ public class IngredientStepsActivity extends AppCompatActivity {
         // Add the fragment to its container using a FragmentManager and a Transaction
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+        fragmentManager.beginTransaction()
+                .add(ingredientsFragment)
+                .commit();
+
+
         if (getIntent() != null && getIntent().getExtras() != null) {
             recipes = getIntent().getExtras().getParcelable("Recipes");
 
