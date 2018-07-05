@@ -47,7 +47,6 @@ public class IngredientsFragment extends Fragment {
 //    private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
 //
 //
-//    private RecyclerView mRecyclerView;
 //
 //    private Context context;
 //

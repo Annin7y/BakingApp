@@ -17,5 +17,13 @@
         android:textColor="@color/colorPrimaryDark"
         android:text="Recipe Name"  />
 
+    <FrameLayout
+        android:id="@+id/ingredients_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/text_padding"
+        android:textSize="@dimen/ingredient_title_text_size">
+
+    </FrameLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!-- TextView padding and size in activity_ingredientsteps -->
+        <dimen name="text_padding">3dp</dimen>
+        <!-- TextView size in review_list_item -->
+        <dimen name="ingredient_title_text_size">18sp</dimen>
     </style>
 
 </resources>
