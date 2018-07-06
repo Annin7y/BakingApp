@@ -1,13 +1,9 @@
 package annin.my.android.bakingapp.fragments;
 
 import android.app.Fragment;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +11,9 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.asynctask.AsyncTaskInterface;
 import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
-import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
-import annin.my.android.bakingapp.ui.IngredientStepsActivity;
-import annin.my.android.bakingapp.ui.MainActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -70,9 +62,15 @@ public class IngredientsFragment extends Fragment {
         }
 
         //Inflate the Android-Me fragment layout
+
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recyclerview_ingredients);
+        // Bind the views
+        ButterKnife.bind(this,rootView);
         mRecyclerView.setAdapter(ingredientsAdapter);
+
+        RecyclerView.LayoutManager mLayoutManager =  new LinearLayoutManager(this.getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+//
 
         //specifying how the items will be displayed
 //        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
