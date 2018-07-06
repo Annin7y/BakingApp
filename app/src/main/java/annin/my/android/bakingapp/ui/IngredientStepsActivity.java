@@ -1,17 +1,13 @@
 package annin.my.android.bakingapp.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class IngredientStepsActivity extends AppCompatActivity {
 

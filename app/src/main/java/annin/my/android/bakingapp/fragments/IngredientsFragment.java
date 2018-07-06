@@ -1,6 +1,6 @@
 package annin.my.android.bakingapp.fragments;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -62,7 +62,6 @@ public class IngredientsFragment extends Fragment {
         }
 
         //Inflate the Android-Me fragment layout
-
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
         // Bind the views
         ButterKnife.bind(this,rootView);
@@ -70,14 +69,8 @@ public class IngredientsFragment extends Fragment {
 
         RecyclerView.LayoutManager mLayoutManager =  new LinearLayoutManager(this.getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
-//
 
-        //specifying how the items will be displayed
-//        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
-//        mRecyclerView.setLayoutManager(mLayoutManager);
-//
         return rootView;
-
     }
         // ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
         //   poster = (TextView) findViewById(R.id.recipeView);
