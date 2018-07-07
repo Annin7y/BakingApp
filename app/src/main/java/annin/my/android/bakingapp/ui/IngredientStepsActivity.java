@@ -1,5 +1,6 @@
 package annin.my.android.bakingapp.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -13,11 +14,9 @@ public class IngredientStepsActivity extends AppCompatActivity {
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
-    //    private Context context;
-//
-//    TextView poster;
-    Recipes recipes;
+    private Context context;
 
+    Recipes recipes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +38,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
 
             TextView originalTitle = (TextView) findViewById(R.id.recipeView);
             originalTitle.setText(recipes.getRecipeName());
-//
-//
+
         }
     }
 }

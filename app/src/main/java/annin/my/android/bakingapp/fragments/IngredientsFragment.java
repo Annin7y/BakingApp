@@ -76,11 +76,9 @@ public class IngredientsFragment extends Fragment {
         //   poster = (TextView) findViewById(R.id.recipeView);
         //   ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
         //  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-        //  mRecyclerView.setAdapter(ingredientsAdapter);
 
-        //   RecyclerView.LayoutManager mIngredientLayoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
-        //   mRecyclerView.setLayoutManager(mIngredientLayoutManager);
-//    }
+
+
 
     @Override
    public void onSaveInstanceState(Bundle currentState) {
