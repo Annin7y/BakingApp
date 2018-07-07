@@ -25,12 +25,10 @@ public class Steps implements Parcelable {
      */
     private String videoUrl;
 
-
     /**
      * Thumbnail URL
      */
     private String thumbnailUrl;
-
 
     public Steps(String stepId, String stepShortDescription, String stepDescription, String videoUrl, String thumbnailUrl) {
         this.stepId = stepId;
@@ -73,13 +71,12 @@ public class Steps implements Parcelable {
     }
 
     public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl= thumbnailUrl;
+        this.thumbnailUrl = thumbnailUrl;
     }
 
     public String getThumbnailUrl() {
         return thumbnailUrl;
     }
-
 
     protected Steps(Parcel in) {
         stepId = in.readString();
@@ -102,7 +99,6 @@ public class Steps implements Parcelable {
         dest.writeString(videoUrl);
         dest.writeString(thumbnailUrl);
     }
-
 
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<Steps> CREATOR = new Parcelable.Creator<Steps>() {
