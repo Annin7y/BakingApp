@@ -25,7 +25,4 @@
         android:textSize="15sp"
         tools:text="5" />
 
-
-
-
 </android.support.constraint.ConstraintLayout>

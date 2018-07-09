@@ -11,5 +11,10 @@ public class StepsFragment {
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
 
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the fragment
+     */
+    public StepsFragment() {
+    }
 
 }

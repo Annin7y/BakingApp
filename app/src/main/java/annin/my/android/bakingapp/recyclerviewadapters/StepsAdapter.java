@@ -2,7 +2,9 @@ package annin.my.android.bakingapp.recyclerviewadapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -26,6 +28,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     public interface StepsAdapterOnClickHandler {
         void onClick(Steps textClick);
     }
+
     /**
      * Creates a RecipesAdapter.
      *
@@ -43,15 +46,11 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
      */
     public class StepsAdapterViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.ingredient_quantity)
-        public TextView ingredientQuantity;
+        @BindView(R.id.step_short_desc)
+        public TextView stepShortDescription;
 
-        @BindView(R.id.ingredient_measure)
-        public TextView ingredientMeasure;
-
-        @BindView(R.id.ingredient_name)
-        public TextView ingredientName;
-
+        @BindView(R.id.step_description)
+        public TextView stepDescription;
 
         public StepsAdapterViewHolder(View view) {
             super(view);
@@ -59,4 +58,40 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
 
         }
     }
+
+    @Override
+    public StepsAdapter.StepsAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        Context context = viewGroup.getContext();
+        int layoutIdForListItem = R.layout.steps_list_item;
+        LayoutInflater inflater = LayoutInflater.from(context);
+        boolean shouldAttachToParentImmediately = false;
+        View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
+        return new StepsAdapter.StepsAdapterViewHolder(view);
+    }
+
+
+    @Override
+    public void onBindViewHolder(StepsAdapter.StepsAdapterViewHolder holder, int position) {
+
+        //Binding data
+        final Steps stepsView = stepsList.get(position);
+
+        holder.stepShortDescription.setText(stepsView.getStepShortDescription());
+        holder.stepDescription.setText(stepsView.getStepDescription());
+    }
+
+    @Override
+    public int getItemCount()
+
+    {
+        return stepsList.size();
+    }
+
+    public void setStepsList(ArrayList<Steps> mStepsList) {
+        this.stepsList = mStepsList;
+        notifyDataSetChanged();
+    }
 }
+
+
+

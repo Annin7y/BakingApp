@@ -35,13 +35,8 @@ public class IngredientsFragment extends Fragment {
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
 
     //    private RecipesAdapter recipesAdapter;
-//
+
 //    private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
-//
-//
-//
-//    private Context context;
-//
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
