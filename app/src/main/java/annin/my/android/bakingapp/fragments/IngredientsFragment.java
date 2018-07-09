@@ -67,14 +67,7 @@ public class IngredientsFragment extends Fragment {
 
         return rootView;
     }
-        // ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
-        //   poster = (TextView) findViewById(R.id.recipeView);
-        //   ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, context);
-        //  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-
-
-
-
+    
     @Override
    public void onSaveInstanceState(Bundle currentState) {
         currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
