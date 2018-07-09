@@ -57,7 +57,7 @@ public class IngredientsFragment extends Fragment {
         }
 
         //Inflate the Android-Me fragment layout
-        View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
+        View rootView = inflater.inflate(R.layout.ingredient_list_item, container, false);
         // Bind the views
         ButterKnife.bind(this,rootView);
         mRecyclerView.setAdapter(ingredientsAdapter);
@@ -67,7 +67,7 @@ public class IngredientsFragment extends Fragment {
 
         return rootView;
     }
-    
+
     @Override
    public void onSaveInstanceState(Bundle currentState) {
         currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
