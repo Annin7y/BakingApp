@@ -13,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import java.util.ArrayList;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     private RecipesAdapter recipesAdapter;
 
     private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
-    
+
     private Context context;
 
     private static final String KEY_RECIPES_LIST = "recipes_list";
