@@ -29,7 +29,7 @@ public class IngredientsFragment extends Fragment {
 
     private IngredientsAdapter ingredientsAdapter;
 
-    private ArrayList<Ingredients> ingredientsArrayList; = new ArrayList<>();
+    private ArrayList<Ingredients> ingredientsArrayList;
 
     // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
@@ -48,30 +48,29 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
 //        if (savedInstanceState != null) {
 //            //Restore the fragment's state here
 //            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
 //            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
 //        }
 
-        //Inflate the Android-Me fragment layout
+        //Inflate the Ingredients fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
         // Bind the views
-        ButterKnife.bind(this,rootView);
+        ButterKnife.bind(this, rootView);
         ingredientsArrayList = new ArrayList<>();
         mRecyclerView.setAdapter(ingredientsAdapter);
 
-        RecyclerView.LayoutManager mLayoutManager =  new LinearLayoutManager(this.getActivity());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         return rootView;
     }
-
+}
 //    @Override
 //   public void onSaveInstanceState(Bundle currentState) {
 //        currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
 //        super.onSaveInstanceState(currentState);
 //    }
-}
+
 
