@@ -9,18 +9,19 @@
 
     <TextView
         android:id="@+id/ingredient_quantity"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:layout_marginLeft="80dp"
         android:layout_marginStart="80dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="5" />
 
     <TextView
         android:id="@+id/ingredient_measure"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="36dp"
         android:textSize="15sp"
@@ -29,9 +30,8 @@
 
     <TextView
         android:id="@+id/ingredient_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
         android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/ingredient_quantity"
         app:layout_constraintLeft_toLeftOf="parent"

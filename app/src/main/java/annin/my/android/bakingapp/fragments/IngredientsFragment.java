@@ -29,14 +29,12 @@ public class IngredientsFragment extends Fragment {
 
     private IngredientsAdapter ingredientsAdapter;
 
-    private ArrayList<Ingredients> ingredientsArrayList = new ArrayList<>();
+    private ArrayList<Ingredients> ingredientsArrayList; = new ArrayList<>();
 
     // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
 
     //    private RecipesAdapter recipesAdapter;
-
-//    private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
@@ -50,16 +48,18 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        if (savedInstanceState != null) {
-            //Restore the fragment's state here
-            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
-            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-        }
+
+//        if (savedInstanceState != null) {
+//            //Restore the fragment's state here
+//            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
+//            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+//        }
 
         //Inflate the Android-Me fragment layout
-        View rootView = inflater.inflate(R.layout.ingredient_list_item, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
         // Bind the views
         ButterKnife.bind(this,rootView);
+        ingredientsArrayList = new ArrayList<>();
         mRecyclerView.setAdapter(ingredientsAdapter);
 
         RecyclerView.LayoutManager mLayoutManager =  new LinearLayoutManager(this.getActivity());
@@ -68,10 +68,10 @@ public class IngredientsFragment extends Fragment {
         return rootView;
     }
 
-    @Override
-   public void onSaveInstanceState(Bundle currentState) {
-        currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
-        super.onSaveInstanceState(currentState);
-    }
+//    @Override
+//   public void onSaveInstanceState(Bundle currentState) {
+//        currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
+//        super.onSaveInstanceState(currentState);
+//    }
 }
 

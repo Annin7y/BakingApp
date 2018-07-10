@@ -79,7 +79,6 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
                         .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Retry", new MyClickListener())
                         .show();
-
             }
         } else {
             recipesArrayList = savedInstanceState.getParcelableArrayList(KEY_RECIPES_LIST);
@@ -87,9 +86,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         }
         mLoadingIndicator.setVisibility(View.INVISIBLE);
         Log.i("list", recipesArrayList.size() + "");
-
     }
-
 
     public static int calculateNoOfColumns(Context context) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
@@ -136,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
                 .show();
         mRecyclerView.setVisibility(View.INVISIBLE);
         mLoadingIndicator.setVisibility(View.VISIBLE);
-
     }
 
     public static boolean isNetworkStatusAvailable(Context context) {
@@ -146,7 +142,6 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         return activeNetwork != null &&
                 activeNetwork.isConnectedOrConnecting();
-
     }
 
     @Override

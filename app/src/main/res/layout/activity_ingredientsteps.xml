@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="annin.my.android.bakingapp.ui.IngredientStepsActivity">
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,6 +21,7 @@
         android:id="@+id/ingredients_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/recipeView"
         android:padding="@dimen/text_padding"
         android:textSize="@dimen/ingredient_title_text_size">
 
