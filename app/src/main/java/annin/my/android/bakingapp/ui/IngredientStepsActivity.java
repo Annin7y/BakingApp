@@ -47,7 +47,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
     private void sendDataIngredientsFragment() {
         //Pack Data in a bundle(call the bundle ""ingredientsBundle" to differentiate it from the "stepsBundle"
         Bundle ingredientsBundle = new Bundle();
-
+        ingredientsBundle.getIntent().getExtras().getParcelable("Recipes");
         //Pass Over the bundle to the Ingredients Fragment
         IngredientsFragment ingredientsFragment = new IngredientsFragment();
         ingredientsFragment.setArguments(ingredientsBundle);
