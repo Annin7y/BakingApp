@@ -29,6 +29,8 @@ public class IngredientStepsActivity extends AppCompatActivity {
             TextView originalTitle = (TextView) findViewById(R.id.recipeView);
             originalTitle.setText(recipes.getRecipeName());
         }
+        sendDataIngredientsFragment();
+
     }
     /*
     Send data to the Ingredients Fragment
