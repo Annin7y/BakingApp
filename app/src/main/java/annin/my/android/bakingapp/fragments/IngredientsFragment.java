@@ -14,6 +14,7 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
+import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -58,6 +59,12 @@ public class IngredientsFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
         // Bind the views
         ButterKnife.bind(this, rootView);
+
+
+            if (getArguments() != null) {
+                recipes = getArguments().getParcelable("recipes");
+            }
+
         ingredientsArrayList = new ArrayList<>();
         mRecyclerView.setAdapter(ingredientsAdapter);
 
