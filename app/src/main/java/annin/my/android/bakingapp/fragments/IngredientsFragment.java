@@ -60,13 +60,13 @@ public class IngredientsFragment extends Fragment {
         // Bind the views
         ButterKnife.bind(this, rootView);
 
-
             if (getArguments() != null) {
                 recipes = getArguments().getParcelable("recipes");
             }
 
         ingredientsArrayList = new ArrayList<>();
         mRecyclerView.setAdapter(ingredientsAdapter);
+        recipes.getRecipeIngredients();
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
