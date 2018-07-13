@@ -44,9 +44,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
         //Pass Over the bundle to the Ingredients Fragment
         IngredientsFragment ingredientsFragment = new IngredientsFragment();
         ingredientsFragment.setArguments(ingredientsBundle);
-
-        ingredientsFragment.setArguments(ingredientsBundle);
-
+        
         getSupportFragmentManager().beginTransaction().replace(R.id.ingredients_fragment_container,ingredientsFragment).commit();
     }
 

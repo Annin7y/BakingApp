@@ -35,8 +35,6 @@ public class IngredientsFragment extends Fragment {
     // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
 
-    //    private RecipesAdapter recipesAdapter;
-
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
@@ -63,7 +61,7 @@ public class IngredientsFragment extends Fragment {
             if (getArguments() != null) {
                 recipes = getArguments().getParcelable("recipes");
             }
-
+         ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, Context);
         ingredientsArrayList = new ArrayList<>();
         recipes.getRecipeIngredients();
         mRecyclerView.setAdapter(ingredientsAdapter);
