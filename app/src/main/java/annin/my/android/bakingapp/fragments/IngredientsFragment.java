@@ -47,6 +47,8 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        ArrayList<Ingredients> ingredientsArrayList;
+
 //        if (savedInstanceState != null) {
 //            //Restore the fragment's state here
 //            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
@@ -60,16 +62,19 @@ public class IngredientsFragment extends Fragment {
 
             if (getArguments() != null) {
                 recipes = getArguments().getParcelable("recipes");
+
             }
-
-        mRecyclerView.setAdapter(ingredientsAdapter);
-        ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-
+     //   ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+        ingredientsArrayList = recipes.getRecipeIngredients();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+
+        ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+        mRecyclerView.setAdapter(ingredientsAdapter);
         return rootView;
     }
+
 }
 //    @Override
 //   public void onSaveInstanceState(Bundle currentState) {

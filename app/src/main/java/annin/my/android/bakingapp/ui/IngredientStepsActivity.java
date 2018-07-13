@@ -51,8 +51,5 @@ public class IngredientStepsActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.ingredients_fragment_container,ingredientsFragment).commit();
     }
-
-
-
     }
 
