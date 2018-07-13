@@ -61,9 +61,7 @@ public class IngredientsFragment extends Fragment {
             if (getArguments() != null) {
                 recipes = getArguments().getParcelable("recipes");
             }
-         ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, Context);
-        ingredientsArrayList = new ArrayList<>();
-        recipes.getRecipeIngredients();
+
         mRecyclerView.setAdapter(ingredientsAdapter);
         ingredientsAdapter.setIngredientsList(ingredientsArrayList);
 
