@@ -46,8 +46,9 @@ public class IngredientStepsActivity extends AppCompatActivity {
         ingredientsFragment.setArguments(ingredientsBundle);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.ingredients_fragment_container,ingredientsFragment).commit();
-
-
     }
+
+
+
     }
 

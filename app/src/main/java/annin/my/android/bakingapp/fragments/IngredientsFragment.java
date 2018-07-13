@@ -65,8 +65,8 @@ public class IngredientsFragment extends Fragment {
             }
 
         ingredientsArrayList = new ArrayList<>();
-        mRecyclerView.setAdapter(ingredientsAdapter);
         recipes.getRecipeIngredients();
+        mRecyclerView.setAdapter(ingredientsAdapter);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
