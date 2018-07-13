@@ -18,6 +18,8 @@ public class IngredientStepsActivity extends AppCompatActivity {
 
     Recipes recipes;
 
+    private boolean mTwoPane;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
