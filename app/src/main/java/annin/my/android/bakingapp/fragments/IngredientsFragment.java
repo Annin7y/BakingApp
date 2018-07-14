@@ -60,21 +60,21 @@ public class IngredientsFragment extends Fragment {
         // Bind the views
         ButterKnife.bind(this, rootView);
 
-            if (getArguments() != null) {
-                recipes = getArguments().getParcelable("recipes");
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
 
-            }
-     //   ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+            recipes = getArguments().getParcelable("Recipes");
+
+        }
         ingredientsArrayList = recipes.getRecipeIngredients();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
-        ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-        mRecyclerView.setAdapter(ingredientsAdapter);
+      ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+//        mRecyclerView.setAdapter(ingredientsAdapter);
         return rootView;
     }
-
 }
 //    @Override
 //   public void onSaveInstanceState(Bundle currentState) {
