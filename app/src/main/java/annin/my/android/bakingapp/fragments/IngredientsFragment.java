@@ -73,8 +73,8 @@ public class IngredientsFragment extends Fragment {
         Log.i("list", ingredientsArrayList.size() + "");
 
       ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-//        mRecyclerView.setAdapter(ingredientsAdapter);
-        return rootView;
+      mRecyclerView.setAdapter(ingredientsAdapter);
+      return rootView;
     }
 }
 //    @Override
