@@ -33,13 +33,13 @@ public class IngredientStepsActivity extends AppCompatActivity {
             TextView originalTitle = (TextView) findViewById(R.id.recipeView);
             originalTitle.setText(recipes.getRecipeName());
         }
-        sendDataIngredientsFragment();
+        sendArrayToIngredientsFragment();
 
     }
     /*
-    Send data to the Ingredients Fragment
+    Send the array list to the Ingredients Fragment
      */
-    private void sendDataIngredientsFragment() {
+    private void sendArrayToIngredientsFragment() {
 
         //Pack Data in a bundle(call the bundle ""ingredientsBundle" to differentiate it from the "stepsBundle"
         Bundle ingredientsBundle = new Bundle();
