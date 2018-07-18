@@ -31,8 +31,6 @@ public class IngredientsFragment extends Fragment {
 
     private IngredientsAdapter ingredientsAdapter;
 
-    private ArrayList<Ingredients> ingredientsArrayList;
-
     // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
 
@@ -48,7 +46,7 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        ArrayList<Ingredients> ingredientsArrayList;
+
 
 //        if (savedInstanceState != null) {
 //            //Restore the fragment's state here
@@ -58,6 +56,9 @@ public class IngredientsFragment extends Fragment {
 
         //Inflate the Ingredients fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
+
+        ArrayList<Ingredients> ingredientsArrayList;
+
         // Bind the views
         ButterKnife.bind(this, rootView);
 
