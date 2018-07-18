@@ -10,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.custom.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,7 +17,6 @@ import butterknife.ButterKnife;
 public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapterViewHolder> {
 
     private static final String TAG = StepsAdapter.class.getSimpleName();
-    private Context context;
     private ArrayList<Steps> stepsList = new ArrayList<Steps>();
     private StepsAdapter.StepsAdapterOnClickHandler mClickHandler;
 
@@ -35,9 +33,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
      * @param clickHandler The on-click handler for this adapter. This single handler is called
      *                     when an item is clicked.
      */
-    public StepsAdapter(StepsAdapter.StepsAdapterOnClickHandler clickHandler, ArrayList<Steps> stepsList, Context context) {
+    public StepsAdapter(StepsAdapter.StepsAdapterOnClickHandler clickHandler, ArrayList<Steps> stepsList) {
         this.stepsList = stepsList;
-        this.context = context;
         mClickHandler = clickHandler;
     }
 

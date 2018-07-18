@@ -46,8 +46,6 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
-
 //        if (savedInstanceState != null) {
 //            //Restore the fragment's state here
 //            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
