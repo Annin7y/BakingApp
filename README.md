@@ -1,8 +1,14 @@
 # BakingApp
 A project for the Android Developer Nanodegree @ Udacity
 
+### **Description**
+Users will download a list of recipes from a url using AsyncTask. Images for the recipes are not provided on the website; therefore corresponding images will be stored in the drawables folder. Clicking on an image takes users to the IngredientStepsActivity where ingredients and steps will be displayed in fragments. The ingredients fragment will not implement an onClickListener. By clicking on any of the steps, users will view video instructions. The video will be displayed in a separate fragment on a tablet layout and in a separate activity on a phone layout.The app also includes a Widget and an Espresso test. 
+
 ### **Installation**
 Clone or download this repository. Import into Android Studio.
+
+### **Screenshots**
+![screenshot_20180717-bakingapp](https://user-images.githubusercontent.com/22602021/42970052-394cae94-8b76-11e8-92ba-385632bbc230.jpg)
 
 ### **License**
 Copyright A. Annin and Udacity 2017/2018. This project is part of the Udacity Android Developer Nanodegree.
