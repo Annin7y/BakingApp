@@ -36,32 +36,30 @@ public class IngredientStepsActivity extends AppCompatActivity {
         sendArrayToIngredientsFragment();
 
     }
+
     /*
     Send the array list to the Ingredients Fragment
      */
     private void sendArrayToIngredientsFragment() {
         //Pack Data in a bundle(call the bundle ""ingredientsBundle" to differentiate it from the "stepsBundle"
         Bundle ingredientsBundle = new Bundle();
-        ingredientsBundle.putParcelable("Recipes",recipes);
+        ingredientsBundle.putParcelable("Recipes", recipes);
 
         //Pass Over the bundle to the Ingredients Fragment
         IngredientsFragment ingredientsFragment = new IngredientsFragment();
         ingredientsFragment.setArguments(ingredientsBundle);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.ingredients_fragment_container,ingredientsFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
     }
-     /*
-    Send the array list to the Steps Fragment
-     */
-/*
-    Send the array list to the Ingredients Fragment
-     */
-     private void sendArrayToStepsFragment() {
-         //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
-         Bundle stepsBundle = new Bundle();
+     
+    /*
+        Send the array list to the Steps Fragment
+         */
+    private void sendArrayToStepsFragment() {
+        //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
+        Bundle stepsBundle = new Bundle();
 
 
-
-     }
     }
+}
 

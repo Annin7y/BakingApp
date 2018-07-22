@@ -26,7 +26,7 @@
         android:textSize="@dimen/ingredient_title_text_size">
     </FrameLayout>
 
-    
+
 
 
 </android.support.constraint.ConstraintLayout>
