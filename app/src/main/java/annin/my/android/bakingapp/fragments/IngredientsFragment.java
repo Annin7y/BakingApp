@@ -27,6 +27,8 @@ public class IngredientsFragment extends Fragment {
     @BindView(R.id.recyclerview_ingredients)
     RecyclerView mRecyclerView;
 
+    ArrayList<Ingredients> ingredientsArrayList;
+
     Recipes recipes;
 
     private IngredientsAdapter ingredientsAdapter;
@@ -55,8 +57,6 @@ public class IngredientsFragment extends Fragment {
         //Inflate the Ingredients fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
 
-        ArrayList<Ingredients> ingredientsArrayList;
-
         // Bind the views
         ButterKnife.bind(this, rootView);
 
@@ -65,16 +65,15 @@ public class IngredientsFragment extends Fragment {
 
             recipes = getArguments().getParcelable("Recipes");
         }
-
+        ingredientsArrayList = new ArrayList<>();
         ingredientsArrayList = recipes.getRecipeIngredients();
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("list", ingredientsArrayList.size() + "");
 
-        IngredientsAdapter ingredientsAdapter;
-  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-      mRecyclerView.setAdapter(ingredientsAdapter);
-      return rootView;
+        IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
+        mRecyclerView.setAdapter(ingredientsAdapter);
+        return rootView;
     }
 }
 //    @Override
