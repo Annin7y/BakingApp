@@ -71,7 +71,8 @@ public class IngredientsFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("list", ingredientsArrayList.size() + "");
 
-      ingredientsAdapter.setIngredientsList(ingredientsArrayList);
+        IngredientsAdapter ingredientsAdapter;
+  ingredientsAdapter.setIngredientsList(ingredientsArrayList);
       mRecyclerView.setAdapter(ingredientsAdapter);
       return rootView;
     }
