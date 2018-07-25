@@ -31,8 +31,6 @@ public class IngredientsFragment extends Fragment {
 
     Recipes recipes;
 
-    private IngredientsAdapter ingredientsAdapter;
-
     // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
 
@@ -69,7 +67,7 @@ public class IngredientsFragment extends Fragment {
         ingredientsArrayList = recipes.getRecipeIngredients();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        Log.i("list", ingredientsArrayList.size() + "");
+        Log.i("listIngredients", ingredientsArrayList.size() + "");
 
         IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
         mRecyclerView.setAdapter(ingredientsAdapter);

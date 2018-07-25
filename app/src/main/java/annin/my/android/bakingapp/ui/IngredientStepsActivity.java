@@ -35,7 +35,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
             originalTitle.setText(recipes.getRecipeName());
         }
         sendArrayToIngredientsFragment();
-
+        sendArrayToStepsFragment();
     }
 
     /*
@@ -65,6 +65,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
         StepsFragment stepsFragment = new StepsFragment();
         stepsFragment.setArguments(stepsBundle);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
     }
 }
 
