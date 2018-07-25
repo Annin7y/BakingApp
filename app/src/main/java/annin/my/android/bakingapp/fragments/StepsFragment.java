@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StepsFragment {
+public class StepsFragment implements StepsAdapter.StepsAdapterOnClickHandler {
 
     private final String TAG = StepsFragment.class.getSimpleName();
 
@@ -62,7 +62,7 @@ public class StepsFragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-        StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList);
+        StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList, m);
         mRecyclerView.setAdapter(stepsAdapter);
         return rootView;
     }
