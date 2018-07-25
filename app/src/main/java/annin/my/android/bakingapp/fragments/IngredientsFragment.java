@@ -76,10 +76,10 @@ public class IngredientsFragment extends Fragment {
         return rootView;
     }
 
-    @Override
-   public void onSaveInstanceState(Bundle currentState) {
-        currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
-        super.onSaveInstanceState(currentState);
-    }
+//    @Override
+//   public void onSaveInstanceState(Bundle currentState) {
+//        currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
+//        super.onSaveInstanceState(currentState);
+//    }
 
 }

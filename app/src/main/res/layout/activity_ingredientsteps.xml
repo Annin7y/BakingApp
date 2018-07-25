@@ -26,7 +26,14 @@
         android:textSize="@dimen/ingredient_title_text_size">
     </FrameLayout>
 
-
+    <FrameLayout
+        android:id="@+id/steps_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/ingredients_fragment_container"
+        android:padding="@dimen/text_padding"
+        android:textSize="@dimen/ingredient_title_text_size">
+    </FrameLayout>
 
 
 </android.support.constraint.ConstraintLayout>

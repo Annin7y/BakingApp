@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
+import annin.my.android.bakingapp.fragments.StepsFragment;
 
 public class IngredientStepsActivity extends AppCompatActivity {
 
@@ -38,10 +39,10 @@ public class IngredientStepsActivity extends AppCompatActivity {
     }
 
     /*
-    Send the array list to the Ingredients Fragment
+    Send the ingredients array list in Parcelable to the Ingredients Fragment
      */
     private void sendArrayToIngredientsFragment() {
-        //Pack Data in a bundle(call the bundle ""ingredientsBundle" to differentiate it from the "stepsBundle"
+        //Pack Data in a bundle(call the bundle "ingredientsBundle" to differentiate it from the "stepsBundle"
         Bundle ingredientsBundle = new Bundle();
         ingredientsBundle.putParcelable("Recipes", recipes);
 
@@ -53,12 +54,16 @@ public class IngredientStepsActivity extends AppCompatActivity {
     }
 
     /*
-        Send the array list to the Steps Fragment
-         */
+      Send the steps array list in Parcelable to the Steps Fragment
+      */
     private void sendArrayToStepsFragment() {
         //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
         Bundle stepsBundle = new Bundle();
+        stepsBundle.putParcelable("Recipes", recipes);
 
+        //Pass Over the bundle to the Steps Fragment
+        StepsFragment stepsFragment = new StepsFragment();
+        stepsFragment.setArguments(stepsBundle);
 
     }
 }
