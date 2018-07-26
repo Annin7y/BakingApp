@@ -22,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StepsFragment implements StepsAdapter.StepsAdapterOnClickHandler {
+public class StepsFragment {
 
     private final String TAG = StepsFragment.class.getSimpleName();
 
@@ -51,19 +51,19 @@ public class StepsFragment implements StepsAdapter.StepsAdapterOnClickHandler {
         // Bind the views
         ButterKnife.bind(this, rootView);
 
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-
-            recipes = getArguments().getParcelable("Recipes");
-        }
+//        Bundle bundle = this.getArguments();
+//        if (bundle != null) {
+//
+//            recipes = getArguments().getParcelable("Recipes");
+//        }
         stepsArrayList = new ArrayList<>();
         stepsArrayList  = recipes.getRecipeSteps();
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
+     //   RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+     //   mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-        StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList, m);
-        mRecyclerView.setAdapter(stepsAdapter);
+      //  StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList, m);
+      //  mRecyclerView.setAdapter(stepsAdapter);
         return rootView;
     }
 }
