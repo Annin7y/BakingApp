@@ -1,7 +1,7 @@
 package annin.my.android.bakingapp.fragments;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,7 +17,6 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Ingredients;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
-import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -74,7 +73,7 @@ public class IngredientsFragment extends Fragment {
         IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
         mRecyclerView.setAdapter(ingredientsAdapter);
 
-        //the vertical divider
+        //the horizontal divider
         mRecyclerView.addItemDecoration(new DividerItemDecoration(ContextCompat.getDrawable(getContext(),
                 R.drawable.item_decorator)));
 
