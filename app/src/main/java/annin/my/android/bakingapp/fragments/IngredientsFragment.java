@@ -1,5 +1,6 @@
 package annin.my.android.bakingapp.fragments;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -72,11 +73,12 @@ public class IngredientsFragment extends Fragment {
 
         IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
         mRecyclerView.setAdapter(ingredientsAdapter);
-
-        //the horizontal divider
-        mRecyclerView.addItemDecoration(new DividerItemDecoration(ContextCompat.getDrawable(getContext(),
-                R.drawable.item_decorator)));
-
+        
+        DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                DividerItemDecoration.HORIZONTAL);
+        Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
+        horizontalDecoration.setDrawable(horizontalDivider);
+        mRecyclerView.addItemDecoration(horizontalDecoration);
         return rootView;
     }
 
