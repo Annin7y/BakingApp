@@ -1,6 +1,7 @@
 package annin.my.android.bakingapp.fragments;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,13 +17,12 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.custom.Steps;
-import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
 import annin.my.android.bakingapp.recyclerviewadapters.StepsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StepsFragment {
+public class StepsFragment extends Fragment  {
 
     private final String TAG = StepsFragment.class.getSimpleName();
 

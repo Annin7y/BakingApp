@@ -59,7 +59,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
         stepsBundle.putParcelable("Recipes", recipes);
 
       //Pass Over the bundle to the Steps Fragment
-        StepsFragment stepsFragment = new StepsFragment();
+       StepsFragment stepsFragment = new StepsFragment();
        stepsFragment.setArguments(stepsBundle);
 
        getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
