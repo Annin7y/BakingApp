@@ -32,7 +32,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      * The interface that receives onClick messages.
      */
     public interface RecipesAdapterOnClickHandler {
-        void onClick(Recipes textClick);
+        void onClick(Recipes imageClick);
     }
 
     /**
