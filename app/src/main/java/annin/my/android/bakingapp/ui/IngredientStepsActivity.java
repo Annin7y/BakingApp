@@ -32,7 +32,7 @@ public class IngredientStepsActivity extends AppCompatActivity {
             originalTitle.setText(recipes.getRecipeName());
         }
         sendArrayToIngredientsFragment();
-        sendArrayToStepsFragment();
+      //  sendArrayToStepsFragment();
     }
 
     /*
@@ -53,16 +53,16 @@ public class IngredientStepsActivity extends AppCompatActivity {
     /*
       Send the steps array list in Parcelable to the Steps Fragment
       */
-    private void sendArrayToStepsFragment() {
+   private void sendArrayToStepsFragment() {
         //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
-        Bundle stepsBundle = new Bundle();
+       Bundle stepsBundle = new Bundle();
         stepsBundle.putParcelable("Recipes", recipes);
 
-        //Pass Over the bundle to the Steps Fragment
+      //Pass Over the bundle to the Steps Fragment
         StepsFragment stepsFragment = new StepsFragment();
-        stepsFragment.setArguments(stepsBundle);
+       stepsFragment.setArguments(stepsBundle);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
-    }
+       getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
+   }
 }
 

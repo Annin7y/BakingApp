@@ -1,17 +1,26 @@
 package annin.my.android.bakingapp.decoration;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import annin.my.android.bakingapp.R;
 
 public class DividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private Drawable mDivider;
 
-    public DividerItemDecoration(Drawable divider) {
-        this.mDivider = divider;
+   // public DividerItemDecoration(Drawable divider) {
+      //  this.mDivider = divider;
+//    }
+
+    public DividerItemDecoration(Context context) {
+        mDivider = ContextCompat.getDrawable(context,R.drawable.item_decorator);
     }
+
 
     @Override
     public void onDrawOver(Canvas canvas, RecyclerView parent, RecyclerView.State state) {
