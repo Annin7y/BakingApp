@@ -1,5 +1,6 @@
 package annin.my.android.bakingapp.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,10 +34,29 @@ public class StepsFragment extends Fragment  {
 
     Recipes recipes;
     // Define a new interface OnImageClickListener that triggers a callback in the host activity
-    OnImageClickListener mCallback;
+    OnStepsClickListener mCallback;
+    // OnImageClickListener interface, calls a method in the host activity named onImageSelected
+    public interface OnStepsClickListener {
+        void onImageSelected(int position);
+    }
+    // Override onAttach to make sure that the container activity has implemented the callback
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        // This makes sure that the host activity has implemented the callback interface
+        // If not, it throws an exception
+        try {
+            mCallback = (OnStepsClickListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnImageClickListener");
+        }
+    }
+
   //  private SimpleExoPlayer mExoPlayer;
    // private SimpleExoPlayerView mPlayerView;
-
+    
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
