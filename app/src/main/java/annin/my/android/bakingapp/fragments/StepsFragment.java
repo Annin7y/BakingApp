@@ -32,9 +32,10 @@ public class StepsFragment extends Fragment  {
     ArrayList<Steps> stepsArrayList;
 
     Recipes recipes;
-
-    private SimpleExoPlayer mExoPlayer;
-    private SimpleExoPlayerView mPlayerView;
+    // Define a new interface OnImageClickListener that triggers a callback in the host activity
+    OnImageClickListener mCallback;
+  //  private SimpleExoPlayer mExoPlayer;
+   // private SimpleExoPlayerView mPlayerView;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
