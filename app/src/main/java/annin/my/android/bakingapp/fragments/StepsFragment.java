@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
@@ -18,12 +19,13 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.custom.Steps;
+import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
 import annin.my.android.bakingapp.recyclerviewadapters.StepsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StepsFragment extends Fragment  {
+public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapterOnClickHandler {
 
     private final String TAG = StepsFragment.class.getSimpleName();
 
@@ -37,7 +39,7 @@ public class StepsFragment extends Fragment  {
     OnStepsClickListener mCallback;
     // OnImageClickListener interface, calls a method in the host activity named onImageSelected
     public interface OnStepsClickListener {
-        void onImageSelected(int position);
+        void onStepSelected(int position);
     }
     // Override onAttach to make sure that the container activity has implemented the callback
     @Override
@@ -50,13 +52,13 @@ public class StepsFragment extends Fragment  {
             mCallback = (OnStepsClickListener) context;
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString()
-                    + " must implement OnImageClickListener");
+                    + " must implement OnSTEPSClickListener");
         }
     }
 
   //  private SimpleExoPlayer mExoPlayer;
    // private SimpleExoPlayerView mPlayerView;
-    
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
@@ -83,8 +85,17 @@ public class StepsFragment extends Fragment  {
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-       StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList);
+       StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList,this);
         mRecyclerView.setAdapter(stepsAdapter);
+
+        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Trigger the callback method and pass in the position that was clicked
+                mCallback.onStepSelected(position);
+
+
+
         return rootView;
     }
 }

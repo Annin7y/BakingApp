@@ -28,7 +28,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     }
 
     /**
-     * Creates a RecipesAdapter.
+     * Creates a StepsAdapter.
      *
      * @param clickHandler The on-click handler for this adapter. This single handler is called
      *                     when an item is clicked.
@@ -41,7 +41,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     /**
      * Cache of the children views for a steps list item.
      */
-    public class StepsAdapterViewHolder extends RecyclerView.ViewHolder {
+    public class StepsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         @BindView(R.id.step_short_desc)
         public TextView stepShortDescription;
@@ -52,7 +52,18 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
         public StepsAdapterViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-
+            view.setOnClickListener(this);
+        }
+        /**
+         * This gets called by the child views during a click.
+         *
+         * @param v The View that was clicked
+         */
+        @Override
+        public void onClick(View v) {
+            int adapterPosition = getAdapterPosition();
+            Steps stepClick = stepsList.get(adapterPosition);
+            mClickHandler.onClick(stepClick);
         }
     }
 
