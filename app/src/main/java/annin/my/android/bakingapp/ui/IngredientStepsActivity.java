@@ -68,8 +68,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsF
 
     // Define the behavior for onStepSelected
     public void onStepSelected(int position) {
-        // Create a Toast that displays the position that was clicked
-        Toast.makeText(this, "Position clicked = " + position, Toast.LENGTH_SHORT).show();
+        // Create a Toast that displays the step that was clicked
+        Toast.makeText(this, "Step clicked = " + position, Toast.LENGTH_SHORT).show();
 
     }
 

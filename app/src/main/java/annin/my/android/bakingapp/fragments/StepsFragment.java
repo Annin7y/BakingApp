@@ -37,10 +37,12 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
     Recipes recipes;
     // Define a new interface OnImageClickListener that triggers a callback in the host activity
     OnStepsClickListener mCallback;
+
     // OnImageClickListener interface, calls a method in the host activity named onImageSelected
     public interface OnStepsClickListener {
         void onStepSelected(int position);
     }
+
     // Override onAttach to make sure that the container activity has implemented the callback
     @Override
     public void onAttach(Context context) {
@@ -56,8 +58,8 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
         }
     }
 
-  //  private SimpleExoPlayer mExoPlayer;
-   // private SimpleExoPlayerView mPlayerView;
+    //  private SimpleExoPlayer mExoPlayer;
+    // private SimpleExoPlayerView mPlayerView;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
@@ -74,28 +76,28 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
         // Bind the views
         ButterKnife.bind(this, rootView);
 
-       Bundle bundle = this.getArguments();
-       if (bundle != null) {
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
 
-           recipes = getArguments().getParcelable("Recipes");
+            recipes = getArguments().getParcelable("Recipes");
         }
         stepsArrayList = new ArrayList<>();
-        stepsArrayList  = recipes.getRecipeSteps();
+        stepsArrayList = recipes.getRecipeSteps();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-       StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList,this);
+        StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList, this);
         mRecyclerView.setAdapter(stepsAdapter);
 
-        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mRecyclerView.setOnStepsClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Trigger the callback method and pass in the position that was clicked
                 mCallback.onStepSelected(position);
+            }
+        });
 
-
-
-        return rootView;
-    }
-}
+                return rootView;
+            }
+        }
