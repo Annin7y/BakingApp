@@ -86,13 +86,6 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
 
         holder.stepShortDescription.setText(stepsView.getStepShortDescription());
         holder.stepDescription.setText(stepsView.getStepDescription());
-        holder.btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // use callback function in the place you want
-                mListener.onClickAtOKButton(position);
-            }
-        });
 
         }
 

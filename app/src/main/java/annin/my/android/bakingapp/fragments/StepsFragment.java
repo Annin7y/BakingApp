@@ -87,17 +87,16 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-        StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList, this);
-        mRecyclerView.setAdapter(stepsAdapter);
+      //  mRecyclerView.setAdapter(stepsAdapter);
 
-        mRecyclerView.setOnStepsClickListener(new AdapterView.OnItemClickListener() {
+        StepsAdapter stepsAdapter = new StepsAdapter(getActivity(), stepsArrayList, new StepsAdapter.StepsAdapterOnClickHandler() {
+
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Trigger the callback method and pass in the position that was clicked
-                mCallback.onStepSelected(position);
+            public void onClick(int position) {
+
             }
         });
 
                 return rootView;
-            }
-        }
+
+        }}
