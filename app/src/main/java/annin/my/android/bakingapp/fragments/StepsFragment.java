@@ -57,10 +57,7 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
                     + " must implement OnSTEPSClickListener");
         }
     }
-
-    //  private SimpleExoPlayer mExoPlayer;
-    // private SimpleExoPlayerView mPlayerView;
-
+    
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
