@@ -57,7 +57,7 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
                     + " must implement OnSTEPSClickListener");
         }
     }
-    
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
@@ -84,9 +84,9 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-      //  mRecyclerView.setAdapter(stepsAdapter);
 
-        StepsAdapter stepsAdapter = new StepsAdapter(getActivity(), stepsArrayList, new StepsAdapter.StepsAdapterOnClickHandler() {
+       StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
+        mRecyclerView.setAdapter(stepsAdapter);
 
             @Override
             public void onClick(int position) {
