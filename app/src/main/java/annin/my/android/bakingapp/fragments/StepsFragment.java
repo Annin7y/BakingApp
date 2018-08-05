@@ -85,15 +85,17 @@ public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapter
         Log.i("listSteps", stepsArrayList.size() + "");
 
 
-       StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
+        StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
         mRecyclerView.setAdapter(stepsAdapter);
 
+        return rootView;
+    }
             @Override
             public void onClick(int position) {
 
             }
         });
 
-                return rootView;
 
-        }}
+
+        

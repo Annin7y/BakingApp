@@ -48,38 +48,36 @@ public class IngredientsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-//        if (savedInstanceState != null) {
-//            //Restore the fragment's state here
-//            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
-//            ingredientsAdapter.setIngredientsList(ingredientsArrayList);
-//        }
+        if (savedInstanceState != null) {
+            //Restore the fragment's state here
+            ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
 
-        //Inflate the Ingredients fragment layout
-        View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
+            //Inflate the Ingredients fragment layout
+            View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
 
-        // Bind the views
-        ButterKnife.bind(this, rootView);
+            // Bind the views
+            ButterKnife.bind(this, rootView);
 
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
+            Bundle bundle = this.getArguments();
+            if (bundle != null) {
 
-            recipes = getArguments().getParcelable("Recipes");
-        }
-        ingredientsArrayList = new ArrayList<>();
-        ingredientsArrayList = recipes.getRecipeIngredients();
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        Log.i("listIngredients", ingredientsArrayList.size() + "");
+                recipes = getArguments().getParcelable("Recipes");
+            }
+            ingredientsArrayList = new ArrayList<>();
+            ingredientsArrayList = recipes.getRecipeIngredients();
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+            mRecyclerView.setLayoutManager(mLayoutManager);
+            Log.i("listIngredients", ingredientsArrayList.size() + "");
 
-        IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
-        mRecyclerView.setAdapter(ingredientsAdapter);
+            IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
+            mRecyclerView.setAdapter(ingredientsAdapter);
+
+            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                    DividerItemDecoration.HORIZONTAL);
+            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
+            horizontalDecoration.setDrawable(horizontalDivider);
+            mRecyclerView.addItemDecoration(horizontalDecoration);
         
-        DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-                DividerItemDecoration.HORIZONTAL);
-        Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
-        horizontalDecoration.setDrawable(horizontalDivider);
-        mRecyclerView.addItemDecoration(horizontalDecoration);
-
         return rootView;
     }
 
