@@ -62,29 +62,33 @@ public class IngredientsFragment extends Fragment {
             if (bundle != null) {
 
                 recipes = getArguments().getParcelable("Recipes");
+
+                ingredientsArrayList = new ArrayList<>();
+                ingredientsArrayList = recipes.getRecipeIngredients();
+                RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+                mRecyclerView.setLayoutManager(mLayoutManager);
+                Log.i("listIngredients", ingredientsArrayList.size() + "");
+
+                IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
+                mRecyclerView.setAdapter(ingredientsAdapter);
+
+                DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                        DividerItemDecoration.HORIZONTAL);
+                Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
+                horizontalDecoration.setDrawable(horizontalDivider);
+                mRecyclerView.addItemDecoration(horizontalDecoration);
+            } else {
+
             }
-            ingredientsArrayList = new ArrayList<>();
-            ingredientsArrayList = recipes.getRecipeIngredients();
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-            mRecyclerView.setLayoutManager(mLayoutManager);
-            Log.i("listIngredients", ingredientsArrayList.size() + "");
 
-            IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
-            mRecyclerView.setAdapter(ingredientsAdapter);
+            return rootView;
+        }
 
-            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-                    DividerItemDecoration.HORIZONTAL);
-            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
-            horizontalDecoration.setDrawable(horizontalDivider);
-            mRecyclerView.addItemDecoration(horizontalDecoration);
-        
-        return rootView;
+        @Override
+        public void onSaveInstanceState (Bundle currentState){
+            currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
+            super.onSaveInstanceState(currentState);
+        }
+
     }
-
-    @Override
-   public void onSaveInstanceState(Bundle currentState) {
-        currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
-        super.onSaveInstanceState(currentState);
-    }
-
 }
