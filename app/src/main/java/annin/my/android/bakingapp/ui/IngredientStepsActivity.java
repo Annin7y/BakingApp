@@ -11,7 +11,7 @@ import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsFragment;
 
-public class IngredientStepsActivity extends AppCompatActivity implements StepsFragment.OnStepsClickListener {
+public class IngredientStepsActivity extends AppCompatActivity {//implements StepsFragment.OnStepsClickListener {
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
@@ -54,23 +54,23 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsF
     /*
       Send the steps array list in Parcelable to the Steps Fragment
       */
-    private void sendArrayToStepsFragment() {
-        //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
-        Bundle stepsBundle = new Bundle();
-        stepsBundle.putParcelable("Recipes", recipes);
-
-        //Pass Over the bundle to the Steps Fragment
-        StepsFragment stepsFragment = new StepsFragment();
-        stepsFragment.setArguments(stepsBundle);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
-    }
-
-    // Define the behavior for onStepSelected
-    public void onStepSelected(int position) {
-        // Create a Toast that displays the step that was clicked
-        Toast.makeText(this, "Step clicked = " + position, Toast.LENGTH_SHORT).show();
-
-    }
+//    private void sendArrayToStepsFragment() {
+//        //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
+//        Bundle stepsBundle = new Bundle();
+//        stepsBundle.putParcelable("Recipes", recipes);
+//
+//        //Pass Over the bundle to the Steps Fragment
+//        StepsFragment stepsFragment = new StepsFragment();
+//        stepsFragment.setArguments(stepsBundle);
+//
+//        getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
+//    }
+//
+//    // Define the behavior for onStepSelected
+//    public void onStepSelected(int position) {
+//        // Create a Toast that displays the step that was clicked
+//        Toast.makeText(this, "Step clicked = " + position, Toast.LENGTH_SHORT).show();
+//
+//    }
 
 }

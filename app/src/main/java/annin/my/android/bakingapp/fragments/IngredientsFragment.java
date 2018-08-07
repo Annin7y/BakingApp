@@ -51,7 +51,7 @@ public class IngredientsFragment extends Fragment {
         if (savedInstanceState != null) {
             //Restore the fragment's state here
             ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
-
+        }
             //Inflate the Ingredients fragment layout
             View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
 
@@ -77,10 +77,7 @@ public class IngredientsFragment extends Fragment {
                 Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
                 horizontalDecoration.setDrawable(horizontalDivider);
                 mRecyclerView.addItemDecoration(horizontalDecoration);
-            } else {
-
             }
-
             return rootView;
         }
 
@@ -91,4 +88,3 @@ public class IngredientsFragment extends Fragment {
         }
 
     }
-}

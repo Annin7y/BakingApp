@@ -25,77 +25,77 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StepsFragment extends Fragment implements StepsAdapter.StepsAdapterOnClickHandler {
+public class StepsFragment extends Fragment {//implements StepsAdapter.StepsAdapterOnClickHandler {
+//
+//    private final String TAG = StepsFragment.class.getSimpleName();
+//
+//    @BindView(R.id.recyclerview_steps)
+//    RecyclerView mRecyclerView;
+//
+//    ArrayList<Steps> stepsArrayList;
+//
+//    Recipes recipes;
+//    // Define a new interface OnImageClickListener that triggers a callback in the host activity
+//    OnStepsClickListener mCallback;
+//
+//    // OnImageClickListener interface, calls a method in the host activity named onImageSelected
+//    public interface OnStepsClickListener {
+//        void onStepSelected(int position);
+//    }
+//
+//    // Override onAttach to make sure that the container activity has implemented the callback
+//    @Override
+//    public void onAttach(Context context) {
+//        super.onAttach(context);
+//
+//        // This makes sure that the host activity has implemented the callback interface
+//        // If not, it throws an exception
+//        try {
+//            mCallback = (OnStepsClickListener) context;
+//        } catch (ClassCastException e) {
+//            throw new ClassCastException(context.toString()
+//                    + " must implement OnSTEPSClickListener");
+//        }
+//    }
+//
+//    /**
+//     * Mandatory empty constructor for the fragment manager to instantiate the fragment
+//     */
+//    public StepsFragment() {
+//    }
+//
+//    @Override
+//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+//
+//        //Inflate the Ingredients fragment layout
+//        View rootView = inflater.inflate(R.layout.fragment_steps, container, false);
+//
+//        // Bind the views
+//        ButterKnife.bind(this, rootView);
+//
+//        Bundle bundle = this.getArguments();
+//        if (bundle != null) {
+//
+//            recipes = getArguments().getParcelable("Recipes");
+//        }
+//        stepsArrayList = new ArrayList<>();
+//        stepsArrayList = recipes.getRecipeSteps();
+//        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+//        mRecyclerView.setLayoutManager(mLayoutManager);
+//        Log.i("listSteps", stepsArrayList.size() + "");
+//
+//
+//        StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
+//        mRecyclerView.setAdapter(stepsAdapter);
+//
+//        return rootView;
+//    }
+//            @Override
+//            public void onClick(int position) {
+//
+//            }
+//        });
 
-    private final String TAG = StepsFragment.class.getSimpleName();
-
-    @BindView(R.id.recyclerview_steps)
-    RecyclerView mRecyclerView;
-
-    ArrayList<Steps> stepsArrayList;
-
-    Recipes recipes;
-    // Define a new interface OnImageClickListener that triggers a callback in the host activity
-    OnStepsClickListener mCallback;
-
-    // OnImageClickListener interface, calls a method in the host activity named onImageSelected
-    public interface OnStepsClickListener {
-        void onStepSelected(int position);
-    }
-
-    // Override onAttach to make sure that the container activity has implemented the callback
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        // This makes sure that the host activity has implemented the callback interface
-        // If not, it throws an exception
-        try {
-            mCallback = (OnStepsClickListener) context;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(context.toString()
-                    + " must implement OnSTEPSClickListener");
-        }
-    }
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the fragment
-     */
-    public StepsFragment() {
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        //Inflate the Ingredients fragment layout
-        View rootView = inflater.inflate(R.layout.fragment_steps, container, false);
-
-        // Bind the views
-        ButterKnife.bind(this, rootView);
-
-        Bundle bundle = this.getArguments();
-        if (bundle != null) {
-
-            recipes = getArguments().getParcelable("Recipes");
-        }
-        stepsArrayList = new ArrayList<>();
-        stepsArrayList = recipes.getRecipeSteps();
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        Log.i("listSteps", stepsArrayList.size() + "");
-
-
-        StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
-        mRecyclerView.setAdapter(stepsAdapter);
-
-        return rootView;
-    }
-            @Override
-            public void onClick(int position) {
-
-            }
-        });
-
-
+}
 
         
