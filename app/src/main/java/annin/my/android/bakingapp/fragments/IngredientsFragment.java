@@ -86,5 +86,4 @@ public class IngredientsFragment extends Fragment {
             currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
             super.onSaveInstanceState(currentState);
         }
-
     }
