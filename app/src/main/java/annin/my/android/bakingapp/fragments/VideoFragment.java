@@ -11,20 +11,20 @@ public class VideoFragment {
     }
 
 
-    @Override
-    public void onPause() {
-        super.onPause();
-
-            releasePlayer();
-        }
-
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-            releasePlayer();
-        }
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//
+//            releasePlayer();
+//        }
+//
+//
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//
+//            releasePlayer();
+//        }
     }
 
 
