@@ -85,17 +85,19 @@ public class IngredientsFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (savedInstanceState != null) {
-            ingredientsArrayList = (ArrayList<Ingredients>) savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
+            //Restore the fragment's state here
+            ingredientsArrayList = (ArrayList<Ingredients>) savedInstanceState.getParcelable(KEY_INGREDIENTS_LIST);
                   } else {
                       ingredientsArrayList = new ArrayList<>();
                   }
 
-              i = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, mItems);
+              in = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, mItems);
               mListView.setAdapter(mAdapter);
 
     }
             @Override
             public void onSaveInstanceState (Bundle currentState){
+                //Save the fragment's state here
                 currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
                 super.onSaveInstanceState(currentState);
             }
