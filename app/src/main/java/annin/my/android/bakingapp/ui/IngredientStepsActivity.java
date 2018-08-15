@@ -2,6 +2,7 @@ package annin.my.android.bakingapp.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,31 +27,31 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            recipes = getIntent().getExtras().getParcelable("Recipes");
+        if(savedInstanceState == null) {
+            if (getIntent() != null && getIntent().getExtras() != null) {
+                recipes = getIntent().getExtras().getParcelable("Recipes");
 
-            TextView originalTitle = (TextView) findViewById(R.id.recipeView);
-            originalTitle.setText(recipes.getRecipeName());
-        }
-        sendArrayToIngredientsFragment();
-        //  sendArrayToStepsFragment();
-    }
-
-    /*
+                TextView originalTitle = (TextView) findViewById(R.id.recipeView);
+                originalTitle.setText(recipes.getRecipeName());
+        /*
     Send the ingredients array list in Parcelable to the Ingredients Fragment
      */
-    private void sendArrayToIngredientsFragment() {
-        //Pack Data in a bundle(call the bundle "ingredientsBundle" to differentiate it from the "stepsBundle"
-        Bundle ingredientsBundle = new Bundle();
-        ingredientsBundle.putParcelable("Recipes", recipes);
+                FragmentManager fragmentManager = getSupportFragmentManager();
 
-        //Pass Over the bundle to the Ingredients Fragment
-        IngredientsFragment ingredientsFragment = new IngredientsFragment();
-        ingredientsFragment.setArguments(ingredientsBundle);
+                Bundle ingredientsBundle = new Bundle();
+                ingredientsBundle.putParcelable("Recipes", recipes);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
-    }
+                //Pass Over the bundle to the Ingredients Fragment
+                IngredientsFragment ingredientsFragment = new IngredientsFragment();
+                ingredientsFragment.setArguments(ingredientsBundle);
 
+                fragmentManager.beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
+
+
+                // sendArrayToIngredientsFragment();
+                //  sendArrayToStepsFragment();
+            }
+        }}
     /*
       Send the steps array list in Parcelable to the Steps Fragment
       */
@@ -72,5 +73,11 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 //        Toast.makeText(this, "Step clicked = " + position, Toast.LENGTH_SHORT).show();
 //
 //    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
+
 
 }

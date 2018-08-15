@@ -1,5 +1,8 @@
 package annin.my.android.bakingapp.fragments;
 
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+
 public class VideoFragment {
 
     private static final String TAG = VideoFragment.class.getSimpleName();
@@ -9,7 +12,8 @@ public class VideoFragment {
      */
     public VideoFragment() {
     }
-
+    private SimpleExoPlayer mExoPlayer;
+    private SimpleExoPlayerView mPlayerView;
 
 //    @Override
 //    public void onPause() {
