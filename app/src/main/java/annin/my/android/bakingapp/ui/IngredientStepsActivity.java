@@ -27,7 +27,6 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
-        if(savedInstanceState == null) {
             if (getIntent() != null && getIntent().getExtras() != null) {
                 recipes = getIntent().getExtras().getParcelable("Recipes");
 
@@ -73,11 +72,4 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 //        Toast.makeText(this, "Step clicked = " + position, Toast.LENGTH_SHORT).show();
 //
 //    }
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
 
-    }
-
-
-}

@@ -71,13 +71,19 @@ public class IngredientsFragment extends Fragment {
 
             IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
             mRecyclerView.setAdapter(ingredientsAdapter);
-
-            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-                    DividerItemDecoration.HORIZONTAL);
-            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
-            horizontalDecoration.setDrawable(horizontalDivider);
-            mRecyclerView.addItemDecoration(horizontalDecoration);
+            mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
+                    DividerItemDecoration.HORIZONTAL));
+//            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+//                    DividerItemDecoration.HORIZONTAL);
+//            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
+//            horizontalDecoration.setDrawable(horizontalDivider);
+//            mRecyclerView.addItemDecoration(horizontalDecoration);
         }
+//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+//                mLayoutManager.getOrientation());
+//        mRecyclerView.addItemDecoration(dividerItemDecoration);
+
+
         return rootView;
     }
 
