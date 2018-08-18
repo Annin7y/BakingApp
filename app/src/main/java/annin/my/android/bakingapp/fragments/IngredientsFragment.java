@@ -65,18 +65,24 @@ public class IngredientsFragment extends Fragment {
 
             ingredientsArrayList = new ArrayList<>();
             ingredientsArrayList = recipes.getRecipeIngredients();
+
+            
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
             mRecyclerView.setLayoutManager(mLayoutManager);
             Log.i("listIngredients", ingredientsArrayList.size() + "");
 
             IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
             mRecyclerView.setAdapter(ingredientsAdapter);
-            mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
-                    DividerItemDecoration.VERTICAL));
+
+//            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
+//               mLayoutManager.getOrientation());
+//            mRecyclerView.addItemDecoration(dividerItemDecoration);
+           // mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
+             //       DividerItemDecoration.VERTICAL));
 //            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-//                    DividerItemDecoration.HORIZONTAL);
+//                    DividerItemDecoration.VERTICAL);
 //            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
-//            horizontalDecoration.setDrawable(horizontalDivider);
+//           horizontalDecoration.setDrawable(horizontalDivider);
 //            mRecyclerView.addItemDecoration(horizontalDecoration);
         }
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
