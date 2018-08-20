@@ -32,6 +32,7 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 
                 TextView originalTitle = (TextView) findViewById(R.id.recipeView);
                 originalTitle.setText(recipes.getRecipeName());
+                
         /*
     Send the ingredients array list in Parcelable to the Ingredients Fragment
      */
@@ -46,9 +47,6 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 
                 fragmentManager.beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
 
-
-                // sendArrayToIngredientsFragment();
-                //  sendArrayToStepsFragment();
             }
         }}
     /*
@@ -65,11 +63,6 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 //
 //        getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
 //    }
-//
-//    // Define the behavior for onStepSelected
-//    public void onStepSelected(int position) {
-//        // Create a Toast that displays the step that was clicked
-//        Toast.makeText(this, "Step clicked = " + position, Toast.LENGTH_SHORT).show();
-//
+
 //    }
 
