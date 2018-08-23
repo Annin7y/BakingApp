@@ -32,7 +32,7 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 
                 TextView originalTitle = (TextView) findViewById(R.id.recipeView);
                 originalTitle.setText(recipes.getRecipeName());
-                
+
         /*
     Send the ingredients array list in Parcelable to the Ingredients Fragment
      */

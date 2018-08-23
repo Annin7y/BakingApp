@@ -92,9 +92,11 @@ public class IngredientsFragment extends Fragment {
         return rootView;
     }
 
-            @Override
-            public void onSaveInstanceState (Bundle currentState){
-                //Save the fragment's state here
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        //Save the fragment's state here
                 currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
                 super.onSaveInstanceState(currentState);
             }
