@@ -73,11 +73,11 @@ public class IngredientsFragment extends Fragment {
             IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
             mRecyclerView.setAdapter(ingredientsAdapter);
 
-//            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this,
-//               mLayoutManager.getOrientation());
-//            mRecyclerView.addItemDecoration(dividerItemDecoration);
-           // mRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(),
-             //       DividerItemDecoration.VERTICAL));
+//            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+//              mLayoutManager.getOrientation());
+//             mRecyclerView.addItemDecoration(dividerItemDecoration);
+            mRecyclerView.addItemDecoration(new DividerItemDecoration(mRecyclerView.getContext(),
+                   DividerItemDecoration.VERTICAL));
 //            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
 //                    DividerItemDecoration.VERTICAL);
 //            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
@@ -93,11 +93,11 @@ public class IngredientsFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
         //Save the fragment's state here
-                currentState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
-                super.onSaveInstanceState(currentState);
+                outState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
+                super.onSaveInstanceState(outState);
             }
         }
