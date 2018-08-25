@@ -36,9 +36,6 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
             // Only create new fragments when there is no previously saved state
             if (savedInstanceState == null) {
 
-                // Only create new fragments when there is no previously saved state
-
-
         /*
         Add the fragment to its container using a FragmentManager and a Transaction
         Send the ingredients array list in Parcelable to the Ingredients Fragment
@@ -56,17 +53,16 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
                 ingredientsFragment.setArguments(ingredientsBundle);
 
                 fragmentManager.beginTransaction().add(R.id.ingredients_fragment_container, ingredientsFragment).commit();
+
+                //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
                 Bundle stepsBundle = new Bundle();
+                stepsBundle.putParcelable("Recipes", recipes);
 
-
-//stepsBundle.putParcelable("Recipes", recipes);
-//Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
-                //        //Pass Over the bundle to the Steps Fragment
+                //Pass Over the bundle to the Steps Fragment
                 StepsFragment stepsFragment = new StepsFragment();
                 stepsFragment.setArguments(stepsBundle);
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
-
+                fragmentManager.beginTransaction().add(R.id.steps_fragment_container, stepsFragment).commit();
             }
         }
     }
