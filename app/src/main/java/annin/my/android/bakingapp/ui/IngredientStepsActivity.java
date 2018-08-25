@@ -50,6 +50,9 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 
                 //Pass Over the bundle to the Ingredients Fragment
                 IngredientsFragment ingredientsFragment = new IngredientsFragment();
+                //or IngredientsFragment ingredientsFragment = (IngredientsFragment)
+                // fragmentManager.findFragmentByTag(IngredientsFagment.class.getCanonicalName());
+                // if (ingredientsFragment == null) { ingredientsFragment
                 ingredientsFragment.setArguments(ingredientsBundle);
 
                 fragmentManager.beginTransaction().add(R.id.ingredients_fragment_container, ingredientsFragment).commit();
