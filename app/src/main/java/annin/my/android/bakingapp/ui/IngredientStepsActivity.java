@@ -52,7 +52,7 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
     /*
       Send the steps array list in Parcelable to the Steps Fragment
       */
-//    private void sendArrayToStepsFragment() {
+
 //        //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
 //        Bundle stepsBundle = new Bundle();
 //        stepsBundle.putParcelable("Recipes", recipes);
