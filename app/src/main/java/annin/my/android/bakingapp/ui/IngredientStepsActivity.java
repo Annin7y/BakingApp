@@ -27,15 +27,22 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
-            if (getIntent() != null && getIntent().getExtras() != null) {
-                recipes = getIntent().getExtras().getParcelable("Recipes");
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            recipes = getIntent().getExtras().getParcelable("Recipes");
 
-                TextView originalTitle = (TextView) findViewById(R.id.recipeView);
-                originalTitle.setText(recipes.getRecipeName());
+            TextView originalTitle = (TextView) findViewById(R.id.recipeView);
+            originalTitle.setText(recipes.getRecipeName());
+
+            // Only create new fragments when there is no previously saved state
+            if (savedInstanceState == null) {
+
+                // Only create new fragments when there is no previously saved state
+
 
         /*
-    Send the ingredients array list in Parcelable to the Ingredients Fragment
-     */
+        Add the fragment to its container using a FragmentManager and a Transaction
+        Send the ingredients array list in Parcelable to the Ingredients Fragment
+        */
                 FragmentManager fragmentManager = getSupportFragmentManager();
 
                 Bundle ingredientsBundle = new Bundle();
@@ -45,24 +52,24 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
                 IngredientsFragment ingredientsFragment = new IngredientsFragment();
                 ingredientsFragment.setArguments(ingredientsBundle);
 
-                fragmentManager.beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
+                fragmentManager.beginTransaction().add(R.id.ingredients_fragment_container, ingredientsFragment).commit();
+                Bundle stepsBundle = new Bundle();
+
+
+//stepsBundle.putParcelable("Recipes", recipes);
+//Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
+                //        //Pass Over the bundle to the Steps Fragment
+                StepsFragment stepsFragment = new StepsFragment();
+                stepsFragment.setArguments(stepsBundle);
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
 
             }
-        }}
-    /*
-      Send the steps array list in Parcelable to the Steps Fragment
-      */
+        }
+    }
+}
 
-//        //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
-//        Bundle stepsBundle = new Bundle();
-//        stepsBundle.putParcelable("Recipes", recipes);
-//
-//        //Pass Over the bundle to the Steps Fragment
-//        StepsFragment stepsFragment = new StepsFragment();
-//        stepsFragment.setArguments(stepsBundle);
-//
-//        getSupportFragmentManager().beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
-//    }
 
-//    }
+
+
 
