@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
-import annin.my.android.bakingapp.fragments.StepsFragment;
+import annin.my.android.bakingapp.fragments.StepsListFragment;
 
-public class IngredientStepsActivity extends AppCompatActivity {//implements StepsFragment.OnStepsClickListener {
+public class IngredientStepsActivity extends AppCompatActivity {//implements StepsListFragment.OnStepsClickListener {
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
@@ -60,10 +59,10 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
                 stepsBundle.putParcelable("Recipes", recipes);
 
                 //Pass Over the bundle to the Steps Fragment
-                StepsFragment stepsFragment = new StepsFragment();
-                stepsFragment.setArguments(stepsBundle);
+                StepsListFragment stepsListFragment = new StepsListFragment();
+                stepsListFragment.setArguments(stepsBundle);
 
-                fragmentManager.beginTransaction().add(R.id.steps_fragment_container, stepsFragment).commit();
+                fragmentManager.beginTransaction().add(R.id.steps_fragment_container, stepsListFragment).commit();
             }
         }
     }

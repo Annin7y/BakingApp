@@ -25,9 +25,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StepsFragment extends Fragment {//implements StepsAdapter.StepsAdapterOnClickHandler {
+public class StepsListFragment extends Fragment {//implements StepsAdapter.StepsAdapterOnClickHandler {
 //
-//    private final String TAG = StepsFragment.class.getSimpleName();
+//    private final String TAG = StepsListFragment.class.getSimpleName();
 //
 //    @BindView(R.id.recyclerview_steps)
 //    RecyclerView mRecyclerView;
@@ -61,7 +61,7 @@ public class StepsFragment extends Fragment {//implements StepsAdapter.StepsAdap
 //    /**
 //     * Mandatory empty constructor for the fragment manager to instantiate the fragment
 //     */
-//    public StepsFragment() {
+//    public StepsListFragment() {
 //    }
 //
 //    @Override
