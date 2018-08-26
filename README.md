@@ -10,7 +10,7 @@ Clone or download this repository. Import into Android Studio.
 ### **Screenshots**
 ![screenshot_20180717-bakingapp](https://user-images.githubusercontent.com/22602021/42970052-394cae94-8b76-11e8-92ba-385632bbc230.jpg)
 
-![screenshot_20180825-234318](https://user-images.githubusercontent.com/22602021/44624986-48eb2e80-a8cb-11e8-9388-6222eef50c1b.jpg)
+![screenshot_20180825-234318](https://user-images.githubusercontent.com/22602021/44625381-b1d7a400-a8d5-11e8-82dd-e42f6a7b0932.jpg)
 
 ### **License**
 Copyright A. Annin and Udacity 2017/2018. This project is part of the Udacity Android Developer Nanodegree.
