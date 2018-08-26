@@ -20,6 +20,7 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 
     Recipes recipes;
 
+    // Track whether to display a two-pane or single-pane UI
     private boolean mTwoPane;
 
     @Override
