@@ -11,7 +11,7 @@ import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
 
-public class IngredientStepsActivity extends AppCompatActivity {//implements StepsListFragment.OnStepsClickListener {
+public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepsClickListener {
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
@@ -64,6 +64,10 @@ public class IngredientStepsActivity extends AppCompatActivity {//implements Ste
 
                 fragmentManager.beginTransaction().add(R.id.steps_fragment_container, stepsListFragment).commit();
             }
+        }
+        // Define the behavior for onImageSelected
+        public void onStepSelected(int position){
+
         }
     }
 }

@@ -35,10 +35,11 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     ArrayList<Steps> stepsArrayList;
 
     Recipes recipes;
-    // Define a new interface OnImageClickListener that triggers a callback in the host activity
+
+    // Define a new interface OnStepsClickListener that triggers a callback in the host activity
     OnStepsClickListener mCallback;
 
-    // OnImageClickListener interface, calls a method in the host activity named onImageSelected
+    // OnStepsClickListener interface, calls a method in the host activity named onImageSelected
     public interface OnStepsClickListener {
         void onStepSelected(int position);
     }
@@ -70,7 +71,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 //        //Inflate the Ingredients fragment layout
         View rootView = inflater.inflate(R.layout.fragment_steps, container, false);
 //        // Bind the views
-       ButterKnife.bind(this, rootView);
+        ButterKnife.bind(this, rootView);
 
         Bundle bundle = this.getArguments();
         if (bundle != null) {
@@ -87,14 +88,16 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         mRecyclerView.setAdapter(stepsAdapter);
 
         mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-            // Trigger the callback method and pass in the position that was clicked
-            mCallback.onStepSelected(position);
-        }
-    });
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                // Trigger the callback method and pass in the position that was clicked
+                mCallback.onStepSelected(position);
+
+
+            }
+        });
         return rootView;
 
+    }
 }
-
         
