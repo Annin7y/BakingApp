@@ -35,7 +35,7 @@ public class IngredientsFragment extends Fragment {
 
     // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
-    
+
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */

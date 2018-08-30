@@ -52,7 +52,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 // if (ingredientsFragment == null) { ingredientsFragment
                 ingredientsFragment.setArguments(ingredientsBundle);
 
-                fragmentManager.beginTransaction().add(R.id.ingredients_fragment_container, ingredientsFragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
 
                 //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
                 Bundle stepsBundle = new Bundle();
@@ -62,7 +62,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 StepsListFragment stepsListFragment = new StepsListFragment();
                 stepsListFragment.setArguments(stepsBundle);
 
-                fragmentManager.beginTransaction().add(R.id.steps_fragment_container, stepsListFragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
             }
         }
         // Define the behavior for onImageSelected

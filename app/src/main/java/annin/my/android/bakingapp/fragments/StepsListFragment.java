@@ -68,7 +68,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-//        //Inflate the Ingredients fragment layout
+//        //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_steps, container, false);
 //        // Bind the views
         ButterKnife.bind(this, rootView);
@@ -87,7 +87,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
         mRecyclerView.setAdapter(stepsAdapter);
 
-        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       // mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 // Trigger the callback method and pass in the position that was clicked
