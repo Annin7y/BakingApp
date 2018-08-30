@@ -66,6 +66,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
             }
         }
         // Define the behavior for onImageSelected
+        @Override
         public void onStepSelected(int position){
 
         }

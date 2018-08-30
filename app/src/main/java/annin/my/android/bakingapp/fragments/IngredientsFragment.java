@@ -35,11 +35,7 @@ public class IngredientsFragment extends Fragment {
 
     // Final Strings to store state information about the list of ingredients and list index
     private static final String KEY_INGREDIENTS_LIST = "ingredients_list";
-
-    // Track whether to display a two-pane or single-pane UI
-    // A single-pane display refers to phone screens, and two-pane to larger tablet screens
-    private boolean mTwoPane;
-
+    
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */

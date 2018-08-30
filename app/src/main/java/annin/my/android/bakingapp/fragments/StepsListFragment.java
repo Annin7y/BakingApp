@@ -39,7 +39,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     // Define a new interface OnStepsClickListener that triggers a callback in the host activity
     OnStepsClickListener mCallback;
 
-    // OnStepsClickListener interface, calls a method in the host activity named onImageSelected
+    // OnStepsClickListener interface, calls a method in the host activity named onStepSelected
     public interface OnStepsClickListener {
         void onStepSelected(int position);
     }
