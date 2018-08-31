@@ -11,7 +11,7 @@ import annin.my.android.bakingapp.custom.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
 
-public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepsClickListener {
+public class IngredientStepsActivity extends AppCompatActivity{ //implements StepsListFragment.OnStepsClickListener {
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
@@ -57,19 +57,19 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
                 Bundle stepsBundle = new Bundle();
                 stepsBundle.putParcelable("Recipes", recipes);
-
+            }}
                 //Pass Over the bundle to the Steps Fragment
-                StepsListFragment stepsListFragment = new StepsListFragment();
-                stepsListFragment.setArguments(stepsBundle);
+//                StepsListFragment stepsListFragment = new StepsListFragment();
+//                stepsListFragment.setArguments(stepsBundle);
+//
+//                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
+//            }
+//        }
 
-                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-            }
-        }
-        // Define the behavior for onImageSelected
-        @Override
-        public void onStepSelected(int position){
-
-        }
+//        @Override
+//        public void onStepSelected(int position){
+//
+//        }
     }
 }
 
