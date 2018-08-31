@@ -30,8 +30,8 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
         if (getIntent() != null && getIntent().getExtras() != null) {
             recipes = getIntent().getExtras().getParcelable("Recipes");
 
-            TextView originalTitle = (TextView) findViewById(R.id.recipeView);
-            originalTitle.setText(recipes.getRecipeName());
+//            TextView originalTitle = (TextView) findViewById(R.id.recipeView);
+//            originalTitle.setText(recipes.getRecipeName());
 
             // Only create new fragments when there is no previously saved state
             if (savedInstanceState == null) {
