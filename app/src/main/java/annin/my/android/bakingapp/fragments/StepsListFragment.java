@@ -83,7 +83,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-        StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList);
+        StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList,this);
         mRecyclerView.setAdapter(stepsAdapter);
 
 
@@ -93,6 +93,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 }
 
     @Override
-    public void onClick(Recipes recipes) {
+    public void onClick(Steps steps) {
+        mCallback.onStepSelected(position);
 }}
         
