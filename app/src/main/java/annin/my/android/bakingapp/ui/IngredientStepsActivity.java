@@ -63,10 +63,10 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
             }
         }
 
-//        @Override
-//        public void onStepSelected(int position){
-//
-//        }
+       @Override
+       public void onStepSelected(int position){
+
+        }
     }
 }
 

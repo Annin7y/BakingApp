@@ -82,7 +82,6 @@ public class IngredientsFragment extends Fragment {
 
             //the vertical divider
 
-
            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mIngredientRecyclerView.getContext(),
                    DividerItemDecoration.VERTICAL);
             Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
