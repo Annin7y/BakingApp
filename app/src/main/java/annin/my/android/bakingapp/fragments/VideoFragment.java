@@ -30,11 +30,12 @@ public class VideoFragment extends Fragment {
         //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
 
-        mPlayerView = (SimpleExoPlayerView) findViewById(R.id.playerView);
+        mPlayerView = (SimpleExoPlayerView) rootView.findViewById(R.id.playerView);
 
-
-
-
+        // Return the root view
+        return rootView;
+    }
+}
 //    @Override
 //    public void onPause() {
 //        super.onPause();
@@ -49,7 +50,7 @@ public class VideoFragment extends Fragment {
 //
 //            releasePlayer();
 //        }
-    }
+
 
 
 

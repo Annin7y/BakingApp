@@ -33,6 +33,9 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 
     Recipes recipes;
 
+    public static final String STEPS_LIST_INDEX = "list_index";
+
+
     // Define a new interface OnStepsClickListener that triggers a callback in the host activity
     OnStepClickListener mCallback;
 

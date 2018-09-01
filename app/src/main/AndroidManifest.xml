@@ -27,6 +27,14 @@
                 android:value="annin.my.android.bakingapp.ui.MainActivity" />
         </activity>
 
+        <activity
+            android:name="annin.my.android.bakingapp.ui.VideoPhoneActivity"
+            android:parentActivityName="annin.my.android.bakingapp.ui.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="annin.my.android.bakingapp.ui.MainActivity" />
+        </activity>
+
         <receiver android:name=".widget.RecipeWidgetProvider">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -36,7 +44,6 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/recipe_widget_provider_info" />
         </receiver>
-
 
     </application>
 
