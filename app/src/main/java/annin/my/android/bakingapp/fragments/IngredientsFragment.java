@@ -27,7 +27,7 @@ public class IngredientsFragment extends Fragment {
     private static final String TAG = IngredientsFragment.class.getSimpleName();
 
     @BindView(R.id.recyclerview_ingredients)
-    RecyclerView mRecyclerView;
+    RecyclerView mIngredientRecyclerView;
 
     ArrayList<Ingredients> ingredientsArrayList;
 
@@ -67,21 +67,26 @@ public class IngredientsFragment extends Fragment {
                 ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);}
 
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-            mRecyclerView.setLayoutManager(mLayoutManager);
+            mIngredientRecyclerView.setLayoutManager(mLayoutManager);
             Log.i("listIngredients", ingredientsArrayList.size() + "");
 
             IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList,getContext());
-            mRecyclerView.setAdapter(ingredientsAdapter);
+            mIngredientRecyclerView.setAdapter(ingredientsAdapter);
 
 //            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
 //              mLayoutManager.getOrientation());
 //             mRecyclerView.addItemDecoration(dividerItemDecoration);
-            mRecyclerView.addItemDecoration(new DividerItemDecoration(mRecyclerView.getContext(),
-                   DividerItemDecoration.VERTICAL));
-//            DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-//                    DividerItemDecoration.VERTICAL);
-//            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
-//           horizontalDecoration.setDrawable(horizontalDivider);
+        //    mIngredientRecyclerView.addItemDecoration(new DividerItemDecoration(mIngredientRecyclerView.getContext(),
+                //   DividerItemDecoration.VERTICAL));
+            //specifying the space between images
+
+            //the vertical divider
+
+
+           DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mIngredientRecyclerView.getContext(),
+                   DividerItemDecoration.VERTICAL);
+            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
+           horizontalDecoration.setDrawable(horizontalDivider);
 //            mRecyclerView.addItemDecoration(horizontalDecoration);
         }
 //        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),

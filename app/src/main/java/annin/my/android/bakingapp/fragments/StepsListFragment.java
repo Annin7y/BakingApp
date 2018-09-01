@@ -83,15 +83,13 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList);
         mRecyclerView.setAdapter(stepsAdapter);
 
-        mRecyclerView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                // Trigger the callback method and pass in the position that was clicked
-                mCallback.onStepSelected(position);
-            }
-        });
+
 
         // Return the root view
         return rootView;
+}
+
+    @Override
+    public void onClick(Recipes recipes) {
 }}
         
