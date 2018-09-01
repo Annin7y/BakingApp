@@ -19,12 +19,14 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     private static final String TAG = IngredientsAdapter.class.getSimpleName();
 
     private ArrayList<Ingredients> ingredientsList = new ArrayList<Ingredients>();
+    private Context context;
 
     /**
      * Creates an Ingredients Adapter.
      */
-    public IngredientsAdapter(ArrayList<Ingredients> ingredientsList) {
+    public IngredientsAdapter(ArrayList<Ingredients> ingredientsList,Context context) {
         this.ingredientsList = ingredientsList;
+        this.context = context;
     }
 
     /**

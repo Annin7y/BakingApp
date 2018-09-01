@@ -24,7 +24,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
      * The interface that receives onClick messages.
      */
     public interface StepsAdapterOnClickHandler {
-        void onClick(Steps textClick);
+        void onClick(Steps stepClick);
     }
 
     /**
@@ -33,9 +33,9 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
      * @param clickHandler The on-click handler for this adapter. This single handler is called
      *                     when an item is clicked.
      */
-    public StepsAdapter(StepsAdapter.StepsAdapterOnClickHandler clickHandler, ArrayList<Steps> stepsList) {
-        this.stepsList = stepsList;
+    public StepsAdapter(StepsAdapterOnClickHandler clickHandler,ArrayList<Steps> stepsList) {
         mClickHandler = clickHandler;
+        this.stepsList = stepsList;
     }
 
     /**
@@ -54,6 +54,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
             ButterKnife.bind(this, view);
             view.setOnClickListener(this);
         }
+
         /**
          * This gets called by the child views during a click.
          *
@@ -77,7 +78,6 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
         return new StepsAdapter.StepsAdapterViewHolder(view);
     }
 
-
     @Override
     public void onBindViewHolder(StepsAdapter.StepsAdapterViewHolder holder, int position) {
 
@@ -86,13 +86,10 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
 
         holder.stepShortDescription.setText(stepsView.getStepShortDescription());
         holder.stepDescription.setText(stepsView.getStepDescription());
-
-        }
+    }
 
     @Override
-    public int getItemCount()
-
-    {
+    public int getItemCount() {
         return stepsList.size();
     }
 

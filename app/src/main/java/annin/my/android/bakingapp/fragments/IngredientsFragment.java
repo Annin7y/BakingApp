@@ -70,7 +70,7 @@ public class IngredientsFragment extends Fragment {
             mRecyclerView.setLayoutManager(mLayoutManager);
             Log.i("listIngredients", ingredientsArrayList.size() + "");
 
-            IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList);
+            IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList,getContext());
             mRecyclerView.setAdapter(ingredientsAdapter);
 
 //            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),

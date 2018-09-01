@@ -24,7 +24,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
 
     private ArrayList<Recipes> recipesList = new ArrayList<Recipes>();
     private Context context;
-    private RecipesAdapterOnClickHandler mClickHandler;
+    private RecipesAdapterOnClickHandler mRecipeClickHandler;
     public static final int IMAGE_HEIGHT = 185;
     public static final int IMAGE_WIDTH = 50;
 
@@ -32,19 +32,19 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      * The interface that receives onClick messages.
      */
     public interface RecipesAdapterOnClickHandler {
-        void onClick(Recipes imageClick);
+        void onClick(Recipes imageRecipeClick);
     }
 
     /**
      * Creates a RecipesAdapter.
      *
-     * @param clickHandler The on-click handler for this adapter. This single handler is called
+     * @param recipeClickHandler The on-click handler for this adapter. This single handler is called
      *                     when an item is clicked.
      */
-    public RecipesAdapter(RecipesAdapterOnClickHandler clickHandler, ArrayList<Recipes> recipesList, Context context) {
+    public RecipesAdapter(RecipesAdapterOnClickHandler recipeClickHandler, ArrayList<Recipes> recipesList, Context context) {
+        mRecipeClickHandler = recipeClickHandler;
         this.recipesList = recipesList;
         this.context = context;
-        mClickHandler = clickHandler;
     }
 
     /**
@@ -74,8 +74,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         @Override
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
-            Recipes recipeClick = recipesList.get(adapterPosition);
-            mClickHandler.onClick(recipeClick);
+            Recipes imageRecipeClick = recipesList.get(adapterPosition);
+            mRecipeClickHandler.onClick(imageRecipeClick);
         }
     }
 

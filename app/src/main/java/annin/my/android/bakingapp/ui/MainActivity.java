@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @BindView(R.id.recyclerview_main)
-    RecyclerView mRecyclerView;
+    RecyclerView mRecipeRecyclerView;
 
     private RecipesAdapter recipesAdapter;
 
@@ -57,11 +57,11 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         mCoordinatorLayout = findViewById(R.id.coordinatorLayout);
 
         recipesAdapter = new RecipesAdapter(this, recipesArrayList, context);
-        mRecyclerView.setAdapter(recipesAdapter);
+        mRecipeRecyclerView.setAdapter(recipesAdapter);
 
         //specifying how the images will be displayed
         RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(context, calculateNoOfColumns(context));
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecipeRecyclerView.setLayoutManager(mLayoutManager);
 
         /*
          *  Starting the asyncTask so that recipes load upon launching the app.
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         if (null != simpleJsonRecipeData) {
             recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, MainActivity.this);
             recipesArrayList = simpleJsonRecipeData;
-            mRecyclerView.setAdapter(recipesAdapter);
+            mRecipeRecyclerView.setAdapter(recipesAdapter);
             recipesAdapter.setRecipesList(recipesArrayList);
         } else {
             showErrorMessage();
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
                 .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Retry", new MyClickListener())
                 .show();
-        mRecyclerView.setVisibility(View.INVISIBLE);
+        mRecipeRecyclerView.setVisibility(View.INVISIBLE);
         mLoadingIndicator.setVisibility(View.VISIBLE);
     }
 

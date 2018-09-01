@@ -30,7 +30,6 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
         if (getIntent() != null && getIntent().getExtras() != null) {
             recipes = getIntent().getExtras().getParcelable("Recipes");
 
-
             // Only create new fragments when there is no previously saved state
             if (savedInstanceState == null) {
 
@@ -55,14 +54,14 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
                 //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
                 Bundle stepsBundle = new Bundle();
                 stepsBundle.putParcelable("Recipes", recipes);
-            }}
-                //Pass Over the bundle to the Steps Fragment
-//                StepsListFragment stepsListFragment = new StepsListFragment();
-//                stepsListFragment.setArguments(stepsBundle);
-//
-//                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-//            }
-//        }
+
+              //Pass Over the bundle to the Steps Fragment
+               StepsListFragment stepsListFragment = new StepsListFragment();
+                stepsListFragment.setArguments(stepsBundle);
+
+                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
+            }
+        }
 
 //        @Override
 //        public void onStepSelected(int position){
