@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.asynctask.AsyncTaskInterface;
 import annin.my.android.bakingapp.asynctask.RecipesAsyncTask;
-import annin.my.android.bakingapp.custom.Recipes;
+import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
 import annin.my.android.bakingapp.utils.NetworkUtils;
 import butterknife.BindView;

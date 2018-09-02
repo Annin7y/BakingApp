@@ -18,9 +18,9 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
-import annin.my.android.bakingapp.custom.Ingredients;
-import annin.my.android.bakingapp.custom.Recipes;
-import annin.my.android.bakingapp.custom.Steps;
+import annin.my.android.bakingapp.model.Ingredients;
+import annin.my.android.bakingapp.model.Recipes;
+import annin.my.android.bakingapp.model.Steps;
 
 import static android.content.ContentValues.TAG;
 

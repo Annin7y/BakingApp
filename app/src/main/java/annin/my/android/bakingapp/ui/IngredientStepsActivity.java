@@ -4,10 +4,9 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.TextView;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.custom.Recipes;
+import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
 

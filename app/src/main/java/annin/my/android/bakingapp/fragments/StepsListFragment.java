@@ -1,6 +1,5 @@
 package annin.my.android.bakingapp.fragments;
 
-import android.content.ClipData;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,13 +9,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.custom.Recipes;
-import annin.my.android.bakingapp.custom.Steps;
+import annin.my.android.bakingapp.model.Recipes;
+import annin.my.android.bakingapp.model.Steps;
 import annin.my.android.bakingapp.recyclerviewadapters.StepsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
