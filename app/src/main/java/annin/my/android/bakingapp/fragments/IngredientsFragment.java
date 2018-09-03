@@ -1,9 +1,7 @@
 package annin.my.android.bakingapp.fragments;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -17,7 +15,6 @@ import annin.my.android.bakingapp.decoration.VerticalSpacingDecoration;
 import annin.my.android.bakingapp.model.Ingredients;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
-import annin.my.android.bakingapp.decoration.DividerItemDecoration;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
