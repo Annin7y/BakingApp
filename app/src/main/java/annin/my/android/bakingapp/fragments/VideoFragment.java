@@ -14,6 +14,7 @@ import butterknife.BindView;
 
 public class VideoFragment extends Fragment {
 
+    // Tag for logging
     private static final String TAG = VideoFragment.class.getSimpleName();
 
     /**

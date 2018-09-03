@@ -4,20 +4,20 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
+import annin.my.android.bakingapp.decoration.VerticalSpacingDecoration;
 import annin.my.android.bakingapp.model.Ingredients;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
+import annin.my.android.bakingapp.decoration.DividerItemDecoration;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -64,34 +64,18 @@ public class IngredientsFragment extends Fragment {
 
             if (savedInstanceState != null) {
                 //Restore the fragment's state here
-                ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);}
+                ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
+            }
 
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
             mIngredientRecyclerView.setLayoutManager(mLayoutManager);
             Log.i("listIngredients", ingredientsArrayList.size() + "");
 
-            IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList,getContext());
+            IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, getContext());
             mIngredientRecyclerView.setAdapter(ingredientsAdapter);
 
-//            DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-//              mLayoutManager.getOrientation());
-//             mRecyclerView.addItemDecoration(dividerItemDecoration);
-        //    mIngredientRecyclerView.addItemDecoration(new DividerItemDecoration(mIngredientRecyclerView.getContext(),
-                //   DividerItemDecoration.VERTICAL));
-            //specifying the space between images
-
-            //the vertical divider
-
-           DividerItemDecoration horizontalDecoration = new DividerItemDecoration(mIngredientRecyclerView.getContext(),
-                   DividerItemDecoration.VERTICAL);
-            Drawable horizontalDivider = ContextCompat.getDrawable(getActivity(), R.drawable.item_decorator);
-           horizontalDecoration.setDrawable(horizontalDivider);
-//            mRecyclerView.addItemDecoration(horizontalDecoration);
+            mIngredientRecyclerView.addItemDecoration(new VerticalSpacingDecoration(25));
         }
-//        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
-//                mLayoutManager.getOrientation());
-//        mRecyclerView.addItemDecoration(dividerItemDecoration);
-
 
         return rootView;
     }
@@ -101,7 +85,7 @@ public class IngredientsFragment extends Fragment {
         super.onSaveInstanceState(outState);
 
         //Save the fragment's state here
-                outState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
-                super.onSaveInstanceState(outState);
-            }
-        }
+        outState.putParcelableArrayList(KEY_INGREDIENTS_LIST, ingredientsArrayList);
+        super.onSaveInstanceState(outState);
+    }
+}

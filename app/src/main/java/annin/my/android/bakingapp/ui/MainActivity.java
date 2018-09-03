@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.asynctask.AsyncTaskInterface;
 import annin.my.android.bakingapp.asynctask.RecipesAsyncTask;
+import annin.my.android.bakingapp.decoration.VerticalSpacingDecoration;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
 import annin.my.android.bakingapp.utils.NetworkUtils;
@@ -80,6 +81,10 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
             recipesArrayList = savedInstanceState.getParcelableArrayList(KEY_RECIPES_LIST);
             recipesAdapter.setRecipesList(recipesArrayList);
         }
+
+        //specifying the space between images
+        mRecipeRecyclerView.addItemDecoration(new VerticalSpacingDecoration(10));
+
         mLoadingIndicator.setVisibility(View.INVISIBLE);
         Log.i("list", recipesArrayList.size() + "");
     }

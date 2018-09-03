@@ -43,8 +43,8 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
 
                 //Pass Over the bundle to the Ingredients Fragment
                 IngredientsFragment ingredientsFragment = new IngredientsFragment();
-                //or IngredientsFragment ingredientsFragment = (IngredientsFragment)
-                // fragmentManager.findFragmentByTag(IngredientsFagment.class.getCanonicalName());
+//                IngredientsFragment ingredientsFragment = (IngredientsFragment)
+//                fragmentManager.findFragmentByTag(IngredientsFragment.class.getCanonicalName());
                 // if (ingredientsFragment == null) { ingredientsFragment
                 ingredientsFragment.setArguments(ingredientsBundle);
 
@@ -55,19 +55,19 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
                 stepsBundle.putParcelable("Recipes", recipes);
 
               //Pass Over the bundle to the Steps Fragment
-               StepsListFragment stepsListFragment = new StepsListFragment();
-                stepsListFragment.setArguments(stepsBundle);
+//               StepsListFragment stepsListFragment = new StepsListFragment();
+//                stepsListFragment.setArguments(stepsBundle);
+//
+//                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
+//            }
+        }}}}
 
-                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-            }
-        }
+//       @Override
+//       public void onStepSelected(int position){
+//
+//        }
+//    }
 
-       @Override
-       public void onStepSelected(int position){
-
-        }
-    }
-}
 
 
 

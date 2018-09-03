@@ -18,7 +18,8 @@
         android:id="@+id/recyclerview_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        />
 
     <ProgressBar
         android:id="@+id/pb_loading_indicator"

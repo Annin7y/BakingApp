@@ -12,17 +12,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginStart="80dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="36dp"
         tools:text="@string/ingredient_quantity" />
 
     <TextView
         android:id="@+id/ingredient_measure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="36dp"
         android:textSize="15sp"
+        android:layout_marginLeft="32dp"
         app:layout_constraintLeft_toLeftOf="@+id/ingredient_quantity"
         tools:text="@string/ingredient_measure" />
 

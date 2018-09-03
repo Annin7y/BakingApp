@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 
 public class StepsListFragment extends Fragment implements StepsAdapter.StepsAdapterOnClickHandler {
 
+    // Tag for logging
     private final String TAG = StepsListFragment.class.getSimpleName();
 
     @BindView(R.id.recyclerview_steps)
@@ -31,6 +32,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 
     Recipes recipes;
 
+    // Final Strings to store state information about the list of steps and list index
     public static final String STEPS_LIST_INDEX = "list_index";
 
 
