@@ -18,23 +18,23 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
 
     private static final String TAG = StepsAdapter.class.getSimpleName();
     private ArrayList<Steps> stepsList = new ArrayList<Steps>();
-    private StepsAdapter.StepsAdapterOnClickHandler mClickHandler;
+    private StepsAdapter.StepsAdapterOnClickListener mClickListener;
 
     /**
      * The interface that receives onClick messages.
      */
-    public interface StepsAdapterOnClickHandler {
-        void onClick(Steps stepClick);
+    public interface StepsAdapterOnClickListener{
+        void onClick(int position);
     }
 
     /**
      * Creates a StepsAdapter.
      *
-     * @param clickHandler The on-click handler for this adapter. This single handler is called
+     * @param clickListener The on-click listener for this adapter. This single listener is called
      *                     when an item is clicked.
      */
-    public StepsAdapter(StepsAdapterOnClickHandler clickHandler,ArrayList<Steps> stepsList) {
-        mClickHandler = clickHandler;
+    public StepsAdapter(StepsAdapterOnClickListener clickListener,ArrayList<Steps> stepsList) {
+        mClickListener = clickListener;
         this.stepsList = stepsList;
     }
 
@@ -52,7 +52,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
         public StepsAdapterViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-            view.setOnClickListener(this);
+            this.listener.recyclerviewClick(getAdapterPosition());
+
         }
 
         /**

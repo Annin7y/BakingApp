@@ -29,6 +29,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements RecipesAdapter.RecipesAdapterOnClickHandler, AsyncTaskInterface {
 
+    // Tag for logging
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @BindView(R.id.recyclerview_main)
