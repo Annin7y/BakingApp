@@ -9,31 +9,25 @@
 
     <TextView
         android:id="@+id/ingredient_quantity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
+        style="@style/FragmentIngredientListStyle"
         android:layout_marginLeft="36dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="7dp"
         tools:text="@string/ingredient_quantity" />
 
     <TextView
         android:id="@+id/ingredient_measure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
+        style="@style/FragmentIngredientListStyle"
         android:layout_marginLeft="32dp"
         app:layout_constraintLeft_toLeftOf="@+id/ingredient_quantity"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="7dp"
         tools:text="@string/ingredient_measure" />
 
     <TextView
         android:id="@+id/ingredient_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/FragmentIngredientListStyle"
         android:layout_marginLeft="36dp"
-        android:textSize="15sp"
         app:layout_constraintTop_toBottomOf="@+id/ingredient_quantity"
         tools:text="@string/ingredient_name" />
 

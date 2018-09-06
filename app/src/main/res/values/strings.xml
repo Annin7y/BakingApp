@@ -5,4 +5,5 @@
     <string name="ingredient_quantity">5</string>
     <string name="ingredient_measure">cup</string>
     <string name="ingredient_name">Nutella</string>
+    <string name="ingredients">Ingredients</string>
 </resources>

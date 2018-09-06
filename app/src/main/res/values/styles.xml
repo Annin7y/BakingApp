@@ -9,4 +9,19 @@
         <!-- TextView padding and size in activity_ingredientsteps -->
     </style>
 
+    <!-- Ingredient & Steps Title Theme -->
+    <style name="FragmentTitleStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textAppearance">?android:textAppearanceLarge</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <!-- Ingredient List Theme -->
+    <style name="FragmentIngredientListStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textSize">15sp</item>
+    </style>
 </resources>

@@ -3,4 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- Ingredient title text color. -->
+    <color name="ingredientTextColor">#120c68</color>
+
+    <!-- Steps short description title text color. -->
+    <color name="stepsShortTextColor">#680c3a</color>
+
 </resources>

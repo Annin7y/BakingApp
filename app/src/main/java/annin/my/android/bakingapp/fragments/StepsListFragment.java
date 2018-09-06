@@ -20,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class StepsListFragment extends Fragment implements StepsAdapter.StepsAdapterOnClickHandler {
+public class StepsListFragment extends Fragment implements StepsAdapter.StepsAdapterOnClickListener {
 
     // Tag for logging
     private final String TAG = StepsListFragment.class.getSimpleName();
