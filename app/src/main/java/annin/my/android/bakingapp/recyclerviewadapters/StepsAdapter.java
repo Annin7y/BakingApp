@@ -52,7 +52,7 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
         public StepsAdapterViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
-            this.listener.recyclerviewClick(getAdapterPosition());
+            this.clistener.recyclerviewClick(getAdapterPosition());
 
         }
 
