@@ -87,6 +87,12 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
 
         holder.stepShortDescription.setText(stepsView.getStepShortDescription());
         holder.stepDescription.setText(stepsView.getStepDescription());
+       // holder.myTextView.setOnClickListener(new View.OnClickListener() {
+         //   @Override
+        //    public void onClick(View v) {
+           //     listener.handleClick(position);
+        //    }
+      //  });
     }
 
     @Override
