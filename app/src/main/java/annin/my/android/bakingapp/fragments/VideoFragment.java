@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 
 import annin.my.android.bakingapp.R;
@@ -37,6 +39,13 @@ public class VideoFragment extends Fragment {
         return rootView;
     }
 }
+
+
+// private void initializePlayer(){
+//TrackSelector trackSelector = new DefaultTrackSelector();
+//  LoadControl loadControl = new DefaultLoadControl();
+
+      //  mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
 //    @Override
 //    public void onPause() {
 //        super.onPause();
