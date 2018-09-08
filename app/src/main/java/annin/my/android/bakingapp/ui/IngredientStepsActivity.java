@@ -43,14 +43,11 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
 
                 //Pass Over the bundle to the Ingredients Fragment
                 IngredientsFragment ingredientsFragment = new IngredientsFragment();
-//                IngredientsFragment ingredientsFragment = (IngredientsFragment)
-//                fragmentManager.findFragmentByTag(IngredientsFragment.class.getCanonicalName());
-                // if (ingredientsFragment == null) { ingredientsFragment
                 ingredientsFragment.setArguments(ingredientsBundle);
 
                 fragmentManager.beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
 
-                //Pack Data in a bundle(call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
+                //Pack Data in a bundle call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
                 Bundle stepsBundle = new Bundle();
                 stepsBundle.putParcelable("Recipes", recipes);
 

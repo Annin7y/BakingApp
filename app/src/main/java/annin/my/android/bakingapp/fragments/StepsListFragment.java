@@ -87,7 +87,6 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
       //  mRecyclerView.setAdapter(stepsAdapter);
 
 
-
         // Return the root view
         return rootView;
 }
