@@ -52,17 +52,13 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
                 stepsBundle.putParcelable("Recipes", recipes);
 
               //Pass Over the bundle to the Steps Fragment
-//               StepsListFragment stepsListFragment = new StepsListFragment();
-//                stepsListFragment.setArguments(stepsBundle);
-//
-//                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-//            }
+                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
         }}}}
 
-//       @Override
-//       public void onStepSelected(int position){
-//
-//        }
+       @Override
+       public void onStepSelected(int position){
+
+        }
 //    }
 
 
