@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -83,16 +84,19 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
-      //  StepsAdapter stepsAdapter = new StepsAdapter(stepsArrayList,this);
-      //  mRecyclerView.setAdapter(stepsAdapter);
+        StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
+        mRecyclerView.setAdapter(stepsAdapter);
+
+        mRecyclerView.setOnClickListener(new View.OnClickListener(AdapterView < ? > adapterView, View view,
+        int position, long l){
+
+            mCallback.onStepSelected(position);
 
 
+        });
+    
         // Return the root view
         return rootView;
 }
-
-    @Override
-    public void onClick(Steps steps) {
-        mCallback.onStepSelected(position);
-}}
+}
         
