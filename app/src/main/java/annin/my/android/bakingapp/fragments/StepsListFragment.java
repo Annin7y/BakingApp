@@ -93,6 +93,6 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 
     @Override
     public void onClick(Steps steps) {
-       // mCallback.onStepSelected(position);
+        mCallback.onStepSelected(position);
 }}
         

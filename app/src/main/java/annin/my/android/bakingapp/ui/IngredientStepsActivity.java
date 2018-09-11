@@ -10,7 +10,7 @@ import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
 
-public class IngredientStepsActivity extends AppCompatActivity{ //implements StepsListFragment.OnStepsClickListener {
+public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepClickListener {
 
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
@@ -52,14 +52,17 @@ public class IngredientStepsActivity extends AppCompatActivity{ //implements Ste
                 stepsBundle.putParcelable("Recipes", recipes);
 
               //Pass Over the bundle to the Steps Fragment
-                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsFragment).commit();
-        }}}}
+                StepsListFragment stepsListFragment = new StepsListFragment();
+                stepsListFragment.setArguments(stepsBundle);
+
+                fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
+        }}}
 
        @Override
        public void onStepSelected(int position){
 
         }
-//    }
+  }
 
 
 
