@@ -42,7 +42,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 
     // OnStepsClickListener interface, calls a method in the host activity named onStepSelected
     public interface OnStepClickListener {
-        void onStepSelected(int position);
+        void onClick(Steps stepClick);
     }
 
     // Override onAttach to make sure that the container activity has implemented the callback
@@ -99,5 +99,10 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         // Return the root view
         return rootView;
 }
+
+public void onClick(Steps stepClick){
+        mCallback.onClick(stepClick);
+}
+
 }
         
