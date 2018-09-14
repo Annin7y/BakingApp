@@ -59,7 +59,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         }}}
 
        @Override
-       public void onStepSelected(int position){
+       public void onClick(int position){
 
         }
   }
