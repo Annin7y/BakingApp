@@ -75,7 +75,13 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         }
   }
 
-
+//    @Override
+//    public void handleClick(int position) {
+//        if (isTablet()) {
+//            replaceFragment(position);
+//        }else{
+//            launchDetailActivity(position);
+//        }
 
 
 
