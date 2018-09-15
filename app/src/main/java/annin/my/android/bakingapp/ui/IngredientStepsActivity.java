@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import annin.my.android.bakingapp.R;
+import annin.my.android.bakingapp.fragments.VideoFragment;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
@@ -60,7 +61,11 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 
        @Override
        public void onClick(int position){
-if 
+           if (mTwoPane) {
+              VideoFragment videoFragment = new VideoFragment();
+
+
+           }
         }
   }
 

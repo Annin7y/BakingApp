@@ -96,5 +96,12 @@ public void onClick(Steps stepClick){
         mCallback.onClick(stepClick);
 }
 
-}
-        
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        //Save the fragment's state here
+        outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
+        super.onSaveInstanceState(outState);
+    }  }

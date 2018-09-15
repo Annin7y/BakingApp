@@ -46,7 +46,7 @@ public class VideoFragment extends Fragment {
 //  LoadControl loadControl = new DefaultLoadControl();
 //mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
  //       mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
-  //      String userAgent = Util.getUserAgent(getContext(), "Baking App");
+  //      String userAgent = Util.getUserAgent(getContext(), "BakingApp");
   //      MediaSource mediaSource = new ExtractorMediaSource(videoURL,
    //     new DefaultDataSourceFactory(getContext(), userAgent),
     //    new DefaultExtractorsFactory(), null, null);
