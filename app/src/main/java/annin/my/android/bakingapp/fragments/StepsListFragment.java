@@ -80,13 +80,19 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         }
         stepsArrayList = new ArrayList<>();
         stepsArrayList = recipes.getRecipeSteps();
+
+        if (savedInstanceState != null) {
+            //Restore the fragment's state here
+            stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
+        }
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
         Log.i("listSteps", stepsArrayList.size() + "");
 
         StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
         mRecyclerView.setAdapter(stepsAdapter);
-        
+
         // Return the root view
         return rootView;
 }
