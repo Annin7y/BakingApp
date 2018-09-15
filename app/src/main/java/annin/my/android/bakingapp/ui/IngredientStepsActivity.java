@@ -69,7 +69,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                args.putParcelable("ARGUMENTS", stepClick);
                VideoFragment videoFragment = new VideoFragment();
                videoFragment.setArguments(args);
-               getSupportFragmentManager().beginTransaction().replace(R.id.detailContainer, detailFragment).commit();
+               getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
 
            }
         }

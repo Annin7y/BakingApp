@@ -59,7 +59,6 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         }
     }
 
-//
    /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
