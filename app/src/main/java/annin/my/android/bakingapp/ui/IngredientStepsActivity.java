@@ -60,7 +60,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 
        @Override
        public void onClick(int position){
-
+if 
         }
   }
 
