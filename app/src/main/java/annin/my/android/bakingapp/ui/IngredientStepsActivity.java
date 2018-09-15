@@ -70,6 +70,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                VideoFragment videoFragment = new VideoFragment();
                videoFragment.setArguments(args);
                getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
+           }
+           else {
 
            }
         }
