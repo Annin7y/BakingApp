@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import java.util.ArrayList;
 
@@ -59,6 +58,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
                     + " must implement OnStepSelectedListener");
         }
     }
+
 //
    /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
@@ -86,8 +86,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 
         StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
         mRecyclerView.setAdapter(stepsAdapter);
-
-
+        
         // Return the root view
         return rootView;
 }
@@ -95,7 +94,6 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 public void onClick(Steps stepClick){
         mCallback.onClick(stepClick);
 }
-
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
