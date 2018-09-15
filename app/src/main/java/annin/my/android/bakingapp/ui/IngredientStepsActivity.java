@@ -4,12 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
+import annin.my.android.bakingapp.model.Steps;
 
 public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepClickListener {
 
@@ -60,10 +62,14 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         }}}
 
        @Override
-       public void onClick(int position){
+       public void onClick(Steps stepClick){
            if (mTwoPane) {
-              VideoFragment videoFragment = new VideoFragment();
-
+               Log.i("tab", "replace");
+               Bundle args = new Bundle();
+               args.putInt("ARGUMENTS", stepClick);
+               VideoFragment videoFragment = new VideoFragment();
+               videoFragment.setArguments(args);
+               getSupportFragmentManager().beginTransaction().replace(R.id.detailContainer, detailFragment).commit();
 
            }
         }
