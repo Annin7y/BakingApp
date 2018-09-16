@@ -27,6 +27,7 @@ public class VideoFragment extends Fragment {
 
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
+    private long mPosition;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,18 +58,26 @@ public class VideoFragment extends Fragment {
 //    @Override
 //    public void onPause() {
 //        super.onPause();
-//
+// if (Util.SDK_INT <= 23) {
 //            releasePlayer();
+//}
 //        }
 //
 //
 //    @Override
 //    public void onStop() {
 //        super.onStop();
-//
+//if (Util.SDK_INT <= 23) {
 //            releasePlayer();
 //        }
-
+//        }
+//private void releasePlayer() {
+  //  if (mExoPlayer != null) {
+   //     mPosition = mExoPlayer.getCurrentPosition();
+   //     mExoPlayer.release();
+    //    mExoPlayer = null;
+  //  }
+//}
 
 
 
