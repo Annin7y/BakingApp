@@ -27,7 +27,11 @@ public class VideoFragment extends Fragment {
 
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
+
     private long mPosition;
+
+    private static final String KEY_POSITION = "position";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class VideoFragment extends Fragment {
 
 
 // private void initializePlayer(){
+// if (mExoplayer == null) {
 //TrackSelector trackSelector = new DefaultTrackSelector();
 //  LoadControl loadControl = new DefaultLoadControl();
 //mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
@@ -76,8 +81,8 @@ public class VideoFragment extends Fragment {
    //     mPosition = mExoPlayer.getCurrentPosition();
    //     mExoPlayer.release();
     //    mExoPlayer = null;
-  //  }
-//}
+
+
 
 
 

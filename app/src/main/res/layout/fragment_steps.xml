@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/steps_title"
+        android:text="@string/steps"
+        style="@style/FragmentTitleStyle"
+        android:textColor="@color/stepsShortTextColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_steps"

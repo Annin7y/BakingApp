@@ -72,7 +72,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
            }
            else {
-
+               Log.i("tab", "replace");
            }
         }
   }
