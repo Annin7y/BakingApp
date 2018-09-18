@@ -98,7 +98,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 
 public void onClick(Steps stepClick){
         mCallback.onClick(stepClick);
-}
+    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {

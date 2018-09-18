@@ -1,10 +1,12 @@
 package annin.my.android.bakingapp.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
@@ -73,6 +75,10 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
            }
            else {
                Log.i("tab", "replace");
+               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
+               intent.putExtra("steps", stepClick);
+               startActivity(intent);
+
            }
         }
   }
