@@ -19,6 +19,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
+
 public class IngredientsFragment extends Fragment {
 
     private static final String TAG = IngredientsFragment.class.getSimpleName();
@@ -72,6 +73,9 @@ public class IngredientsFragment extends Fragment {
             mIngredientRecyclerView.setAdapter(ingredientsAdapter);
 
             mIngredientRecyclerView.addItemDecoration(new VerticalSpacingDecoration(25));
+
+          //  Gson gson = new Gson();
+           // String json = gson.toJson(ingredientsArrayList);
         }
 
         return rootView;

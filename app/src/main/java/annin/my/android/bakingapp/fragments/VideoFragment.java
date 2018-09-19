@@ -19,7 +19,10 @@ import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
+import java.util.ArrayList;
+
 import annin.my.android.bakingapp.R;
+import annin.my.android.bakingapp.model.Steps;
 import butterknife.BindView;
 
 public class VideoFragment extends Fragment {
@@ -32,6 +35,8 @@ public class VideoFragment extends Fragment {
      */
     public VideoFragment() {
     }
+
+    ArrayList<Steps> stepsArrayList;
 
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
