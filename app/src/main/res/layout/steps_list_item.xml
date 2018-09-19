@@ -9,20 +9,8 @@
 
     <TextView
         android:id="@+id/step_short_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginStart="80dp"
-        android:textSize="15sp"
-        tools:text="5" />
-
-    <TextView
-        android:id="@+id/step_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginStart="80dp"
-        android:textSize="15sp"
-        tools:text="5" />
+        style="@style/FragmentIngStepsListStyle"
+        android:layout_marginLeft="36dp"
+        tools:text="Mix all the ingredients" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,10 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.LoadControl;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
+import com.google.android.exoplayer2.util.Util;
 
 import annin.my.android.bakingapp.R;
 import butterknife.BindView;
@@ -42,6 +50,8 @@ public class VideoFragment extends Fragment {
 
         // Return the root view
         return rootView;
+
+        //  initializePlayer();
     }
 }
 
@@ -51,13 +61,14 @@ public class VideoFragment extends Fragment {
 //TrackSelector trackSelector = new DefaultTrackSelector();
 //  LoadControl loadControl = new DefaultLoadControl();
 //mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
- //       mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
-  //      String userAgent = Util.getUserAgent(getContext(), "BakingApp");
-  //      MediaSource mediaSource = new ExtractorMediaSource(videoURL,
-   //     new DefaultDataSourceFactory(getContext(), userAgent),
-    //    new DefaultExtractorsFactory(), null, null);
-    //    mExoPlayer.prepare(mediaSource);
-     //   mExoPlayer.setPlayWhenReady(true);
+//        mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
+//        String userAgent = Util.getUserAgent(getContext(), "BakingApp");
+//        MediaSource mediaSource = new ExtractorMediaSource(videoURL,new DefaultDataSourceFactory(
+//                this, userAgent), new DefaultExtractorsFactory(), null, null);
+//        new DefaultDataSourceFactory(getContext(), userAgent),
+//        new DefaultExtractorsFactory(), null, null);
+//        mExoPlayer.prepare(mediaSource);
+//        mExoPlayer.setPlayWhenReady(true);
 
 
 //    @Override

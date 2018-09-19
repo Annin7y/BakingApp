@@ -75,9 +75,9 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
            }
            else {
                Log.i("tab", "replace");
-               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
-               intent.putExtra("steps", stepClick);
-               startActivity(intent);
+//               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
+//               intent.putExtra("steps", stepClick);
+//               startActivity(intent);
 
            }
         }

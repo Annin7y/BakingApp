@@ -46,9 +46,6 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
         @BindView(R.id.step_short_desc)
         public TextView stepShortDescription;
 
-        @BindView(R.id.step_description)
-        public TextView stepDescription;
-
         public StepsAdapterViewHolder(View view) {
             super(view);
             ButterKnife.bind(this, view);
@@ -85,7 +82,6 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
         final Steps stepsView = stepsList.get(position);
 
         holder.stepShortDescription.setText(stepsView.getStepShortDescription());
-        holder.stepDescription.setText(stepsView.getStepDescription());
     }
 
     @Override
