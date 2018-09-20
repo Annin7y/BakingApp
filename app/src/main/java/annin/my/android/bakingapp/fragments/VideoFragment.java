@@ -43,6 +43,9 @@ public class VideoFragment extends Fragment {
 
     private long mPosition;
 
+    String videoUrl;
+
+    
     private static final String KEY_POSITION = "position";
 
 
