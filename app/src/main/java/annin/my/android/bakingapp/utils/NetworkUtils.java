@@ -160,11 +160,11 @@ public class NetworkUtils {
                 JSONObject currentRecipe = recipeArray.getJSONObject(i);
 
                 // Extract the value for the key called "id"
-                String recipeId = currentRecipe.getString(KEY_RECIPE_ID);
+                String recipeId = currentRecipe.optString(KEY_RECIPE_ID);
 
-                String recipeName = currentRecipe.getString(KEY_RECIPE_NAME);
+                String recipeName = currentRecipe.optString(KEY_RECIPE_NAME);
 
-                String recipeImage = currentRecipe.getString(KEY_RECIPE_IMAGE);
+                String recipeImage = currentRecipe.optString(KEY_RECIPE_IMAGE);
 
                 int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
@@ -175,11 +175,11 @@ public class NetworkUtils {
 
                     JSONObject currentIngredient = ingredientsArray.getJSONObject(j);
 
-                    String ingredientQuantity = currentIngredient.getString(KEY_INGREDIENT_QUANTITY);
+                    String ingredientQuantity = currentIngredient.optString(KEY_INGREDIENT_QUANTITY);
 
-                    String ingredientMeasure = currentIngredient.getString(KEY_INGREDIENT_MEASURE);
+                    String ingredientMeasure = currentIngredient.optString(KEY_INGREDIENT_MEASURE);
 
-                    String ingredientName = currentIngredient.getString(KEY_INGREDIENT_NAME);
+                    String ingredientName = currentIngredient.optString(KEY_INGREDIENT_NAME);
 
                     Ingredients ingredient = new Ingredients(ingredientQuantity, ingredientMeasure, ingredientName);
                     ingredients.add(ingredient);
@@ -192,15 +192,15 @@ public class NetworkUtils {
 
                     JSONObject currentStep = stepsArray.getJSONObject(k);
 
-                    String stepId = currentStep.getString(KEY_STEPS_ID);
+                    String stepId = currentStep.optString(KEY_STEPS_ID);
 
-                    String stepShortDescription = currentStep.getString(KEY_STEPS_SHORT_DESC);
+                    String stepShortDescription = currentStep.optString(KEY_STEPS_SHORT_DESC);
 
-                    String stepDescription = currentStep.getString(KEY_STEPS_DESCRIPTION);
+                    String stepDescription = currentStep.optString(KEY_STEPS_DESCRIPTION);
 
-                    String videoURL = currentStep.getString(KEY_STEPS_VIDEO_URL);
+                    String videoURL = currentStep.optString(KEY_STEPS_VIDEO_URL);
 
-                    String thumbnailURL = currentStep.getString(KEY_STEPS_THUMBNAIL_URL);
+                    String thumbnailURL = currentStep.optString(KEY_STEPS_THUMBNAIL_URL);
 
                     Steps step = new Steps(stepId, stepShortDescription, stepDescription, videoURL, thumbnailURL);
                     steps.add(step);
@@ -219,10 +219,8 @@ public class NetworkUtils {
         // with the message from the exception.
         Log.e("QueryUtils", "Problem parsing recipes JSON results", e);
     }
-
     // Return the list of recipes
        return recipes;
-
 }
 }
 
