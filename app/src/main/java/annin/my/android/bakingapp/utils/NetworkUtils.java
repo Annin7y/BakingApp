@@ -208,7 +208,6 @@ public class NetworkUtils {
                 }
                 Recipes recipe = new Recipes(recipeId,recipeName, recipeImage, recipeServings, ingredients, steps);
                 recipes.add(recipe);
-
             }
 
     } catch(
@@ -222,7 +221,8 @@ public class NetworkUtils {
     }
 
     // Return the list of recipes
-        return recipes;
+       return recipes;
+
 }
 }
 
