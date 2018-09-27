@@ -33,6 +33,8 @@ public class NetworkUtils
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
     private static final String BASE_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json";
+
+    //
     private static final String KEY_RECIPE_ID = "id";
     private static final String KEY_RECIPE_NAME = "name";
     private static final String KEY_RECIPE_IMAGE = "image";
@@ -167,7 +169,7 @@ public class NetworkUtils
                 // Get a single recipe description at position i within the list of recipes
                 JSONObject currentRecipe = recipeArray.getJSONObject(i);
 
-                // Extract values for the key called "id", "name", "image", "servings"
+                //Extract values for the following keys
                 String recipeId = currentRecipe.optString(KEY_RECIPE_ID);
                 String recipeName = currentRecipe.optString(KEY_RECIPE_NAME);
                 String recipeImage = currentRecipe.optString(KEY_RECIPE_IMAGE);
@@ -181,7 +183,7 @@ public class NetworkUtils
                     // Get a single ingredient at position i within the list of recipes
                     JSONObject currentIngredient = ingredientsArray.getJSONObject(j);
 
-                    // Extract values for the keys called "quantity", "measure", "ingredient"
+                    //Extract values for the following keys
                     String ingredientQuantity = currentIngredient.optString(KEY_INGREDIENT_QUANTITY);
                     String ingredientMeasure = currentIngredient.optString(KEY_INGREDIENT_MEASURE);
                     String ingredientName = currentIngredient.optString(KEY_INGREDIENT_NAME);
