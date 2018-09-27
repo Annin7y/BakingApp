@@ -18,8 +18,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesAdapterViewHolder> {
-
+public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesAdapterViewHolder>
+{
     private static final String TAG = RecipesAdapter.class.getSimpleName();
 
     private ArrayList<Recipes> recipesList = new ArrayList<Recipes>();
@@ -31,7 +31,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     /**
      * The interface that receives onClick messages.
      */
-    public interface RecipesAdapterOnClickHandler {
+    public interface RecipesAdapterOnClickHandler
+    {
         void onClick(Recipes imageRecipeClick);
     }
 
@@ -41,7 +42,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
      * @param recipeClickHandler The on-click handler for this adapter. This single handler is called
      *                     when an item is clicked.
      */
-    public RecipesAdapter(RecipesAdapterOnClickHandler recipeClickHandler, ArrayList<Recipes> recipesList, Context context) {
+    public RecipesAdapter(RecipesAdapterOnClickHandler recipeClickHandler, ArrayList<Recipes> recipesList, Context context)
+    {
         mRecipeClickHandler = recipeClickHandler;
         this.recipesList = recipesList;
         this.context = context;
@@ -50,16 +52,16 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     /**
      * Cache of the children views for a recipes list item.
      */
-    public class RecipesAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
+    public class RecipesAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    {
         @BindView(R.id.imageView)
         ImageView imageView;
 
         @BindView(R.id.recipeView)
         TextView recipeView;
 
-        public RecipesAdapterViewHolder(View view) {
-
+        public RecipesAdapterViewHolder(View view)
+        {
             super(view);
 
             ButterKnife.bind(this, view);
@@ -72,7 +74,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
          * @param v The View that was clicked
          */
         @Override
-        public void onClick(View v) {
+        public void onClick(View v)
+        {
             int adapterPosition = getAdapterPosition();
             Recipes imageRecipeClick = recipesList.get(adapterPosition);
             mRecipeClickHandler.onClick(imageRecipeClick);
@@ -80,7 +83,8 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     }
 
     @Override
-    public RecipesAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public RecipesAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    {
         Context context = viewGroup.getContext();
         int layoutIdForListItem = R.layout.recipe_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -90,45 +94,56 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     }
 
     @Override
-    public void onBindViewHolder(RecipesAdapterViewHolder holder, int position) {
-
+    public void onBindViewHolder(RecipesAdapterViewHolder holder, int position)
+    {
         //Binding data
         final Recipes recipesView = recipesList.get(position);
 
         holder.recipeView.setText(recipesView.getRecipeName());
 
-        if (!recipesView.getRecipeImage().isEmpty()) {
+        if (!recipesView.getRecipeImage().isEmpty())
+        {
             Picasso.with(context)
                     .load(recipesView.getRecipeImage())
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
 
-        } else if (recipesView.getRecipeName().equals("Nutella Pie")) {
+        }
+        else if (recipesView.getRecipeName().equals("Nutella Pie"))
+        {
             Picasso.with(context)
                     .load(R.drawable.nutella_pie)
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
-        } else if (recipesView.getRecipeName().equals("Brownies")) {
+        }
+        else if (recipesView.getRecipeName().equals("Brownies"))
+        {
             Picasso.with(context)
                     .load(R.drawable.brownies_recipe)
                     //if the image can't be loaded the following error message/image will be displayed
                     .into(holder.imageView);
 
-        } else if (recipesView.getRecipeName().equals("Yellow Cake")) {
+        }
+        else if (recipesView.getRecipeName().equals("Yellow Cake"))
+        {
             Picasso.with(context)
                     .load(R.drawable.yellow_cake)
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
 
-        } else if (recipesView.getRecipeName().equals("Cheesecake")) {
+        }
+        else if (recipesView.getRecipeName().equals("Cheesecake"))
+        {
             Picasso.with(context)
                     .load(R.drawable.cheesecake_recipe)
                     //if the image can't be loaded the following error message/image will be displayed
                     .error(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
-        } else {
+        }
+        else
+            {
             Picasso.with(context)
                     .load(R.drawable.user_placeholder_error)
                     .into(holder.imageView);
@@ -137,12 +152,12 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
 
     @Override
     public int getItemCount()
-
     {
         return recipesList.size();
     }
 
-    public void setRecipesList(ArrayList<Recipes> mRecipesList) {
+    public void setRecipesList(ArrayList<Recipes> mRecipesList)
+    {
         this.recipesList = mRecipesList;
         notifyDataSetChanged();
     }

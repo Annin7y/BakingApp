@@ -14,8 +14,8 @@ import annin.my.android.bakingapp.model.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapterViewHolder> {
-
+public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapterViewHolder>
+{
     private static final String TAG = StepsAdapter.class.getSimpleName();
     private ArrayList<Steps> stepsList = new ArrayList<Steps>();
     private StepsAdapter.StepsAdapterOnClickListener mClickListener;
@@ -23,7 +23,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     /**
      * The interface that receives onClick messages.
      */
-    public interface StepsAdapterOnClickListener {
+    public interface StepsAdapterOnClickListener
+    {
         void onClick(Steps stepClick);
     }
 
@@ -33,7 +34,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
      * @param clickListener The on-click listener for this adapter. This single listener is called
      *                      when an item is clicked.
      */
-    public StepsAdapter(StepsAdapterOnClickListener clickListener, ArrayList<Steps> stepsList) {
+    public StepsAdapter(StepsAdapterOnClickListener clickListener, ArrayList<Steps> stepsList)
+    {
         mClickListener = clickListener;
         this.stepsList = stepsList;
     }
@@ -41,12 +43,13 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     /**
      * Cache of the children views for a steps list item.
      */
-    public class StepsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-
+    public class StepsAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener
+    {
         @BindView(R.id.step_short_desc)
         public TextView stepShortDescription;
 
-        public StepsAdapterViewHolder(View view) {
+        public StepsAdapterViewHolder(View view)
+        {
             super(view);
             ButterKnife.bind(this, view);
             view.setOnClickListener(this);
@@ -58,7 +61,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
          * @param v The View that was clicked
          */
         @Override
-        public void onClick(View v) {
+        public void onClick(View v)
+        {
             int adapterPosition = getAdapterPosition();
             Steps position = stepsList.get(adapterPosition);
             mClickListener.onClick(position);
@@ -66,7 +70,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     }
 
     @Override
-    public StepsAdapter.StepsAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public StepsAdapter.StepsAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    {
         Context context = viewGroup.getContext();
         int layoutIdForListItem = R.layout.steps_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -76,8 +81,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     }
 
     @Override
-    public void onBindViewHolder(StepsAdapter.StepsAdapterViewHolder holder, int position) {
-
+    public void onBindViewHolder(StepsAdapter.StepsAdapterViewHolder holder, int position)
+    {
         //Binding data
         final Steps stepsView = stepsList.get(position);
 
@@ -85,11 +90,13 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return stepsList.size();
     }
 
-    public void setStepsList(ArrayList<Steps> mStepsList) {
+    public void setStepsList(ArrayList<Steps> mStepsList)
+    {
         this.stepsList = mStepsList;
         notifyDataSetChanged();
     }

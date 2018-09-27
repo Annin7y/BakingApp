@@ -6,17 +6,17 @@ import android.widget.TextView;
 
 import annin.my.android.bakingapp.R;
 
-public class VideoPhoneActivity extends AppCompatActivity {
-
+public class VideoPhoneActivity extends AppCompatActivity
+{
     private static final String TAG = VideoPhoneActivity.class.getSimpleName();
 
     TextView stepDescription;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videophone);
-
     }
 }

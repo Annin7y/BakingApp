@@ -40,20 +40,25 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     OnStepClickListener mCallback;
 
     // OnStepsClickListener interface, calls a method in the host activity named onStepSelected
-    public interface OnStepClickListener {
+    public interface OnStepClickListener
+    {
         void onClick(Steps stepClick);
     }
 
     // Override onAttach to make sure that the container activity has implemented the callback
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(Context context)
+    {
         super.onAttach(context);
 
 //        // This makes sure that the host activity has implemented the callback interface
 //        // If not, it throws an exception
-        try {
+        try
+        {
             mCallback = (OnStepClickListener) context;
-        } catch (ClassCastException e) {
+        }
+        catch (ClassCastException e)
+        {
             throw new ClassCastException(context.toString()
                     + " must implement OnStepSelectedListener");
         }
@@ -62,11 +67,13 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
    /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
-    public StepsListFragment() {
+    public StepsListFragment()
+    {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
 
 //        //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_steps, container, false);
@@ -74,13 +81,16 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         ButterKnife.bind(this, rootView);
 
         Bundle bundle = this.getArguments();
-        if (bundle != null) {
+        if (bundle != null)
+        {
             recipes = getArguments().getParcelable("Recipes");
 
             stepsArrayList = new ArrayList<>();
             stepsArrayList = recipes.getRecipeSteps();
         }
-        if (savedInstanceState != null) {
+
+        if (savedInstanceState != null)
+        {
             //Restore the fragment's state here
             stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
         }
@@ -96,15 +106,18 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         return rootView;
 }
 
-public void onClick(Steps stepClick){
+public void onClick(Steps stepClick)
+{
         mCallback.onClick(stepClick);
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState)
+    {
         super.onSaveInstanceState(outState);
 
         //Save the fragment's state here
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
         super.onSaveInstanceState(outState);
-    }  }
+    }
+}

@@ -14,8 +14,8 @@ import annin.my.android.bakingapp.model.Ingredients;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.IngredientsAdapterViewHolder> {
-
+public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.IngredientsAdapterViewHolder>
+{
     private static final String TAG = IngredientsAdapter.class.getSimpleName();
 
     private ArrayList<Ingredients> ingredientsList = new ArrayList<Ingredients>();
@@ -24,7 +24,8 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     /**
      * Creates an Ingredients Adapter.
      */
-    public IngredientsAdapter(ArrayList<Ingredients> ingredientsList,Context context) {
+    public IngredientsAdapter(ArrayList<Ingredients> ingredientsList,Context context)
+    {
         this.ingredientsList = ingredientsList;
         this.context = context;
     }
@@ -32,8 +33,8 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     /**
      * Cache of the children views for an ingredients list item.
      */
-    public class IngredientsAdapterViewHolder extends RecyclerView.ViewHolder {
-
+    public class IngredientsAdapterViewHolder extends RecyclerView.ViewHolder
+    {
         @BindView(R.id.ingredient_quantity)
         public TextView ingredientQuantity;
 
@@ -43,15 +44,16 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
         @BindView(R.id.ingredient_name)
         public TextView ingredientName;
 
-
-        public IngredientsAdapterViewHolder(View view) {
+        public IngredientsAdapterViewHolder(View view)
+        {
             super(view);
             ButterKnife.bind(this, view);
         }
     }
 
     @Override
-    public IngredientsAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public IngredientsAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    {
         Context context = viewGroup.getContext();
         int layoutIdForListItem = R.layout.ingredient_list_item;
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -61,8 +63,8 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     }
 
     @Override
-    public void onBindViewHolder(IngredientsAdapterViewHolder holder, int position) {
-
+    public void onBindViewHolder(IngredientsAdapterViewHolder holder, int position)
+    {
         //Binding data
         final Ingredients ingredientsView = ingredientsList.get(position);
 
@@ -72,11 +74,13 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
         return ingredientsList.size();
     }
 
-    public void setIngredientsList(ArrayList<Ingredients> mIngredientsList) {
+    public void setIngredientsList(ArrayList<Ingredients> mIngredientsList)
+    {
         this.ingredientsList.addAll(mIngredientsList);
         notifyDataSetChanged();
     }

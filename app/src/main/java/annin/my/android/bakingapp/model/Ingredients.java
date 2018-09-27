@@ -3,8 +3,8 @@ package annin.my.android.bakingapp.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Ingredients implements Parcelable {
-
+public class Ingredients implements Parcelable
+{
     /**
      * Quantity
      */
@@ -21,56 +21,67 @@ public class Ingredients implements Parcelable {
     private String ingredientName;
 
 
-    public Ingredients(String ingredientQuantity, String ingredientMeasure, String ingredientName) {
+    public Ingredients(String ingredientQuantity, String ingredientMeasure, String ingredientName)
+    {
         this.ingredientQuantity = ingredientQuantity;
         this.ingredientMeasure = ingredientMeasure;
         this.ingredientName = ingredientName;
     }
 
-    public void setIngredientQuantity(String ingredientQuantity) {
+    public void setIngredientQuantity(String ingredientQuantity)
+    {
         this.ingredientQuantity = ingredientQuantity;
     }
 
-    public String getIngredientQuantity() {
+    public String getIngredientQuantity()
+    {
         return ingredientQuantity;
     }
 
-    public void setIngredientMeasure(String ingredientMeasure) {
+    public void setIngredientMeasure(String ingredientMeasure)
+    {
         this.ingredientMeasure = ingredientMeasure;
     }
 
-    public String getIngredientMeasure() {
+    public String getIngredientMeasure()
+    {
         return ingredientMeasure;
     }
 
-    public void setName(String ingredientName) {
+    public void setName(String ingredientName)
+    {
         this.ingredientName = ingredientName;
     }
 
-    public String getIngredientName() {
+    public String getIngredientName()
+    {
         return ingredientName;
     }
 
-    protected Ingredients(Parcel in) {
+    protected Ingredients(Parcel in)
+    {
         ingredientQuantity = in.readString();
         ingredientMeasure = in.readString();
         ingredientName = in.readString();
     }
 
     @Override
-    public int describeContents() {
+    public int describeContents()
+    {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel(Parcel dest, int flags)
+    {
         dest.writeString(ingredientQuantity);
         dest.writeString(ingredientMeasure);
         dest.writeString(ingredientName);
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Ingredients> CREATOR = new Parcelable.Creator<Ingredients>() {
+    public static final Parcelable.Creator<Ingredients> CREATOR = new Parcelable.Creator<Ingredients>()
+    {
         @Override
         public Ingredients createFromParcel(Parcel in) {
             return new Ingredients(in);

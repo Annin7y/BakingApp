@@ -1,4 +1,5 @@
 package annin.my.android.bakingapp.widget;
 
-public class RecipeWidgetService {
+public class RecipeWidgetService
+{
 }

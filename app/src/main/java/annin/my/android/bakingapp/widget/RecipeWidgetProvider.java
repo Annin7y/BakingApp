@@ -10,7 +10,8 @@ import annin.my.android.bakingapp.R;
 /**
  * Implementation of App Widget functionality.
  */
-public class RecipeWidgetProvider extends AppWidgetProvider {
+public class RecipeWidgetProvider extends AppWidgetProvider
+{
 
 //    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
 //                                int appWidgetId) {

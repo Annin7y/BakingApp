@@ -25,75 +25,69 @@ import annin.my.android.bakingapp.model.Steps;
 import static android.content.ContentValues.TAG;
 
 
-public class NetworkUtils {
-
+public class NetworkUtils
+{
     /**
      * Tag for the log messages
      */
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
 
     private static final String BASE_URL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/May/59121517_baking/baking.json";
-
     private static final String KEY_RECIPE_ID = "id";
-
     private static final String KEY_RECIPE_NAME = "name";
-
     private static final String KEY_RECIPE_IMAGE = "image";
-
     private static final String KEY_RECIPE_SERVINGS = "servings";
-
     private static final String KEY_INGREDIENT_QUANTITY = "quantity";
-
     private static final String KEY_INGREDIENT_MEASURE = "measure";
-
     private static final String KEY_INGREDIENT_NAME = "ingredient";
-
     private static final String KEY_STEPS_ID = "id";
-
     private static final String KEY_STEPS_SHORT_DESC = "shortDescription";
-
     private static final String KEY_STEPS_DESCRIPTION = "description";
-
     private static final String KEY_STEPS_VIDEO_URL = "videoURL";
-
     private static final String KEY_STEPS_THUMBNAIL_URL = "thumbnailURL";
 
-    public NetworkUtils() {
+    public NetworkUtils()
+    {
     }
-
 
     /**
      * @param
      * @return recipes
      */
-    public static URL buildUrl() {
+    public static URL buildUrl()
+    {
         URL urlRecipe = null;
-        try {
+        try
+        {
             Uri recipeQueryUri = Uri.parse(BASE_URL).buildUpon()
                     .build();
             urlRecipe = new URL(recipeQueryUri.toString());
-        } catch (MalformedURLException e) {
+        }
+        catch (MalformedURLException e)
+        {
             e.printStackTrace();
         }
         Log.v(TAG, "Built URI " + urlRecipe);
         return urlRecipe;
     }
 
-
     /**
      * Make an HTTP request to the given URL and return a String as the response.
      */
-    public static String makeHttpRequest(URL url) throws IOException {
+    public static String makeHttpRequest(URL url) throws IOException
+    {
         String jsonResponse = "";
         Log.i("URL: ", url.toString());
         // If the URL is null, then return early.
-        if (url == null) {
+        if (url == null)
+        {
             return jsonResponse;
         }
 
         HttpURLConnection urlConnection = null;
         InputStream inputStream = null;
-        try {
+        try
+        {
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setReadTimeout(10000 /* milliseconds */);
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
@@ -102,19 +96,28 @@ public class NetworkUtils {
 
             // If the request was successful (response code 200),
             // then read the input stream and parse the response.
-            if (urlConnection.getResponseCode() == 200) {
+            if (urlConnection.getResponseCode() == 200)
+            {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
-            } else {
+            }
+            else
+                {
                 Log.e(LOG_TAG, "Error response code: " + urlConnection.getResponseCode());
             }
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             Log.e(LOG_TAG, "Problem retrieving recipe JSON results.", e);
-        } finally {
-            if (urlConnection != null) {
+        }
+        finally
+        {
+            if (urlConnection != null)
+            {
                 urlConnection.disconnect();
             }
-            if (inputStream != null) {
+            if (inputStream != null)
+            {
                 // Closing the input stream could throw an IOException, which is why
                 // the makeHttpRequest(URL url) method signature specifies than an IOException
                 // could be thrown.
@@ -128,13 +131,16 @@ public class NetworkUtils {
      * Convert the {@link InputStream} into a String which contains the
      * whole JSON response from the server.
      */
-    private static String readFromStream(InputStream inputStream) throws IOException {
+    private static String readFromStream(InputStream inputStream) throws IOException
+    {
         StringBuilder output = new StringBuilder();
-        if (inputStream != null) {
+        if (inputStream != null)
+        {
             InputStreamReader inputStreamReader = new InputStreamReader(inputStream, Charset.forName("UTF-8"));
             BufferedReader reader = new BufferedReader(inputStreamReader);
             String line = reader.readLine();
-            while (line != null) {
+            while (line != null)
+            {
                 output.append(line);
                 line = reader.readLine();
             }
@@ -142,43 +148,42 @@ public class NetworkUtils {
         return output.toString();
     }
 
-    public static ArrayList<Recipes> extractFeatureFromJson(String recipeJSON) {
+    public static ArrayList<Recipes> extractFeatureFromJson(String recipeJSON)
+    {
         // If the JSON string is empty or null, then return early.
-        if (TextUtils.isEmpty(recipeJSON)) {
+        if (TextUtils.isEmpty(recipeJSON))
+        {
             return null;
         }
         ArrayList<Recipes> recipes = new ArrayList<>();
-        try {
-
+        try
+        {
             // Create a JSONObject from the JSON response string
             JSONArray recipeArray = new JSONArray(recipeJSON);
 
 // For each recipe in the recipeArray, create an {@link Recipes} object
-            for (int i = 0; i < recipeArray.length(); i++) {
-
-                // Get a single movie description at position i within the list of recipes
+            for (int i = 0; i < recipeArray.length(); i++)
+            {
+                // Get a single recipe description at position i within the list of recipes
                 JSONObject currentRecipe = recipeArray.getJSONObject(i);
 
-                // Extract the value for the key called "id"
+                // Extract values for the key called "id", "name", "image", "servings"
                 String recipeId = currentRecipe.optString(KEY_RECIPE_ID);
-
                 String recipeName = currentRecipe.optString(KEY_RECIPE_NAME);
-
                 String recipeImage = currentRecipe.optString(KEY_RECIPE_IMAGE);
-
                 int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
 
                 ArrayList<Ingredients> ingredients = new ArrayList<>();
                 JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");
 
-                for (int j = 0; j < ingredientsArray.length(); j++) {
-
+                for (int j = 0; j < ingredientsArray.length(); j++)
+                {
+                    // Get a single ingredient at position i within the list of recipes
                     JSONObject currentIngredient = ingredientsArray.getJSONObject(j);
 
+                    // Extract values for the keys called "quantity", "measure", "ingredient"
                     String ingredientQuantity = currentIngredient.optString(KEY_INGREDIENT_QUANTITY);
-
                     String ingredientMeasure = currentIngredient.optString(KEY_INGREDIENT_MEASURE);
-
                     String ingredientName = currentIngredient.optString(KEY_INGREDIENT_NAME);
 
                     Ingredients ingredient = new Ingredients(ingredientQuantity, ingredientMeasure, ingredientName);
@@ -188,38 +193,34 @@ public class NetworkUtils {
                 ArrayList<Steps> steps = new ArrayList<>();
                 JSONArray stepsArray = currentRecipe.getJSONArray("steps");
 
-                for (int k = 0; k < stepsArray.length(); k++) {
-
+                for (int k = 0; k < stepsArray.length(); k++)
+                {
                     JSONObject currentStep = stepsArray.getJSONObject(k);
 
+                    // Extract values for the keys called "id", "shortDescription", "description", "videoURL", "thumbnailURL"
                     String stepId = currentStep.optString(KEY_STEPS_ID);
-
                     String stepShortDescription = currentStep.optString(KEY_STEPS_SHORT_DESC);
-
                     String stepDescription = currentStep.optString(KEY_STEPS_DESCRIPTION);
-
                     String videoURL = currentStep.optString(KEY_STEPS_VIDEO_URL);
-
                     String thumbnailURL = currentStep.optString(KEY_STEPS_THUMBNAIL_URL);
 
                     Steps step = new Steps(stepId, stepShortDescription, stepDescription, videoURL, thumbnailURL);
                     steps.add(step);
-
                 }
+
                 Recipes recipe = new Recipes(recipeId,recipeName, recipeImage, recipeServings, ingredients, steps);
                 recipes.add(recipe);
             }
 
-    } catch(
-    JSONException e)
-
+    } catch(JSONException e)
     {
         // If an error is thrown when executing any of the above statements in the "try" block,
         // catch the exception here, so the app doesn't crash. Print a log message
         // with the message from the exception.
         Log.e("QueryUtils", "Problem parsing recipes JSON results", e);
     }
-    // Return the list of recipes
+
+    // Return a list of recipes
        return recipes;
 }
 }

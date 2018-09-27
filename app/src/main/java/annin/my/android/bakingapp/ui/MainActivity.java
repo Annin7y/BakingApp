@@ -27,8 +27,8 @@ import annin.my.android.bakingapp.utils.NetworkUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements RecipesAdapter.RecipesAdapterOnClickHandler, AsyncTaskInterface {
-
+public class MainActivity extends AppCompatActivity implements RecipesAdapter.RecipesAdapterOnClickHandler, AsyncTaskInterface
+{
     // Tag for logging
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -36,20 +36,17 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     RecyclerView mRecipeRecyclerView;
 
     private RecipesAdapter recipesAdapter;
-
     private ArrayList<Recipes> recipesArrayList = new ArrayList<>();
-
     private Context context;
-
     private static final String KEY_RECIPES_LIST = "recipes_list";
-
     CoordinatorLayout mCoordinatorLayout;
 
     @BindView(R.id.pb_loading_indicator)
     ProgressBar mLoadingIndicator;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -68,17 +65,23 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         /*
          *  Starting the asyncTask so that recipes load upon launching the app.
          */
-        if (savedInstanceState == null) {
-            if (isNetworkStatusAvailable(this)) {
+        if (savedInstanceState == null)
+        {
+            if (isNetworkStatusAvailable(this))
+            {
                 RecipesAsyncTask myTask = new RecipesAsyncTask(this);
                 myTask.execute(NetworkUtils.buildUrl());
-            } else {
+            }
+            else
+                {
                 Snackbar
                         .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Retry", new MyClickListener())
                         .show();
             }
-        } else {
+        }
+        else
+            {
             recipesArrayList = savedInstanceState.getParcelableArrayList(KEY_RECIPES_LIST);
             recipesAdapter.setRecipesList(recipesArrayList);
         }
@@ -90,7 +93,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         Log.i("list", recipesArrayList.size() + "");
     }
 
-    public static int calculateNoOfColumns(Context context) {
+    public static int calculateNoOfColumns(Context context)
+    {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         float dpWidth = displayMetrics.widthPixels / displayMetrics.density;
         int scalingFactor = 180;
@@ -98,9 +102,11 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         return noOfColumns;
     }
 
-    public class MyClickListener implements View.OnClickListener {
+    public class MyClickListener implements View.OnClickListener
+    {
         @Override
-        public void onClick(View v) {
+        public void onClick(View v)
+        {
             // Run the AsyncTask in response to the click
             RecipesAsyncTask myTask = new RecipesAsyncTask(MainActivity.this);
             myTask.execute();
@@ -108,27 +114,33 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     }
 
     @Override
-    public void returnData(ArrayList<Recipes> simpleJsonRecipeData) {
+    public void returnData(ArrayList<Recipes> simpleJsonRecipeData)
+    {
         mLoadingIndicator.setVisibility(View.INVISIBLE);
-        if (null != simpleJsonRecipeData) {
+        if (null != simpleJsonRecipeData)
+        {
             recipesAdapter = new RecipesAdapter(this, simpleJsonRecipeData, MainActivity.this);
             recipesArrayList = simpleJsonRecipeData;
             mRecipeRecyclerView.setAdapter(recipesAdapter);
             recipesAdapter.setRecipesList(recipesArrayList);
-        } else {
+        }
+        else
+            {
             showErrorMessage();
         }
     }
 
     @Override
-    public void onClick(Recipes recipes) {
+    public void onClick(Recipes recipes)
+    {
         Intent intent = new Intent(MainActivity.this, IngredientStepsActivity.class);
         intent.putExtra("Recipes", recipes);
         startActivity(intent);
     }
 
     //Display if there is no internet connection
-    public void showErrorMessage() {
+    public void showErrorMessage()
+    {
         Snackbar
                 .make(mCoordinatorLayout, "Please check your internet connection", Snackbar.LENGTH_INDEFINITE)
                 .setAction("Retry", new MyClickListener())
@@ -137,7 +149,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         mLoadingIndicator.setVisibility(View.VISIBLE);
     }
 
-    public static boolean isNetworkStatusAvailable(Context context) {
+    public static boolean isNetworkStatusAvailable(Context context)
+    {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -147,7 +160,8 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
     }
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(Bundle outState)
+    {
         outState.putParcelableArrayList(KEY_RECIPES_LIST, recipesArrayList);
         super.onSaveInstanceState(outState);
     }

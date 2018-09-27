@@ -6,7 +6,8 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 
 
-public class Recipes implements Parcelable {
+public class Recipes implements Parcelable
+{
 
     /**
      * Recipe id
@@ -38,109 +39,137 @@ public class Recipes implements Parcelable {
      */
     private ArrayList<Steps> recipeSteps;
 
-    public Recipes(String recipeId, String recipeName, String recipeImage, int recipeServings, ArrayList<Ingredients> recipeIngredients, ArrayList<Steps> recipeSteps) {
+    public Recipes(String recipeId, String recipeName, String recipeImage, int recipeServings, ArrayList<Ingredients> recipeIngredients, ArrayList<Steps> recipeSteps)
+    {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeImage = recipeImage;
         this.recipeServings = recipeServings;
         this.recipeIngredients = recipeIngredients;
         this.recipeSteps = recipeSteps;
-
     }
 
-    public void setRecipeId(String recipeId) {
+    public void setRecipeId(String recipeId)
+    {
         this.recipeId = recipeId;
     }
 
-    public String getRecipeId() {
+    public String getRecipeId()
+    {
         return recipeId;
     }
 
-    public void setRecipeName(String recipeName) {
+    public void setRecipeName(String recipeName)
+    {
         this.recipeName = recipeName;
     }
 
-    public String getRecipeName() {
+    public String getRecipeName()
+    {
         return recipeName;
     }
 
-    public void setRecipeImage(String recipeImage) {
+    public void setRecipeImage(String recipeImage)
+    {
         this.recipeImage = recipeImage;
     }
 
-    public String getRecipeImage() {
+    public String getRecipeImage()
+    {
         return recipeImage;
     }
 
-    public void setRecipeServings(int recipeServings) {
+    public void setRecipeServings(int recipeServings)
+    {
         this.recipeServings = recipeServings;
     }
 
-    public int getRecipeServings() {
+    public int getRecipeServings()
+    {
         return recipeServings;
     }
 
-    public ArrayList<Ingredients> getRecipeIngredients(){
+    public ArrayList<Ingredients> getRecipeIngredients()
+    {
         return recipeIngredients;
     }
 
-    public ArrayList<Steps> getRecipeSteps(){
+    public ArrayList<Steps> getRecipeSteps()
+    {
         return recipeSteps;
     }
 
-    protected Recipes(Parcel in) {
+    protected Recipes(Parcel in)
+    {
         recipeId = in.readString();
         recipeName = in.readString();
         recipeImage = in.readString();
         recipeServings = in.readInt();
-        if (in.readByte() == 0x01) {
+        if (in.readByte() == 0x01)
+        {
             recipeIngredients = new ArrayList<Ingredients>();
             in.readList(recipeIngredients, Ingredients.class.getClassLoader());
-        } else {
+        }
+        else
+            {
             recipeIngredients = null;
         }
-        if (in.readByte() == 0x01) {
+        if (in.readByte() == 0x01)
+        {
             recipeSteps = new ArrayList<Steps>();
             in.readList(recipeSteps, Steps.class.getClassLoader());
-        } else {
+        }
+        else
+            {
             recipeSteps = null;
         }
     }
 
     @Override
-    public int describeContents() {
+    public int describeContents()
+    {
         return 0;
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel(Parcel dest, int flags)
+    {
         dest.writeString(recipeId);
         dest.writeString(recipeName);
         dest.writeString(recipeImage);
         dest.writeInt(recipeServings);
-        if (recipeIngredients == null) {
+        if (recipeIngredients == null)
+        {
             dest.writeByte((byte) (0x00));
-        } else {
+        }
+        else
+            {
             dest.writeByte((byte) (0x01));
             dest.writeList(recipeIngredients);
         }
-        if (recipeSteps == null) {
+        if (recipeSteps == null)
+        {
             dest.writeByte((byte) (0x00));
-        } else {
+        }
+        else
+            {
             dest.writeByte((byte) (0x01));
             dest.writeList(recipeSteps);
         }
     }
 
     @SuppressWarnings("unused")
-    public static final Parcelable.Creator<Recipes> CREATOR = new Parcelable.Creator<Recipes>() {
+    public static final Parcelable.Creator<Recipes> CREATOR = new Parcelable.Creator<Recipes>()
+    {
         @Override
-        public Recipes createFromParcel(Parcel in) {
+        public Recipes createFromParcel(Parcel in)
+        {
             return new Recipes(in);
         }
 
         @Override
-        public Recipes[] newArray(int size) {
+        public Recipes[] newArray(int size)
+        {
             return new Recipes[size];
         }
     };

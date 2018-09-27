@@ -25,7 +25,8 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.model.Steps;
 import butterknife.BindView;
 
-public class VideoFragment extends Fragment {
+public class VideoFragment extends Fragment
+{
 
     // Tag for logging
     private static final String TAG = VideoFragment.class.getSimpleName();
@@ -33,7 +34,8 @@ public class VideoFragment extends Fragment {
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
-    public VideoFragment() {
+    public VideoFragment()
+    {
     }
 
     ArrayList<Steps> stepsArrayList;
@@ -50,7 +52,8 @@ public class VideoFragment extends Fragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
 

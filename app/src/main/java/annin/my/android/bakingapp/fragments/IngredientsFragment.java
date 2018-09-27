@@ -18,9 +18,8 @@ import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-
-
-public class IngredientsFragment extends Fragment {
+public class IngredientsFragment extends Fragment
+{
 
     private static final String TAG = IngredientsFragment.class.getSimpleName();
 
@@ -28,7 +27,6 @@ public class IngredientsFragment extends Fragment {
     RecyclerView mIngredientRecyclerView;
 
     ArrayList<Ingredients> ingredientsArrayList;
-
     Recipes recipes;
 
     // Final Strings to store state information about the list of ingredients and list index
@@ -37,15 +35,16 @@ public class IngredientsFragment extends Fragment {
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
-    public IngredientsFragment() {
+    public IngredientsFragment()
+    {
     }
 
     /**
      * Inflates the fragment layout file and sets the correct resource for the image to display
      */
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         //Inflate the Ingredients fragment layout
         View rootView = inflater.inflate(R.layout.fragment_ingredient, container, false);
 
@@ -53,14 +52,15 @@ public class IngredientsFragment extends Fragment {
         ButterKnife.bind(this, rootView);
 
         Bundle bundle = this.getArguments();
-        if (bundle != null) {
-
+        if (bundle != null)
+        {
             recipes = getArguments().getParcelable("Recipes");
 
             ingredientsArrayList = new ArrayList<>();
             ingredientsArrayList = recipes.getRecipeIngredients();
 
-            if (savedInstanceState != null) {
+            if (savedInstanceState != null)
+            {
                 //Restore the fragment's state here
                 ingredientsArrayList = savedInstanceState.getParcelableArrayList(KEY_INGREDIENTS_LIST);
             }
@@ -77,12 +77,12 @@ public class IngredientsFragment extends Fragment {
           //  Gson gson = new Gson();
            // String json = gson.toJson(ingredientsArrayList);
         }
-
         return rootView;
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState)
+    {
         super.onSaveInstanceState(outState);
 
         //Save the fragment's state here

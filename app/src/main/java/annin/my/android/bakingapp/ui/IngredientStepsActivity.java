@@ -15,27 +15,29 @@ import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
 import annin.my.android.bakingapp.model.Steps;
 
-public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepClickListener {
-
+public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepClickListener
+{
     private static final String TAG = IngredientStepsActivity.class.getSimpleName();
 
     private Context context;
-
     Recipes recipes;
 
     // Track whether to display a two-pane or single-pane UI
     private boolean mTwoPane;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
-        if (getIntent() != null && getIntent().getExtras() != null) {
+        if (getIntent() != null && getIntent().getExtras() != null)
+        {
             recipes = getIntent().getExtras().getParcelable("Recipes");
 
             // Only create new fragments when there is no previously saved state
-            if (savedInstanceState == null) {
+            if (savedInstanceState == null)
+            {
 
         /*
         Add the fragment to its container using a FragmentManager and a Transaction
@@ -61,11 +63,15 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 stepsListFragment.setArguments(stepsBundle);
 
                 fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-        }}}
+        }
+        }
+    }
 
        @Override
-       public void onClick(Steps stepClick){
-           if (mTwoPane) {
+       public void onClick(Steps stepClick)
+       {
+           if (mTwoPane)
+           {
                Log.i("tab", "replace");
                Bundle args = new Bundle();
                args.putParcelable("ARGUMENTS", stepClick);
@@ -73,12 +79,12 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                videoFragment.setArguments(args);
                getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
            }
-           else {
+           else
+               {
                Log.i("tab", "replace");
 //               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
 //               intent.putExtra("steps", stepClick);
 //               startActivity(intent);
-
            }
         }
   }
