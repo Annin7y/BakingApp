@@ -10,6 +10,7 @@
         style="@style/FragmentTitleStyle"
         android:textColor="@color/stepsShortTextColor"
         android:layout_marginTop="40dp"
+        android:layout_marginStart="17dp"
         android:layout_marginLeft="17dp"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
