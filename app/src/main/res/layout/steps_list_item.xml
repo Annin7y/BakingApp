@@ -11,6 +11,7 @@
         android:id="@+id/step_short_desc"
         style="@style/FragmentIngStepsListStyle"
         android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
         tools:text="Mix all the ingredients" />
 
 </android.support.constraint.ConstraintLayout>

@@ -32,7 +32,7 @@
             android:parentActivityName="annin.my.android.bakingapp.ui.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="annin.my.android.bakingapp.ui.MainActivity" />
+                android:value="annin.my.android.bakingapp.ui.IngredientStepsActivity" />
         </activity>
 
         <receiver android:name=".widget.RecipeWidgetProvider">
