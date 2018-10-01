@@ -62,47 +62,65 @@ public class VideoFragment extends Fragment
         // Return the root view
         return rootView;
 
-        //  initializePlayer();
+        initializePlayer();
     }
-}
 
 
-// private void initializePlayer(){
-// if (mExoplayer == null) {
-//TrackSelector trackSelector = new DefaultTrackSelector();
-//  LoadControl loadControl = new DefaultLoadControl();
-//mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
-//        mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
-//        String userAgent = Util.getUserAgent(getContext(), "BakingApp");
-//        MediaSource mediaSource = new ExtractorMediaSource(videoURL,new DefaultDataSourceFactory(
-//                this, userAgent), new DefaultExtractorsFactory(), null, null);
-//        new DefaultDataSourceFactory(getContext(), userAgent),
-//        new DefaultExtractorsFactory(), null, null);
-//        mExoPlayer.prepare(mediaSource);
-//        mExoPlayer.setPlayWhenReady(true);
+    private void initializePlayer()
+    {
+        if (mExoPlayer == null) {
+            TrackSelector trackSelector = new DefaultTrackSelector();
+            LoadControl loadControl = new DefaultLoadControl();
+            mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
+            mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
+            String userAgent = Util.getUserAgent(getContext(), "BakingApp");
+            MediaSource mediaSource = new ExtractorMediaSource(videoURL, new DefaultDataSourceFactory(
+                    this, userAgent), new DefaultExtractorsFactory(), null, null);
+            new DefaultDataSourceFactory(getContext(), userAgent),
+                    new DefaultExtractorsFactory(), null, null);
+            mExoPlayer.prepare(mediaSource);
+            mExoPlayer.setPlayWhenReady(true);
+
+        }
+    }
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+    }
+
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+        if (Util.SDK_INT <= 23) {
+            releasePlayer();
+        }
+    }
 
 
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-// if (Util.SDK_INT <= 23) {
-//            releasePlayer();
-//}
-//        }
-//
-//
-//    @Override
-//    public void onStop() {
-//        super.onStop();
-//if (Util.SDK_INT <= 23) {
-//            releasePlayer();
-//        }
-//        }
-//private void releasePlayer() {
-  //  if (mExoPlayer != null) {
-   //     mPosition = mExoPlayer.getCurrentPosition();
-   //     mExoPlayer.release();
-    //    mExoPlayer = null;
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        if (Util.SDK_INT <= 23) {
+            releasePlayer();
+        }
+    }
+
+    /**
+     * Release ExoPlayer.
+     */
+    private void releasePlayer() {
+        if (mExoPlayer != null) {
+            mPosition = mExoPlayer.getCurrentPosition();
+            mExoPlayer.release();
+            mExoPlayer = null;
+
+        }
+    }
+}}
 
 
 
