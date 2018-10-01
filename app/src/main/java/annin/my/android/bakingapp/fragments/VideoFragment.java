@@ -22,6 +22,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
+import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.model.Steps;
 import butterknife.BindView;
 
@@ -39,7 +40,7 @@ public class VideoFragment extends Fragment
     }
 
     ArrayList<Steps> stepsArrayList;
-
+    Recipes recipes;
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
 
@@ -58,6 +59,9 @@ public class VideoFragment extends Fragment
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
 
         mPlayerView = (SimpleExoPlayerView) rootView.findViewById(R.id.playerView);
+
+        Steps steps = getArguments().getParcelable("Step");
+
 
         // Return the root view
         return rootView;

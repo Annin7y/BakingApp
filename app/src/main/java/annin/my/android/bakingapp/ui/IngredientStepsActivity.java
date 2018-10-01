@@ -72,7 +72,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
        {
            if (mTwoPane)
            {
-               Log.i("tab", "replace");
+               Log.i("Step: ", stepClick.getStepShortDescription());
                Bundle args = new Bundle();
                args.putParcelable("ARGUMENTS", stepClick);
                VideoFragment videoFragment = new VideoFragment();
@@ -81,7 +81,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
            }
            else
                {
-               Log.i("tab", "replace");
+                   Log.i("Step: ", stepClick.getStepShortDescription());
               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
                intent.putExtra("steps", stepClick);
               startActivity(intent);
