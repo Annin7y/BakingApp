@@ -1,5 +1,6 @@
 package annin.my.android.bakingapp.fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -70,27 +71,27 @@ public class VideoFragment extends Fragment
         // Return the root view
         return rootView;
 
-        initializePlayer();
+       // initializePlayer();
     }
 
 
-    private void initializePlayer()
+    private void initializePlayer(Uri videoURL)
     {
-        if (mExoPlayer == null) {
-            TrackSelector trackSelector = new DefaultTrackSelector();
-            LoadControl loadControl = new DefaultLoadControl();
-            mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
-            mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
-            String userAgent = Util.getUserAgent(getContext(), "BakingApp");
-            MediaSource mediaSource = new ExtractorMediaSource(videoURL, new DefaultDataSourceFactory(
-                    this, userAgent), new DefaultExtractorsFactory(), null, null);
-            new DefaultDataSourceFactory(getContext(), userAgent),
-                    new DefaultExtractorsFactory(), null, null);
-            mExoPlayer.prepare(mediaSource);
-            mExoPlayer.setPlayWhenReady(true);
+        if (mExoPlayer == null)
+        {
+                TrackSelector trackSelector = new DefaultTrackSelector();
+                LoadControl loadControl = new DefaultLoadControl();
+                mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
+                mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
+                String userAgent = Util.getUserAgent(getContext(), "Baking App");
+                MediaSource mediaSource = new ExtractorMediaSource(videoURL,
+                        new DefaultDataSourceFactory(getContext(), userAgent),
+                        new DefaultExtractorsFactory(), null, null);
+                mExoPlayer.prepare(mediaSource);
+                mExoPlayer.setPlayWhenReady(true);
 
+            }
         }
-    }
 
     @Override
     public void onStart()
@@ -128,7 +129,7 @@ public class VideoFragment extends Fragment
 
         }
     }
-}}
+}
 
 
 
