@@ -40,7 +40,7 @@ public class VideoFragment extends Fragment
     }
 
     ArrayList<Steps> stepsArrayList;
-    Recipes recipes;
+    Steps stepClick;
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
 
@@ -59,10 +59,14 @@ public class VideoFragment extends Fragment
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
 
         mPlayerView = (SimpleExoPlayerView) rootView.findViewById(R.id.playerView);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
 
-        Steps steps = getArguments().getParcelable("Step");
+            Steps stepClick = getArguments().getParcelable("Step");
 
-
+            videoUrl = stepClick.getVideoUrl();
+            thumbnailUrl = stepClick.getThumbnailUrl();
+        }
         // Return the root view
         return rootView;
 
