@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlayerFactory;
@@ -44,6 +45,7 @@ public class VideoFragment extends Fragment
     Steps stepClick;
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
+    ImageView thumbnailUrlImage;
 
     private long mPosition;
 
@@ -60,6 +62,7 @@ public class VideoFragment extends Fragment
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
 
         mPlayerView = (SimpleExoPlayerView) rootView.findViewById(R.id.playerView);
+        thumbnailUrlImage = (ImageView) rootView.findViewById(R.id.thumbnail_url);
         Bundle bundle = this.getArguments();
         if (bundle != null) {
 
