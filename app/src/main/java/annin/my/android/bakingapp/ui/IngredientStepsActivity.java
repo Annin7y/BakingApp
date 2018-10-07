@@ -73,23 +73,23 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
            if (mTwoPane)
            {
                Log.i("Step: ", stepClick.getStepShortDescription());
-               Bundle args = new Bundle();
-               args.putParcelable("ARGUMENTS", stepClick);
+               Bundle stepsVideoBundle = new Bundle();
+               stepsVideoBundle.putParcelable("ARGUMENTS", stepClick);
                VideoFragment videoFragment = new VideoFragment();
-               videoFragment.setArguments(args);
+               videoFragment.setArguments(stepsVideoBundle);
                getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
            }
-           else
-               {
-                   Log.i("Step: ", stepClick.getStepShortDescription());
-              Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
-                   Bundle args = new Bundle();
-                   VideoFragment videoFragment = new VideoFragment();
-                   videoFragment.setArguments(args);
-                   getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
-               intent.putExtra("steps", stepClick);
-              startActivity(intent);
-           }
+         //  else
+//               {
+//                   Log.i("Step: ", stepClick.getStepShortDescription());
+//              Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
+//                   Bundle args = new Bundle();
+//                   VideoFragment videoFragment = new VideoFragment();
+//                   videoFragment.setArguments(args);
+//                   getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
+//               intent.putExtra("steps", stepClick);
+//              startActivity(intent);
+          // }
         }
   }
 
