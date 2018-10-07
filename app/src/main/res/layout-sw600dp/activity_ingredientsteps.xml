@@ -49,9 +49,6 @@
     </FrameLayout>
 
 
-
-
-
     <FrameLayout
         android:id="@+id/steps_fragment_container"
         android:layout_width="0dp"

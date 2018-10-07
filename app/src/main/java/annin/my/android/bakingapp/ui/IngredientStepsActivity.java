@@ -30,8 +30,9 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
-
-        if (findViewById(R.id.tablet_constraint_layout) != null) {
+        // Determine if you're creating a two-pane or single-pane display
+        if(findViewById(R.id.tablet_constraint_layout) != null) {
+            // This LinearLayout will only initially exist in the two-pane tablet case
             mTwoPane = true;
 
         if (getIntent() != null && getIntent().getExtras() != null) {
@@ -65,14 +66,18 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 
                 fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
             } else {
-                mTwoPane = false;
+                // We're in single-pane mode and displaying fragments on a phone in separate activities
+
+                    mTwoPane = false;
+                }
+
             }
-        }}}
+        }}
 
        @Override
        public void onClick(Steps stepClick)
        {
-           if (mTwoPane)
+           if (mTwoPane == true)
            {
                Log.i("Step: ", stepClick.getStepShortDescription());
                Bundle stepsVideoBundle = new Bundle();
@@ -84,13 +89,13 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
            else
                {
                    Log.i("Step: ", stepClick.getStepShortDescription());
-//              Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
-//                   Bundle args = new Bundle();
-//                   VideoFragment videoFragment = new VideoFragment();
-//                   videoFragment.setArguments(args);
-//                   getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
-//               intent.putExtra("steps", stepClick);
-//              startActivity(intent);
+              Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
+                   Bundle args = new Bundle();
+                   VideoFragment videoFragment = new VideoFragment();
+                   videoFragment.setArguments(args);
+                   getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
+               intent.putExtra("steps", stepClick);
+              startActivity(intent);
            }
         }
   }
