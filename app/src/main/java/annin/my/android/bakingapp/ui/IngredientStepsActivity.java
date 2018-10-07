@@ -31,13 +31,14 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
-        if (getIntent() != null && getIntent().getExtras() != null)
-        {
+        if (findViewById(R.id.tablet_constraint_layout) != null) {
+            mTwoPane = true;
+
+        if (getIntent() != null && getIntent().getExtras() != null) {
             recipes = getIntent().getExtras().getParcelable("Recipes");
 
             // Only create new fragments when there is no previously saved state
-            if (savedInstanceState == null)
-            {
+            if (savedInstanceState == null) {
 
         /*
         Add the fragment to its container using a FragmentManager and a Transaction
@@ -58,14 +59,15 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 Bundle stepsBundle = new Bundle();
                 stepsBundle.putParcelable("Recipes", recipes);
 
-              //Pass Over the bundle to the Steps Fragment
+                //Pass Over the bundle to the Steps Fragment
                 StepsListFragment stepsListFragment = new StepsListFragment();
                 stepsListFragment.setArguments(stepsBundle);
 
                 fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-        }
-        }
-    }
+            } else {
+                mTwoPane = false;
+            }
+        }}}
 
        @Override
        public void onClick(Steps stepClick)
@@ -79,9 +81,9 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                videoFragment.setArguments(stepsVideoBundle);
                getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
            }
-         //  else
-//               {
-//                   Log.i("Step: ", stepClick.getStepShortDescription());
+           else
+               {
+                   Log.i("Step: ", stepClick.getStepShortDescription());
 //              Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
 //                   Bundle args = new Bundle();
 //                   VideoFragment videoFragment = new VideoFragment();
@@ -89,7 +91,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 //                   getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
 //               intent.putExtra("steps", stepClick);
 //              startActivity(intent);
-          // }
+           }
         }
   }
 

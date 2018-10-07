@@ -12,7 +12,9 @@
         style="@style/FragmentIngStepsListStyle"
         android:layout_marginLeft="36dp"
         android:layout_marginStart="36dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/ingredient_name"
         android:layout_marginTop="7dp"
         tools:text="@string/ingredient_quantity" />
 
@@ -21,7 +23,10 @@
         style="@style/FragmentIngStepsListStyle"
         android:layout_marginLeft="32dp"
         android:layout_marginStart="32dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
         app:layout_constraintLeft_toLeftOf="@+id/ingredient_quantity"
+        app:layout_constraintStart_toEndOf="@id/ingredient_quantity"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="7dp"
         tools:text="@string/ingredient_measure" />
