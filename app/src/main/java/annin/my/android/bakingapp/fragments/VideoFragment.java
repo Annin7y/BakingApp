@@ -66,7 +66,7 @@ public class VideoFragment extends Fragment
         Bundle bundle = this.getArguments();
         if (bundle != null) {
 
-            stepClick = getArguments().getParcelable("ARGUMENTS");
+            stepClick= getArguments().getParcelable("Steps");
 
             videoUrl = stepClick.getVideoUrl();
             thumbnailUrl = stepClick.getThumbnailUrl();
