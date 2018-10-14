@@ -46,9 +46,8 @@ public class VideoFragment extends Fragment
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
     ImageView thumbnailUrlImage;
-
+    private int stepsIndex;
     private long mPosition;
-
     String videoUrl;
     String thumbnailUrl;
 
@@ -67,6 +66,10 @@ public class VideoFragment extends Fragment
         if (bundle != null) {
 
             stepClick= getArguments().getParcelable("Steps");
+            itemIndex = bundle.getInt("STEP_INDEX_ACTIVITY");
+            stepsList = bundle.getParcelableArrayList("STEP_LIST_ACTIVITY");
+            Steps temp = steps.get(itemIndex);
+
 
             videoUrl = stepClick.getVideoUrl();
             thumbnailUrl = stepClick.getThumbnailUrl();

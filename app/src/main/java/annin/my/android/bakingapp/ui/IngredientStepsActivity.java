@@ -31,7 +31,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
         // Determine if you're creating a two-pane or single-pane display
-        if(findViewById(R.id.tablet_constraint_layout) != null) {
+        if(findViewById(R.id.tablet_linear_layout) != null) {
             // This LinearLayout will only initially exist in the two-pane tablet case
             mTwoPane = true;
 
@@ -80,11 +80,11 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
            if (mTwoPane == true)
            {
                Log.i("Step: ", stepClick.getStepShortDescription());
-//               Bundle stepsVideoBundle = new Bundle();
-//               stepsVideoBundle.putParcelable("Steps", stepClick);
-//               VideoFragment videoFragment = new VideoFragment();
-//               videoFragment.setArguments(stepsVideoBundle);
-//               getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
+              Bundle stepsVideoBundle = new Bundle();
+              stepsVideoBundle.putParcelable("Steps", stepClick);
+               VideoFragment videoFragment = new VideoFragment();
+              videoFragment.setArguments(stepsVideoBundle);
+               getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
            }
            else
                {
