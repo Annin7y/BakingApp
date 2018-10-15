@@ -66,9 +66,9 @@ public class VideoFragment extends Fragment
         if (bundle != null) {
 
             stepClick= getArguments().getParcelable("Steps");
-            itemIndex = bundle.getInt("STEP_INDEX_ACTIVITY");
-            stepsList = bundle.getParcelableArrayList("STEP_LIST_ACTIVITY");
-            Steps temp = steps.get(itemIndex);
+          //  itemIndex = bundle.getInt("STEP_INDEX_ACTIVITY");
+          //  stepsList = bundle.getParcelableArrayList("STEP_LIST_ACTIVITY");
+        //    Steps temp = steps.get(itemIndex);
 
 
             videoUrl = stepClick.getVideoUrl();
