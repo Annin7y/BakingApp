@@ -29,7 +29,7 @@
             android:layout_marginRight="60dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/steps_fragment_container"
+            app:layout_constraintBottom_toTopOf="@+id/steps_fragment_container"
             android:text="textIng">
 
         </FrameLayout>
