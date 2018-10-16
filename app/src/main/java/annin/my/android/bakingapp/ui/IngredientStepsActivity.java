@@ -31,7 +31,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
         // Determine if you're creating a two-pane or single-pane display
-        if(findViewById(R.id.tablet_linear_layout) != null) {
+        if(findViewById(R.id.tablet_detail_layout) != null) {
             // This LinearLayout will only initially exist in the two-pane tablet case
             mTwoPane = true;
 
