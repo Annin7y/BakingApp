@@ -69,6 +69,25 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 // We're in single-pane mode and displaying fragments on a phone in separate activities
 
                     mTwoPane = false;
+                FragmentManager fragmentManager = getSupportFragmentManager();
+
+                Bundle ingredientsBundle = new Bundle();
+                ingredientsBundle.putParcelable("Recipes", recipes);
+
+                //Pass Over the bundle to the Ingredients Fragment
+                IngredientsFragment ingredientsFragment = new IngredientsFragment();
+                ingredientsFragment.setArguments(ingredientsBundle);
+
+                fragmentManager.beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
+
+                //Pack Data in a bundle call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
+                Bundle stepsBundle = new Bundle();
+                stepsBundle.putParcelable("Recipes", recipes);
+
+                //Pass Over the bundle to the Steps Fragment
+                StepsListFragment stepsListFragment = new StepsListFragment();
+                stepsListFragment.setArguments(stepsBundle);
+
                 }
 
             }
