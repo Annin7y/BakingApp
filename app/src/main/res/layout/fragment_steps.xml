@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -9,16 +10,12 @@
         android:text="@string/steps"
         style="@style/FragmentTitleStyle"
         android:textColor="@color/stepsShortTextColor"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerview_steps" />
+      />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_steps"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/steps_title"
-        app:layout_constraintStart_toStartOf="parent"
         android:scrollbars="vertical" />
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
