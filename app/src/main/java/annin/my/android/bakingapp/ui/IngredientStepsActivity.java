@@ -31,15 +31,18 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
         // Determine if you're creating a two-pane or single-pane display
-        if(findViewById(R.id.tablet_detail_layout) != null) {
+        if(findViewById(R.id.tablet_detail_layout) != null)
+        {
             // This LinearLayout will only initially exist in the two-pane tablet case
             mTwoPane = true;
 
-        if (getIntent() != null && getIntent().getExtras() != null) {
+        if (getIntent() != null && getIntent().getExtras() != null)
+        {
             recipes = getIntent().getExtras().getParcelable("Recipes");
 
             // Only create new fragments when there is no previously saved state
-            if (savedInstanceState == null) {
+            if (savedInstanceState == null)
+            {
 
         /*
         Add the fragment to its container using a FragmentManager and a Transaction
@@ -65,7 +68,9 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 stepsListFragment.setArguments(stepsBundle);
 
                 fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-            } else {
+            }
+            else
+                {
                 // We're in single-pane mode and displaying fragments on a phone in separate activities
 
                     mTwoPane = false;
