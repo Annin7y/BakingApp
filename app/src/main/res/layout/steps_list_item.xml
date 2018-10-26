@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/ingredient_list"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/steps_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/step_short_desc"
         style="@style/FragmentIngStepsListStyle"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
         tools:text="Mix all the ingredients" />
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

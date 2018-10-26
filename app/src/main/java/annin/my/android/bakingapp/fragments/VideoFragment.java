@@ -49,6 +49,7 @@ public class VideoFragment extends Fragment
     private int stepsIndex;
     private long mPosition;
     String videoUrl;
+    Uri videoUrl_Parse;
     String thumbnailUrl;
 
     private static final String KEY_POSITION = "position";
@@ -66,22 +67,20 @@ public class VideoFragment extends Fragment
         if (bundle != null) {
 
             stepClick= getArguments().getParcelable("Steps");
-          //  itemIndex = bundle.getInt("STEP_INDEX_ACTIVITY");
-          //  stepsList = bundle.getParcelableArrayList("STEP_LIST_ACTIVITY");
-        //    Steps temp = steps.get(itemIndex);
-
 
             videoUrl = stepClick.getVideoUrl();
+            videoUrl_Parse= Uri.parse(videoUrl);
             thumbnailUrl = stepClick.getThumbnailUrl();
+            initializePlayer(videoUrl_Parse);
         }
         // Return the root view
         return rootView;
 
-       // initializePlayer();
+
     }
 
 
-    private void initializePlayer(Uri videoURL)
+    public void initializePlayer(Uri videoUrl)
     {
         if (mExoPlayer == null)
         {
@@ -90,7 +89,7 @@ public class VideoFragment extends Fragment
                 mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
                 mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
                 String userAgent = Util.getUserAgent(getContext(), "Baking App");
-                MediaSource mediaSource = new ExtractorMediaSource(videoURL,
+                MediaSource mediaSource = new ExtractorMediaSource(videoUrl,
                         new DefaultDataSourceFactory(getContext(), userAgent),
                         new DefaultExtractorsFactory(), null, null);
                 mExoPlayer.prepare(mediaSource);
