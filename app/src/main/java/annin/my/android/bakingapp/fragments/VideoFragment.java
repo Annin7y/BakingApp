@@ -75,8 +75,7 @@ public class VideoFragment extends Fragment
         }
         // Return the root view
         return rootView;
-
-
+        
     }
 
 
