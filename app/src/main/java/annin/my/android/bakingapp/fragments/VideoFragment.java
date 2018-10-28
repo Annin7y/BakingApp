@@ -67,15 +67,16 @@ public class VideoFragment extends Fragment
         if (bundle != null) {
 
             stepClick= getArguments().getParcelable("Steps");
-
-            videoUrl = stepClick.getVideoUrl();
-            videoUrl_Parse= Uri.parse(videoUrl);
-            thumbnailUrl = stepClick.getThumbnailUrl();
+                if(stepClick != null) {
+                    videoUrl = stepClick.getVideoUrl();
+                    videoUrl_Parse = Uri.parse(videoUrl);
+                    thumbnailUrl = stepClick.getThumbnailUrl();
+                }
             initializePlayer(videoUrl_Parse);
         }
         // Return the root view
         return rootView;
-        
+
     }
 
 
@@ -100,6 +101,7 @@ public class VideoFragment extends Fragment
     @Override
     public void onStart()
     {
+
         super.onStart();
     }
 
