@@ -20,6 +20,7 @@ import com.google.android.exoplayer2.trackselection.TrackSelector;
 import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,7 @@ public class VideoFragment extends Fragment
     private long mPosition;
     String videoUrl;
     Uri videoUrl_Parse;
+    Uri thumbnailUrl_Parse;
     String thumbnailUrl;
 
     private static final String KEY_POSITION = "position";
@@ -71,6 +73,12 @@ public class VideoFragment extends Fragment
                     videoUrl = stepClick.getVideoUrl();
                     videoUrl_Parse = Uri.parse(videoUrl);
                     thumbnailUrl = stepClick.getThumbnailUrl();
+                    thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
+                    if(thumbnailUrl != null) {
+                        Picasso.with(getContext())
+                                .load(thumbnailUrl_Parse)
+                                .into(thumbnailUrlImage);
+                    }
                 }
             initializePlayer(videoUrl_Parse);
         }
