@@ -6,7 +6,7 @@
 
     <com.google.android.exoplayer2.ui.SimpleExoPlayerView
         android:id="@+id/playerView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="0dp"
@@ -28,13 +28,13 @@
 
     </ImageView>
 
-
     <TextView
         android:id="@+id/step_long_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/FragmentIngStepsListStyle"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnail_url"/>
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail_url"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

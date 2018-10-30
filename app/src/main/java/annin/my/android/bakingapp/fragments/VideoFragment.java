@@ -74,11 +74,7 @@ public class VideoFragment extends Fragment
                     videoUrl_Parse = Uri.parse(videoUrl);
                     thumbnailUrl = stepClick.getThumbnailUrl();
                     thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
-                    if(thumbnailUrl != null) {
-                        Picasso.with(getContext())
-                                .load(thumbnailUrl_Parse)
-                                .into(thumbnailUrlImage);
-                    }
+
                 }
         }
         // Return the root view
@@ -111,6 +107,11 @@ public class VideoFragment extends Fragment
         super.onStart();
         if (Util.SDK_INT <= 23) {
             initializePlayer(videoUrl_Parse);
+            if(thumbnailUrl != null) {
+                Picasso.with(getContext())
+                        .load(thumbnailUrl_Parse)
+                        .into(thumbnailUrlImage);
+            }
         }
     }
 
