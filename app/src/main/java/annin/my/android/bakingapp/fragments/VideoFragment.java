@@ -80,7 +80,6 @@ public class VideoFragment extends Fragment
                                 .into(thumbnailUrlImage);
                     }
                 }
-            initializePlayer(videoUrl_Parse);
         }
         // Return the root view
         return rootView;
@@ -109,8 +108,10 @@ public class VideoFragment extends Fragment
     @Override
     public void onStart()
     {
-
         super.onStart();
+        if (Util.SDK_INT <= 23) {
+            initializePlayer(videoUrl_Parse);
+        }
     }
 
     @Override
