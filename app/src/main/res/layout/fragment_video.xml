@@ -23,8 +23,7 @@
         app:layout_constraintTop_toBottomOf="@id/playerView"
         app:layout_constraintBottom_toTopOf="@id/step_long_description"
         android:layout_marginLeft="0dp"
-        android:layout_marginStart="0dp"
-        >
+        android:layout_marginStart="0dp">
 
     </ImageView>
 
@@ -35,6 +34,5 @@
         style="@style/FragmentIngStepsListStyle"
         app:layout_constraintTop_toBottomOf="@+id/thumbnail_url"
         app:layout_constraintRight_toRightOf="parent" />
-
 
 </android.support.constraint.ConstraintLayout>
