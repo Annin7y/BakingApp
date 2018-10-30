@@ -88,7 +88,6 @@ public class VideoFragment extends Fragment
 
     }
 
-
     public void initializePlayer(Uri videoUrl)
     {
         if (mExoPlayer == null)
