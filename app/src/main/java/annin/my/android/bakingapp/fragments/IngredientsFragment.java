@@ -1,6 +1,9 @@
 package annin.my.android.bakingapp.fragments;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -74,6 +77,8 @@ public class IngredientsFragment extends Fragment
             mIngredientRecyclerView.setAdapter(ingredientsAdapter);
 
             mIngredientRecyclerView.addItemDecoration(new VerticalSpacingDecoration(25));
+
+            SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
 
             Gson gson = new Gson();
             String json = gson.toJson(ingredientsArrayList);
