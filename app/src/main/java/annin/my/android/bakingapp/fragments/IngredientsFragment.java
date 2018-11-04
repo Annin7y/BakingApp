@@ -17,6 +17,7 @@ import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.google.gson.Gson;
 
 public class IngredientsFragment extends Fragment
 {
@@ -74,8 +75,8 @@ public class IngredientsFragment extends Fragment
 
             mIngredientRecyclerView.addItemDecoration(new VerticalSpacingDecoration(25));
 
-          //  Gson gson = new Gson();
-           // String json = gson.toJson(ingredientsArrayList);
+            Gson gson = new Gson();
+            String json = gson.toJson(ingredientsArrayList);
         }
         return rootView;
     }
