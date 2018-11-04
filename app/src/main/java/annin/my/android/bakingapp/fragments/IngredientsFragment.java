@@ -78,10 +78,23 @@ public class IngredientsFragment extends Fragment
 
             mIngredientRecyclerView.addItemDecoration(new VerticalSpacingDecoration(25));
 
+
             SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+            SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
 
             Gson gson = new Gson();
             String json = gson.toJson(ingredientsArrayList);
+            prefsEditor.putString("IngredientsList", json);
+            prefsEditor.apply();
+
+//            SharedPreferences. Editor editor = getSharedPrefences(Your_PREFS_NAME, MODE_PRIVATE).edit();
+//
+//            editor.putString("key_from_json", "string_from_json");
+//
+//            editor.putInt("key_from_json", "int_from_json");
+//
+//            editor.apply();
+
         }
         return rootView;
     }
