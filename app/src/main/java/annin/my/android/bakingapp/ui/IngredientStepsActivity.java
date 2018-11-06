@@ -93,6 +93,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 StepsListFragment stepsListFragment = new StepsListFragment();
                 stepsListFragment.setArguments(stepsBundle);
 
+                    fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
+
                 }
 
             }
