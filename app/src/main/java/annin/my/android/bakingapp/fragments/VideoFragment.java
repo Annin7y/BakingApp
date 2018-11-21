@@ -71,8 +71,7 @@ public class VideoFragment extends Fragment
             stepClick= getArguments().getParcelable("Steps");
                 if(stepClick != null) {
                     videoUrl = stepClick.getVideoUrl();
-                   videoUrl_Parse = Uri.parse(videoUrl);
-                   initializePlayer(videoUrl_Parse);
+                    videoUrl_Parse = Uri.parse(videoUrl);
 
                     thumbnailUrl = stepClick.getThumbnailUrl();
                     thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
@@ -109,18 +108,13 @@ public class VideoFragment extends Fragment
     public void onStart()
     {
         super.onStart();
-        if (Util.SDK_INT <= 23) {
+        if (Util.SDK_INT <= 23 && mExoPlayer == null) {
 
-          //  videoUrl_Parse = Uri.parse(videoUrl);
-           // initializePlayer(videoUrl_Parse);
+           initializePlayer(videoUrl_Parse);
 
-         //   if(thumbnailUrl != null) {
-           //     Picasso.with(getContext())
-             //           .load(thumbnailUrl_Parse).into(thumbnailUrlImage);
-           // }
-        }
-    }
 
+          }}
+          
     @Override
     public void onPause()
     {
