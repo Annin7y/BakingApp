@@ -29,8 +29,9 @@ import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.model.Steps;
 import butterknife.BindView;
 
-public class VideoFragment extends Fragment
-{
+import static annin.my.android.bakingapp.fragments.StepsListFragment.STEPS_LIST_INDEX;
+
+public class VideoFragment extends Fragment {
 
     // Tag for logging
     private static final String TAG = VideoFragment.class.getSimpleName();
@@ -38,8 +39,7 @@ public class VideoFragment extends Fragment
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
-    public VideoFragment()
-    {
+    public VideoFragment() {
     }
 
     ArrayList<Steps> stepsArrayList;
@@ -55,11 +55,10 @@ public class VideoFragment extends Fragment
     String thumbnailUrl;
 
     private static final String KEY_POSITION = "position";
-
+    public static final String STEPS_LIST_INDEX = "list_index";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
 
@@ -68,67 +67,75 @@ public class VideoFragment extends Fragment
         Bundle bundle = this.getArguments();
         if (bundle != null) {
 
-            stepClick= getArguments().getParcelable("Steps");
-                if(stepClick != null) {
+            if (savedInstanceState != null) {
+
+                stepClick = getArguments().getParcelable("Steps");
+                if (stepClick != null) {
                     videoUrl = stepClick.getVideoUrl();
                     videoUrl_Parse = Uri.parse(videoUrl);
 
                     thumbnailUrl = stepClick.getThumbnailUrl();
                     thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
-                    if(thumbnailUrl != null) {
+
+                    if (thumbnailUrl != null) {
                         Picasso.with(getContext())
                                 .load(thumbnailUrl_Parse)
                                 .into(thumbnailUrlImage);
-                }}
-        }
+                    }
+                }
+                if (savedInstanceState != null) {
+                    stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
+                }
+                }
+
+            }
+
         // Return the root view
         return rootView;
 
     }
 
-    public void initializePlayer(Uri videoUrl)
-    {
-        if (mExoPlayer == null)
-        {
-                TrackSelector trackSelector = new DefaultTrackSelector();
-                LoadControl loadControl = new DefaultLoadControl();
-                mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
-                mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
-                String userAgent = Util.getUserAgent(getContext(), "Baking App");
-                MediaSource mediaSource = new ExtractorMediaSource(videoUrl,
-                        new DefaultDataSourceFactory(getContext(), userAgent),
-                        new DefaultExtractorsFactory(), null, null);
-                mExoPlayer.prepare(mediaSource);
-                mExoPlayer.setPlayWhenReady(true);
+    public void initializePlayer(Uri videoUrl) {
+        if (mExoPlayer == null) {
+            TrackSelector trackSelector = new DefaultTrackSelector();
+            LoadControl loadControl = new DefaultLoadControl();
+            mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
+            mPlayerView.setPlayer((SimpleExoPlayer) mExoPlayer);
+            String userAgent = Util.getUserAgent(getContext(), "Baking App");
+            MediaSource mediaSource = new ExtractorMediaSource(videoUrl,
+                    new DefaultDataSourceFactory(getContext(), userAgent),
+                    new DefaultExtractorsFactory(), null, null);
+            mExoPlayer.prepare(mediaSource);
+            mExoPlayer.setPlayWhenReady(true);
 
-            }
         }
+    }
 
     @Override
-    public void onStart()
-    {
+    public void onStart() {
         super.onStart();
-        if (Util.SDK_INT <= 23 && mExoPlayer == null) {
+        if (Util.SDK_INT <= 23 || mExoPlayer == null) {
+            initializePlayer(videoUrl_Parse);
 
-           initializePlayer(videoUrl_Parse);
+        }
+    }
 
-
-          }}
-          
     @Override
-    public void onPause()
-    {
+    public void onPause() {
         super.onPause();
         if (Util.SDK_INT <= 23) {
-            if(mExoPlayer!= null){
-            releasePlayer();
+            if (mExoPlayer != null) {
+                releasePlayer();
+                mPosition = mExoPlayer.getCurrentPosition();
+
+            }
+
         }
-    }}
+    }
 
 
     @Override
-    public void onStop()
-    {
+    public void onStop() {
         super.onStop();
         if (Util.SDK_INT <= 23) {
             releasePlayer();
@@ -146,9 +153,17 @@ public class VideoFragment extends Fragment
 
         }
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //Save the fragment's state here
+        outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
+        outState.putLong(KEY_POSITION, mPosition);
+        super.onSaveInstanceState(outState);
+    }
+
 }
-
-
 
 
 
