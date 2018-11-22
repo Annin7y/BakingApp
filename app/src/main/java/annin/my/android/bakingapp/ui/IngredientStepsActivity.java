@@ -23,7 +23,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
     Recipes recipes;
 
     // Track whether to display a two-pane or single-pane UI
-    private boolean mTwoPane;
+    public boolean mTwoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -110,6 +110,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                Log.i("Step: ", stepClick.getStepShortDescription());
               Bundle stepsVideoBundle = new Bundle();
               stepsVideoBundle.putParcelable("Steps", stepClick);
+              stepsVideoBundle.putBoolean("TwoPane", mTwoPane);
+
                VideoFragment videoFragment = new VideoFragment();
               videoFragment.setArguments(stepsVideoBundle);
                getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
