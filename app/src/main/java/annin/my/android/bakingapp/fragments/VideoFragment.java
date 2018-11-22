@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -28,6 +29,7 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.model.Steps;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static annin.my.android.bakingapp.fragments.StepsListFragment.STEPS_LIST_INDEX;
 
@@ -44,8 +46,10 @@ public class VideoFragment extends Fragment {
 
     ArrayList<Steps> stepsArrayList;
     Steps stepClick;
-    private SimpleExoPlayer mExoPlayer;
-    private SimpleExoPlayerView mPlayerView;
+    SimpleExoPlayer mExoPlayer;
+    @BindView(R.id.playerView)
+    SimpleExoPlayerView mPlayerView;
+    @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
     private int stepsIndex;
     private long mPosition;
@@ -53,6 +57,10 @@ public class VideoFragment extends Fragment {
     Uri videoUrl_Parse;
     Uri thumbnailUrl_Parse;
     String thumbnailUrl;
+    @BindView(R.id.previous_button)
+    Button previousButton;
+    @BindView(R.id.next_button)
+    Button nextButton;
 
     private static final String KEY_POSITION = "position";
     public static final String STEPS_LIST_INDEX = "list_index";
@@ -61,13 +69,10 @@ public class VideoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
-
-        mPlayerView = (SimpleExoPlayerView) rootView.findViewById(R.id.playerView);
-        thumbnailUrlImage = (ImageView) rootView.findViewById(R.id.thumbnail_url);
+        // Bind the views
+        ButterKnife.bind(this, rootView);
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-
-            if (savedInstanceState != null) {
 
                 stepClick = getArguments().getParcelable("Steps");
                 if (stepClick != null) {
@@ -85,10 +90,10 @@ public class VideoFragment extends Fragment {
                 }
                 if (savedInstanceState != null) {
                     stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
+
                 }
                 }
 
-            }
 
         // Return the root view
         return rootView;
