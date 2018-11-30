@@ -57,10 +57,13 @@ public class VideoFragment extends Fragment {
     Uri videoUrl_Parse;
     Uri thumbnailUrl_Parse;
     String thumbnailUrl;
+    // Track whether to display a two-pane or single-pane UI
+    public boolean mTwoPane;
     @BindView(R.id.previous_button)
     Button previousButton;
     @BindView(R.id.next_button)
     Button nextButton;
+
 
     private static final String KEY_POSITION = "position";
     public static final String STEPS_LIST_INDEX = "list_index";
@@ -75,17 +78,21 @@ public class VideoFragment extends Fragment {
         if (bundle != null) {
 
                 stepClick = getArguments().getParcelable("Steps");
+            if (mTwoPane){
                 if (stepClick != null) {
                     videoUrl = stepClick.getVideoUrl();
                     videoUrl_Parse = Uri.parse(videoUrl);
 
                     thumbnailUrl = stepClick.getThumbnailUrl();
                     thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
+                    previousButton.setVisibility(View.INVISIBLE);
+                    nextButton.setVisibility(View.INVISIBLE);
 
                     if (thumbnailUrl != null) {
                         Picasso.with(getContext())
                                 .load(thumbnailUrl_Parse)
                                 .into(thumbnailUrlImage);
+                    }
                     }
                 }
                 if (savedInstanceState != null) {
