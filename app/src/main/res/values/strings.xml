@@ -7,4 +7,6 @@
     <string name="ingredient_name">Nutella</string>
     <string name="ingredients">Ingredients</string>
     <string name="steps">Steps</string>
+    <string name="previous_step">Previous</string>
+    <string name="next_step">Next</string>
 </resources>

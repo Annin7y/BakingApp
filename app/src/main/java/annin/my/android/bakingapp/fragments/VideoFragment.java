@@ -57,13 +57,11 @@ public class VideoFragment extends Fragment {
     Uri videoUrl_Parse;
     Uri thumbnailUrl_Parse;
     String thumbnailUrl;
-    // Track whether to display a two-pane or single-pane UI
-    public boolean mTwoPane;
     @BindView(R.id.previous_button)
     Button previousButton;
     @BindView(R.id.next_button)
     Button nextButton;
-
+    boolean mTwoPane;
 
     private static final String KEY_POSITION = "position";
     public static final String STEPS_LIST_INDEX = "list_index";
@@ -74,11 +72,15 @@ public class VideoFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         // Bind the views
         ButterKnife.bind(this, rootView);
+
         Bundle bundle = this.getArguments();
         if (bundle != null) {
 
-                stepClick = getArguments().getParcelable("Steps");
-            if (mTwoPane){
+            stepClick = getArguments().getParcelable("Steps");
+
+            //Track whether to display a two-pane or single-pane UI
+            mTwoPane = getArguments().getBoolean("TwoPane");
+            if (mTwoPane) {
                 if (stepClick != null) {
                     videoUrl = stepClick.getVideoUrl();
                     videoUrl_Parse = Uri.parse(videoUrl);
@@ -93,14 +95,14 @@ public class VideoFragment extends Fragment {
                                 .load(thumbnailUrl_Parse)
                                 .into(thumbnailUrlImage);
                     }
-                    }
                 }
+
                 if (savedInstanceState != null) {
                     stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
 
                 }
-                }
-
+            }
+        }
 
         // Return the root view
         return rootView;
