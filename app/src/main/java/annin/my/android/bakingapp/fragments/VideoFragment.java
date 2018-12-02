@@ -80,29 +80,31 @@ public class VideoFragment extends Fragment {
 
             //Track whether to display a two-pane or single-pane UI
             mTwoPane = getArguments().getBoolean("TwoPane");
-            if (mTwoPane) {
-                if (stepClick != null) {
-                    videoUrl = stepClick.getVideoUrl();
-                    videoUrl_Parse = Uri.parse(videoUrl);
+            if (stepClick != null) {
+                videoUrl = stepClick.getVideoUrl();
+                videoUrl_Parse = Uri.parse(videoUrl);
 
-                    thumbnailUrl = stepClick.getThumbnailUrl();
-                    thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
+                thumbnailUrl = stepClick.getThumbnailUrl();
+                thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
+
+                if (thumbnailUrl != null) {
+                    Picasso.with(getContext())
+                            .load(thumbnailUrl_Parse)
+                            .into(thumbnailUrlImage);
+                }
+                if (mTwoPane) {
                     previousButton.setVisibility(View.INVISIBLE);
                     nextButton.setVisibility(View.INVISIBLE);
-
-                    if (thumbnailUrl != null) {
-                        Picasso.with(getContext())
-                                .load(thumbnailUrl_Parse)
-                                .into(thumbnailUrlImage);
-                    }
+                } else {
+                    previousButton.setVisibility(View.VISIBLE);
+                    nextButton.setVisibility(View.VISIBLE);
+            }
                 }
 
                 if (savedInstanceState != null) {
                     stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
-
                 }
             }
-        }
 
         // Return the root view
         return rootView;

@@ -7,11 +7,14 @@ import android.content.Intent;
 import android.widget.RemoteViews;
 
 import annin.my.android.bakingapp.R;
+import annin.my.android.bakingapp.model.Recipes;
 
 /**
  * Implementation of App Widget functionality.
  */
 public class RecipeWidgetProvider extends AppWidgetProvider {
+
+    private Recipes recipes;
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
                                 int appWidgetId) {
