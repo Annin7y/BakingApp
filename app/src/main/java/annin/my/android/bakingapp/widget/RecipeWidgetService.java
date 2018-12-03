@@ -6,13 +6,11 @@ import android.widget.RemoteViewsService;
 
 public class RecipeWidgetService extends RemoteViewsService
 {
-
-    private Context mContext;
-
-
     @Override
-    public RemoteViewsFactory onGetViewFactory(Intent intent) {
-        mContext = getApplicationContext();
+    public RemoteViewsFactory onGetViewFactory(Intent intent)
+    {
+        return new RecipeWidgetViewFactory(getApplicationContext());
+
     }
 
 }

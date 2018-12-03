@@ -123,7 +123,7 @@ public class VideoFragment extends Fragment {
                     new DefaultExtractorsFactory(), null, null);
             mExoPlayer.prepare(mediaSource);
             mExoPlayer.setPlayWhenReady(true);
-
+            mExoPlayer.seekTo(mPosition);
         }
     }
 
