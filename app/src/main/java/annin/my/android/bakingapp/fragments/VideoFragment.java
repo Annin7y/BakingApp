@@ -111,6 +111,8 @@ public class VideoFragment extends Fragment {
 
     }
 
+    //ExoPlayer code based on: https://codelabs.developers.google.com/codelabs/exoplayer-intro/#2
+
     public void initializePlayer(Uri videoUrl) {
         if (mExoPlayer == null) {
             TrackSelector trackSelector = new DefaultTrackSelector();
@@ -145,10 +147,17 @@ public class VideoFragment extends Fragment {
                 mPosition = mExoPlayer.getCurrentPosition();
 
             }
-
         }
     }
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        if ((Util.SDK_INT <= 23 || mExoPlayer != null)) {
+            if(mPosition > 0) {
+                mExoPlayer.seekTo(mPosition);
+            }
+        }
+    }
 
     @Override
     public void onStop() {
