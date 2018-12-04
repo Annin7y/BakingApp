@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.model.Recipes;
+import annin.my.android.bakingapp.utils.JSONUtils;
 import annin.my.android.bakingapp.utils.NetworkUtils;
 
 public class RecipesAsyncTask extends AsyncTask<URL, Void, ArrayList<Recipes>>
@@ -36,7 +37,7 @@ public class RecipesAsyncTask extends AsyncTask<URL, Void, ArrayList<Recipes>>
             String jsonRecipeResponse = NetworkUtils
                     .makeHttpRequest(recipeRequestUrl);
 
-            return NetworkUtils.extractFeatureFromJson(jsonRecipeResponse);
+            return JSONUtils.extractFeatureFromJson(jsonRecipeResponse);
         }
         catch (Exception e)
         {

@@ -5,6 +5,8 @@ import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import java.util.ArrayList;
+
+import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.model.Ingredients;
 
 public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFactory
@@ -12,11 +14,11 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     private ArrayList<Ingredients> mIngredientsList;
     private Context mContext;
 
-    public RemoteWidgetViewFactory(Context context)
-    {
-        mContext = context;
-        mIngredientsList = new ArrayList<Ingredients>();
-    }
+//    public RemoteWidgetViewFactory(Context context)
+//    {
+//        mContext = context;
+//        mIngredientsList = new ArrayList<Ingredients>();
+//    }
     @Override
     public void onCreate() {
     }
@@ -34,7 +36,25 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     @Override
     public RemoteViews getViewAt(int position) {
 
+        Ingredients ingredient = mIngredientsList.get(position);
 
+        RemoteViews itemView = new RemoteViews(mContext.getPackageName(), R.layout.ingredient_list_item);
+
+     //   itemView.setTextViewText(R.id.title, recipe.getTitle());
+      //  itemView.setTextViewText(R.id.author, article.getAuthor());
+      //  itemView.setTextViewText(R.id.date, article.getDate());
+
+        return itemView;
+
+    }
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
     }
 
     @Override
@@ -43,6 +63,15 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
         // You would update the data in your collection here as well.
     }
 
+    @Override
+    public RemoteViews getLoadingView() {
+        return null;
+    }
+
+    @Override
+    public void onDestroy() {
+
+    }
 
 
 }
