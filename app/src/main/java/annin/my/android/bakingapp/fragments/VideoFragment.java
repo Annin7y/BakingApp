@@ -52,7 +52,7 @@ public class VideoFragment extends Fragment {
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
     private int stepsIndex;
-    private long mPosition;
+    private long mStartPosition;
     String videoUrl;
     Uri videoUrl_Parse;
     Uri thumbnailUrl_Parse;
@@ -133,7 +133,6 @@ public class VideoFragment extends Fragment {
         super.onStart();
         if (Util.SDK_INT <= 23 || mExoPlayer == null) {
             initializePlayer(videoUrl_Parse);
-
         }
     }
 
@@ -143,7 +142,7 @@ public class VideoFragment extends Fragment {
         if (Util.SDK_INT <= 23) {
             if (mExoPlayer != null) {
                 releasePlayer();
-                mPosition = mExoPlayer.getCurrentPosition();
+                mStartPosition = mExoPlayer.getCurrentPosition();
 
             }
         }
@@ -152,8 +151,8 @@ public class VideoFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if ((Util.SDK_INT <= 23 || mExoPlayer != null)) {
-            if(mPosition > 0) {
-                mExoPlayer.seekTo(mPosition);
+            if(mStartPosition > 0) {
+                mExoPlayer.seekTo(mStartPosition);
             }
         }
     }
@@ -171,7 +170,7 @@ public class VideoFragment extends Fragment {
      */
     private void releasePlayer() {
         if (mExoPlayer != null) {
-            mPosition = mExoPlayer.getCurrentPosition();
+            mStartPosition = mExoPlayer.getCurrentPosition();
             mExoPlayer.release();
             mExoPlayer = null;
 
@@ -183,7 +182,7 @@ public class VideoFragment extends Fragment {
         super.onSaveInstanceState(outState);
         //Save the fragment's state here
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
-        outState.putLong(KEY_POSITION, mPosition);
+        outState.putLong(KEY_POSITION, mStartPosition);
         super.onSaveInstanceState(outState);
     }
 
