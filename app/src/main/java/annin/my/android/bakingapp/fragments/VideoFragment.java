@@ -53,7 +53,7 @@ public class VideoFragment extends Fragment {
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
     private int stepsIndex;
-    private long mStartPosition = C.TIME_UNSET;
+    private long mPlayerPosition ;
     String videoUrl;
     Uri videoUrl_Parse;
     Uri thumbnailUrl_Parse;
@@ -104,7 +104,7 @@ public class VideoFragment extends Fragment {
 
             if (savedInstanceState != null) {
                 stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
-                mStartPosition = savedInstanceState.getLong(KEY_POSITION, C.TIME_UNSET);
+                mPlayerPosition = savedInstanceState.getLong(KEY_POSITION);
             }
         }
 
@@ -126,7 +126,9 @@ public class VideoFragment extends Fragment {
                     new DefaultDataSourceFactory(getContext(), userAgent),
                     new DefaultExtractorsFactory(), null, null);
             mExoPlayer.prepare(mediaSource);
-            mExoPlayer.seekTo(mStartPosition);
+            if(mPlayerPosition != C.TIME_UNSET) {
+                mExoPlayer.seekTo(mPlayerPosition);
+            }
             mExoPlayer.setPlayWhenReady(true);
 
         }
@@ -135,7 +137,7 @@ public class VideoFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if (Util.SDK_INT <= 23 || mExoPlayer == null) {
+        if (Util.SDK_INT > 23) {
             initializePlayer(videoUrl_Parse);
         }
     }
@@ -143,10 +145,10 @@ public class VideoFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        if (Util.SDK_INT <= 23) {
             if (mExoPlayer != null) {
-                mStartPosition = mExoPlayer.getCurrentPosition();
+                mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
+            if (Util.SDK_INT <= 23) {
             releasePlayer();
         }
     }
@@ -154,31 +156,30 @@ public class VideoFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if ((Util.SDK_INT <= 23 || mExoPlayer == null)) {
+       if ((Util.SDK_INT <= 23 || mExoPlayer == null)) {
             initializePlayer(videoUrl_Parse);
             if (mExoPlayer != null) {
-                mStartPosition = mExoPlayer.getCurrentPosition();
+                mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
-        }
+       }
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        if (Util.SDK_INT <= 23) {
             if (mExoPlayer != null) {
                 mExoPlayer.getCurrentPosition();
             }
-            releasePlayer();
+
         }
-    }
+
 
     /**
      * Release ExoPlayer.
      */
     private void releasePlayer() {
         if (mExoPlayer != null) {
-            mStartPosition = mExoPlayer.getCurrentPosition();
+            mPlayerPosition = mExoPlayer.getCurrentPosition();
             mExoPlayer.release();
             mExoPlayer = null;
         }
@@ -191,7 +192,7 @@ public class VideoFragment extends Fragment {
         super.onSaveInstanceState(outState);
         //Save the fragment's state here
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
-        outState.putLong(KEY_POSITION, mStartPosition);
+        outState.putLong(KEY_POSITION, mPlayerPosition);
         super.onSaveInstanceState(outState);
     }
 
