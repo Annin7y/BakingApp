@@ -137,7 +137,7 @@ public class VideoFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if (Util.SDK_INT > 23) {
+        if (Util.SDK_INT <= 23 || mExoPlayer == null) {
             initializePlayer(videoUrl_Parse);
         }
     }
@@ -156,13 +156,11 @@ public class VideoFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-       if ((Util.SDK_INT <= 23 || mExoPlayer == null)) {
-            initializePlayer(videoUrl_Parse);
             if (mExoPlayer != null) {
                 mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
        }
-    }
+
 
     @Override
     public void onStop() {
@@ -170,9 +168,7 @@ public class VideoFragment extends Fragment {
             if (mExoPlayer != null) {
                 mExoPlayer.getCurrentPosition();
             }
-
         }
-
 
     /**
      * Release ExoPlayer.
@@ -183,8 +179,6 @@ public class VideoFragment extends Fragment {
             mExoPlayer.release();
             mExoPlayer = null;
         }
-        mExoPlayer.release();
-
     }
 
     @Override
