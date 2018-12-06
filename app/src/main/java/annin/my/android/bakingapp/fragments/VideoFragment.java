@@ -99,14 +99,14 @@ public class VideoFragment extends Fragment {
                 } else {
                     previousButton.setVisibility(View.VISIBLE);
                     nextButton.setVisibility(View.VISIBLE);
-            }
                 }
+            }
 
-                if (savedInstanceState != null) {
-                    stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
-                    mStartPosition = savedInstanceState.getLong(KEY_POSITION, C.TIME_UNSET);
-                }
+            if (savedInstanceState != null) {
+                stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
+                mStartPosition = savedInstanceState.getLong(KEY_POSITION, C.TIME_UNSET);
             }
+        }
 
         // Return the root view
         return rootView;
@@ -154,9 +154,10 @@ public class VideoFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if ((Util.SDK_INT <= 23 || mExoPlayer != null)) {
-            if(mStartPosition > 0) {
-                mExoPlayer.seekTo(mStartPosition);
+        if ((Util.SDK_INT <= 23 || mExoPlayer == null)) {
+            initializePlayer(videoUrl_Parse);
+            if (mExoPlayer != null) {
+                mStartPosition = mExoPlayer.getCurrentPosition();
             }
         }
     }
@@ -165,6 +166,9 @@ public class VideoFragment extends Fragment {
     public void onStop() {
         super.onStop();
         if (Util.SDK_INT <= 23) {
+            if (mExoPlayer != null) {
+                mExoPlayer.getCurrentPosition();
+            }
             releasePlayer();
         }
     }
