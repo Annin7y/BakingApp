@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.LoadControl;
@@ -52,7 +53,7 @@ public class VideoFragment extends Fragment {
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
     private int stepsIndex;
-    private long mStartPosition;
+    private long mStartPosition = C.TIME_UNSET;
     String videoUrl;
     Uri videoUrl_Parse;
     Uri thumbnailUrl_Parse;
@@ -103,6 +104,7 @@ public class VideoFragment extends Fragment {
 
                 if (savedInstanceState != null) {
                     stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
+                    mStartPosition = savedInstanceState.getLong(KEY_POSITION, C.TIME_UNSET);
                 }
             }
 
@@ -124,7 +126,9 @@ public class VideoFragment extends Fragment {
                     new DefaultDataSourceFactory(getContext(), userAgent),
                     new DefaultExtractorsFactory(), null, null);
             mExoPlayer.prepare(mediaSource);
+            mExoPlayer.seekTo(mStartPosition);
             mExoPlayer.setPlayWhenReady(true);
+
         }
     }
 
@@ -141,12 +145,12 @@ public class VideoFragment extends Fragment {
         super.onPause();
         if (Util.SDK_INT <= 23) {
             if (mExoPlayer != null) {
-                releasePlayer();
                 mStartPosition = mExoPlayer.getCurrentPosition();
-
             }
+            releasePlayer();
         }
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -173,8 +177,9 @@ public class VideoFragment extends Fragment {
             mStartPosition = mExoPlayer.getCurrentPosition();
             mExoPlayer.release();
             mExoPlayer = null;
-
         }
+        mExoPlayer.release();
+
     }
 
     @Override
