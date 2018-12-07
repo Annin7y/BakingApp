@@ -135,9 +135,11 @@ public class VideoFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
+    public void onStart()
+    {
         super.onStart();
-        if (Util.SDK_INT <= 23 || mExoPlayer == null) {
+        if (Util.SDK_INT <= 23 || mExoPlayer == null)
+        {
             initializePlayer(videoUrl_Parse);
         }
     }
@@ -163,9 +165,11 @@ public class VideoFragment extends Fragment {
 
 
     @Override
-    public void onStop() {
+    public void onStop()
+    {
         super.onStop();
-            if (mExoPlayer != null) {
+            if (mExoPlayer != null)
+            {
                 mExoPlayer.getCurrentPosition();
             }
         }
@@ -173,7 +177,8 @@ public class VideoFragment extends Fragment {
     /**
      * Release ExoPlayer.
      */
-    private void releasePlayer() {
+    private void releasePlayer()
+    {
         if (mExoPlayer != null) {
             mPlayerPosition = mExoPlayer.getCurrentPosition();
             mExoPlayer.release();
@@ -182,14 +187,14 @@ public class VideoFragment extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(Bundle outState)
+    {
         super.onSaveInstanceState(outState);
         //Save the fragment's state here
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
         outState.putLong(KEY_POSITION, mPlayerPosition);
         super.onSaveInstanceState(outState);
     }
-
 }
 
 
