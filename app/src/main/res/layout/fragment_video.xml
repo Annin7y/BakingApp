@@ -7,7 +7,7 @@
     <com.google.android.exoplayer2.ui.SimpleExoPlayerView
         android:id="@+id/playerView"
         android:layout_width="match_parent"
-        android:layout_height="201dp"
+        android:layout_height="match_parent"
         android:layout_marginEnd="36dp"
         android:layout_marginRight="36dp"
         app:layout_constraintBottom_toTopOf="@id/thumbnail_url"
@@ -19,7 +19,7 @@
     <ImageView
         android:id="@+id/thumbnail_url"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@id/playerView"
         app:layout_constraintBottom_toTopOf="@id/previous_button"
         android:layout_marginLeft="0dp"

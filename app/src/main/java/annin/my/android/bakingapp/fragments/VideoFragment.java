@@ -147,7 +147,8 @@ public class VideoFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-            if (mExoPlayer != null) {
+            if (mExoPlayer != null)
+            {
                 mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
             if (Util.SDK_INT <= 23) {
@@ -156,9 +157,11 @@ public class VideoFragment extends Fragment {
     }
 
     @Override
-    public void onResume() {
+    public void onResume()
+    {
         super.onResume();
-            if (mExoPlayer != null) {
+            if (mExoPlayer != null)
+            {
                 mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
        }
@@ -179,7 +182,8 @@ public class VideoFragment extends Fragment {
      */
     private void releasePlayer()
     {
-        if (mExoPlayer != null) {
+        if (mExoPlayer != null)
+        {
             mPlayerPosition = mExoPlayer.getCurrentPosition();
             mExoPlayer.release();
             mExoPlayer = null;
