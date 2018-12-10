@@ -99,8 +99,14 @@ public class VideoFragment extends Fragment {
                 } else {
                     previousButton.setVisibility(View.VISIBLE);
                     nextButton.setVisibility(View.VISIBLE);
-                }
-            }
+
+//                    nextButton.setOnClickListener(new View.OnClickListener(){
+//                        @Override
+//                        public void onClick(View v) {
+//
+//
+                       }
+           }
 
             if (savedInstanceState != null) {
                 stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
