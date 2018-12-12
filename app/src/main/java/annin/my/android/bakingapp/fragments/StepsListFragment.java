@@ -31,6 +31,7 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     ArrayList<Steps> stepsArrayList;
 
     Recipes recipes;
+    String stepShortDescription;
 
     // Final Strings to store state information about the list of steps and list index
     public static final String STEPS_LIST_INDEX = "list_index";
@@ -81,14 +82,16 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         ButterKnife.bind(this, rootView);
 
         Bundle bundle = this.getArguments();
-        if (bundle != null)
-        {
+        if (bundle != null) {
             recipes = getArguments().getParcelable("Recipes");
 
-            stepsArrayList = new ArrayList<>();
-            stepsArrayList = recipes.getRecipeSteps();
-        }
+            if (recipes != null) {
 
+                stepsArrayList = new ArrayList<>();
+                stepsArrayList = recipes.getRecipeSteps();
+
+            }
+        }
         if (savedInstanceState != null)
         {
             //Restore the fragment's state here
