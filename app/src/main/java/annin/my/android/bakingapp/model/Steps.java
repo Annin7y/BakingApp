@@ -56,7 +56,7 @@ public class Steps implements Parcelable
 
     public String getStepShortDescription()
     {
-        return stepDescription;
+        return stepShortDescription;
     }
 
     public void setStepDescription(String stepDescription)

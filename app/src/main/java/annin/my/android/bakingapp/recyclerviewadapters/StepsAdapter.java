@@ -48,8 +48,6 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
         @BindView(R.id.step_short_desc)
         public TextView stepShortDescription;
 
-
-
         public StepsAdapterViewHolder(View view)
         {
             super(view);
@@ -87,8 +85,8 @@ public class StepsAdapter extends RecyclerView.Adapter<StepsAdapter.StepsAdapter
     {
         //Binding data
         final Steps stepsView = stepsList.get(position);
-
         holder.stepShortDescription.setText(stepsView.getStepShortDescription());
+
     }
 
     @Override
