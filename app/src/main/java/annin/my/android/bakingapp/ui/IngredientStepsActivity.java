@@ -8,8 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
+import java.util.ArrayList;
+
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
+import annin.my.android.bakingapp.model.Ingredients;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
@@ -21,7 +24,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 
     private Context context;
     Recipes recipes;
-
+    ArrayList<Ingredients> ingredientsArrayList;
+    ArrayList<Steps> stepsArrayList;
     // Track whether to display a two-pane or single-pane UI
     public boolean mTwoPane;
 
@@ -36,7 +40,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
             if (getIntent() != null && getIntent().getExtras() != null)
             {
                 recipes = getIntent().getExtras().getParcelable("Recipes");
-
+                ingredientsArrayList = recipes.getRecipeIngredients();
+           
 
                 if(findViewById(R.id.tablet_detail_layout) != null)
         {
