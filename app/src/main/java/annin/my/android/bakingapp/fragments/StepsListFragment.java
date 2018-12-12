@@ -85,13 +85,11 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
         if (bundle != null) {
             recipes = getArguments().getParcelable("Recipes");
 
-            if (recipes != null) {
-
                 stepsArrayList = new ArrayList<>();
                 stepsArrayList = recipes.getRecipeSteps();
 
             }
-        }
+
         if (savedInstanceState != null)
         {
             //Restore the fragment's state here
