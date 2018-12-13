@@ -7,13 +7,13 @@
 
     <TextView
         android:id="@+id/ingredient_quantity"
-        style="@style/FragmentIngStepsListStyle"
+        style="@style/FragmentIngListStyle"
         android:layout_marginTop="7dp"
         tools:text="@string/ingredient_quantity" />
 
     <TextView
         android:id="@+id/ingredient_measure"
-        style="@style/FragmentIngStepsListStyle"
+        style="@style/FragmentIngListStyle"
         android:layout_marginTop="7dp"
         android:layout_toEndOf="@id/ingredient_quantity"
         android:layout_toRightOf="@id/ingredient_quantity"
@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/ingredient_name"
-        style="@style/FragmentIngStepsListStyle"
+        style="@style/FragmentIngListStyle"
         android:layout_below="@id/ingredient_quantity"
         tools:text="@string/ingredient_name" />
 </RelativeLayout>

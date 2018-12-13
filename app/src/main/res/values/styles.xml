@@ -18,12 +18,23 @@
     </style>
 
     <!-- Ingredient/Steps List Theme -->
-    <style name="FragmentIngStepsListStyle">
+    <style name="FragmentIngListStyle">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:fontFamily">serif</item>
         <item name="android:textSize">15sp</item>
     </style>
+
+    <!-- Ingredient/Steps List Theme -->
+    <style name="FragmentStepsListStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
 
     <!-- Button Theme -->
     <style name="ButtonStyle">
