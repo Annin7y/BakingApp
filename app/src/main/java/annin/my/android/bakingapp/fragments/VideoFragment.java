@@ -106,7 +106,12 @@ public class VideoFragment extends Fragment {
 //
 //
                        }
-           }
+                      //                   previousButton.setOnClickListener(new View.OnClickListener(){
+//                        @Override
+//                        public void onClick(View v) {
+//
+//
+          }
 
             if (savedInstanceState != null) {
                 stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
