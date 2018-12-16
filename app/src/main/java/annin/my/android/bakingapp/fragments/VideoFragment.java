@@ -104,7 +104,11 @@ public class VideoFragment extends Fragment {
 //                        @Override
 //                        public void onClick(View v) {
 //
-//
+//                        add or subtract the position in 1
+                    //    Using the position, get the current step from the steps list
+                    //    Extract the video uri from the current step
+                    //    Call initializePlayer() by passing the new video uri
+
                        }
                       //                   previousButton.setOnClickListener(new View.OnClickListener(){
 //                        @Override
