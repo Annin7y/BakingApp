@@ -57,8 +57,5 @@ public class VideoPhoneActivity extends AppCompatActivity
             thumbnailUrl = stepClick.getThumbnailUrl();
         }
     }
-
-
-
     }
 
