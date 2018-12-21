@@ -32,7 +32,7 @@
         <activity
             android:name="annin.my.android.bakingapp.ui.VideoPhoneActivity"
             android:parentActivityName="annin.my.android.bakingapp.ui.MainActivity"
-            android:launchMode="singleTop" >
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="annin.my.android.bakingapp.ui.IngredientStepsActivity" />

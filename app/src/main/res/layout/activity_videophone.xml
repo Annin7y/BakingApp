@@ -8,9 +8,14 @@
 
     <FrameLayout
         android:id="@+id/video_fragment_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/text_padding"
+        android:layout_width="400dp"
+        android:layout_height="150dp"
+        android:padding="1dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="7dp"
         android:textSize="@dimen/ingredient_title_text_size">
     </FrameLayout>
 
@@ -18,6 +23,8 @@
         android:id="@+id/step_desc"
         style="@style/FragmentStepsListStyle"
         android:layout_marginLeft="36dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="7dp"
         tools:text="Mix all the ingredients in a bowl. Set aside." />
 
 </LinearLayout>
