@@ -124,6 +124,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
                intent.putExtra("Steps", stepClick);
               startActivity(intent);
+
            }
         }
   }
