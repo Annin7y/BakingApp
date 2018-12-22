@@ -50,15 +50,15 @@ public class VideoPhoneActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videophone);
 
-        mPlayerView = (SimpleExoPlayerView) findViewById(R.id.playerView);
-        thumbnailUrlImage = (ImageView) findViewById(R.id.thumbnail_url);
-
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            Steps stepClick = getIntent().getExtras().getParcelable("Steps");
-
-            videoUrl = stepClick.getVideoUrl();
-            thumbnailUrl = stepClick.getThumbnailUrl();
-        }
+//        mPlayerView = (SimpleExoPlayerView) findViewById(R.id.playerView);
+//        thumbnailUrlImage = (ImageView) findViewById(R.id.thumbnail_url);
+//
+//        if (getIntent() != null && getIntent().getExtras() != null) {
+//            Steps stepClick = getIntent().getExtras().getParcelable("Steps");
+//
+//            videoUrl = stepClick.getVideoUrl();
+//            thumbnailUrl = stepClick.getThumbnailUrl();
+//        }
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         VideoFragment videoFragment = new VideoFragment();

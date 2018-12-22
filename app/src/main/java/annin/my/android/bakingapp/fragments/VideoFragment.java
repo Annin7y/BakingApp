@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -62,6 +63,9 @@ public class VideoFragment extends Fragment {
     Button previousButton;
     @BindView(R.id.next_button)
     Button nextButton;
+    @BindView(R.id.step_long_description)
+    TextView stepLongDescription;
+    String stepLongDescriptionUrl;
     boolean mTwoPane;
 
     private static final String KEY_POSITION = "position";
@@ -87,7 +91,8 @@ public class VideoFragment extends Fragment {
 
                 thumbnailUrl = stepClick.getThumbnailUrl();
                 thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
-
+                stepLongDescriptionUrl = stepClick.getStepDescription();
+                stepLongDescription.setText(stepLongDescriptionUrl);
                 if (thumbnailUrl != null) {
                     Picasso.with(getContext())
                             .load(thumbnailUrl_Parse)
