@@ -29,7 +29,7 @@ public class JSONUtils
     private static final String KEY_INGREDIENT_NAME = "ingredient";
     private static final String KEY_STEPS_ID = "id";
     private static final String KEY_STEPS_SHORT_DESC = "shortDescription";
-    private static final String KEY_STEPS_DESCRIPTION = "description";
+    private static final String KEY_STEPS_LONG_DESC = "description";
     private static final String KEY_STEPS_VIDEO_URL = "videoURL";
     private static final String KEY_STEPS_THUMBNAIL_URL = "thumbnailURL";
 
@@ -89,11 +89,11 @@ public class JSONUtils
                     // Extract values for the keys called "id", "shortDescription", "description", "videoURL", "thumbnailURL"
                     String stepId = currentStep.optString(KEY_STEPS_ID);
                     String stepShortDescription = currentStep.optString(KEY_STEPS_SHORT_DESC);
-                    String stepDescription = currentStep.optString(KEY_STEPS_DESCRIPTION);
+                    String stepLongDescription = currentStep.optString(KEY_STEPS_LONG_DESC);
                     String videoURL = currentStep.optString(KEY_STEPS_VIDEO_URL);
                     String thumbnailURL = currentStep.optString(KEY_STEPS_THUMBNAIL_URL);
 
-                    Steps step = new Steps(stepId, stepShortDescription, stepDescription, videoURL, thumbnailURL);
+                    Steps step = new Steps(stepId, stepShortDescription, stepLongDescription, videoURL, thumbnailURL);
                     steps.add(step);
                 }
 

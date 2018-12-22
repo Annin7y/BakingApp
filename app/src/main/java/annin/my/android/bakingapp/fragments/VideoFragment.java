@@ -91,7 +91,7 @@ public class VideoFragment extends Fragment {
 
                 thumbnailUrl = stepClick.getThumbnailUrl();
                 thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
-                stepLongDescriptionUrl = stepClick.getStepDescription();
+                stepLongDescriptionUrl = stepClick.getStepLongDescription();
                 stepLongDescription.setText(stepLongDescriptionUrl);
                 if (thumbnailUrl != null) {
                     Picasso.with(getContext())

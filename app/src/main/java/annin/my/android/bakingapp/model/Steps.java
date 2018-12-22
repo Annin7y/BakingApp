@@ -18,7 +18,7 @@ public class Steps implements Parcelable
     /**
      * Detailed description
      */
-    private String stepDescription;
+    private String stepLongDescription;
 
     /**
      * Video URL
@@ -30,11 +30,11 @@ public class Steps implements Parcelable
      */
     private String thumbnailUrl;
 
-    public Steps(String stepId, String stepShortDescription, String stepDescription, String videoUrl, String thumbnailUrl)
+    public Steps(String stepId, String stepShortDescription, String stepLongDescription, String videoUrl, String thumbnailUrl)
     {
         this.stepId = stepId;
         this.stepShortDescription = stepShortDescription;
-        this.stepDescription = stepDescription;
+        this.stepLongDescription = stepLongDescription;
         this.videoUrl = videoUrl;
         this.thumbnailUrl = thumbnailUrl;
     }
@@ -59,14 +59,14 @@ public class Steps implements Parcelable
         return stepShortDescription;
     }
 
-    public void setStepDescription(String stepDescription)
+    public void setStepLongDescription(String stepLongDescription)
     {
-        this.stepDescription = stepDescription;
+        this.stepLongDescription = stepLongDescription;
     }
 
-    public String getStepDescription()
+    public String getStepLongDescription()
     {
-        return stepDescription;
+        return stepLongDescription;
     }
 
     public void setVideoUrl(String stepShortDescription)
@@ -93,7 +93,7 @@ public class Steps implements Parcelable
     {
         stepId = in.readString();
         stepShortDescription = in.readString();
-        stepDescription = in.readString();
+        stepLongDescription = in.readString();
         videoUrl = in.readString();
         thumbnailUrl = in.readString();
     }
@@ -109,7 +109,7 @@ public class Steps implements Parcelable
     {
         dest.writeString(stepId);
         dest.writeString(stepShortDescription);
-        dest.writeString(stepDescription);
+        dest.writeString(stepLongDescription);
         dest.writeString(videoUrl);
         dest.writeString(thumbnailUrl);
     }
