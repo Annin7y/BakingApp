@@ -14,14 +14,16 @@ import annin.my.android.bakingapp.model.Recipes;
  */
 public class RecipeWidgetProvider extends AppWidgetProvider
 {
+     //The following code is based on the code in this link:
+    //https://joshuadonlan.gitbooks.io/onramp-android/content/widgets/collection_widgets.html
 
-    private Recipes recipes;
-
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetIds)
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+                         int[] appWidgetIds)
     {
-        for(int appWidgetId : appWidgetIds)
+        for(int i = 0; i < appWidgetIds.length; i++)
         {
+
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);

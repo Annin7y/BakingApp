@@ -14,11 +14,11 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     private ArrayList<Ingredients> mIngredientsList;
     private Context mContext;
 
-//    public RemoteWidgetViewFactory(Context context)
-//    {
-//        mContext = context;
-//        mIngredientsList = new ArrayList<Ingredients>();
-//    }
+    public RemoteWidgetViewFactory(Context context)
+    {
+        mContext = context;
+        mIngredientsList = new ArrayList<Ingredients>();
+    }
     @Override
     public void onCreate() {
     }

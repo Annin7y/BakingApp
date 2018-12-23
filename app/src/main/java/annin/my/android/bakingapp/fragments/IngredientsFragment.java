@@ -89,15 +89,7 @@ public class IngredientsFragment extends Fragment
             prefsEditor.putString("IngredientsList_Widget", json);
             prefsEditor.apply();
 
-            Intent intent = new Intent(this, RecipeWidgetProvider);
-
-//            SharedPreferences. Editor editor = getSharedPrefences(Your_PREFS_NAME, MODE_PRIVATE).edit();
-//
-//            editor.putString("key_from_json", "string_from_json");
-//
-//            editor.putInt("key_from_json", "int_from_json");
-//
-//            editor.apply();
+            Intent intent = new Intent(this, RecipeWidgetProvider.class);
 
         }
         return rootView;
