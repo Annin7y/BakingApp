@@ -24,13 +24,22 @@
         app:layout_constraintBottom_toTopOf="@id/previous_button"
         android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp">
-
     </ImageView>
+
+    <TextView
+        android:id="@+id/step_long_description"
+        style="@style/FragmentStepsListStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnail_url" />
 
     <Button
         android:id="@+id/previous_button"
         style="@style/ButtonStyle"
-        app:layout_constraintTop_toBottomOf="@id/thumbnail_url"
+        app:layout_constraintTop_toBottomOf="@id/step_long_description"
         app:layout_constraintBottom_toTopOf="@id/step_long_description"
         android:text="@string/previous_step"
         android:layout_marginStart="20dp"
@@ -47,14 +56,5 @@
         app:layout_constraintHorizontal_bias="0.0"
         android:text="@string/next_step"
         />
-
-    <TextView
-        android:id="@+id/step_long_description"
-        style="@style/FragmentStepsListStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/thumbnail_url" />
 
 </android.support.constraint.ConstraintLayout>

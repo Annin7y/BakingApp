@@ -195,6 +195,7 @@ public class VideoFragment extends Fragment {
             {
                 mExoPlayer.getCurrentPosition();
             }
+        releasePlayer();
         }
 
     /**

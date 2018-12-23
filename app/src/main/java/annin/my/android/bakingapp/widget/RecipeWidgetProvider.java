@@ -12,14 +12,17 @@ import annin.my.android.bakingapp.model.Recipes;
 /**
  * Implementation of App Widget functionality.
  */
-public class RecipeWidgetProvider extends AppWidgetProvider {
+public class RecipeWidgetProvider extends AppWidgetProvider
+{
 
     private Recipes recipes;
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
+                                int appWidgetIds)
+    {
+        for(int appWidgetId : appWidgetIds)
+        {
 
-        CharSequence widgetText = context.getString(R.string.appwidget_text);
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);
         views.setTextViewText(R.id.appwidget_text, widgetText);
@@ -48,6 +51,21 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
     // Update the widgets via the service
     //  context.startService(intent);
 //}
+
+//    @Override
+//    public void onReceive(Context context, Intent intent) {
+//
+////        if(intent.getAction().equals(APP)) {
+////            NewsArticle article = (NewsArticle)intent.getSerializableExtra(EXTRA_ITEM);
+//            if(article != null) {
+//                // Handle the click here.
+//                // Maybe start a details activity?
+//                // Maybe consider using an Activity PendingIntent instead of a Broadcast?
+//            }
+//        }
+//
+//     //   super.onReceive(context, intent);
+//    }
 
 
     @Override
