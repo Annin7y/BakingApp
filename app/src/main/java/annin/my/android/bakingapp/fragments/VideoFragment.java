@@ -3,6 +3,7 @@ package annin.my.android.bakingapp.fragments;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,6 +93,7 @@ public class VideoFragment extends Fragment {
                 thumbnailUrl = stepClick.getThumbnailUrl();
                 thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
                 stepLongDescriptionUrl = stepClick.getStepLongDescription();
+                Log.i("Step: ", stepClick.getStepLongDescription());
                 stepLongDescription.setText(stepLongDescriptionUrl);
                 if (thumbnailUrl != null) {
                     Picasso.with(getContext())

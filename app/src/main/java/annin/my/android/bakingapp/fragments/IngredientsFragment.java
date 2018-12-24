@@ -89,7 +89,7 @@ public class IngredientsFragment extends Fragment
             prefsEditor.putString("IngredientsList_Widget", json);
             prefsEditor.apply();
 
-            Intent intent = new Intent(this, RecipeWidgetProvider.class);
+           // Intent intent = new Intent(this, RecipeWidgetProvider.class);
 
         }
         return rootView;
