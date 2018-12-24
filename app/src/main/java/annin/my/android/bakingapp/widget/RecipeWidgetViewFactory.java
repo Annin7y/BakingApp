@@ -1,12 +1,14 @@
 package annin.my.android.bakingapp.widget;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -20,7 +22,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     private ArrayList<Ingredients> mIngredientsList;
     private Context mContext;
 
-    public RemoteWidgetViewFactory(Context context)
+    public RecipeWidgetViewFactory(Context context)
     {
         mContext = context;
 
@@ -40,12 +42,20 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     public int getViewTypeCount() {
         return 1;
     }
+
     @Override
     public RemoteViews getViewAt(int position) {
 
         Ingredients ingredient = mIngredientsList.get(position);
 
         RemoteViews itemView = new RemoteViews(mContext.getPackageName(), R.layout.ingredient_list_item);
+
+        itemView.setTextViewText(R.id.ingredient_quantity, ingredient.getIngredientQuantity());
+        itemView.setTextViewText(R.id.ingredient_measure, ingredient.getIngredientMeasure());
+        itemView.setTextViewText(R.id.ingredient_name, ingredient.getIngredientName());
+
+        Intent intent = new Intent();
+        intent.putExtra(RecipeWidgetProvider.EXTRA_ITEM, ingredient);
 
         return itemView;
 
@@ -62,12 +72,15 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
 
     @Override
     public void onDataSetChanged() {
+
+        //code structure based on this link:
+        //https://stackoverflow.com/questions/37927113/how-to-store-and-retrieve-an-object-from-gson-in-android
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
 
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Ingredients>() {}.getType();
+        Type type = new TypeToken<List<Ingredients>>() {}.getType();
         String gsonString = sharedPreferences.getString("userImages", "");
-        List<Ingredients> images = gson.fromJson(gsonString, type);
+        List<Ingredients> ingredients = gson.fromJson(gsonString, type);
 
     }
 

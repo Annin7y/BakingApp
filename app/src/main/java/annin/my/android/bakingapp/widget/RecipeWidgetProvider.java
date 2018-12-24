@@ -17,6 +17,12 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
     //https://joshuadonlan.gitbooks.io/onramp-android/content/widgets/collection_widgets.html
     //http://www.vogella.com/tutorials/AndroidWidgets/article.html
 
+    public static final String EXTRA_ITEM =
+            "annin.my.android.RecipeWidgetProvider.EXTRA_ITEM";
+
+
+
+
     /*
     This method is called once a new widget is created as well as every update interval.
      */
