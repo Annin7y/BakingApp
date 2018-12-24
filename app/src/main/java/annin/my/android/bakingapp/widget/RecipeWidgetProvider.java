@@ -12,57 +12,44 @@ import annin.my.android.bakingapp.model.Recipes;
 /**
  * Implementation of App Widget functionality.
  */
-public class RecipeWidgetProvider extends AppWidgetProvider
-{
-     //The following code is based on the code in this link:
+public class RecipeWidgetProvider extends AppWidgetProvider {
+    //The following code is based on the code in these links:
     //https://joshuadonlan.gitbooks.io/onramp-android/content/widgets/collection_widgets.html
-
-    @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager,
-                         int[] appWidgetIds)
-    {
-        for(int i = 0; i < appWidgetIds.length; i++)
-        {
-
-
-        // Construct the RemoteViews object
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);
-        views.setTextViewText(R.id.appwidget_text, widgetText);
-
-        // Instruct the widget manager to update the widget
-        appWidgetManager.updateAppWidget(appWidgetId, views);
-    }
+    //http://www.vogella.com/tutorials/AndroidWidgets/article.html
 
     /*
     This method is called once a new widget is created as well as every update interval.
      */
     @Override
-    public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        // There may be multiple widgets active, so update all of them
-        for (int appWidgetId : appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId);
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+                         int[] appWidgetIds) {
+        for (int i = 0; i < appWidgetIds.length; i++) {
+            // Construct the RemoteViews object
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);
+
+            // Register an onClickListener
+            Intent intent = new Intent(context, RecipeWidgetProvider.class);
+
+            intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
+
+            // Instruct the widget manager to update the widget
+            appWidgetManager.updateAppWidget(appWidgetId, views);
         }
-    }
 
 
-    // Build the intent to call the service
+        // Build the intent to call the service
 //        Intent intent = new Intent(context.getApplicationContext(),
 //              RecipeWidgetService.class);
-    //   intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds);
+        //   intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds);
 
-    // Update the widgets via the service
-    //  context.startService(intent);
+        // Update the widgets via the service
+        //  context.startService(intent);
 //}
 
 //    @Override
 //    public void onReceive(Context context, Intent intent) {
-//
-////        if(intent.getAction().equals(APP)) {
-////            NewsArticle article = (NewsArticle)intent.getSerializableExtra(EXTRA_ITEM);
-//            if(article != null) {
-//                // Handle the click here.
-//                // Maybe start a details activity?
-//                // Maybe consider using an Activity PendingIntent instead of a Broadcast?
+
 //            }
 //        }
 //
@@ -70,15 +57,15 @@ public class RecipeWidgetProvider extends AppWidgetProvider
 //    }
 
 
-    @Override
-    public void onEnabled(Context context) {
+        @Override
+        public void onEnabled (Context context){
 //        // Enter relevant functionality for when the first widget is created
-    }
+        }
 
-    //
-    @Override
-    public void onDisabled(Context context) {
+        //
+        @Override
+        public void onDisabled (Context context){
 //        // Enter relevant functionality for when the last widget is disabled
+        }
     }
 }
-

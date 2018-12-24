@@ -39,7 +39,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
         Ingredients ingredient = mIngredientsList.get(position);
 
         RemoteViews itemView = new RemoteViews(mContext.getPackageName(), R.layout.ingredient_list_item);
-        
+
         return itemView;
 
     }
