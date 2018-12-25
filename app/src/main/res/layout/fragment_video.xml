@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintTop_toBottomOf="@id/playerView"
-        app:layout_constraintBottom_toTopOf="@id/previous_button"
+        app:layout_constraintBottom_toTopOf="@id/step_long_description"
         android:layout_marginLeft="0dp"
         android:layout_marginStart="0dp">
     </ImageView>

@@ -10,6 +10,5 @@ public class RecipeWidgetService extends RemoteViewsService
     public RemoteViewsFactory onGetViewFactory(Intent intent)
     {
         return new RecipeWidgetViewFactory(getApplicationContext());
-
    }
 }

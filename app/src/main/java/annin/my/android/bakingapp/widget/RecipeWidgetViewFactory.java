@@ -25,7 +25,6 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     public RecipeWidgetViewFactory(Context context)
     {
         mContext = context;
-
     }
 
     @Override
@@ -80,7 +79,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
         Gson gson = new Gson();
         Type type = new TypeToken<List<Ingredients>>() {}.getType();
         String gsonString = sharedPreferences.getString("userImages", "");
-        List<Ingredients> ingredients = gson.fromJson(gsonString, type);
+        mIngredientsList = gson.fromJson(gsonString, type);
 
     }
 
@@ -93,6 +92,4 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     public void onDestroy() {
 
     }
-
-
 }

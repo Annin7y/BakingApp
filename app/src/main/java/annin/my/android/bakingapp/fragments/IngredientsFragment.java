@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
+import java.util.Objects;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.decoration.VerticalSpacingDecoration;
@@ -81,7 +82,7 @@ public class IngredientsFragment extends Fragment
             mIngredientRecyclerView.addItemDecoration(new VerticalSpacingDecoration(25));
 
             //Store Ingredients in SharedPreferences
-            SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+            SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences((getActivity()).getApplicationContext());
             SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
 
             Gson gson = new Gson();
@@ -89,7 +90,6 @@ public class IngredientsFragment extends Fragment
             prefsEditor.putString("IngredientsList_Widget", json);
             prefsEditor.apply();
 
-           // Intent intent = new Intent(this, RecipeWidgetProvider.class);
 
         }
         return rootView;
