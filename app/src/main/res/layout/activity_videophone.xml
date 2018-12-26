@@ -10,13 +10,12 @@
         android:id="@+id/video_fragment_container"
         android:layout_width="400dp"
         android:layout_height="250dp"
-        android:padding="1dp"
         android:layout_marginLeft="26dp"
         android:layout_marginStart="26dp"
         android:layout_marginRight="36dp"
         android:layout_marginEnd="36dp"
-        android:layout_marginTop="7dp"
-        android:textSize="@dimen/ingredient_title_text_size">
+        android:layout_marginTop="50dp"
+       >
     </FrameLayout>
 
 
