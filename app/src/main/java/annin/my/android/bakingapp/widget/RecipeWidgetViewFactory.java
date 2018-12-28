@@ -55,6 +55,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
 
         Intent intent = new Intent();
         intent.putExtra(RecipeWidgetProvider.EXTRA_ITEM, ingredient);
+        itemView.setOnClickFillInIntent(R.id.ingredient_list, intent);
 
         return itemView;
 
