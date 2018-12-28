@@ -9,4 +9,5 @@
     <string name="steps">Steps</string>
     <string name="previous_step">Previous</string>
     <string name="next_step">Next</string>
+    <string name="empty_view">Empty view</string>
 </resources>

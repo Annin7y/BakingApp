@@ -1,5 +1,6 @@
 package annin.my.android.bakingapp.widget;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
@@ -17,6 +18,9 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
     //https://joshuadonlan.gitbooks.io/onramp-android/content/widgets/collection_widgets.html
     //http://www.vogella.com/tutorials/AndroidWidgets/article.html
 
+    public static final String ACTION_VIEW_DETAILS =
+            "annin.my.android.RecipeWidgetProvider.ACTION_VIEW_DETAILS";
+
     public static final String EXTRA_ITEM =
             "annin.my.android.RecipeWidgetProvider.EXTRA_ITEM";
 
@@ -30,28 +34,26 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
 
             int widgetId = appWidgetIds[i];
 
-
-            // Construct the RemoteViews object
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);
-
-            // Register an onClickListener
-            Intent intent = new Intent(context, RecipeWidgetProvider.class);
-
-            intent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            //    Build the intent to call the service
+            Intent intent = new Intent(context.getApplicationContext(),
+                    RecipeWidgetService.class);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
 
-            // Instruct the widget manager to update the widget
-           // appWidgetManager.updateAppWidget(appWidgetId, views);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);
+            views.setRemoteAdapter(R.id.appwidget_list, intent);
+            views.setEmptyView(R.id.appwidget_list, R.id.empty);
+
+            Intent detailIntent = new Intent(ACTION_VIEW_DETAILS);
+            PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, detailIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            views.setPendingIntentTemplate(R.id.appwidget_list, pIntent);
+
+            appWidgetManager.updateAppWidget(widgetId,views);
         }
 
-     //    Build the intent to call the service
-        Intent intent = new Intent(context.getApplicationContext(),
-              RecipeWidgetService.class);
-           intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
+        super.onUpdate(context, appWidgetManager, appWidgetIds);
 
-       //  Update the widgets via the service
-          context.startService(intent);
-}
+        }
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
