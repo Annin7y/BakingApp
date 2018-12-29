@@ -9,6 +9,8 @@ import android.widget.RemoteViews;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.model.Recipes;
+import annin.my.android.bakingapp.ui.IngredientStepsActivity;
+import annin.my.android.bakingapp.ui.MainActivity;
 
 /**
  * Implementation of App Widget functionality.
@@ -43,7 +45,7 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
             views.setRemoteAdapter(R.id.appwidget_list, intent);
             views.setEmptyView(R.id.appwidget_list, R.id.empty);
 
-            Intent detailIntent = new Intent(ACTION_VIEW_DETAILS);
+            Intent detailIntent = new Intent(context,IngredientStepsActivity.class);
             PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, detailIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setPendingIntentTemplate(R.id.appwidget_list, pIntent);
 

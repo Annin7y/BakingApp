@@ -57,8 +57,8 @@ public class VideoPhoneActivity extends AppCompatActivity
             if (getIntent() != null && getIntent().getExtras() != null) {
                 Steps stepClick = getIntent().getExtras().getParcelable("Steps");
 
-        //  videoUrl = stepClick.getVideoUrl();
-        //    thumbnailUrl = stepClick.getThumbnailUrl();
+      videoUrl = stepClick.getVideoUrl();
+        thumbnailUrl = stepClick.getThumbnailUrl();
             }
 
             FragmentManager fragmentManager = getSupportFragmentManager();

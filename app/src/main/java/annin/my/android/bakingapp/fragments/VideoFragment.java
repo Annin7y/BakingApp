@@ -110,12 +110,17 @@ public class VideoFragment extends Fragment {
 //                    nextButton.setOnClickListener(new View.OnClickListener(){
 //                        @Override
 //                        public void onClick(View v) {
-//
+//                        if(mPlayerPosition == stepsArrayList.size()){
+//                     currentStep = stepList.get(position1);
+//                         mPlayerPosition++;
+  //
+
+
 //                        add or subtract the position in 1
                     //    Using the position, get the current step from the steps list
                     //    Extract the video uri from the current step
                     //    Call initializePlayer() by passing the new video uri
-
+                    //     initializePlayer(Uri videoUrl)
                        }
                       //                   previousButton.setOnClickListener(new View.OnClickListener(){
 //                        @Override
