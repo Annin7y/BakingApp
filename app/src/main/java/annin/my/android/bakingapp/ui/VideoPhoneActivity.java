@@ -63,7 +63,6 @@ public class VideoPhoneActivity extends AppCompatActivity
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             VideoFragment videoFragment = new VideoFragment();
-
             fragmentManager.beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
 
         }

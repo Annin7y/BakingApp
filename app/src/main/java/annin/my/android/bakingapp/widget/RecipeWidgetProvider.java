@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import annin.my.android.bakingapp.R;
@@ -40,7 +41,7 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
             Intent intent = new Intent(context.getApplicationContext(),
                     RecipeWidgetService.class);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, appWidgetIds);
-
+             Log.d("onUpdate","method working");
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_widget_provider);
             views.setRemoteAdapter(R.id.appwidget_list, intent);
             views.setEmptyView(R.id.appwidget_list, R.id.empty);

@@ -28,7 +28,21 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     }
 
     @Override
-    public void onCreate() {
+    public void onCreate()
+    {
+    }
+
+    @Override
+    public void onDataSetChanged()
+    {
+        //code structure based on this link:
+        //https://stackoverflow.com/questions/37927113/how-to-store-and-retrieve-an-object-from-gson-in-android
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<Ingredients>>() {}.getType();
+        String gsonString = sharedPreferences.getString("ingredients_list", "");
+        mIngredientsList = gson.fromJson(gsonString, type);
     }
 
     @Override
@@ -38,13 +52,8 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     }
 
     @Override
-    public int getViewTypeCount() {
-        return 1;
-    }
-
-    @Override
-    public RemoteViews getViewAt(int position) {
-
+    public RemoteViews getViewAt(int position)
+    {
         Ingredients ingredient = mIngredientsList.get(position);
 
         RemoteViews itemView = new RemoteViews(mContext.getPackageName(), R.layout.ingredient_list_item);
@@ -58,39 +67,33 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
         itemView.setOnClickFillInIntent(R.id.ingredient_list, intent);
 
         return itemView;
-
     }
+
     @Override
-    public long getItemId(int position) {
+    public int getViewTypeCount()
+    {
+        return 1;
+    }
+
+    @Override
+    public long getItemId(int position)
+    {
         return position;
     }
 
     @Override
-    public boolean hasStableIds() {
+    public boolean hasStableIds()
+    {
         return true;
     }
 
     @Override
-    public void onDataSetChanged() {
-
-        //code structure based on this link:
-        //https://stackoverflow.com/questions/37927113/how-to-store-and-retrieve-an-object-from-gson-in-android
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-
-        Gson gson = new Gson();
-        Type type = new TypeToken<List<Ingredients>>() {}.getType();
-        String gsonString = sharedPreferences.getString("ingredients_list", "");
-        mIngredientsList = gson.fromJson(gsonString, type);
-
-    }
-
-    @Override
-    public RemoteViews getLoadingView() {
+    public RemoteViews getLoadingView()
+    {
         return null;
     }
 
     @Override
     public void onDestroy() {
-
     }
 }
