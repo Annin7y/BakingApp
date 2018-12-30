@@ -41,7 +41,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
 
         Gson gson = new Gson();
         Type type = new TypeToken<List<Ingredients>>() {}.getType();
-        String gsonString = sharedPreferences.getString("ingredients_list", "");
+        String gsonString = sharedPreferences.getString("IngredientsList_Widget", "");
         mIngredientsList = gson.fromJson(gsonString, type);
     }
 
