@@ -117,6 +117,10 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                VideoFragment videoFragment = new VideoFragment();
               videoFragment.setArguments(stepsVideoBundle);
                getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
+
+//               Bundle stepsDetailedBundle = new Bundle();
+//               stepsDetailedBundle.putParcelable("Recipes", recipes);
+
            }
            else
                {
