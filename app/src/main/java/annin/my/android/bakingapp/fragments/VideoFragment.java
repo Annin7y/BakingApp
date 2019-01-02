@@ -107,6 +107,7 @@ public class VideoFragment extends Fragment {
                     previousButton.setVisibility(View.VISIBLE);
                     nextButton.setVisibility(View.VISIBLE);
 
+ //                   https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
 //                    nextButton.setOnClickListener(new View.OnClickListener(){
 //                        @Override
 //                        public void onClick(View v) {
@@ -157,7 +158,6 @@ public class VideoFragment extends Fragment {
                 mExoPlayer.seekTo(mPlayerPosition);
             }
             mExoPlayer.setPlayWhenReady(true);
-
         }
     }
 

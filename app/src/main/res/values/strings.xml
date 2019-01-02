@@ -10,4 +10,6 @@
     <string name="previous_step">Previous</string>
     <string name="next_step">Next</string>
     <string name="empty_view">Empty view</string>
+    <string name="step_instructions">Step instructions</string>
+
 </resources>
