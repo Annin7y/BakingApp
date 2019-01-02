@@ -78,15 +78,18 @@ public class VideoFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         // Bind the views
         ButterKnife.bind(this, rootView);
-
         Bundle bundle = this.getArguments();
-        if (bundle != null) {
 
-            stepClick = getArguments().getParcelable("Steps");
-
+        if (bundle != null)
+        {
             //Track whether to display a two-pane or single-pane UI
+            stepClick = getArguments().getParcelable("Steps");
             mTwoPane = getArguments().getBoolean("TwoPane");
             if (stepClick != null) {
+                if (mTwoPane){
+                    previousButton.setVisibility(View.INVISIBLE);
+                    nextButton.setVisibility(View.INVISIBLE);
+
                 videoUrl = stepClick.getVideoUrl();
                 videoUrl_Parse = Uri.parse(videoUrl);
 
@@ -95,42 +98,56 @@ public class VideoFragment extends Fragment {
                 stepLongDescriptionUrl = stepClick.getStepLongDescription();
                 Log.i("Step: ", stepClick.getStepLongDescription());
                 stepLongDescription.setText(stepLongDescriptionUrl);
-                if (thumbnailUrl != null) {
+                if (thumbnailUrl != null)
+                {
                     Picasso.with(getContext())
                             .load(thumbnailUrl_Parse)
                             .into(thumbnailUrlImage);
                 }
-                if (mTwoPane) {
-                    previousButton.setVisibility(View.INVISIBLE);
-                    nextButton.setVisibility(View.INVISIBLE);
-                } else {
+                } else
+                    {
                     previousButton.setVisibility(View.VISIBLE);
                     nextButton.setVisibility(View.VISIBLE);
 
- //                   https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
+                    videoUrl = stepClick.getVideoUrl();
+                    videoUrl_Parse = Uri.parse(videoUrl);
+
+                    thumbnailUrl = stepClick.getThumbnailUrl();
+                    thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
+                    stepLongDescriptionUrl = stepClick.getStepLongDescription();
+                    Log.i("Step: ", stepClick.getStepLongDescription());
+                    stepLongDescription.setText(stepLongDescriptionUrl);
+                    if (thumbnailUrl != null)
+                    {
+                        Picasso.with(getContext())
+                                .load(thumbnailUrl_Parse)
+                                .into(thumbnailUrlImage);
+
+                        //                   https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
 //                    nextButton.setOnClickListener(new View.OnClickListener(){
 //                        @Override
 //                        public void onClick(View v) {
 //                        if(mPlayerPosition == stepsArrayList.size()){
 //                     currentStep = stepList.get(position1);
 //                         mPlayerPosition++;
-  //
+                        //
 
 
 //                        add or subtract the position in 1
-                    //    Using the position, get the current step from the steps list
-                    //    Extract the video uri from the current step
-                    //    Call initializePlayer() by passing the new video uri
-                    //     initializePlayer(Uri videoUrl)
-                       }
-                      //                   previousButton.setOnClickListener(new View.OnClickListener(){
+                        //    Using the position, get the current step from the steps list
+                        //    Extract the video uri from the current step
+                        //    Call initializePlayer() by passing the new video uri
+                        //     initializePlayer(Uri videoUrl)
+
+                        //                   previousButton.setOnClickListener(new View.OnClickListener(){
 //                        @Override
 //                        public void onClick(View v) {
 //
 //
-          }
 
-            if (savedInstanceState != null) {
+                    }}}
+            if (savedInstanceState != null)
+            {
                 stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
                 mPlayerPosition = savedInstanceState.getLong(KEY_POSITION);
             }
