@@ -84,8 +84,8 @@ public class VideoFragment extends Fragment {
         {
             //Track whether to display a two-pane or single-pane UI
             stepClick = getArguments().getParcelable("Steps");
-            mTwoPane = getArguments().getBoolean("TwoPane");
             if (stepClick != null) {
+                mTwoPane = getArguments().getBoolean("TwoPane");
                 if (mTwoPane){
                     previousButton.setVisibility(View.INVISIBLE);
                     nextButton.setVisibility(View.INVISIBLE);
@@ -117,12 +117,11 @@ public class VideoFragment extends Fragment {
                     stepLongDescriptionUrl = stepClick.getStepLongDescription();
                     Log.i("Step: ", stepClick.getStepLongDescription());
                     stepLongDescription.setText(stepLongDescriptionUrl);
-                    if (thumbnailUrl != null)
-                    {
+                    if (thumbnailUrl != null) {
                         Picasso.with(getContext())
                                 .load(thumbnailUrl_Parse)
                                 .into(thumbnailUrlImage);
-
+                    }
                         //                   https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
 //                    nextButton.setOnClickListener(new View.OnClickListener(){
 //                        @Override
@@ -145,7 +144,7 @@ public class VideoFragment extends Fragment {
 //
 //
 
-                    }}}
+                    }}
             if (savedInstanceState != null)
             {
                 stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
