@@ -3,6 +3,7 @@ package annin.my.android.bakingapp.widget;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
@@ -57,11 +58,28 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
 
         }
 
+    public static void sendUpdateIntent(Context context)
+    {
+        Intent i = new Intent(context, RecipeWidgetProvider.class);
+        i.setAction(RecipeWidgetProvider.ACTION_VIEW_DETAILS);
+        context.sendBroadcast(i);
+    }
+
 
     @Override
     public void onReceive(Context context, Intent intent) {
-
+        http://android-er.blogspot.com/2010/10/update-widget-in-onreceive-method.html
         super.onReceive(context, intent);
+
+        if (ACTION_VIEW_DETAILS.equals(intent.getAction())) {
+
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            ComponentName thisAppWidget = new ComponentName(context.getPackageName(), RecipeWidgetProvider.class.getName());
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
+
+            onUpdate(context, appWidgetManager, appWidgetIds);
+
+        }
     }
 
 

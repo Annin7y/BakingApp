@@ -15,7 +15,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginEnd="50dp"
         android:layout_marginRight="50dp"
-       />
+        />
 
     <ImageView
         android:id="@+id/thumbnail_url"
@@ -37,15 +37,15 @@
         android:layout_marginRight="50dp"
         android:layout_below="@id/thumbnail_url"
         android:text="@string/step_instructions"
-       >
+        >
     </TextView>
 
     <Button
         android:id="@+id/previous_button"
         style="@style/ButtonStyle"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
         android:layout_below="@id/step_long_description"
         android:text="@string/previous_step"
         />
@@ -55,10 +55,10 @@
         style="@style/ButtonStyle"
         android:layout_marginTop="10dp"
         android:layout_below="@id/step_long_description"
-        android:layout_toStartOf="@id/previous_button"
-        android:layout_toLeftOf="@id/previous_button"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@id/previous_button"
+        android:layout_toEndOf="@id/previous_button"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
         android:text="@string/next_step"
         />
 

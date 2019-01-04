@@ -69,6 +69,7 @@ public class VideoFragment extends Fragment {
     String stepLongDescriptionUrl;
     boolean mTwoPane;
 
+
     private static final String KEY_POSITION = "position";
     public static final String STEPS_LIST_INDEX = "list_index";
 
@@ -115,6 +116,7 @@ public class VideoFragment extends Fragment {
                     thumbnailUrl = stepClick.getThumbnailUrl();
                     thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
                     stepLongDescriptionUrl = stepClick.getStepLongDescription();
+                    stepsIndex = getArguments().getInt("TwoPane");
                     Log.i("Step: ", stepClick.getStepLongDescription());
                     stepLongDescription.setText(stepLongDescriptionUrl);
                     if (thumbnailUrl != null) {
@@ -122,14 +124,26 @@ public class VideoFragment extends Fragment {
                                 .load(thumbnailUrl_Parse)
                                 .into(thumbnailUrlImage);
                     }
-                        //                   https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
-//                    nextButton.setOnClickListener(new View.OnClickListener(){
-//                        @Override
-//                        public void onClick(View v) {
-//                        if(mPlayerPosition == stepsArrayList.size()){
-//                     currentStep = stepList.get(position1);
-//                         mPlayerPosition++;
-                        //
+                        //https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
+                    nextButton.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            stepsIndex = 0;
+                            if (stepsIndex < stepsArrayList.size() - 1)
+                            {
+                                stepsIndex = stepsIndex + 1;
+                            }
+                        }});
+
+                        previousButton.setOnClickListener(new View.OnClickListener(){
+                        @Override
+                        public void onClick(View v) {
+                            stepsIndex = 0;
+                            if (stepsIndex < stepsArrayList.size() - 1)
+                            {
+                                stepsIndex = stepsIndex - 1;
+                            }
+                        }});
 
 
 //                        add or subtract the position in 1
@@ -143,6 +157,11 @@ public class VideoFragment extends Fragment {
 //                        public void onClick(View v) {
 //
 //
+//                        add or subtract the position in 1
+                        //    Using the position, get the current step from the steps list
+                        //    Extract the video uri from the current step
+                        //    Call initializePlayer() by passing the new video uri
+                        //     initializePlayer(Uri videoUrl)
 
                     }}
             if (savedInstanceState != null)
