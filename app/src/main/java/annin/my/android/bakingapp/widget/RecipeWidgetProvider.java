@@ -68,7 +68,7 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        http://android-er.blogspot.com/2010/10/update-widget-in-onreceive-method.html
+     //   http://android-er.blogspot.com/2010/10/update-widget-in-onreceive-method.html
         super.onReceive(context, intent);
 
         if (ACTION_VIEW_DETAILS.equals(intent.getAction())) {
@@ -78,6 +78,7 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
             int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisAppWidget);
 
             onUpdate(context, appWidgetManager, appWidgetIds);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.appwidget_list);
 
         }
     }
