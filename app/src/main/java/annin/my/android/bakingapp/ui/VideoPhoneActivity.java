@@ -26,8 +26,7 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
 import annin.my.android.bakingapp.model.Steps;
 
-public class VideoPhoneActivity extends AppCompatActivity
-{
+public class VideoPhoneActivity extends AppCompatActivity {
     private static final String LOG_TAG = VideoPhoneActivity.class.getSimpleName();
 
     TextView stepDescription;
@@ -50,22 +49,25 @@ public class VideoPhoneActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videophone);
 
-//        mPlayerView = (SimpleExoPlayerView) findViewById(R.id.playerView);
-//        thumbnailUrlImage = (ImageView) findViewById(R.id.thumbnail_url);
 
-//        if (savedInstanceState != null) {
-//            if (getIntent() != null && getIntent().getExtras() != null) {
-//                Steps stepClick = getIntent().getExtras().getParcelable("Steps");
-//
-//      videoUrl = stepClick.getVideoUrl();
-//        thumbnailUrl = stepClick.getThumbnailUrl();
-//            }
+
+
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            Steps stepClick = getIntent().getExtras().getParcelable("Steps");
+            videoUrl = stepClick.getVideoUrl();
+            thumbnailUrl = stepClick.getThumbnailUrl();
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             VideoFragment videoFragment = new VideoFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("videourl", videoUrl);
+            videoFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
+
+
 
         }
     }
 
 
+}

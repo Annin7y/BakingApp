@@ -128,7 +128,10 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
                intent.putExtra("Steps", stepClick);
               startActivity(intent);
-
+                   Bundle stepsVideoBundle = new Bundle();
+                   VideoFragment videoFragment = new VideoFragment();
+                   videoFragment.setArguments(stepsVideoBundle);
+                   getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
            }
         }
   }
