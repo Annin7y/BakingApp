@@ -87,7 +87,7 @@ public class VideoFragment extends Fragment {
             stepClick = getArguments().getParcelable("Steps");
             if (stepClick != null) {
                 mTwoPane = getArguments().getBoolean("TwoPane");
-
+                stepsIndex = getArguments().getInt("StepsIndex");
                 videoUrl = stepClick.getVideoUrl();
                 videoUrl_Parse = Uri.parse(videoUrl);
 
