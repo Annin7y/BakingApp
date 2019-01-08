@@ -31,11 +31,11 @@ public class VideoPhoneActivity extends AppCompatActivity {
 
     TextView stepDescription;
     ArrayList<Steps> stepsArrayList;
-    Steps stepClick;
+    //Steps stepClick;
     private SimpleExoPlayer mExoPlayer;
     private SimpleExoPlayerView mPlayerView;
     ImageView thumbnailUrlImage;
-
+    int stepPosition;
     private long mPosition;
 
     String videoUrl;
@@ -49,13 +49,9 @@ public class VideoPhoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videophone);
 
-
-
-
         if (getIntent() != null && getIntent().getExtras() != null) {
-            Steps stepClick = getIntent().getExtras().getParcelable("Steps");
-            videoUrl = stepClick.getVideoUrl();
-            thumbnailUrl = stepClick.getThumbnailUrl();
+             stepPosition = getIntent().getExtras().getInt("StepPosition");
+             stepsArrayList = getIntent().getExtras().getParcelableArrayList("StepsList");
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             VideoFragment videoFragment = new VideoFragment();
@@ -63,9 +59,7 @@ public class VideoPhoneActivity extends AppCompatActivity {
             bundle.putString("videourl", videoUrl);
             videoFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
-
-
-
+            
         }
     }
 

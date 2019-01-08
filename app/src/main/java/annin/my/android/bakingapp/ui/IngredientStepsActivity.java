@@ -28,7 +28,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
     // Track whether to display a two-pane or single-pane UI
     public boolean mTwoPane;
     public int stepPosition;
-
+    ArrayList<Steps> stepsArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -125,7 +125,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                {
                    Log.i("Step: ", stepClicked.getStepShortDescription());
               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
-               intent.putExtra("Steps", stepClicked);
+               intent.putParcelableArrayListExtra("StepsList", stepsArrayList);
               startActivity(intent);
 
            }

@@ -135,32 +135,12 @@ public class VideoFragment extends Fragment {
                                 stepPosition = stepPosition - 1;
                             }
                         }});
-
-
-//                        add or subtract the position in 1
-                        //    Using the position, get the current step from the steps list
-                        //    Extract the video uri from the current step
-                        //    Call initializePlayer() by passing the new video uri
-                        //     initializePlayer(Uri videoUrl)
-
-                        //                   previousButton.setOnClickListener(new View.OnClickListener(){
-//                        @Override
-//                        public void onClick(View v) {
-//
-//
-//                        add or subtract the position in 1
-                        //    Using the position, get the current step from the steps list
-                        //    Extract the video uri from the current step
-                        //    Call initializePlayer() by passing the new video uri
-                        //     initializePlayer(Uri videoUrl)
-
                     }}
             if (savedInstanceState != null)
             {
                 stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
                 mPlayerPosition = savedInstanceState.getLong(KEY_POSITION);
             }
-
 
         // Return the root view
         return rootView;
@@ -218,8 +198,6 @@ public class VideoFragment extends Fragment {
                 mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
        }
-
-
     @Override
     public void onStop()
     {
