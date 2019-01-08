@@ -48,13 +48,14 @@ public class VideoFragment extends Fragment {
     }
 
     ArrayList<Steps> stepsArrayList;
-    Steps stepClick;
+    Steps stepClicked;
     SimpleExoPlayer mExoPlayer;
     @BindView(R.id.playerView)
     SimpleExoPlayerView mPlayerView;
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
-    private int stepsIndex;
+    public int stepPosition;
+    public int currentStep;
     private long mPlayerPosition ;
     String videoUrl;
     Uri videoUrl_Parse;
@@ -84,17 +85,18 @@ public class VideoFragment extends Fragment {
         if (bundle != null)
         {
             //Track whether to display a two-pane or single-pane UI
-            stepClick = getArguments().getParcelable("Steps");
-            if (stepClick != null) {
+            stepClicked = getArguments().getParcelable("Steps");
+            if (stepClicked != null) {
                 mTwoPane = getArguments().getBoolean("TwoPane");
-                stepsIndex = getArguments().getInt("StepsIndex");
-                videoUrl = stepClick.getVideoUrl();
+                stepPosition = getArguments().getInt("StepPosition");
+                stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
+                videoUrl = stepClicked.getVideoUrl();
                 videoUrl_Parse = Uri.parse(videoUrl);
 
-                thumbnailUrl = stepClick.getThumbnailUrl();
+                thumbnailUrl = stepClicked.getThumbnailUrl();
                 thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
-                stepLongDescriptionUrl = stepClick.getStepLongDescription();
-                Log.i("Step: ", stepClick.getStepLongDescription());
+                stepLongDescriptionUrl = stepClicked.getStepLongDescription();
+                Log.i("Step: ", stepClicked.getStepLongDescription());
                 stepLongDescription.setText(stepLongDescriptionUrl);
                 if (thumbnailUrl != null)
                 {
@@ -117,18 +119,20 @@ public class VideoFragment extends Fragment {
                     nextButton.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            if (stepsIndex < stepsArrayList.size() - 1)
+
+                            if (stepPosition < stepsArrayList.size() - 1)
                             {
-                                stepsIndex = stepsIndex + 1;
+
+                                stepPosition = stepPosition + 1;
                             }
                         }});
 
                         previousButton.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            if (stepsIndex < stepsArrayList.size() - 1)
+                            if (stepPosition < stepsArrayList.size() - 1)
                             {
-                                stepsIndex = stepsIndex - 1;
+                                stepPosition = stepPosition - 1;
                             }
                         }});
 

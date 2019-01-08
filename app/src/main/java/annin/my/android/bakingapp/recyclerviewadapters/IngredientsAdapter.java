@@ -81,7 +81,7 @@ public class IngredientsAdapter extends RecyclerView.Adapter<IngredientsAdapter.
 
     public void setIngredientsList(ArrayList<Ingredients> mIngredientsList)
     {
-        this.ingredientsList.addAll(mIngredientsList);
+        this.ingredientsList= mIngredientsList;
         notifyDataSetChanged();
     }
 }

@@ -27,7 +27,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 
     // Track whether to display a two-pane or single-pane UI
     public boolean mTwoPane;
-    public int stepsIndex;
+    public int stepPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -47,7 +47,6 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
             mTwoPane = true;
 
             // Only create new fragments when there is no previously saved state
-
 
         /*
         Add the fragment to its container using a FragmentManager and a Transaction
@@ -104,15 +103,15 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         }}
 
        @Override
-       public void onClick(Steps stepClick)
+       public void onClick(Steps stepClicked)
        {
            if (mTwoPane == true)
            {
-               Log.i("Step: ", stepClick.getStepShortDescription());
+               Log.i("Step: ", stepClicked.getStepShortDescription());
               Bundle stepsVideoBundle = new Bundle();
-              stepsVideoBundle.putParcelable("Steps", stepClick);
+              stepsVideoBundle.putParcelable("Steps", stepClicked);
               stepsVideoBundle.putBoolean("TwoPane", mTwoPane);
-              stepsVideoBundle.putInt("StepsIndex", stepsIndex);
+              stepsVideoBundle.putInt("StepPosition", stepPosition);
 
                VideoFragment videoFragment = new VideoFragment();
               videoFragment.setArguments(stepsVideoBundle);
@@ -124,14 +123,11 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
            }
            else
                {
-                   Log.i("Step: ", stepClick.getStepShortDescription());
+                   Log.i("Step: ", stepClicked.getStepShortDescription());
               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
-               intent.putExtra("Steps", stepClick);
+               intent.putExtra("Steps", stepClicked);
               startActivity(intent);
-                   Bundle stepsVideoBundle = new Bundle();
-                   VideoFragment videoFragment = new VideoFragment();
-                   videoFragment.setArguments(stepsVideoBundle);
-                   getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
+
            }
         }
   }
