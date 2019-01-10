@@ -33,7 +33,6 @@ public class VideoPhoneActivity extends AppCompatActivity
     private Steps stepClicked;
     private static final String KEY_POSITION = "position";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
