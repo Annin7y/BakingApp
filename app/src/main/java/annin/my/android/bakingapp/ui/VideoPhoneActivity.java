@@ -26,7 +26,8 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
 import annin.my.android.bakingapp.model.Steps;
 
-public class VideoPhoneActivity extends AppCompatActivity {
+public class VideoPhoneActivity extends AppCompatActivity
+{
     private static final String LOG_TAG = VideoPhoneActivity.class.getSimpleName();
 
     private Steps stepClicked;
@@ -34,7 +35,8 @@ public class VideoPhoneActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videophone);
 

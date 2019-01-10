@@ -113,24 +113,19 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
               stepsVideoBundle.putBoolean("TwoPane", mTwoPane);
               stepsVideoBundle.putInt("StepPosition", stepPosition);
 
-               VideoFragment videoFragment = new VideoFragment();
+              VideoFragment videoFragment = new VideoFragment();
               videoFragment.setArguments(stepsVideoBundle);
-               getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
-
-//               Bundle stepsDetailedBundle = new Bundle();
-//               stepsDetailedBundle.putParcelable("Recipes", recipes);
-
+              getSupportFragmentManager().beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
            }
            else
                {
-                   Log.i("Step: ", stepClicked.getStepShortDescription());
-              Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
-                   intent.putExtra("Steps", stepClicked);
-              startActivity(intent);
-
+               Log.i("Step: ", stepClicked.getStepShortDescription());
+               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
+               intent.putExtra("Steps", stepClicked);
+               startActivity(intent);
            }
-        }
-  }
+       }
+}
 
 
 
