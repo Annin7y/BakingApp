@@ -144,7 +144,6 @@ public class VideoFragment extends Fragment {
 
         // Return the root view
         return rootView;
-
     }
 
     //ExoPlayer code based on: https://codelabs.developers.google.com/codelabs/exoplayer-intro/#2
@@ -171,7 +170,7 @@ public class VideoFragment extends Fragment {
     public void onStart()
     {
         super.onStart();
-        if (Util.SDK_INT <= 23 || mExoPlayer == null)
+        if (Util.SDK_INT > 23 || mExoPlayer == null)
         {
             initializePlayer(videoUrl_Parse);
         }
@@ -184,7 +183,8 @@ public class VideoFragment extends Fragment {
             {
                 mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
-            if (Util.SDK_INT <= 23) {
+            if (Util.SDK_INT <= 23)
+            {
             releasePlayer();
         }
     }
@@ -193,16 +193,17 @@ public class VideoFragment extends Fragment {
     public void onResume()
     {
         super.onResume();
-            if (mExoPlayer != null)
-            {
+        if ((Util.SDK_INT <= 23 || mExoPlayer == null))
+        {
                 mPlayerPosition = mExoPlayer.getCurrentPosition();
             }
        }
+
     @Override
     public void onStop()
     {
         super.onStop();
-            if (mExoPlayer != null)
+            if (Util.SDK_INT > 23 ||  mExoPlayer != null)
             {
                 mExoPlayer.getCurrentPosition();
             }
