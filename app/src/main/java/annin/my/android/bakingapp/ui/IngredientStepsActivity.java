@@ -125,7 +125,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                {
                    Log.i("Step: ", stepClicked.getStepShortDescription());
               Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
-               intent.putParcelableArrayListExtra("StepsList", stepsArrayList);
+                   intent.putExtra("Steps", stepClicked);
               startActivity(intent);
 
            }

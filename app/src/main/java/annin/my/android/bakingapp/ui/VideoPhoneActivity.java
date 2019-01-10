@@ -29,18 +29,7 @@ import annin.my.android.bakingapp.model.Steps;
 public class VideoPhoneActivity extends AppCompatActivity {
     private static final String LOG_TAG = VideoPhoneActivity.class.getSimpleName();
 
-    TextView stepDescription;
-    ArrayList<Steps> stepsArrayList;
-    //Steps stepClick;
-    private SimpleExoPlayer mExoPlayer;
-    private SimpleExoPlayerView mPlayerView;
-    ImageView thumbnailUrlImage;
-    int stepPosition;
-    private long mPosition;
-
-    String videoUrl;
-    String thumbnailUrl;
-
+    private Steps stepClicked;
     private static final String KEY_POSITION = "position";
 
 
@@ -50,18 +39,15 @@ public class VideoPhoneActivity extends AppCompatActivity {
         setContentView(R.layout.activity_videophone);
 
         if (getIntent() != null && getIntent().getExtras() != null) {
-             stepPosition = getIntent().getExtras().getInt("StepPosition");
-             stepsArrayList = getIntent().getExtras().getParcelableArrayList("StepsList");
+            stepClicked = getIntent().getExtras().getParcelable("Steps");
 
             FragmentManager fragmentManager = getSupportFragmentManager();
             VideoFragment videoFragment = new VideoFragment();
             Bundle bundle = new Bundle();
-            bundle.putString("videourl", videoUrl);
+            bundle.putParcelable("Steps", stepClicked);
             videoFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
-            
+            }
         }
     }
 
-
-}
