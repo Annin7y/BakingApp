@@ -121,7 +121,7 @@ public class VideoFragment extends Fragment {
                         @Override
                         public void onClick(View v) {
 
-                            if (stepPosition < stepsArrayList.size() - 1)
+                            if (currentStep < stepsArrayList.size() - 1)
                             {
                                 stepPosition = stepPosition + 1;
                             }
