@@ -105,7 +105,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
        @Override
        public void onClick(Steps stepClicked)
        {
-           if (mTwoPane == true)
+           if (mTwoPane)
            {
                Log.i("Step: ", stepClicked.getStepShortDescription());
               Bundle stepsVideoBundle = new Bundle();

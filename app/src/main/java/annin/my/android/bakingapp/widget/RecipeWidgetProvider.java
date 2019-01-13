@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.RemoteViews;
 
+
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.model.Recipes;
 import annin.my.android.bakingapp.ui.IngredientStepsActivity;
@@ -27,6 +28,13 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
 
     public static final String EXTRA_ITEM =
             "annin.my.android.RecipeWidgetProvider.EXTRA_ITEM";
+
+    public void setPendingIntentTemplate (int viewId,
+                                        PendingIntent pendingIntentTemplate){
+
+
+    }
+
 
     /*
     This method is called once a new widget is created as well as every update interval.
@@ -57,14 +65,6 @@ public class RecipeWidgetProvider extends AppWidgetProvider {
         super.onUpdate(context, appWidgetManager, appWidgetIds);
 
         }
-
-    public static void sendUpdateIntent(Context context)
-    {
-        Intent i = new Intent(context, RecipeWidgetProvider.class);
-        i.setAction(RecipeWidgetProvider.ACTION_VIEW_DETAILS);
-        context.sendBroadcast(i);
-    }
-
 
     @Override
     public void onReceive(Context context, Intent intent) {

@@ -95,6 +95,7 @@ public class VideoFragment extends Fragment {
 
                 thumbnailUrl = stepClicked.getThumbnailUrl();
                 thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
+
                 stepLongDescriptionUrl = stepClicked.getStepLongDescription();
                 Log.i("Step: ", stepClicked.getStepLongDescription());
                 stepLongDescription.setText(stepLongDescriptionUrl);
@@ -122,7 +123,6 @@ public class VideoFragment extends Fragment {
 
                             if (stepPosition < stepsArrayList.size() - 1)
                             {
-
                                 stepPosition = stepPosition + 1;
                             }
                         }});
@@ -130,7 +130,7 @@ public class VideoFragment extends Fragment {
                         previousButton.setOnClickListener(new View.OnClickListener(){
                         @Override
                         public void onClick(View v) {
-                            if (stepPosition < stepsArrayList.size() - 1)
+                            if (stepPosition > 0)
                             {
                                 stepPosition = stepPosition - 1;
                             }
