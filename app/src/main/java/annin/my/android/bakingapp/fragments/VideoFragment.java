@@ -123,7 +123,7 @@ public class VideoFragment extends Fragment {
 
                             if (currentStep < stepsArrayList.size() - 1)
                             {
-                                stepPosition = stepPosition + 1;
+                                currentStep = currentStep + 1;
                             }
                         }});
 

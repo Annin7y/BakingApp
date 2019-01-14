@@ -50,7 +50,7 @@ public class JSONUtils
             // Create a JSONObject from the JSON response string
             JSONArray recipeArray = new JSONArray(recipeJSON);
 
-// For each recipe in the recipeArray, create an {@link Recipes} object
+            // For each recipe in the recipeArray, create an {@link Recipes} object
             for (int i = 0; i < recipeArray.length(); i++)
             {
                 // Get a single recipe description at position i within the list of recipes
