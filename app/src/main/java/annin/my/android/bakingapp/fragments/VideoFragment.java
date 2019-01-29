@@ -52,7 +52,7 @@ public class VideoFragment extends Fragment {
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
     public int stepPosition;
-    public int currentStep;
+    public int currentStep = 0;
     private long mPlayerPosition ;
     String videoUrl;
     Uri videoUrl_Parse;
