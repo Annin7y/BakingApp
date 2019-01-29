@@ -98,6 +98,7 @@ public class VideoFragment extends Fragment {
                 stepLongDescriptionUrl = stepClicked.getStepLongDescription();
                 Log.i("Step: ", stepClicked.getStepLongDescription());
                 stepLongDescription.setText(stepLongDescriptionUrl);
+
                 if (thumbnailUrl != null)
                 {
                     Picasso.with(getContext())
@@ -105,7 +106,8 @@ public class VideoFragment extends Fragment {
                             .into(thumbnailUrlImage);
                 }
                 }
-                if (mTwoPane) {
+                if (mTwoPane)
+                {
                     previousButton.setVisibility(View.INVISIBLE);
                     nextButton.setVisibility(View.INVISIBLE);
 
@@ -118,20 +120,23 @@ public class VideoFragment extends Fragment {
                         //https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
                     nextButton.setOnClickListener(new View.OnClickListener(){
                         @Override
-                        public void onClick(View v) {
-
-                            if (stepPosition < stepsArrayList.size() - 1)
+                        public void onClick(View v)
+                        {
+                            currentStep = stepPosition;
+                            if (currentStep < stepsArrayList.size() - 1)
                             {
-                                stepPosition = stepPosition + 1;
+                                currentStep = currentStep + 1;
                             }
                         }});
 
                         previousButton.setOnClickListener(new View.OnClickListener(){
                         @Override
-                        public void onClick(View v) {
-                            if (stepPosition > 0)
+                        public void onClick(View v)
+                        {
+                            currentStep = stepPosition;
+                            if (currentStep > 0)
                             {
-                                stepPosition = stepPosition - 1;
+                                currentStep = currentStep - 1;
                             }
                         }});
                     }}
