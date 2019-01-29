@@ -1,7 +1,5 @@
 package annin.my.android.bakingapp.fragments;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -13,14 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
-import java.util.Objects;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.decoration.VerticalSpacingDecoration;
-import annin.my.android.bakingapp.model.Ingredients;
-import annin.my.android.bakingapp.model.Recipes;
+import annin.my.android.bakingapp.pojo.Ingredients;
+import annin.my.android.bakingapp.pojo.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
-import annin.my.android.bakingapp.widget.RecipeWidgetProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.google.gson.Gson;

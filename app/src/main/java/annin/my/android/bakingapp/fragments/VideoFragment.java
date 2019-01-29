@@ -29,12 +29,9 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.model.Recipes;
-import annin.my.android.bakingapp.model.Steps;
+import annin.my.android.bakingapp.pojo.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static annin.my.android.bakingapp.fragments.StepsListFragment.STEPS_LIST_INDEX;
 
 public class VideoFragment extends Fragment {
 
@@ -75,7 +72,8 @@ public class VideoFragment extends Fragment {
     public static final String STEPS_LIST_INDEX = "list_index";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+    {
         //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         // Bind the views
@@ -86,7 +84,8 @@ public class VideoFragment extends Fragment {
         {
             //Track whether to display a two-pane or single-pane UI
             stepClicked = getArguments().getParcelable("Steps");
-            if (stepClicked != null) {
+            if (stepClicked != null)
+            {
                 mTwoPane = getArguments().getBoolean("TwoPane");
                 stepPosition = getArguments().getInt("StepPosition");
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
@@ -121,9 +120,9 @@ public class VideoFragment extends Fragment {
                         @Override
                         public void onClick(View v) {
 
-                            if (currentStep < stepsArrayList.size() - 1)
+                            if (stepPosition < stepsArrayList.size() - 1)
                             {
-                                currentStep = currentStep + 1;
+                                stepPosition = stepPosition + 1;
                             }
                         }});
 

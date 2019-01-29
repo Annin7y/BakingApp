@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.model.Recipes;
-import annin.my.android.bakingapp.model.Steps;
+import annin.my.android.bakingapp.pojo.Recipes;
+import annin.my.android.bakingapp.pojo.Steps;
 import annin.my.android.bakingapp.recyclerviewadapters.StepsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;

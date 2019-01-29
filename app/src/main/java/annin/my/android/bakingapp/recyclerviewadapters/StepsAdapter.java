@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.model.Steps;
+import annin.my.android.bakingapp.pojo.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 

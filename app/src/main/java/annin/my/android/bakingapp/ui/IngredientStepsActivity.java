@@ -6,17 +6,15 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
-import annin.my.android.bakingapp.model.Ingredients;
-import annin.my.android.bakingapp.model.Recipes;
+import annin.my.android.bakingapp.pojo.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
-import annin.my.android.bakingapp.model.Steps;
+import annin.my.android.bakingapp.pojo.Steps;
 
 public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepClickListener
 {

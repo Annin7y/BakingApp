@@ -1,4 +1,4 @@
-package annin.my.android.bakingapp.model;
+package annin.my.android.bakingapp.pojo;
 
 import android.os.Parcel;
 import android.os.Parcelable;

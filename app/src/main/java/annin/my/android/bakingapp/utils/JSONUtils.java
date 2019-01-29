@@ -9,9 +9,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import annin.my.android.bakingapp.model.Ingredients;
-import annin.my.android.bakingapp.model.Recipes;
-import annin.my.android.bakingapp.model.Steps;
+import annin.my.android.bakingapp.pojo.Ingredients;
+import annin.my.android.bakingapp.pojo.Recipes;
+import annin.my.android.bakingapp.pojo.Steps;
 
 public class JSONUtils
 {

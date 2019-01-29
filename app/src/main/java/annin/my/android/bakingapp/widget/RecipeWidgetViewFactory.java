@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.model.Ingredients;
+import annin.my.android.bakingapp.pojo.Ingredients;
 
 public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFactory
 {
@@ -94,6 +94,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     }
 
     @Override
-    public void onDestroy() {
+    public void onDestroy()
+    {
     }
 }

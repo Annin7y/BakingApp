@@ -1,12 +1,7 @@
 package annin.my.android.bakingapp.utils;
 
 import android.net.Uri;
-import android.text.TextUtils;
 import android.util.Log;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,11 +11,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-
-import annin.my.android.bakingapp.model.Ingredients;
-import annin.my.android.bakingapp.model.Recipes;
-import annin.my.android.bakingapp.model.Steps;
 
 import static android.content.ContentValues.TAG;
 
