@@ -26,8 +26,6 @@
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/progress_bar_start"
         android:layout_marginEnd="@dimen/progress_bar_end"
-        android:layout_marginLeft="@dimen/progress_bar_left"
-        android:layout_marginRight="@dimen/progress_bar_right"
         android:layout_marginTop="@dimen/progress_bar_top"
         android:visibility="gone" />
 

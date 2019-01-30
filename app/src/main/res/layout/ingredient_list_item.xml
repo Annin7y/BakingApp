@@ -17,7 +17,6 @@
         style="@style/FragmentIngListStyle"
         android:layout_marginTop="7dp"
         android:layout_toEndOf="@id/ingredient_quantity"
-        android:layout_toRightOf="@id/ingredient_quantity"
         tools:text="@string/ingredient_measure" />
 
     <TextView

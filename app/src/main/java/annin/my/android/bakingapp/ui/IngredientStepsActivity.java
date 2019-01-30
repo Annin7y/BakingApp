@@ -110,6 +110,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
               stepsVideoBundle.putParcelable("Steps", stepClicked);
               stepsVideoBundle.putBoolean("TwoPane", mTwoPane);
               stepsVideoBundle.putInt("StepPosition", stepPosition);
+              stepsVideoBundle.putParcelableArrayList("StepsArrayList", stepsArrayList);
 
               VideoFragment videoFragment = new VideoFragment();
               videoFragment.setArguments(stepsVideoBundle);

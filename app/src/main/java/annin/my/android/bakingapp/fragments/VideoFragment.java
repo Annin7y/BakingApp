@@ -29,6 +29,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
+import annin.my.android.bakingapp.pojo.Recipes;
 import annin.my.android.bakingapp.pojo.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +47,7 @@ public class VideoFragment extends Fragment {
 
     ArrayList<Steps> stepsArrayList;
     Steps stepClicked;
+    Recipes recipes;
     SimpleExoPlayer mExoPlayer;
     @BindView(R.id.playerView)
     SimpleExoPlayerView mPlayerView;
@@ -88,7 +90,9 @@ public class VideoFragment extends Fragment {
             {
                 mTwoPane = getArguments().getBoolean("TwoPane");
                 stepPosition = getArguments().getInt("StepPosition");
+                stepsArrayList = new ArrayList<>();
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
+                stepsArrayList = new ArrayList<>();
                 videoUrl = stepClicked.getVideoUrl();
                 videoUrl_Parse = Uri.parse(videoUrl);
 
@@ -125,7 +129,7 @@ public class VideoFragment extends Fragment {
                             currentStep = stepPosition;
                             if (currentStep < stepsArrayList.size() - 1)
                             {
-                                currentStep = currentStep + 1;
+                                currentStep++;
                             }
                         }});
 
