@@ -34,15 +34,16 @@ import annin.my.android.bakingapp.pojo.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class VideoFragment extends Fragment {
-
+public class VideoFragment extends Fragment
+{
     // Tag for logging
     private static final String TAG = VideoFragment.class.getSimpleName();
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
-    public VideoFragment() {
+    public VideoFragment()
+    {
     }
 
     ArrayList<Steps> stepsArrayList;
@@ -55,7 +56,7 @@ public class VideoFragment extends Fragment {
     ImageView thumbnailUrlImage;
     public int stepPosition;
     public int currentStep = 0;
-    private long mPlayerPosition ;
+    private long mPlayerPosition;
     String videoUrl;
     Uri videoUrl_Parse;
     Uri thumbnailUrl_Parse;
@@ -109,46 +110,50 @@ public class VideoFragment extends Fragment {
                             .load(thumbnailUrl_Parse)
                             .into(thumbnailUrlImage);
                 }
-                }
-                if (mTwoPane)
-                {
-                    previousButton.setVisibility(View.INVISIBLE);
-                    nextButton.setVisibility(View.INVISIBLE);
-
-                }
-                else
-                    {
-                    previousButton.setVisibility(View.VISIBLE);
-                    nextButton.setVisibility(View.VISIBLE);
-
-                        //https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
-                    nextButton.setOnClickListener(new View.OnClickListener(){
-                        @Override
-                        public void onClick(View v)
-                        {
-                            currentStep = stepPosition;
-                            if (currentStep < stepsArrayList.size() - 1)
-                            {
-                                currentStep++;
-                            }
-                        }});
-
-                        previousButton.setOnClickListener(new View.OnClickListener(){
-                        @Override
-                        public void onClick(View v)
-                        {
-                            currentStep = stepPosition;
-                            if (currentStep > 0)
-                            {
-                                currentStep = currentStep - 1;
-                            }
-                        }});
-                    }}
-            if (savedInstanceState != null)
-            {
-                stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
-                mPlayerPosition = savedInstanceState.getLong(KEY_POSITION);
             }
+            if (mTwoPane)
+            {
+                previousButton.setVisibility(View.INVISIBLE);
+                nextButton.setVisibility(View.INVISIBLE);
+
+            } else
+                {
+                previousButton.setVisibility(View.VISIBLE);
+                nextButton.setVisibility(View.VISIBLE);
+
+                //https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
+                nextButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v) {
+                        currentStep = stepPosition;
+                        if (currentStep < stepsArrayList.size() - 1)
+                        {
+                            currentStep++;
+                            initializePlayer(videoUrl_Parse);
+                        }
+                    }
+                });
+
+                previousButton.setOnClickListener(new View.OnClickListener()
+                {
+                    @Override
+                    public void onClick(View v)
+                    {
+                        currentStep = stepPosition;
+                        if (currentStep > 0)
+                        {
+                            currentStep = currentStep - 1;
+                        }
+                    }
+                });
+            }
+        }
+        if (savedInstanceState != null)
+        {
+            stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
+            mPlayerPosition = savedInstanceState.getLong(KEY_POSITION);
+        }
 
         // Return the root view
         return rootView;
@@ -156,8 +161,10 @@ public class VideoFragment extends Fragment {
 
     //ExoPlayer code based on: https://codelabs.developers.google.com/codelabs/exoplayer-intro/#2
 
-    public void initializePlayer(Uri videoUrl) {
-        if (mExoPlayer == null) {
+    public void initializePlayer(Uri videoUrl)
+    {
+        if (mExoPlayer == null)
+        {
             TrackSelector trackSelector = new DefaultTrackSelector();
             LoadControl loadControl = new DefaultLoadControl();
             mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
@@ -167,7 +174,8 @@ public class VideoFragment extends Fragment {
                     new DefaultDataSourceFactory(getContext(), userAgent),
                     new DefaultExtractorsFactory(), null, null);
             mExoPlayer.prepare(mediaSource);
-            if(mPlayerPosition != C.TIME_UNSET) {
+            if (mPlayerPosition != C.TIME_UNSET)
+            {
                 mExoPlayer.seekTo(mPlayerPosition);
             }
             mExoPlayer.setPlayWhenReady(true);
@@ -185,14 +193,15 @@ public class VideoFragment extends Fragment {
     }
 
     @Override
-    public void onPause() {
+    public void onPause()
+    {
         super.onPause();
-            if (mExoPlayer != null)
-            {
-                mPlayerPosition = mExoPlayer.getCurrentPosition();
-            }
-            if (Util.SDK_INT <= 23)
-            {
+        if (mExoPlayer != null)
+        {
+            mPlayerPosition = mExoPlayer.getCurrentPosition();
+        }
+        if (Util.SDK_INT <= 23)
+        {
             releasePlayer();
         }
     }
@@ -203,20 +212,20 @@ public class VideoFragment extends Fragment {
         super.onResume();
         if ((Util.SDK_INT <= 23 || mExoPlayer == null))
         {
-                mPlayerPosition = mExoPlayer.getCurrentPosition();
-            }
-       }
+            mPlayerPosition = mExoPlayer.getCurrentPosition();
+        }
+    }
 
     @Override
     public void onStop()
     {
         super.onStop();
-            if (Util.SDK_INT > 23 ||  mExoPlayer != null)
-            {
-                mExoPlayer.getCurrentPosition();
-            }
-        releasePlayer();
+        if (Util.SDK_INT > 23 || mExoPlayer != null)
+        {
+            mExoPlayer.getCurrentPosition();
         }
+        releasePlayer();
+    }
 
     /**
      * Release ExoPlayer.
