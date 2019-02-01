@@ -87,7 +87,7 @@ public class JSONUtils
                     JSONObject currentStep = stepsArray.getJSONObject(k);
 
                     // Extract values for the keys called "id", "shortDescription", "description", "videoURL", "thumbnailURL"
-                    String stepId = currentStep.optString(KEY_STEPS_ID);
+                    int stepId = currentStep.optInt(KEY_STEPS_ID);
                     String stepShortDescription = currentStep.optString(KEY_STEPS_SHORT_DESC);
                     String stepLongDescription = currentStep.optString(KEY_STEPS_LONG_DESC);
                     String videoURL = currentStep.optString(KEY_STEPS_VIDEO_URL);

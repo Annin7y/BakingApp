@@ -8,7 +8,7 @@ public class Steps implements Parcelable
     /**
      * Step id
      */
-    private String stepId;
+    private int stepId;
 
     /**
      * Short description
@@ -30,7 +30,7 @@ public class Steps implements Parcelable
      */
     private String thumbnailUrl;
 
-    public Steps(String stepId, String stepShortDescription, String stepLongDescription, String videoUrl, String thumbnailUrl)
+    public Steps(int stepId, String stepShortDescription, String stepLongDescription, String videoUrl, String thumbnailUrl)
     {
         this.stepId = stepId;
         this.stepShortDescription = stepShortDescription;
@@ -39,12 +39,12 @@ public class Steps implements Parcelable
         this.thumbnailUrl = thumbnailUrl;
     }
 
-    public void setStepId(String stepId)
+    public void setStepId(int stepId)
     {
         this.stepId = stepId;
     }
 
-    public String getStepId()
+    public int getStepId()
     {
         return stepId;
     }
@@ -91,7 +91,7 @@ public class Steps implements Parcelable
 
     protected Steps(Parcel in)
     {
-        stepId = in.readString();
+        stepId = in.readInt();
         stepShortDescription = in.readString();
         stepLongDescription = in.readString();
         videoUrl = in.readString();
@@ -107,7 +107,7 @@ public class Steps implements Parcelable
     @Override
     public void writeToParcel(Parcel dest, int flags)
     {
-        dest.writeString(stepId);
+        dest.writeInt(stepId);
         dest.writeString(stepShortDescription);
         dest.writeString(stepLongDescription);
         dest.writeString(videoUrl);
