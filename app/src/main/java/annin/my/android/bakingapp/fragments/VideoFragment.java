@@ -91,7 +91,6 @@ public class VideoFragment extends Fragment
             {
                 mTwoPane = getArguments().getBoolean("TwoPane");
                 stepPosition = getArguments().getInt("StepPosition");
-                stepsArrayList = new ArrayList<>();
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
                 stepsArrayList = new ArrayList<>();
                 videoUrl = stepClicked.getVideoUrl();
@@ -99,7 +98,7 @@ public class VideoFragment extends Fragment
 
                 thumbnailUrl = stepClicked.getThumbnailUrl();
                 thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
-
+                currentStep = stepPosition;
 
                 stepLongDescriptionUrl = stepClicked.getStepLongDescription();
                 Log.i("Step: ", stepClicked.getStepLongDescription());
@@ -126,10 +125,14 @@ public class VideoFragment extends Fragment
                 nextButton.setOnClickListener(new View.OnClickListener()
                 {
                     @Override
-                    public void onClick(View v) {
+                    public void onClick(View v)
+                    {
                         if (currentStep < stepsArrayList.size() - 1)
                         {
                             currentStep++;
+                            stepClicked= stepsArrayList.get(currentStep);
+                            videoUrl = stepClicked.getVideoUrl();
+                            videoUrl_Parse = Uri.parse(videoUrl);
                             initializePlayer(videoUrl_Parse);
                         }
                     }
@@ -140,10 +143,9 @@ public class VideoFragment extends Fragment
                     @Override
                     public void onClick(View v)
                     {
-                        currentStep = stepPosition;
                         if (currentStep > 0)
                         {
-                            currentStep = currentStep - 1;
+                            currentStep--;
                         }
                     }
                 });
