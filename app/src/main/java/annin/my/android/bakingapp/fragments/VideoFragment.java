@@ -55,7 +55,7 @@ public class VideoFragment extends Fragment
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
     public int stepPosition;
-    public int currentStep;
+    public int currentStep = 0;
     private long mPlayerPosition;
     String videoUrl;
     Uri videoUrl_Parse;
@@ -93,12 +93,13 @@ public class VideoFragment extends Fragment
                 stepPosition = getArguments().getInt("StepPosition");
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
                 stepsArrayList = new ArrayList<>();
+
                 videoUrl = stepClicked.getVideoUrl();
                 videoUrl_Parse = Uri.parse(videoUrl);
 
                 thumbnailUrl = stepClicked.getThumbnailUrl();
                 thumbnailUrl_Parse = Uri.parse(thumbnailUrl);
-                currentStep = stepPosition;
+
 
                 stepLongDescriptionUrl = stepClicked.getStepLongDescription();
                 Log.i("Step: ", stepClicked.getStepLongDescription());
@@ -127,13 +128,18 @@ public class VideoFragment extends Fragment
                     @Override
                     public void onClick(View v)
                     {
-                        if (currentStep < stepsArrayList.size() - 1)
+                        if (stepPosition < stepsArrayList.size() - 1)
                         {
-                            currentStep++;
-                            stepClicked= stepsArrayList.get(currentStep);
+                            //Add or subtract the position in 1
+                            stepPosition++;
+                            //Using the position, get the current step from the steps list
+                            stepClicked= stepsArrayList.get(stepPosition);
+                            //Extract the video uri from the current step
                             videoUrl = stepClicked.getVideoUrl();
                             videoUrl_Parse = Uri.parse(videoUrl);
+                            //Call initializePlayer() by passing the new video uri
                             initializePlayer(videoUrl_Parse);
+
                         }
                     }
                 });
