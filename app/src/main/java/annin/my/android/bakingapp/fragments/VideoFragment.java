@@ -55,7 +55,6 @@ public class VideoFragment extends Fragment
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
     public int stepPosition;
-    public int currentStep = 0;
     private long mPlayerPosition;
     String videoUrl;
     Uri videoUrl_Parse;
@@ -149,9 +148,16 @@ public class VideoFragment extends Fragment
                     @Override
                     public void onClick(View v)
                     {
-                        if (currentStep > 0)
+                        if (stepPosition> 0)
                         {
-                            currentStep--;
+                            stepPosition--;
+                            //Using the position, get the current step from the steps list
+                            stepClicked= stepsArrayList.get(stepPosition);
+                            //Extract the video uri from the current step
+                            videoUrl = stepClicked.getVideoUrl();
+                            videoUrl_Parse = Uri.parse(videoUrl);
+                            //Call initializePlayer() by passing the new video uri
+                            initializePlayer(videoUrl_Parse);
                         }
                     }
                 });
