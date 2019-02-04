@@ -94,6 +94,7 @@ public class VideoFragment extends Fragment
                 stepsArrayList = new ArrayList<>();
 
                 videoUrl = stepClicked.getVideoUrl();
+                Log.i("VideoUrl: ", stepClicked.getVideoUrl());
                 videoUrl_Parse = Uri.parse(videoUrl);
 
                 thumbnailUrl = stepClicked.getThumbnailUrl();
@@ -134,8 +135,9 @@ public class VideoFragment extends Fragment
                             //Using the position, get the current step from the steps list
                             stepClicked= stepsArrayList.get(stepPosition);
                             //Extract the video uri from the current step
-                            videoUrl = stepClicked.getVideoUrl();
-                            videoUrl_Parse = Uri.parse(videoUrl);
+                           videoUrl = stepClicked.getVideoUrl();
+//                            Log.i("VideoUrlNext: ", stepClicked.getVideoUrl());
+                           videoUrl_Parse = Uri.parse(videoUrl);
                             //Call initializePlayer() by passing the new video uri
                             initializePlayer(videoUrl_Parse);
 
