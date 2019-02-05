@@ -86,13 +86,13 @@ public class VideoFragment extends Fragment
         {
             //Track whether to display a two-pane or single-pane UI
             stepClicked = getArguments().getParcelable("Steps");
+
             if (stepClicked != null)
             {
                 mTwoPane = getArguments().getBoolean("TwoPane");
                 stepPosition = getArguments().getInt("StepPosition");
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
                 stepsArrayList = new ArrayList<>();
-
                 videoUrl = stepClicked.getVideoUrl();
                 Log.i("VideoUrl: ", stepClicked.getVideoUrl());
                 videoUrl_Parse = Uri.parse(videoUrl);
@@ -128,15 +128,18 @@ public class VideoFragment extends Fragment
                     @Override
                     public void onClick(View v)
                     {
+
                         if (stepPosition < stepsArrayList.size() - 1)
                         {
                             //Add or subtract the position in 1
+                            stepClicked= stepsArrayList.get(stepPosition);
+
                             stepPosition++;
                             //Using the position, get the current step from the steps list
                             stepClicked= stepsArrayList.get(stepPosition);
                             //Extract the video uri from the current step
                            videoUrl = stepClicked.getVideoUrl();
-//                            Log.i("VideoUrlNext: ", stepClicked.getVideoUrl());
+                            Log.d("VideoUrlNext: ", stepClicked.getVideoUrl());
                            videoUrl_Parse = Uri.parse(videoUrl);
                             //Call initializePlayer() by passing the new video uri
                             initializePlayer(videoUrl_Parse);

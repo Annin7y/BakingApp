@@ -38,7 +38,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
             if (getIntent() != null && getIntent().getExtras() != null)
             {
                 recipes = getIntent().getExtras().getParcelable("Recipes");
-
+                stepsArrayList = new ArrayList<>();
+                stepsArrayList = recipes.getRecipeSteps();
                 if(findViewById(R.id.tablet_detail_layout) != null)
         {
             // This LinearLayout will only initially exist in the two-pane tablet case
@@ -105,7 +106,6 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
        {
            if (mTwoPane)
            {
-               Log.i("Step: ", stepClicked.getStepShortDescription());
               Bundle stepsVideoBundle = new Bundle();
               stepsVideoBundle.putParcelable("Steps", stepClicked);
               stepsVideoBundle.putBoolean("TwoPane", mTwoPane);
