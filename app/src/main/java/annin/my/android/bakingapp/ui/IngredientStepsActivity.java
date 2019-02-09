@@ -100,7 +100,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         }}
 
        @Override
-       public void onClick(Steps stepClicked)
+       public void onClick(Steps stepClicked, int stepPosition)
        {
            if (mTwoPane)
            {
