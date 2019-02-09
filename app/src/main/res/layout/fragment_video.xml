@@ -8,13 +8,11 @@
 
     <com.google.android.exoplayer2.ui.SimpleExoPlayerView
         android:id="@+id/playerView"
-        android:layout_width="350dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
+        android:layout_width="@dimen/exoplayer_width"
+        android:layout_height="@dimen/exoplayer_height"
+        android:layout_marginTop="@dimen/exoplayer_margin_top"
+        android:layout_marginStart="@dimen/exoplayer_margin_start"
+        android:layout_marginEnd="@dimen/exoplayer_margin_end"
         />
 
     <ImageView

@@ -48,4 +48,11 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <!-- Widget margin -->
     <dimen name="widget_margin">8dp</dimen>
 
+    <!-- Exoplayer width, height & margins -->
+    <dimen name="exoplayer_width">350dp</dimen>
+    <dimen name="exoplayer_height">200dp</dimen>
+    <dimen name="exoplayer_margin_top">16dp</dimen>
+    <dimen name="exoplayer_margin_start">50dp</dimen>
+    <dimen name="exoplayer_margin_end">50dp</dimen>
+
 </resources>
