@@ -84,15 +84,15 @@ public class VideoFragment extends Fragment
 
         if (bundle != null)
         {
-            //Track whether to display a two-pane or single-pane UI
             stepClicked = getArguments().getParcelable("Steps");
-
             if (stepClicked != null)
             {
+                //Track whether to display a two-pane or single-pane UI
                 mTwoPane = getArguments().getBoolean("TwoPane");
+                recipes = getArguments().getParcelable("Recipes");
                 stepPosition = getArguments().getInt("StepPosition");
-                stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
                 stepsArrayList = new ArrayList<>();
+                stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
                 videoUrl = stepClicked.getVideoUrl();
                 Log.i("VideoUrl: ", stepClicked.getVideoUrl());
                 videoUrl_Parse = Uri.parse(videoUrl);
@@ -132,8 +132,6 @@ public class VideoFragment extends Fragment
                         if (stepPosition < stepsArrayList.size() - 1)
                         {
                             //Add or subtract the position in 1
-                            stepClicked= stepsArrayList.get(stepPosition);
-
                             stepPosition++;
                             //Using the position, get the current step from the steps list
                             stepClicked= stepsArrayList.get(stepPosition);

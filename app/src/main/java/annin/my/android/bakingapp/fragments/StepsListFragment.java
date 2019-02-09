@@ -75,10 +75,9 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-
-//        //Inflate the Steps fragment layout
+        //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_steps, container, false);
-//        // Bind the views
+       // Bind the views
         ButterKnife.bind(this, rootView);
 
         Bundle bundle = this.getArguments();

@@ -23,7 +23,6 @@ import com.google.gson.Gson;
 
 public class IngredientsFragment extends Fragment
 {
-
     private static final String TAG = IngredientsFragment.class.getSimpleName();
 
     @BindView(R.id.recyclerview_ingredients)
@@ -85,8 +84,6 @@ public class IngredientsFragment extends Fragment
             String json = gson.toJson(ingredientsArrayList);
             prefsEditor.putString("IngredientsList_Widget", json);
             prefsEditor.apply();
-
-
         }
         return rootView;
     }

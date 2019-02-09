@@ -5,15 +5,6 @@
 Refer to App Widget Documentation for margin information
 http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     -->
-    <dimen name="widget_margin">8dp</dimen>
-
-    <!-- CardView margins in movie_list_item -->
-    <dimen name="card_margin">5dp</dimen>
-
-    <!-- ImageView width, height and padding specifications in movie_list_item -->
-    <dimen name="image_view_width">300dp</dimen>
-    <dimen name="image_view_height">150dp</dimen>
-    <dimen name="image_view_padding">2dp</dimen>
 
     <!-- Progress bar width and height specifications in activity_main -->
     <dimen name="progress_bar">42dp</dimen>
@@ -29,20 +20,32 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <!-- Progress bar marginTop in activity_main -->
     <dimen name="progress_bar_top">295dp</dimen>
 
+    <!-- Error message padding and text size specifications in activity_main -->
+    <dimen name="error_padding">3dp</dimen>
+    <dimen name="error_text">20sp</dimen>
+
     <!-- ImageView marginStart, End, Left and Right in activity_detail -->
     <dimen name="imageView_margin">15dp</dimen>
 
     <!-- ImageView marginTop in activity_detail -->
     <dimen name="imageView_top">45dp</dimen>
 
-    <!-- Error message padding and text size specifications in activity_main -->
-    <dimen name="error_padding">3dp</dimen>
-    <dimen name="error_text">20sp</dimen>
-
     <!-- TextView padding and size in activity_detail -->
     <dimen name="text_padding">3dp</dimen>
     <dimen name="ingredient_title_text_size">12sp</dimen>
 
+    <!-- CardView margins in recipe_list_item -->
+    <dimen name="card_margin">5dp</dimen>
+
+    <!-- ImageView width, height and padding specifications in recipe_list_item -->
+    <dimen name="image_view_width">300dp</dimen>
+    <dimen name="image_view_height">150dp</dimen>
+    <dimen name="image_view_padding">2dp</dimen>
+
     <!-- Widget text size -->
     <dimen name="widget_text_size">20sp</dimen>
+
+    <!-- Widget margin -->
+    <dimen name="widget_margin">8dp</dimen>
+
 </resources>

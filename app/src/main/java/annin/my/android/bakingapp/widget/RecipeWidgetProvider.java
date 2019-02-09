@@ -34,7 +34,6 @@ public class RecipeWidgetProvider extends AppWidgetProvider
     {
     }
 
-
     /*
     This method is called once a new widget is created as well as every update interval.
      */
