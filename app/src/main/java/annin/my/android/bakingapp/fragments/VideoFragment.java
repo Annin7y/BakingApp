@@ -46,7 +46,7 @@ public class VideoFragment extends Fragment
     {
     }
 
-    ArrayList<Steps> stepsArrayList;
+    public ArrayList<Steps> stepsArrayList;
     Steps stepClicked;
     Recipes recipes;
     SimpleExoPlayer mExoPlayer;
@@ -54,7 +54,7 @@ public class VideoFragment extends Fragment
     SimpleExoPlayerView mPlayerView;
     @BindView(R.id.thumbnail_url)
     ImageView thumbnailUrlImage;
-    public int stepPosition;
+    public int stepIndex;
     private long mPlayerPosition;
     String videoUrl;
     Uri videoUrl_Parse;
@@ -89,8 +89,7 @@ public class VideoFragment extends Fragment
             {
                 //Track whether to display a two-pane or single-pane UI
                 mTwoPane = getArguments().getBoolean("TwoPane");
-                recipes = getArguments().getParcelable("Recipes");
-                stepPosition = getArguments().getInt("StepPosition");
+                stepIndex = getArguments().getInt("StepIndex");
                 stepsArrayList = new ArrayList<>();
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
                 videoUrl = stepClicked.getVideoUrl();
@@ -129,12 +128,12 @@ public class VideoFragment extends Fragment
                     public void onClick(View v)
                     {
 
-                        if (stepPosition < stepsArrayList.size() - 1)
+                        if (stepIndex < stepsArrayList.size() - 1)
                         {
                             //Add or subtract the position in 1
-                            stepPosition++;
+                            stepIndex++;
                             //Using the position, get the current step from the steps list
-                            stepClicked= stepsArrayList.get(stepPosition);
+                            stepClicked= stepsArrayList.get(stepIndex);
                             //Extract the video uri from the current step
                            videoUrl = stepClicked.getVideoUrl();
                             Log.d("VideoUrlNext: ", stepClicked.getVideoUrl());
@@ -151,11 +150,11 @@ public class VideoFragment extends Fragment
                     @Override
                     public void onClick(View v)
                     {
-                        if (stepPosition> 0)
+                        if (stepIndex> 0)
                         {
-                            stepPosition--;
+                            stepIndex--;
                             //Using the position, get the current step from the steps list
-                            stepClicked= stepsArrayList.get(stepPosition);
+                            stepClicked= stepsArrayList.get(stepIndex);
                             //Extract the video uri from the current step
                             videoUrl = stepClicked.getVideoUrl();
                             videoUrl_Parse = Uri.parse(videoUrl);

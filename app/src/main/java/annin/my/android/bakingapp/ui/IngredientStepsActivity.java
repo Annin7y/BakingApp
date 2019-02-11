@@ -25,8 +25,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 
     // Track whether to display a two-pane or single-pane UI
     public boolean mTwoPane;
-    public int stepPosition;
-    ArrayList<Steps> stepsArrayList;
+    public int stepIndex;
+    public static ArrayList<Steps> stepsArrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -38,6 +38,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
             if (getIntent() != null && getIntent().getExtras() != null)
             {
                 recipes = getIntent().getExtras().getParcelable("Recipes");
+                stepsArrayList = new ArrayList<>();
+                stepsArrayList = recipes.getRecipeSteps();
                 if(findViewById(R.id.tablet_detail_layout) != null)
         {
             // This LinearLayout will only initially exist in the two-pane tablet case
@@ -102,12 +104,13 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
        @Override
        public void onClick(Steps stepClicked, int stepPosition)
        {
+           stepIndex = stepPosition;
            if (mTwoPane)
            {
               Bundle stepsVideoBundle = new Bundle();
               stepsVideoBundle.putParcelable("Steps", stepClicked);
               stepsVideoBundle.putBoolean("TwoPane", mTwoPane);
-              stepsVideoBundle.putInt("StepPosition", stepPosition);
+              stepsVideoBundle.putInt("StepIndex", stepIndex);
               stepsVideoBundle.putParcelableArrayList("StepsArrayList", stepsArrayList);
 
               VideoFragment videoFragment = new VideoFragment();
@@ -119,6 +122,11 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                Log.i("Step: ", stepClicked.getStepShortDescription());
                Intent intent = new Intent(IngredientStepsActivity.this, VideoPhoneActivity.class);
                intent.putExtra("Steps", stepClicked);
+                   intent.putExtra("TwoPane", mTwoPane);
+                   intent.putExtra("StepIndex", stepIndex);
+                   intent.putParcelableArrayListExtra("StepsArrayList", stepsArrayList);
+
+                   Log.i("test","ingredient "+ stepsArrayList.size()+"");
                startActivity(intent);
            }
        }
