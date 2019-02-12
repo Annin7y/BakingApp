@@ -9,15 +9,11 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <!-- Progress bar width and height specifications in activity_main -->
     <dimen name="progress_bar">42dp</dimen>
 
-    <!-- Progress bar marginStart & marginEnd in activity_main -->
+    <!-- Progress bar margins in activity_main -->
     <dimen name="progress_bar_start">260dp</dimen>
     <dimen name="progress_bar_end">260dp</dimen>
-
-    <!-- Progress bar marginLeft & marginRight in activity_main -->
     <dimen name="progress_bar_left">260dp</dimen>
     <dimen name="progress_bar_right">260dp</dimen>
-
-    <!-- Progress bar marginTop in activity_main -->
     <dimen name="progress_bar_top">295dp</dimen>
 
     <!-- Error message padding and text size specifications in activity_main -->
@@ -38,16 +34,6 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="top_videophone_frame">20dp</dimen>
 
 
-    <!-- ImageView marginStart, End, Left and Right in activity_detail -->
-    <dimen name="imageView_margin">15dp</dimen>
-
-    <!-- ImageView marginTop in activity_detail -->
-    <dimen name="imageView_top">45dp</dimen>
-
-    <!-- TextView padding and size in activity_detail -->
-    <dimen name="text_padding">3dp</dimen>
-    <dimen name="ingredient_title_text_size">12sp</dimen>
-
     <!-- CardView margins in recipe_list_item -->
     <dimen name="card_margin">5dp</dimen>
 
@@ -55,7 +41,14 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="image_view_width">300dp</dimen>
     <dimen name="image_view_height">150dp</dimen>
     <dimen name="image_view_padding">2dp</dimen>
-    
+
+    <!-- Ingredients list margins and padding -->
+    <dimen name="ingr_list_top">7dp</dimen>
+
+    <!-- Steps list margins and padding -->
+    <dimen name="steps_list_start">15dp</dimen>
+    <dimen name="steps_list_end">35dp</dimen>
+    <dimen name="steps_list_pad">2dp</dimen>
 
     <!-- Exoplayer width, height & margins -->
     <dimen name="exoplayer_width">350dp</dimen>
@@ -63,12 +56,19 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="exoplayer_margin_top">16dp</dimen>
     <dimen name="exoplayer_margin_start">50dp</dimen>
     <dimen name="exoplayer_margin_end">50dp</dimen>
-    <dimen name="ingr_list_top">7dp</dimen>
 
+    <!-- VideoFragment Step Long Description margins -->
+    <dimen name="step_long_top">15dp</dimen>
+    <dimen name="step_long_start">50dp</dimen>
+    <dimen name="step_long_end">50dp</dimen>
+
+    <!-- Buttons margins -->
+    <dimen name="prev_button_top">30dp</dimen>
+    <dimen name="prev_button_start">60dp</dimen>
+    <dimen name="next_button_top">30dp</dimen>
+    <dimen name="next_button_start">15dp</dimen>
 
     <!-- Widget text size & margin-->
-    <dimen name="widget_text_size">20sp</dimen>
     <dimen name="widget_margin">8dp</dimen>
-
 
 </resources>

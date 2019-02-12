@@ -13,5 +13,6 @@
     <string name="step_instructions">Step instructions</string>
     <string name="ingr_frag_cont">Vanilla extract</string>
     <string name="steps_frag_cont">Prebake cookie crust</string>
+    <string name="steps_short_name">Mix all the ingredients</string>
 
 </resources>

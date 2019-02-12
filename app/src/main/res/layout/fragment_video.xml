@@ -28,9 +28,9 @@
         style="@style/FragmentStepsDescriptionStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="@dimen/step_long_top"
+        android:layout_marginStart="@dimen/step_long_start"
+        android:layout_marginEnd="@dimen/step_long_end"
         android:layout_below="@id/thumbnail_url"
         android:text="@string/step_instructions"
         >
@@ -40,10 +40,10 @@
         android:id="@+id/previous_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="60dp"
-        android:focusable="false"
+        android:layout_marginTop="@dimen/prev_button_top"
+        android:layout_marginStart="@dimen/prev_button_start"
         android:layout_below="@id/step_long_description"
+        android:focusable="false"
         android:text="@string/previous_step"
         />
 
@@ -51,11 +51,11 @@
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="@dimen/next_button_top"
+        android:layout_marginStart="@dimen/next_button_start"
         android:layout_below="@id/step_long_description"
-        android:focusable="false"
         android:layout_toEndOf="@id/previous_button"
-        android:layout_marginStart="15dp"
+        android:focusable="false"
         android:text="@string/next_step"
         />
 

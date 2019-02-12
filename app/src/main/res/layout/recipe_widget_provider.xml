@@ -7,13 +7,10 @@
 
     <ListView
         android:id="@+id/appwidget_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/WidgetProviderListStyle"
         android:background="#09C"
-        android:textColor="#ffffff"
         android:gravity="center"
-        android:textSize="@dimen/widget_text_size"
-        android:textStyle="bold|italic" />
+        />
 
     <TextView android:id="@+id/empty"
         android:layout_width="wrap_content"
