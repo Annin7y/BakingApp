@@ -39,7 +39,9 @@ public class EspressoTest {
 
     //Testing recipe count shown
     //Code based on the following code samples:
-    //
+    //http://qaru.site/questions/229713/how-to-count-recyclerview-items-with-espresso
+    //https://github.com/twilio/mobile-sdk-sample-android/blob/master/twilio-auth-sample/src/androidTest/java/com/twilio/authsample/matchers/RecyclerViewItemCountAssertion.java
+    //https://stackoverflow.com/questions/36399787/how-to-count-recyclerview-items-with-espresso/37339656
     public class RecyclerViewItemCountAssertion implements ViewAssertion
     {
         private final int expectedCount;
@@ -65,3 +67,4 @@ public class EspressoTest {
         }
     }
 }
+//https://stackoverflow.com/questions/51678563/how-to-test-recyclerview-viewholder-text-with-espresso
