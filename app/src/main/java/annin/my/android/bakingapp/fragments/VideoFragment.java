@@ -90,8 +90,10 @@ public class VideoFragment extends Fragment
                 //Track whether to display a two-pane or single-pane UI
                 mTwoPane = getArguments().getBoolean("TwoPane");
                 stepIndex = getArguments().getInt("StepIndex");
-                stepsArrayList = new ArrayList<>();
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
+                if(stepsArrayList == null || stepsArrayList.size() == 0) {
+                    stepsArrayList = new ArrayList<>();
+                }
                 videoUrl = stepClicked.getVideoUrl();
                 Log.i("VideoUrl: ", stepClicked.getVideoUrl());
                 videoUrl_Parse = Uri.parse(videoUrl);

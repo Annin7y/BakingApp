@@ -11,5 +11,7 @@
     <string name="next_step">Next</string>
     <string name="empty_view">Empty view</string>
     <string name="step_instructions">Step instructions</string>
+    <string name="ingr_frag_cont">Vanilla extract</string>
+    <string name="steps_frag_cont">Prebake cookie crust</string>
 
 </resources>

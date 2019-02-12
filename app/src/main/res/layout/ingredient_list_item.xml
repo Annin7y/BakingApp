@@ -9,13 +9,13 @@
     <TextView
         android:id="@+id/ingredient_quantity"
         style="@style/FragmentIngListStyle"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="@dimen/ingr_list_top"
         tools:text="@string/ingredient_quantity" />
 
     <TextView
         android:id="@+id/ingredient_measure"
         style="@style/FragmentIngListStyle"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="@dimen/ingr_list_top"
         android:layout_toEndOf="@id/ingredient_quantity"
         tools:text="@string/ingredient_measure" />
 

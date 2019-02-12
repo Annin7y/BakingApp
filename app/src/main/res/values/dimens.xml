@@ -24,6 +24,20 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="error_padding">3dp</dimen>
     <dimen name="error_text">20sp</dimen>
 
+    <!-- IngredientStepsActivity Fragments FrameLayout width, height & margins -->
+    <dimen name="ingr_frame_activity_start">5dp</dimen>
+    <dimen name="ingr_frame_activity_end">30dp</dimen>
+    <dimen name="ingr_frame_activity_top">10dp</dimen>
+    <dimen name="step_frame_activity_start">5dp</dimen>
+    <dimen name="step_frame_activity_end">10dp</dimen>
+
+    <!-- VideoPhoneActivity FrameLayout Exoplayer width, height & margins -->
+    <dimen name="height_videophone_frame">500dp</dimen>
+    <dimen name="start_videophone_frame">25dp</dimen>
+    <dimen name="end_videophone_frame">25dp</dimen>
+    <dimen name="top_videophone_frame">20dp</dimen>
+
+
     <!-- ImageView marginStart, End, Left and Right in activity_detail -->
     <dimen name="imageView_margin">15dp</dimen>
 
@@ -41,12 +55,7 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="image_view_width">300dp</dimen>
     <dimen name="image_view_height">150dp</dimen>
     <dimen name="image_view_padding">2dp</dimen>
-
-    <!-- Widget text size -->
-    <dimen name="widget_text_size">20sp</dimen>
-
-    <!-- Widget margin -->
-    <dimen name="widget_margin">8dp</dimen>
+    
 
     <!-- Exoplayer width, height & margins -->
     <dimen name="exoplayer_width">350dp</dimen>
@@ -54,11 +63,12 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="exoplayer_margin_top">16dp</dimen>
     <dimen name="exoplayer_margin_start">50dp</dimen>
     <dimen name="exoplayer_margin_end">50dp</dimen>
+    <dimen name="ingr_list_top">7dp</dimen>
 
-    <!-- VidoePhoneActivity FrameLayout Exoplayer width, height & margins -->
-    <dimen name="height_videophone_frame">500dp</dimen>
-    <dimen name="start_videophone_frame">25dp</dimen>
-    <dimen name="end_videophone_frame">25dp</dimen>
-    <dimen name="top_videophone_frame">20dp</dimen>
+
+    <!-- Widget text size & margin-->
+    <dimen name="widget_text_size">20sp</dimen>
+    <dimen name="widget_margin">8dp</dimen>
+
 
 </resources>
