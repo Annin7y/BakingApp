@@ -140,6 +140,8 @@ public class VideoFragment extends Fragment
                            videoUrl = stepClicked.getVideoUrl();
                             Log.d("VideoUrlNext: ", stepClicked.getVideoUrl());
                            videoUrl_Parse = Uri.parse(videoUrl);
+                           mExoPlayer.release();
+                           mExoPlayer = null;
                             //Call initializePlayer() by passing the new video uri
                             initializePlayer(videoUrl_Parse);
 
