@@ -34,16 +34,14 @@ import annin.my.android.bakingapp.pojo.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class VideoFragment extends Fragment
-{
+public class VideoFragment extends Fragment {
     // Tag for logging
     private static final String TAG = VideoFragment.class.getSimpleName();
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the fragment
      */
-    public VideoFragment()
-    {
+    public VideoFragment() {
     }
 
     public ArrayList<Steps> stepsArrayList;
@@ -74,24 +72,21 @@ public class VideoFragment extends Fragment
     public static final String STEPS_LIST_INDEX = "list_index";
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         //Inflate the Steps fragment layout
         View rootView = inflater.inflate(R.layout.fragment_video, container, false);
         // Bind the views
         ButterKnife.bind(this, rootView);
         Bundle bundle = this.getArguments();
 
-        if (bundle != null)
-        {
+        if (bundle != null) {
             stepClicked = getArguments().getParcelable("Steps");
-            if (stepClicked != null)
-            {
+            if (stepClicked != null) {
                 //Track whether to display a two-pane or single-pane UI
                 mTwoPane = getArguments().getBoolean("TwoPane");
                 stepIndex = getArguments().getInt("StepIndex");
                 stepsArrayList = getArguments().getParcelableArrayList("StepsArrayList");
-                if(stepsArrayList == null || stepsArrayList.size() == 0) {
+                if (stepsArrayList == null || stepsArrayList.size() == 0) {
                     stepsArrayList = new ArrayList<>();
                 }
                 videoUrl = stepClicked.getVideoUrl();
@@ -106,42 +101,37 @@ public class VideoFragment extends Fragment
                 Log.i("Step: ", stepClicked.getStepLongDescription());
                 stepLongDescription.setText(stepLongDescriptionUrl);
 
-                if (thumbnailUrl != null)
-                {
+                if (thumbnailUrl != null) {
                     Picasso.with(getContext())
                             .load(thumbnailUrl_Parse)
                             .into(thumbnailUrlImage);
                 }
             }
-            if (mTwoPane)
-            {
+            if (mTwoPane) {
                 previousButton.setVisibility(View.INVISIBLE);
                 nextButton.setVisibility(View.INVISIBLE);
 
-            } else
-                {
+            } else {
                 previousButton.setVisibility(View.VISIBLE);
                 nextButton.setVisibility(View.VISIBLE);
 
                 //https://stackoverflow.com/questions/45253477/implementing-next-button-in-audio-player-android
-                nextButton.setOnClickListener(new View.OnClickListener()
-                {
+                nextButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
 
-                        if (stepIndex < stepsArrayList.size() - 1)
-                        {
+                        if (stepIndex < stepsArrayList.size() - 1) {
                             //Add or subtract the position in 1
                             stepIndex++;
                             //Using the position, get the current step from the steps list
-                            stepClicked= stepsArrayList.get(stepIndex);
+                            stepClicked = stepsArrayList.get(stepIndex);
+                            stepLongDescription.setText(stepClicked.getStepLongDescription());
                             //Extract the video uri from the current step
-                           videoUrl = stepClicked.getVideoUrl();
+                            videoUrl = stepClicked.getVideoUrl();
                             Log.d("VideoUrlNext: ", stepClicked.getVideoUrl());
-                           videoUrl_Parse = Uri.parse(videoUrl);
-                           mExoPlayer.release();
-                           mExoPlayer = null;
+                            videoUrl_Parse = Uri.parse(videoUrl);
+                            mExoPlayer.release();
+                            mExoPlayer = null;
                             //Call initializePlayer() by passing the new video uri
                             initializePlayer(videoUrl_Parse);
 
@@ -149,16 +139,14 @@ public class VideoFragment extends Fragment
                     }
                 });
 
-                previousButton.setOnClickListener(new View.OnClickListener()
-                {
+                previousButton.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
-                        if (stepIndex> 0)
-                        {
+                    public void onClick(View v) {
+                        if (stepIndex > 0) {
                             stepIndex--;
                             //Using the position, get the current step from the steps list
-                            stepClicked= stepsArrayList.get(stepIndex);
+                            stepClicked = stepsArrayList.get(stepIndex);
+                            stepLongDescription.setText(stepClicked.getStepLongDescription());
                             //Extract the video uri from the current step
                             videoUrl = stepClicked.getVideoUrl();
                             videoUrl_Parse = Uri.parse(videoUrl);
@@ -169,8 +157,7 @@ public class VideoFragment extends Fragment
                 });
             }
         }
-        if (savedInstanceState != null)
-        {
+        if (savedInstanceState != null) {
             stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
             mPlayerPosition = savedInstanceState.getLong(KEY_POSITION);
         }
@@ -181,10 +168,8 @@ public class VideoFragment extends Fragment
 
     //ExoPlayer code based on: https://codelabs.developers.google.com/codelabs/exoplayer-intro/#2
 
-    public void initializePlayer(Uri videoUrl)
-    {
-        if (mExoPlayer == null)
-        {
+    public void initializePlayer(Uri videoUrl) {
+        if (mExoPlayer == null) {
             TrackSelector trackSelector = new DefaultTrackSelector();
             LoadControl loadControl = new DefaultLoadControl();
             mExoPlayer = ExoPlayerFactory.newSimpleInstance(getActivity(), trackSelector, loadControl);
@@ -194,8 +179,7 @@ public class VideoFragment extends Fragment
                     new DefaultDataSourceFactory(getContext(), userAgent),
                     new DefaultExtractorsFactory(), null, null);
             mExoPlayer.prepare(mediaSource);
-            if (mPlayerPosition != C.TIME_UNSET)
-            {
+            if (mPlayerPosition != C.TIME_UNSET) {
                 mExoPlayer.seekTo(mPlayerPosition);
             }
             mExoPlayer.setPlayWhenReady(true);
@@ -203,45 +187,36 @@ public class VideoFragment extends Fragment
     }
 
     @Override
-    public void onStart()
-    {
+    public void onStart() {
         super.onStart();
-        if (Util.SDK_INT > 23 || mExoPlayer == null)
-        {
+        if (Util.SDK_INT > 23 || mExoPlayer == null) {
             initializePlayer(videoUrl_Parse);
         }
     }
 
     @Override
-    public void onPause()
-    {
+    public void onPause() {
         super.onPause();
-        if (mExoPlayer != null)
-        {
+        if (mExoPlayer != null) {
             mPlayerPosition = mExoPlayer.getCurrentPosition();
         }
-        if (Util.SDK_INT <= 23)
-        {
+        if (Util.SDK_INT <= 23) {
             releasePlayer();
         }
     }
 
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         super.onResume();
-        if ((Util.SDK_INT <= 23 || mExoPlayer == null))
-        {
+        if ((Util.SDK_INT <= 23 || mExoPlayer == null)) {
             mPlayerPosition = mExoPlayer.getCurrentPosition();
         }
     }
 
     @Override
-    public void onStop()
-    {
+    public void onStop() {
         super.onStop();
-        if (Util.SDK_INT > 23 || mExoPlayer != null)
-        {
+        if (Util.SDK_INT > 23 || mExoPlayer != null) {
             mExoPlayer.getCurrentPosition();
         }
         releasePlayer();
@@ -250,10 +225,8 @@ public class VideoFragment extends Fragment
     /**
      * Release ExoPlayer.
      */
-    private void releasePlayer()
-    {
-        if (mExoPlayer != null)
-        {
+    private void releasePlayer() {
+        if (mExoPlayer != null) {
             mPlayerPosition = mExoPlayer.getCurrentPosition();
             mExoPlayer.release();
             mExoPlayer = null;
@@ -261,8 +234,7 @@ public class VideoFragment extends Fragment
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState)
-    {
+    public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         //Save the fragment's state here
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
