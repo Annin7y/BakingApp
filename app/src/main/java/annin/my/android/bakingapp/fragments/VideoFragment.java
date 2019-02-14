@@ -68,8 +68,9 @@ public class VideoFragment extends Fragment {
     boolean mTwoPane;
 
 
-    private static final String KEY_POSITION = "position";
+    public static final String KEY_POSITION = "position";
     public static final String STEPS_LIST_INDEX = "list_index";
+    public static final String STEP_INSTRUCTIONS = "long_instructions";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -239,6 +240,7 @@ public class VideoFragment extends Fragment {
         //Save the fragment's state here
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
         outState.putLong(KEY_POSITION, mPlayerPosition);
+        outState.putString(STEP_INSTRUCTIONS, stepLongDescriptionUrl);
         super.onSaveInstanceState(outState);
     }
 }
