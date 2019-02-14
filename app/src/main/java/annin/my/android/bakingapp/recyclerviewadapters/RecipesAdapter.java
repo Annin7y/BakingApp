@@ -60,6 +60,9 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         @BindView(R.id.recipeView)
         TextView recipeView;
 
+        @BindView(R.id.recipeServingsView)
+        TextView recipeServingsView;
+
         public RecipesAdapterViewHolder(View view)
         {
             super(view);
@@ -100,6 +103,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         final Recipes recipesView = recipesList.get(position);
 
         holder.recipeView.setText(recipesView.getRecipeName());
+        holder.recipeServingsView.setText(recipesView.getRecipeServings());
 
         if (!recipesView.getRecipeImage().isEmpty())
         {

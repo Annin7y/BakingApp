@@ -60,7 +60,7 @@ public class JSONUtils
                 String recipeId = currentRecipe.optString(KEY_RECIPE_ID);
                 String recipeName = currentRecipe.optString(KEY_RECIPE_NAME);
                 String recipeImage = currentRecipe.optString(KEY_RECIPE_IMAGE);
-                int recipeServings = currentRecipe.getInt(KEY_RECIPE_SERVINGS);
+                String recipeServings = currentRecipe.getString(KEY_RECIPE_SERVINGS);
 
                 ArrayList<Ingredients> ingredients = new ArrayList<>();
                 JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");

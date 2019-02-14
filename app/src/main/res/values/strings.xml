@@ -14,5 +14,7 @@
     <string name="ingr_frag_cont">Vanilla extract</string>
     <string name="steps_frag_cont">Prebake cookie crust</string>
     <string name="steps_short_name">Mix all the ingredients</string>
+    <string name="recipe_name">Recipe Name</string>
+    <string name="servings_number">Servings:</string>
 
 </resources>
