@@ -34,7 +34,7 @@ public class EspressoTest {
     //Code based on the following YouTube video: https://www.youtube.com/watch?v=56xINIkzBy8
     @Test
     public void scrollToPosition() {
-        onView(withId(R.id.recyclerview_main)).perform(RecyclerViewActions.actionOnItemAtPosition(0, ViewActions.click()));
+        onView(withId(R.id.recyclerview_main)).perform(RecyclerViewActions.actionOnItemAtPosition(2, ViewActions.click()));
     }
 
     //Testing recipe count shown
@@ -66,5 +66,10 @@ public class EspressoTest {
             onView(withId(R.id.recyclerview_main)).check(new RecyclerViewItemCountAssertion(4));
         }
     }
+
+
+
+
+
 }
 //https://stackoverflow.com/questions/51678563/how-to-test-recyclerview-viewholder-text-with-espresso
