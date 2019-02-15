@@ -23,7 +23,6 @@ public class JSONUtils
     private static final String KEY_RECIPE_ID = "id";
     private static final String KEY_RECIPE_NAME = "name";
     private static final String KEY_RECIPE_IMAGE = "image";
-    private static final String KEY_RECIPE_SERVINGS = "servings";
     private static final String KEY_INGREDIENT_QUANTITY = "quantity";
     private static final String KEY_INGREDIENT_MEASURE = "measure";
     private static final String KEY_INGREDIENT_NAME = "ingredient";
@@ -60,7 +59,6 @@ public class JSONUtils
                 String recipeId = currentRecipe.optString(KEY_RECIPE_ID);
                 String recipeName = currentRecipe.optString(KEY_RECIPE_NAME);
                 String recipeImage = currentRecipe.optString(KEY_RECIPE_IMAGE);
-                String recipeServings = currentRecipe.getString(KEY_RECIPE_SERVINGS);
 
                 ArrayList<Ingredients> ingredients = new ArrayList<>();
                 JSONArray ingredientsArray = currentRecipe.getJSONArray("ingredients");
@@ -97,7 +95,7 @@ public class JSONUtils
                     steps.add(step);
                 }
 
-                Recipes recipe = new Recipes(recipeId,recipeName, recipeImage, recipeServings, ingredients, steps);
+                Recipes recipe = new Recipes(recipeId,recipeName, recipeImage, ingredients, steps);
                 recipes.add(recipe);
             }
 

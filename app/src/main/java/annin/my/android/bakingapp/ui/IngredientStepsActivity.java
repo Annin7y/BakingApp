@@ -10,10 +10,10 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
-import annin.my.android.bakingapp.fragments.VideoFragment;
-import annin.my.android.bakingapp.pojo.Recipes;
 import annin.my.android.bakingapp.fragments.IngredientsFragment;
 import annin.my.android.bakingapp.fragments.StepsListFragment;
+import annin.my.android.bakingapp.fragments.VideoFragment;
+import annin.my.android.bakingapp.pojo.Recipes;
 import annin.my.android.bakingapp.pojo.Steps;
 
 public class IngredientStepsActivity extends AppCompatActivity implements StepsListFragment.OnStepClickListener
@@ -32,6 +32,9 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
+
+        context = getApplicationContext();
+
         // Determine if you're creating a two-pane or single-pane display
         if (savedInstanceState == null)
         {

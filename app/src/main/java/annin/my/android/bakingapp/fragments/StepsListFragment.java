@@ -31,7 +31,6 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     ArrayList<Steps> stepsArrayList;
 
     Recipes recipes;
-    String stepShortDescription;
 
     // Final Strings to store state information about the list of steps and list index
     public static final String STEPS_LIST_INDEX = "list_index";
@@ -52,8 +51,8 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
     {
         super.onAttach(context);
 
-//        // This makes sure that the host activity has implemented the callback interface
-//        // If not, it throws an exception
+        // This makes sure that the host activity has implemented the callback interface
+        // If not, it throws an exception
         try
         {
             mCallback = (OnStepClickListener) context;

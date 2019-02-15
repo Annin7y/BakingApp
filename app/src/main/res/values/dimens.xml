@@ -27,12 +27,20 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="step_frame_activity_start">5dp</dimen>
     <dimen name="step_frame_activity_end">10dp</dimen>
 
+    <!-- IngredientStepsActivity sw600dp Fragments FrameLayout width, height & margins -->
+    <dimen name="ingr_frag_tablet_start">10dp</dimen>
+    <dimen name="ingr_frag_tablet_end">40dp</dimen>
+    <dimen name="video_frag_tablet_start">50dp</dimen>
+    <dimen name="video_frag_tablet_end">10dp</dimen>
+    <dimen name="video_frag_tablet_top">70dp</dimen>
+    <dimen name="step_frag_tablet_start">10dp</dimen>
+    <dimen name="step_frag_tablet_end">40dp</dimen>
+
     <!-- VideoPhoneActivity FrameLayout Exoplayer width, height & margins -->
     <dimen name="height_videophone_frame">500dp</dimen>
     <dimen name="start_videophone_frame">25dp</dimen>
     <dimen name="end_videophone_frame">25dp</dimen>
     <dimen name="top_videophone_frame">20dp</dimen>
-
 
     <!-- CardView margins in recipe_list_item -->
     <dimen name="card_margin">5dp</dimen>
@@ -41,6 +49,10 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="image_view_width">300dp</dimen>
     <dimen name="image_view_height">150dp</dimen>
     <dimen name="image_view_padding">2dp</dimen>
+
+    <!-- Recipes list margins and padding -->
+    <dimen name="recipe_name_top">5dp</dimen>
+    <dimen name="recipe_name_text">20sp</dimen>
 
     <!-- Ingredients list margins and padding -->
     <dimen name="ingr_list_top">7dp</dimen>
@@ -61,6 +73,7 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="step_long_top">15dp</dimen>
     <dimen name="step_long_start">50dp</dimen>
     <dimen name="step_long_end">50dp</dimen>
+    <dimen name="step_long_width">350dp</dimen>
 
     <!-- Buttons margins -->
     <dimen name="prev_button_top">30dp</dimen>

@@ -1,7 +1,6 @@
 package annin.my.android.bakingapp.recyclerviewadapters;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +27,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     private RecipesAdapterOnClickHandler mRecipeClickHandler;
     public static final int IMAGE_HEIGHT = 185;
     public static final int IMAGE_WIDTH = 50;
-    private String servingsTag;
 
     /**
      * The interface that receives onClick messages.
@@ -61,9 +59,6 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
 
         @BindView(R.id.recipeView)
         TextView recipeView;
-
-        @BindView(R.id.recipeServingsView)
-        TextView recipeServingsView;
 
 
         public RecipesAdapterViewHolder(View view)
@@ -102,13 +97,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     @Override
     public void onBindViewHolder(RecipesAdapterViewHolder holder, int position)
     {
-
         //Binding data
         final Recipes recipesView = recipesList.get(position);
 
         holder.recipeView.setText(recipesView.getRecipeName());
-
-        holder.recipeServingsView.setText(recipesView.getRecipeServings());
 
         if (!recipesView.getRecipeImage().isEmpty())
         {

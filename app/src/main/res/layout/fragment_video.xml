@@ -26,7 +26,7 @@
     <TextView
         android:id="@+id/step_long_description"
         style="@style/FragmentStepsDescriptionStyle"
-        android:layout_width="350dp"
+        android:layout_width="@dimen/step_long_width"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/step_long_top"
         android:layout_marginStart="@dimen/step_long_start"

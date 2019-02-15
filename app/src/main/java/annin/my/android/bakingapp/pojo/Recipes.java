@@ -8,7 +8,6 @@ import java.util.ArrayList;
 
 public class Recipes implements Parcelable
 {
-
     /**
      * Recipe id
      */
@@ -25,11 +24,6 @@ public class Recipes implements Parcelable
     private String recipeImage;
 
     /**
-     * Number of servings
-     */
-    private String recipeServings;
-
-    /**
      * List of ingredients
      */
     private ArrayList<Ingredients> recipeIngredients;
@@ -39,12 +33,11 @@ public class Recipes implements Parcelable
      */
     private ArrayList<Steps> recipeSteps;
 
-    public Recipes(String recipeId, String recipeName, String recipeImage, String recipeServings, ArrayList<Ingredients> recipeIngredients, ArrayList<Steps> recipeSteps)
+    public Recipes(String recipeId, String recipeName, String recipeImage, ArrayList<Ingredients> recipeIngredients, ArrayList<Steps> recipeSteps)
     {
         this.recipeId = recipeId;
         this.recipeName = recipeName;
         this.recipeImage = recipeImage;
-        this.recipeServings = recipeServings;
         this.recipeIngredients = recipeIngredients;
         this.recipeSteps = recipeSteps;
     }
@@ -79,16 +72,6 @@ public class Recipes implements Parcelable
         return recipeImage;
     }
 
-    public void setRecipeServings(String recipeServings)
-    {
-        this.recipeServings = recipeServings;
-    }
-
-    public String getRecipeServings()
-    {
-        return recipeServings;
-    }
-
     public ArrayList<Ingredients> getRecipeIngredients()
     {
         return recipeIngredients;
@@ -104,7 +87,7 @@ public class Recipes implements Parcelable
         recipeId = in.readString();
         recipeName = in.readString();
         recipeImage = in.readString();
-        recipeServings = in.readString();
+
         if (in.readByte() == 0x01)
         {
             recipeIngredients = new ArrayList<Ingredients>();
@@ -137,7 +120,6 @@ public class Recipes implements Parcelable
         dest.writeString(recipeId);
         dest.writeString(recipeName);
         dest.writeString(recipeImage);
-        dest.writeString(recipeServings);
         if (recipeIngredients == null)
         {
             dest.writeByte((byte) (0x00));

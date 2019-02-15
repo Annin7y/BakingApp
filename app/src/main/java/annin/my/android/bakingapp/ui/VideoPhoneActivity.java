@@ -15,7 +15,6 @@ public class VideoPhoneActivity extends AppCompatActivity
     private static final String LOG_TAG = VideoPhoneActivity.class.getSimpleName();
 
     private Steps stepClicked;
-    private static final String KEY_POSITION = "position";
     public boolean mTwoPane;
     public int stepIndex;
     public ArrayList<Steps> stepsArrayList;
@@ -27,7 +26,8 @@ public class VideoPhoneActivity extends AppCompatActivity
         setContentView(R.layout.activity_videophone);
 
 
-        if (getIntent() != null && getIntent().getExtras() != null) {
+        if (getIntent() != null && getIntent().getExtras() != null)
+        {
             stepClicked = getIntent().getExtras().getParcelable("Steps");
             stepIndex = getIntent().getIntExtra("StepIndex", -1);
             mTwoPane = getIntent().getBooleanExtra("TwoPane", true);
