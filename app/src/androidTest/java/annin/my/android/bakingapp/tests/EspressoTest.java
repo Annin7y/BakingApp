@@ -34,7 +34,7 @@ public class EspressoTest {
     //Code based on the following YouTube video: https://www.youtube.com/watch?v=56xINIkzBy8
     @Test
     public void scrollToPosition() {
-        onView(withId(R.id.recyclerview_main)).perform(RecyclerViewActions.actionOnItemAtPosition(2, ViewActions.click()));
+        onView(withId(R.id.recyclerview_main)).perform(RecyclerViewActions.actionOnItemAtPosition(0, ViewActions.click()));
     }
 
     //Testing recipe count shown
@@ -42,6 +42,7 @@ public class EspressoTest {
     //http://qaru.site/questions/229713/how-to-count-recyclerview-items-with-espresso
     //https://github.com/twilio/mobile-sdk-sample-android/blob/master/twilio-auth-sample/src/androidTest/java/com/twilio/authsample/matchers/RecyclerViewItemCountAssertion.java
     //https://stackoverflow.com/questions/36399787/how-to-count-recyclerview-items-with-espresso/37339656
+    //https://stackoverflow.com/questions/51678563/how-to-test-recyclerview-viewholder-text-with-espresso
     public class RecyclerViewItemCountAssertion implements ViewAssertion
     {
         private final int expectedCount;
@@ -63,13 +64,11 @@ public class EspressoTest {
             RecyclerView.Adapter adapter = recyclerView.getAdapter();
             assertThat(adapter.getItemCount(), is(expectedCount));
 
-            onView(withId(R.id.recyclerview_main)).check(new RecyclerViewItemCountAssertion(4));
         }
     }
 
-
-
-
-
+    @Test
+    public void recipeCountTest() {
+        onView(withId(R.id.recyclerview_main)).check(new RecyclerViewItemCountAssertion(4));
+    }
 }
-//https://stackoverflow.com/questions/51678563/how-to-test-recyclerview-viewholder-text-with-espresso
