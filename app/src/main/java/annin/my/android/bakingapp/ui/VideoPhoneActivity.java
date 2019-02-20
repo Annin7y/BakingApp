@@ -21,8 +21,8 @@ public class VideoPhoneActivity extends AppCompatActivity
     public int stepIndex;
     public ArrayList<Steps> stepsArrayList;
     public static final String STEPS_LIST_INDEX = "list_index";
-    VideoFragment videoFragment;
     public static final String KEY_VIDEO_FRAGMENT = "videoFragment";
+    public VideoFragment videoFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -32,26 +32,27 @@ public class VideoPhoneActivity extends AppCompatActivity
 
         //Fragment savedInstanceState code based on this github example:
         //https://github.com/nnjoshi14/android-poc/blob/master/FragmentState/app/src/main/java/com/njoshi/androidpoc/fragmentstate/MainActivity.java
-
-        if (getIntent() != null && getIntent().getExtras() != null)
+        if (savedInstanceState == null)
         {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            videoFragment = new VideoFragment();
+
+        if (getIntent() != null && getIntent().getExtras() != null) {
             stepClicked = getIntent().getExtras().getParcelable("Steps");
             stepIndex = getIntent().getIntExtra("StepIndex", -1);
             mTwoPane = getIntent().getBooleanExtra("TwoPane", true);
             stepsArrayList = new ArrayList<>();
             stepsArrayList = getIntent().getParcelableArrayListExtra("StepsArrayList");
 
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            VideoFragment videoFragment = new VideoFragment();
             Bundle bundle = new Bundle();
             bundle.putParcelable("Steps", stepClicked);
             bundle.putBoolean("TwoPane", mTwoPane);
             bundle.putInt("StepIndex", stepIndex);
-            bundle.putParcelableArrayList("StepsArrayList",stepsArrayList);
+            bundle.putParcelableArrayList("StepsArrayList", stepsArrayList);
             videoFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
-            }
-        if (savedInstanceState != null)
+        } }
+       else
         {
             stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
             videoFragment = (VideoFragment)getSupportFragmentManager().getFragment(savedInstanceState,KEY_VIDEO_FRAGMENT);
@@ -63,7 +64,7 @@ public class VideoPhoneActivity extends AppCompatActivity
     protected void onSaveInstanceState(Bundle outState)
     {
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
-      //  getSupportFragmentManager().putFragment(outState,KEY_VIDEO_FRAGMENT, videoFragment);
+        getSupportFragmentManager().putFragment(outState,KEY_VIDEO_FRAGMENT, videoFragment);
         super.onSaveInstanceState(outState);
     }
     }
