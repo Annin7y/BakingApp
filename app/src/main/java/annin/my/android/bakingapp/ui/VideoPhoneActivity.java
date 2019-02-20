@@ -20,6 +20,8 @@ public class VideoPhoneActivity extends AppCompatActivity
     public boolean mTwoPane;
     public int stepIndex;
     public ArrayList<Steps> stepsArrayList;
+    public static final String STEPS_LIST_INDEX = "list_index";
+    VideoFragment videoFragment;
     public static final String KEY_VIDEO_FRAGMENT = "videoFragment";
 
     @Override
@@ -28,8 +30,9 @@ public class VideoPhoneActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videophone);
 
-        if (savedInstanceState == null)
-        {
+        //Fragment savedInstanceState code based on this github example:
+        //https://github.com/nnjoshi14/android-poc/blob/master/FragmentState/app/src/main/java/com/njoshi/androidpoc/fragmentstate/MainActivity.java
+
         if (getIntent() != null && getIntent().getExtras() != null)
         {
             stepClicked = getIntent().getExtras().getParcelable("Steps");
@@ -48,19 +51,20 @@ public class VideoPhoneActivity extends AppCompatActivity
             videoFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
             }
+        if (savedInstanceState != null)
+        {
+            stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
+            videoFragment = (VideoFragment)getSupportFragmentManager().getFragment(savedInstanceState,KEY_VIDEO_FRAGMENT);
+
         }}
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState)
     {
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
-        //Save the fragment's instance
-        getSupportFragmentManager().putFragment(outState, KEY_VIDEO_FRAGMENT, fragmentManager);
-
-
+      //  getSupportFragmentManager().putFragment(outState,KEY_VIDEO_FRAGMENT, videoFragment);
         super.onSaveInstanceState(outState);
     }
-
-
     }
 
