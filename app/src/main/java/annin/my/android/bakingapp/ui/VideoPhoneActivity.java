@@ -10,6 +10,8 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
 import annin.my.android.bakingapp.pojo.Steps;
 
+import static annin.my.android.bakingapp.fragments.VideoFragment.STEPS_LIST_INDEX;
+
 public class VideoPhoneActivity extends AppCompatActivity
 {
     private static final String LOG_TAG = VideoPhoneActivity.class.getSimpleName();
@@ -18,6 +20,7 @@ public class VideoPhoneActivity extends AppCompatActivity
     public boolean mTwoPane;
     public int stepIndex;
     public ArrayList<Steps> stepsArrayList;
+    public static final String KEY_VIDEO_FRAGMENT = "videoFragment";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -25,7 +28,8 @@ public class VideoPhoneActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_videophone);
 
-
+        if (savedInstanceState == null)
+        {
         if (getIntent() != null && getIntent().getExtras() != null)
         {
             stepClicked = getIntent().getExtras().getParcelable("Steps");
@@ -44,6 +48,19 @@ public class VideoPhoneActivity extends AppCompatActivity
             videoFragment.setArguments(bundle);
             fragmentManager.beginTransaction().replace(R.id.video_fragment_container, videoFragment).commit();
             }
-        }
+        }}
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
+        //Save the fragment's instance
+        getSupportFragmentManager().putFragment(outState, KEY_VIDEO_FRAGMENT, fragmentManager);
+
+
+        super.onSaveInstanceState(outState);
+    }
+
+
     }
 
