@@ -68,11 +68,13 @@ public class VideoFragment extends Fragment
     @BindView(R.id.step_long_description)
     TextView stepLongDescription;
     String stepLongDescriptionUrl;
+    private boolean autoPlay = true;
     boolean mTwoPane;
 
     public static final String KEY_POSITION = "position";
     public static final String STEPS_LIST_INDEX = "list_index";
     public static final String STEP_INSTRUCTIONS = "long_instructions";
+    public static final String KEY_AUTOPLAY = "autoplay";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -176,6 +178,7 @@ public class VideoFragment extends Fragment
         {
             stepsArrayList = savedInstanceState.getParcelableArrayList(STEPS_LIST_INDEX);
             mPlayerPosition = savedInstanceState.getLong(KEY_POSITION);
+            autoPlay = savedInstanceState.getBoolean(KEY_AUTOPLAY, true)  ;
         }
 
         // Return the root view
@@ -200,7 +203,7 @@ public class VideoFragment extends Fragment
             {
                 mExoPlayer.seekTo(mPlayerPosition);
             }
-            mExoPlayer.setPlayWhenReady(true);
+            mExoPlayer.setPlayWhenReady(autoPlay);
         }
     }
 
@@ -257,6 +260,7 @@ public class VideoFragment extends Fragment
         if (mExoPlayer != null)
         {
             mPlayerPosition = mExoPlayer.getCurrentPosition();
+            autoPlay = mExoPlayer.getPlayWhenReady();
             mExoPlayer.release();
             mExoPlayer = null;
         }
@@ -302,6 +306,7 @@ public class VideoFragment extends Fragment
         outState.putParcelableArrayList(STEPS_LIST_INDEX, stepsArrayList);
         outState.putLong(KEY_POSITION, mPlayerPosition);
         outState.putString(STEP_INSTRUCTIONS, stepLongDescriptionUrl);
+        outState.putBoolean(KEY_AUTOPLAY, autoPlay);
         super.onSaveInstanceState(outState);
     }
 }
