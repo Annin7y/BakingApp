@@ -93,7 +93,8 @@ public class IngredientsFragment extends Fragment
             prefsEditor.putString("IngredientsList_Widget", json);
             prefsEditor.apply();
 
-
+            //Send to Widget Provider code based on the answer with 9 upvotes in this post:
+            //https://stackoverflow.com/questions/3455123/programmatically-update-widget-from-activity-service-receiver
             Context context = getActivity().getApplicationContext();
             AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
             ComponentName thisWidget = new ComponentName(context, RecipeWidgetProvider.class);
