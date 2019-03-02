@@ -60,7 +60,7 @@ public class RecipeWidgetProvider extends AppWidgetProvider
             appWidgetManager.updateAppWidget(widgetId, views);
         }
 
-        super.onUpdate(context, appWidgetManager, appWidgetIds);
+       super.onUpdate(context, appWidgetManager, appWidgetIds);
     }
 
     @Override

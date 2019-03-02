@@ -1,5 +1,9 @@
 package annin.my.android.bakingapp.fragments;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -10,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RemoteViews;
+
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
@@ -17,6 +23,8 @@ import annin.my.android.bakingapp.decoration.VerticalSpacingDecoration;
 import annin.my.android.bakingapp.pojo.Ingredients;
 import annin.my.android.bakingapp.pojo.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
+import annin.my.android.bakingapp.ui.IngredientStepsActivity;
+import annin.my.android.bakingapp.widget.RecipeWidgetProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.google.gson.Gson;
@@ -84,6 +92,13 @@ public class IngredientsFragment extends Fragment
             String json = gson.toJson(ingredientsArrayList);
             prefsEditor.putString("IngredientsList_Widget", json);
             prefsEditor.apply();
+
+
+            Context context = getActivity().getApplicationContext();
+            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
+            ComponentName thisWidget = new ComponentName(context, RecipeWidgetProvider.class);
+            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetIds, R.id.appwidget_list);
         }
         return rootView;
     }
