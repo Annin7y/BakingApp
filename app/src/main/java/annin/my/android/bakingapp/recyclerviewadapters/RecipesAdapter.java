@@ -105,9 +105,10 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
 
         holder.recipeView.setText(recipesView.getRecipeName());
 
-        String servings = context.getString(R.string.recipe_serves_how_many);
+        String servings = context.getString(R.string.recipe_serves_how_many,
+        recipesView.getNumberOfServings());
 
-        holder.servingsView.setText(servings + recipesView.getNumberOfServings());
+        holder.servingsView.setText(servings);
 
         if (!recipesView.getRecipeImage().isEmpty())
         {
