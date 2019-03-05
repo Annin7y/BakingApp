@@ -27,6 +27,7 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
     private RecipesAdapterOnClickHandler mRecipeClickHandler;
     public static final int IMAGE_HEIGHT = 185;
     public static final int IMAGE_WIDTH = 50;
+    private TextView servingsTextView;
 
     /**
      * The interface that receives onClick messages.
@@ -104,7 +105,11 @@ public class RecipesAdapter extends RecyclerView.Adapter<RecipesAdapter.RecipesA
         final Recipes recipesView = recipesList.get(position);
 
         holder.recipeView.setText(recipesView.getRecipeName());
-        holder.servingsView.setText(recipesView.getNumberOfServings());
+
+        String servings = context.getString(R.string.recipe_serves_how_many);
+        servingsTextView.setText(servings);
+
+        holder.servingsView.setText(servingsTextView + recipesView.getNumberOfServings());
 
         if (!recipesView.getRecipeImage().isEmpty())
         {
