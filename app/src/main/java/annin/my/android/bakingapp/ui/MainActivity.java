@@ -26,6 +26,7 @@ import annin.my.android.bakingapp.recyclerviewadapters.RecipesAdapter;
 import annin.my.android.bakingapp.utils.NetworkUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class MainActivity extends AppCompatActivity implements RecipesAdapter.RecipesAdapterOnClickHandler, AsyncTaskInterface
 {
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
         mLoadingIndicator.setVisibility(View.INVISIBLE);
         Log.i("list", recipesArrayList.size() + "");
+       // Timber.i("list" , recipesArrayList.size());
     }
 
     public static int calculateNoOfColumns(Context context)
