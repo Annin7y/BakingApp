@@ -27,6 +27,8 @@ import annin.my.android.bakingapp.ui.IngredientStepsActivity;
 import annin.my.android.bakingapp.widget.RecipeWidgetProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
+
 import com.google.gson.Gson;
 
 public class IngredientsFragment extends Fragment
@@ -77,7 +79,8 @@ public class IngredientsFragment extends Fragment
 
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
             mIngredientRecyclerView.setLayoutManager(mLayoutManager);
-            Log.i("listIngredients", ingredientsArrayList.size() + "");
+           // Log.i("listIngredients", ingredientsArrayList.size() + "");
+            Timber.i("listIngredients: " + ingredientsArrayList.size());
 
             IngredientsAdapter ingredientsAdapter = new IngredientsAdapter(ingredientsArrayList, getContext());
             mIngredientRecyclerView.setAdapter(ingredientsAdapter);

@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
 
         mLoadingIndicator.setVisibility(View.INVISIBLE);
         Log.i("list", recipesArrayList.size() + "");
-       // Timber.i("list" , recipesArrayList.size());
+       // Timber.i(recipesArrayList.size(), "list");
     }
 
     public static int calculateNoOfColumns(Context context)

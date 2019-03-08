@@ -12,6 +12,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 
+import timber.log.Timber;
+
 import static android.content.ContentValues.TAG;
 
 
@@ -55,7 +57,8 @@ public class NetworkUtils
     public static String makeHttpRequest(URL url) throws IOException
     {
         String jsonResponse = "";
-        Log.i("URL: ", url.toString());
+        //Log.i("URL: ", url.toString());
+        Timber.i(url.toString(),"URL: " );
         // If the URL is null, then return early.
         if (url == null)
         {
