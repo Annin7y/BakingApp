@@ -18,6 +18,7 @@ import annin.my.android.bakingapp.pojo.Steps;
 import annin.my.android.bakingapp.recyclerviewadapters.StepsAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 
 public class StepsListFragment extends Fragment implements StepsAdapter.StepsAdapterOnClickListener {
@@ -96,7 +97,10 @@ public class StepsListFragment extends Fragment implements StepsAdapter.StepsAda
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(mLayoutManager);
-        Log.i("listSteps", stepsArrayList.size() + "");
+       // Log.i("listSteps", stepsArrayList.size() + "");
+        Timber.i("listSteps: " + stepsArrayList.size());
+
+
 
         StepsAdapter stepsAdapter = new StepsAdapter(this, stepsArrayList);
         mRecyclerView.setAdapter(stepsAdapter);

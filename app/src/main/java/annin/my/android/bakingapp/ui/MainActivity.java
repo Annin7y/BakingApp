@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
         mRecipeRecyclerView.addItemDecoration(new VerticalSpacingDecoration(10));
 
         mLoadingIndicator.setVisibility(View.INVISIBLE);
-        Log.i("list", recipesArrayList.size() + "");
+       // Log.i("list", recipesArrayList.size() + "");
        // Timber.i(recipesArrayList.size(), "list");
     }
 
@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity implements RecipesAdapter.Re
             recipesArrayList = simpleJsonRecipeData;
             mRecipeRecyclerView.setAdapter(recipesAdapter);
             recipesAdapter.setRecipesList(recipesArrayList);
+
         }
         else
             {
