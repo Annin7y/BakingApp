@@ -35,6 +35,7 @@ import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.pojo.Steps;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 public class VideoFragment extends Fragment
 {
@@ -99,7 +100,8 @@ public class VideoFragment extends Fragment
                     stepsArrayList = new ArrayList<>();
                 }
                 videoUrl = stepClicked.getVideoUrl();
-                Log.i("VideoUrl: ", stepClicked.getVideoUrl());
+                //Log.i("VideoUrl: ", stepClicked.getVideoUrl());
+                Timber.i("VideoUrl: " + stepClicked.getVideoUrl());
                 videoUrl_Parse = Uri.parse(videoUrl);
 
                 thumbnailUrl = stepClicked.getThumbnailUrl();
@@ -107,7 +109,9 @@ public class VideoFragment extends Fragment
 
 
                 stepLongDescriptionUrl = stepClicked.getStepLongDescription();
-                Log.i("Step: ", stepClicked.getStepLongDescription());
+               // Log.i("Step: ", stepClicked.getStepLongDescription());
+                Timber.i("Step: " + stepClicked.getStepLongDescription());
+
                 stepLongDescription.setText(stepLongDescriptionUrl);
 
                 if (thumbnailUrl != null)
@@ -143,7 +147,8 @@ public class VideoFragment extends Fragment
                             stepLongDescription.setText(stepClicked.getStepLongDescription());
                             //Extract the video uri from the current step
                             videoUrl = stepClicked.getVideoUrl();
-                            Log.d("VideoUrlNext: ", stepClicked.getVideoUrl());
+                            //Log.d("VideoUrlNext ", stepClicked.getVideoUrl());
+                            Timber.i("VideoUrlNext: " + stepClicked.getVideoUrl());
                             videoUrl_Parse = Uri.parse(videoUrl);
                             mExoPlayer.release();
                             mExoPlayer = null;
@@ -166,6 +171,7 @@ public class VideoFragment extends Fragment
                             stepLongDescription.setText(stepClicked.getStepLongDescription());
                             //Extract the video uri from the current step
                             videoUrl = stepClicked.getVideoUrl();
+                            Timber.i("VideoUrlPrevious: " + stepClicked.getVideoUrl());
                             videoUrl_Parse = Uri.parse(videoUrl);
                             //Call initializePlayer() by passing the new video uri
                             initializePlayer(videoUrl_Parse);
