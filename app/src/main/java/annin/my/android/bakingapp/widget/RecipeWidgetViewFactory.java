@@ -16,11 +16,13 @@ import java.util.List;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.pojo.Ingredients;
+import annin.my.android.bakingapp.pojo.Recipes;
 
 public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFactory
 {
     private ArrayList<Ingredients> mIngredientsList;
     private Context mContext;
+    private Recipes recipes;
 
     public RecipeWidgetViewFactory(Context context)
     {
@@ -43,6 +45,12 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
         Type type = new TypeToken<List<Ingredients>>() {}.getType();
         String gsonString = sharedPreferences.getString("IngredientsList_Widget", "");
         mIngredientsList = gson.fromJson(gsonString, type);
+
+        //Extract the JSON recipes from preferences and assign it to a Recipes object.
+//        String jsonRecipes = sharedPreferences.getString("Recipes", "");
+//        recipes = gson.fromJson(jsonRecipes, Recipes.class);
+
+
     }
 
     @Override
@@ -64,6 +72,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
 
         Intent intent = new Intent();
         intent.putExtra(RecipeWidgetProvider.EXTRA_ITEM, ingredient);
+       // intent.putExtra("Recipes", recipes);
         itemView.setOnClickFillInIntent(R.id.ingredient_list, intent);
 
         return itemView;

@@ -1,6 +1,7 @@
 package annin.my.android.bakingapp.widget;
 
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
@@ -12,6 +13,7 @@ import android.widget.RemoteViews;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.ui.IngredientStepsActivity;
+import annin.my.android.bakingapp.ui.MainActivity;
 
 /**
  * Implementation of App Widget functionality.
@@ -28,6 +30,10 @@ public class RecipeWidgetProvider extends AppWidgetProvider
 
     public static final String EXTRA_ITEM =
             "annin.my.android.RecipeWidgetProvider.EXTRA_ITEM";
+
+    private static final String ACTION_CLICK = "ACTION_CLICK";
+
+
 
     public void setPendingIntentTemplate(int viewId,
                                          PendingIntent pendingIntentTemplate)
@@ -54,7 +60,14 @@ public class RecipeWidgetProvider extends AppWidgetProvider
             views.setEmptyView(R.id.appwidget_list, R.id.empty);
 
             Intent detailIntent = new Intent(context, IngredientStepsActivity.class);
-            PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, detailIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+//            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context) ;
+//            stackBuilder.addNextIntent(new Intent(context, MainActivity.class));
+//            stackBuilder.addNextIntent(detailIntent);
+
+           // PendingIntent pIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+
+           PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, detailIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setPendingIntentTemplate(R.id.appwidget_list, pIntent);
 
             appWidgetManager.updateAppWidget(widgetId, views);

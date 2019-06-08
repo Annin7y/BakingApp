@@ -41,7 +41,7 @@
 
         <receiver android:name=".widget.RecipeWidgetProvider">
             <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="android.appwidget.action.ACTION_VIEW_DETAILS" />
             </intent-filter>
 
             <meta-data

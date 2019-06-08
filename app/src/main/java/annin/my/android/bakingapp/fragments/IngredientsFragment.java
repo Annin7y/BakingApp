@@ -94,6 +94,11 @@ public class IngredientsFragment extends Fragment
             Gson gson = new Gson();
             String json = gson.toJson(ingredientsArrayList);
             prefsEditor.putString("IngredientsList_Widget", json);
+
+            //Save the Recipes as a JSON string using Preferences.
+            String jsonRecipes = gson.toJson(recipes);
+            prefsEditor.putString("Recipes", jsonRecipes);
+
             prefsEditor.apply();
 
             //Send to Widget Provider code based on the answer with 9 upvotes in this post:
