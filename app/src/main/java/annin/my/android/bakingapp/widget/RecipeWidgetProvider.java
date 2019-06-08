@@ -61,13 +61,13 @@ public class RecipeWidgetProvider extends AppWidgetProvider
 
             Intent detailIntent = new Intent(context, IngredientStepsActivity.class);
 
-//            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context) ;
-//            stackBuilder.addNextIntent(new Intent(context, MainActivity.class));
-//            stackBuilder.addNextIntent(detailIntent);
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context) ;
+            stackBuilder.addNextIntent(new Intent(context, MainActivity.class));
+            stackBuilder.addNextIntent(detailIntent);
 
-           // PendingIntent pIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-           PendingIntent pIntent = PendingIntent.getBroadcast(context, 0, detailIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+           //PendingIntent pIntent = PendingIntent.getActivity(context, 0, detailIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setPendingIntentTemplate(R.id.appwidget_list, pIntent);
 
             appWidgetManager.updateAppWidget(widgetId, views);

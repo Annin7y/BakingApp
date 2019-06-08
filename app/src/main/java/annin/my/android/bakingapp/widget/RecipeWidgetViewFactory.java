@@ -47,8 +47,9 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
         mIngredientsList = gson.fromJson(gsonString, type);
 
         //Extract the JSON recipes from preferences and assign it to a Recipes object.
-//        String jsonRecipes = sharedPreferences.getString("Recipes", "");
-//        recipes = gson.fromJson(jsonRecipes, Recipes.class);
+
+       String jsonRecipes = sharedPreferences.getString("Recipes", "");
+       recipes = gson.fromJson(jsonRecipes, Recipes.class);
 
 
     }
@@ -64,7 +65,7 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
     {
         Ingredients ingredient = mIngredientsList.get(position);
 
-        RemoteViews itemView = new RemoteViews(mContext.getPackageName(), R.layout.ingredient_list_item);
+        RemoteViews itemView = new RemoteViews(mContext.getPackageName(), R.layout.ingredient_widget_list_item);
 
         itemView.setTextViewText(R.id.ingredient_quantity, ingredient.getIngredientQuantity());
         itemView.setTextViewText(R.id.ingredient_measure, ingredient.getIngredientMeasure());
@@ -72,8 +73,8 @@ public class RecipeWidgetViewFactory implements RemoteViewsService.RemoteViewsFa
 
         Intent intent = new Intent();
         intent.putExtra(RecipeWidgetProvider.EXTRA_ITEM, ingredient);
-       // intent.putExtra("Recipes", recipes);
-        itemView.setOnClickFillInIntent(R.id.ingredient_list, intent);
+        intent.putExtra("Recipes", recipes);
+        itemView.setOnClickFillInIntent(R.id.ingredient_widget_list, intent);
 
         return itemView;
     }
