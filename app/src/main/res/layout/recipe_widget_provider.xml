@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:padding="9dp"
     android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
     android:background="@android:color/background_light" >
 
     <ListView
