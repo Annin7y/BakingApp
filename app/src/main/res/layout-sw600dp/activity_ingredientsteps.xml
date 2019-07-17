@@ -43,7 +43,8 @@
             app:layout_constraintBottom_toTopOf="@+id/steps_fragment_container"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintVertical_weight="0.4">
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintHorizontal_chainStyle="spread">
 
         </FrameLayout>
 
