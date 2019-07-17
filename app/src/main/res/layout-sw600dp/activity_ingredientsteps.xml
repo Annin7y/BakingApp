@@ -34,7 +34,7 @@
 
         <FrameLayout
             android:id="@+id/video_fragment_container"
-            android:layout_width="350dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/video_frag_tablet_start"
             android:layout_marginEnd="@dimen/video_frag_tablet_end"
