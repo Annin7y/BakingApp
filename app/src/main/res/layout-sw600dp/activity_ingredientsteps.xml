@@ -36,8 +36,6 @@
             android:id="@+id/video_fragment_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/video_frag_tablet_start"
-            android:layout_marginEnd="@dimen/video_frag_tablet_end"
             android:layout_marginTop="@dimen/video_frag_tablet_top"
             app:layout_constraintStart_toEndOf="@+id/ingredients_fragment_container"
             app:layout_constraintBottom_toTopOf="@+id/steps_fragment_container"
@@ -56,7 +54,7 @@
             android:layout_marginEnd="@dimen/step_frag_tablet_end"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ingredients_fragment_container"
-            app:layout_constraintVertical_weight="0.4"
+
            >
 
         </FrameLayout>

@@ -30,8 +30,8 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <!-- IngredientStepsActivity sw600dp Fragments FrameLayout width, height & margins -->
     <dimen name="ingr_frag_tablet_start">10dp</dimen>
     <dimen name="ingr_frag_tablet_end">40dp</dimen>
-    <dimen name="video_frag_tablet_start">50dp</dimen>
-    <dimen name="video_frag_tablet_end">10dp</dimen>
+    <dimen name="video_frag_tablet_start">16dp</dimen>
+    <dimen name="video_frag_tablet_end">16dp</dimen>
     <dimen name="video_frag_tablet_top">70dp</dimen>
     <dimen name="step_frag_tablet_start">10dp</dimen>
     <dimen name="step_frag_tablet_end">40dp</dimen>
