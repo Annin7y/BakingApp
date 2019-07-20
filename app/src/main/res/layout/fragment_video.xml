@@ -13,6 +13,7 @@
         android:layout_marginTop="@dimen/exoplayer_margin_top"
         android:layout_marginStart="@dimen/exoplayer_margin_start"
         android:layout_marginEnd="@dimen/exoplayer_margin_end"
+        app:resize_mode="fixed_height"
         />
 
     <ImageView
