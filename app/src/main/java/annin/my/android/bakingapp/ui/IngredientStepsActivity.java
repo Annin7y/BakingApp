@@ -36,17 +36,20 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
         context = getApplicationContext();
 
         // Determine if you're creating a two-pane or single-pane display
-        if (savedInstanceState == null)
+        if(findViewById(R.id.tablet_detail_layout) != null)
         {
+            // This LinearLayout will only initially exist in the two-pane tablet case
+            mTwoPane = true;
+
+
             if (getIntent() != null && getIntent().getExtras() != null)
             {
                 recipes = getIntent().getExtras().getParcelable("Recipes");
                 stepsArrayList = new ArrayList<>();
                 stepsArrayList = recipes.getRecipeSteps();
-                if(findViewById(R.id.tablet_detail_layout) != null)
-        {
-            // This LinearLayout will only initially exist in the two-pane tablet case
-            mTwoPane = true;
+
+                if (savedInstanceState == null)
+                {
 
             // Only create new fragments when there is no previously saved state
 
