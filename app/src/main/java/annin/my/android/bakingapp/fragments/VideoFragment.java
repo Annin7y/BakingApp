@@ -286,7 +286,7 @@ public class VideoFragment extends Fragment
             stepLongDescription.setVisibility(View.GONE);
             nextButton.setVisibility(View.GONE);
             previousButton.setVisibility(View.GONE);
-            FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) mPlayerView.getLayoutParams();
+            RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mPlayerView.getLayoutParams();
             params.width =  RelativeLayout.LayoutParams.MATCH_PARENT;
             params.height= RelativeLayout.LayoutParams.MATCH_PARENT;
             mPlayerView.setLayoutParams(params);
