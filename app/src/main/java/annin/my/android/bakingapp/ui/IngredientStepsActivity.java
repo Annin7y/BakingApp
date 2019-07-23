@@ -28,8 +28,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
     public int stepIndex;
     public static ArrayList<Steps> stepsArrayList;
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
@@ -43,8 +42,7 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
                 stepsArrayList = new ArrayList<>();
                 stepsArrayList = recipes.getRecipeSteps();
 
-
-            // Only create new fragments when there is no previously saved state
+                // Only create new fragments when there is no previously saved state
 
         /*
         Add the fragment to its container using a FragmentManager and a Transaction
@@ -71,41 +69,18 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
 
                 fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
             }
-            else
-                {
-                // We're in single-pane mode and displaying fragments on a phone in separate activities
-
-                    mTwoPane = false;
-                FragmentManager fragmentManager = getSupportFragmentManager();
-
-                Bundle ingredientsBundle = new Bundle();
-                ingredientsBundle.putParcelable("Recipes", recipes);
-
-                //Pass Over the bundle to the Ingredients Fragment
-                IngredientsFragment ingredientsFragment = new IngredientsFragment();
-                ingredientsFragment.setArguments(ingredientsBundle);
-
-                fragmentManager.beginTransaction().replace(R.id.ingredients_fragment_container, ingredientsFragment).commit();
-
-                //Pack Data in a bundle call the bundle "stepsBundle" to differentiate it from the "ingredientsBundle"
-                Bundle stepsBundle = new Bundle();
-                stepsBundle.putParcelable("Recipes", recipes);
-
-                //Pass Over the bundle to the Steps Fragment
-                StepsListFragment stepsListFragment = new StepsListFragment();
-                stepsListFragment.setArguments(stepsBundle);
-
-                    fragmentManager.beginTransaction().replace(R.id.steps_fragment_container, stepsListFragment).commit();
-                }
             }
+
         // Determine if you're creating a two-pane or single-pane display
-        if(findViewById(R.id.tablet_detail_layout) != null)
-        {
+        if (findViewById(R.id.tablet_detail_layout) != null) {
             // This LinearLayout will only initially exist in the two-pane tablet case
             mTwoPane = true;
+        } else {
+            // We're in single-pane mode and displaying fragments on a phone in separate activities
+
+            mTwoPane = false;
         }
     }
-
 
        @Override
        public void onClick(Steps stepClicked, int stepPosition)
