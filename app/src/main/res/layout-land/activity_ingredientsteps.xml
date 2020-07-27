@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context="annin.my.android.bakingapp.ui.IngredientStepsActivity">
+
+    <FrameLayout
+        android:id="@+id/ingredients_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ingr_frame_activity_start"
+        android:layout_marginEnd="@dimen/ingr_frame_activity_end"
+        android:layout_marginTop="@dimen/ingr_frame_activity_top"
+        android:text="@string/ingr_frag_cont">
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/steps_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/step_frame_activity_start"
+        android:layout_marginEnd="@dimen/step_frame_activity_end"
+        android:layout_below="@id/ingredients_fragment_container"
+        android:text="@string/steps_frag_cont" >
+
+    </FrameLayout>
+
+    </RelativeLayout>
+</ScrollView>
