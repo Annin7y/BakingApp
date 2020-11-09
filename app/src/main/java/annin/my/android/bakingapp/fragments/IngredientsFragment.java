@@ -3,18 +3,16 @@ package annin.my.android.bakingapp.fragments;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RemoteViews;
 
 import java.util.ArrayList;
 
@@ -23,7 +21,6 @@ import annin.my.android.bakingapp.decoration.VerticalSpacingDecoration;
 import annin.my.android.bakingapp.pojo.Ingredients;
 import annin.my.android.bakingapp.pojo.Recipes;
 import annin.my.android.bakingapp.recyclerviewadapters.IngredientsAdapter;
-import annin.my.android.bakingapp.ui.IngredientStepsActivity;
 import annin.my.android.bakingapp.widget.RecipeWidgetProvider;
 import butterknife.BindView;
 import butterknife.ButterKnife;

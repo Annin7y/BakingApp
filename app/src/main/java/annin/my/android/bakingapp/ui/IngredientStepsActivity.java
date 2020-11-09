@@ -3,8 +3,8 @@ package annin.my.android.bakingapp.ui;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -28,7 +28,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
     public int stepIndex;
     public static ArrayList<Steps> stepsArrayList;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingredientsteps);
 
@@ -72,7 +73,8 @@ public class IngredientStepsActivity extends AppCompatActivity implements StepsL
             }
 
         // Determine if you're creating a two-pane or single-pane display
-        if (findViewById(R.id.tablet_detail_layout) != null) {
+        if (findViewById(R.id.tablet_detail_layout) != null)
+        {
             // This LinearLayout will only initially exist in the two-pane tablet case
             mTwoPane = true;
         } else {

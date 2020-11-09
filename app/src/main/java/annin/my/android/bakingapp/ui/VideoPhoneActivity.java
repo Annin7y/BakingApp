@@ -1,16 +1,14 @@
 package annin.my.android.bakingapp.ui;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 import annin.my.android.bakingapp.R;
 import annin.my.android.bakingapp.fragments.VideoFragment;
 import annin.my.android.bakingapp.pojo.Steps;
-
-import static annin.my.android.bakingapp.fragments.VideoFragment.STEPS_LIST_INDEX;
 
 public class VideoPhoneActivity extends AppCompatActivity
 {
